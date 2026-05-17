@@ -1,1 +1,0 @@
-https://d2r00w08fz6ft0.cloudfront.net/groover-demo/home.html
