@@ -3615,3 +3615,121 @@ body {
     display: block;
     margin: 0 auto;
 }
+
+/* Rice & Grain Recipes */
+.recipe-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #777;
+    margin-top: 8px;
+}
+
+
+/* Why Choose Us */
+.why-choose-us {
+    padding: 60px 0;
+    background: #fffaf2;
+}
+
+.why-card {
+    background: #ffffff;
+    padding: 28px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    height: 100%;
+}
+
+.why-icon {
+    font-size: 42px;
+    color: #8a6a2f;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.why-card h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #3d2b1f;
+    margin-bottom: 10px;
+}
+
+.why-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #777;
+    margin-bottom: 0;
+}
+
+/* Footer */
+
+.footer {
+    background: #3d2b1f;
+    color: #f7ead8;
+    padding: 60px 0 20px;
+}
+
+.footer-widget h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+.footer-widget p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #e5d2b8;
+}
+
+.footer-widget ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-widget ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #e5d2b8;
+}
+
+.footer-widget ul li a {
+    color: #e5d2b8;
+    text-decoration: none;
+}
+
+.footer-widget ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-widget i {
+    margin-right: 8px;
+}
+
+.footer-social {
+    margin-top: 18px;
+}
+
+.footer-social a {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background: #8a6a2f;
+    color: #ffffff;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 30px;
+    padding-top: 18px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #d9c7ad;
+    margin: 0;
+}
