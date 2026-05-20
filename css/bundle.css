@@ -305,11 +305,11 @@ body {
   .slide-content h1 {
     font-size: 92px;
     margin-bottom: 0;
-    color: #ffffff;
+    color: #4A2F1B;
     font-weight: 700;
     font-family: 'Raleway', sans-serif; }
   .slide-content h2 {
-    color: #ffffff;
+    color: #5F6F2D;
     font-size: 20px;
     margin-bottom: 0;
     font-family: 'Raleway', sans-serif; }
@@ -1305,7 +1305,7 @@ body {
     clear: both; }
 
 .item-new-price, .item-old-price {
-  font-size: 17px; }
+  font-size: 12px; }
 
 .item-new-price {
   float: left;
