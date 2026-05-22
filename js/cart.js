@@ -165,18 +165,151 @@
     return total;
   }
 
+  function getWishlistTotal() {
+    return getWishlist().length;
+  }
+
+  // ── Wishlist Operations ──────────────────────────────────────────
+
+  function getWishlist() {
+    try {
+      const data = localStorage.getItem('wishlist');
+      if (!data) return [];
+      return JSON.parse(data);
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveWishlist(wishlist) {
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  }
+
+  function addToWishlist(product) {
+    if (!product || !product.id) return;
+    var wishlist = getWishlist();
+    var exists = wishlist.some(item => item.id === product.id);
+    if (!exists) {
+      wishlist.push(product);
+      saveWishlist(wishlist);
+      updateAllUI();
+    }
+  }
+
+  function removeFromWishlist(productId) {
+    var wishlist = getWishlist();
+    wishlist = wishlist.filter(item => item.id !== productId);
+    saveWishlist(wishlist);
+    updateAllUI();
+  }
+
+  function renderWishlistPage() {
+    if (!document.body.classList.contains('wishlist-page')) return;
+    var wishlist = getWishlist();
+    var tbody = document.querySelector('.page-wishlist table tbody');
+    if (!tbody) return;
+
+    if (wishlist.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:50px;">Your wishlist is empty.</td></tr>';
+      return;
+    }
+
+    var html = '';
+    for (var i = 0; i < wishlist.length; i++) {
+      var item = wishlist[i];
+      html +=
+        '<tr data-product-id="' + item.id + '">' +
+        '<td>' +
+        '<div class="cart-anchor-image">' +
+        '<a href="' + item.id + '">' +
+        '<img src="' + item.image + '" alt="' + item.name + '" style="width:80px;height:80px;object-fit:cover;">' +
+        '<h6>' + item.name + '</h6>' +
+        '</a>' +
+        '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="cart-price">' + formatCurrency(item.price) + '</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="cart-stock">In Stock</div>' +
+        '</td>' +
+        '<td>' +
+        '<div class="action-wrapper" style="display:flex; gap:10px;">' +
+        '<button class="button button-outline-secondary fas fa-plus item-addCart" ' +
+        'data-product-id="' + item.id + '" ' +
+        'data-product-name="' + item.name + '" ' +
+        'data-product-price="' + item.price + '" ' +
+        'data-product-image="' + item.image + '" ' +
+        'title="Add to Cart" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;"></button>' +
+        '<button class="button button-outline-secondary fas fa-trash btn-remove-wishlist" data-product-id="' + item.id + '" title="Remove" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;"></button>' +
+        '</div>' +
+        '</td>' +
+        '</tr>';
+    }
+    tbody.innerHTML = html;
+  }
+
+  function initWishlistButtons() {
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.item-addwishlist') || e.target.closest('.wishlist-btn');
+      if (!btn) return;
+      e.preventDefault();
+
+      var card = btn.closest('.item');
+      if (!card) return;
+
+      var product = getProductFromCard(card);
+      addToWishlist(product);
+
+      // Visual feedback
+      var originalHTML = btn.innerHTML;
+      if (btn.tagName === 'BUTTON') {
+        btn.classList.add('added');
+      } else {
+        btn.style.color = '#ff4757';
+      }
+      
+      setTimeout(function () {
+        if (btn.tagName === 'BUTTON') {
+          btn.classList.remove('added');
+        } else {
+          btn.style.color = '';
+        }
+      }, 1000);
+    });
+
+    // Remove from wishlist button (on wishlist page)
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.btn-remove-wishlist');
+      if (!btn) return;
+      var pid = btn.getAttribute('data-product-id');
+      if (pid) removeFromWishlist(pid);
+    });
+  }
+
   // ── UI Update Functions ──────────────────────────────────────────
 
   function updateAllUI() {
     updateCartCount();
     renderMiniCart();
     renderCartPage();
+    renderCheckoutPage();
+    renderWishlistPage();
     updateFixedCounter();
+    updateWishlistCount();
   }
 
   function updateCartCount() {
     var total = getTotalQuantity();
     var els = document.querySelectorAll('.item-counter');
+    for (var i = 0; i < els.length; i++) {
+      els[i].textContent = total;
+    }
+  }
+
+  function updateWishlistCount() {
+    var total = getWishlistTotal();
+    var els = document.querySelectorAll('.wishlist-counter');
     for (var i = 0; i < els.length; i++) {
       els[i].textContent = total;
     }
@@ -327,6 +460,93 @@
     updateFixedCounter();
   }
 
+  function renderCheckoutPage() {
+    if (!document.body.classList.contains('checkout-page')) return;
+
+    var cart = getCart();
+    var tbody = document.querySelector('.checkout-order table tbody');
+    if (!tbody) return;
+
+    if (cart.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;padding:20px;">Your cart is empty. <a href="index.html">Shop now</a></td></tr>';
+      return;
+    }
+
+    var html = '';
+    var totalSum = 0;
+
+    for (var i = 0; i < cart.length; i++) {
+      var item = cart[i];
+      var subtotal = (item.price || 0) * (item.quantity || 0);
+      totalSum += subtotal;
+
+      html +=
+        '<tr>' +
+        '<td><h6 class="order-h6">' + item.name + ' x ' + item.quantity + '</h6></td>' +
+        '<td><span>' + formatCurrency(subtotal) + '</span></td>' +
+        '</tr>';
+    }
+
+    html +=
+      '<tr>' +
+      '<td><h3>Total</h3></td>' +
+      '<td><span class="order-total">' + formatCurrency(totalSum) + '</span></td>' +
+      '</tr>';
+
+    tbody.innerHTML = html;
+  }
+
+  function initCheckoutAction() {
+    if (!document.body.classList.contains('checkout-page')) return;
+
+    const form = document.querySelector('.page-checkout form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      const inputs = form.querySelectorAll('input[type="text"]');
+      let valid = true;
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.style.borderColor = 'red';
+          valid = false;
+        } else {
+          input.style.borderColor = '';
+        }
+      });
+
+      if (!valid) {
+        alert('Vui lòng điền đầy đủ thông tin giao hàng.');
+        return;
+      }
+
+      // Show "QR Code" (The message requested)
+      const checkoutArea = document.querySelector('.page-checkout .container');
+      if (checkoutArea) {
+        checkoutArea.innerHTML =
+          '<div style="text-align:center;padding:80px 20px;background:#f9f9f9;border-radius:8px;margin-bottom:80px;box-shadow: 0 4px 15px rgba(0,0,0,0.05);">' +
+          '<i class="fas fa-check-circle" style="font-size:80px;color:#28a745;margin-bottom:30px;"></i>' +
+          '<h2 style="margin-bottom:20px;color:#333;font-weight:bold;">ĐẶT HÀNG THÀNH CÔNG!</h2>' +
+          '<div style="background:#fff;padding:40px;display:inline-block;border:1px solid #ddd;margin-bottom:30px;border-radius:8px;">' +
+          '<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Cảm ơn quý khách đã tin tưởng và ủng hộ Huyen Tuyen Rice" alt="QR Payment" style="max-width:100%;height:auto;">' +
+          '<p style="margin-top:20px;font-weight:bold;color:#2c3e50;font-size:18px;">QUÉT MÃ QR ĐỂ THANH TOÁN</p>' +
+          '</div>' +
+          '<p style="font-size:20px;color:#555;line-height:1.6;max-width:600px;margin:0 auto 30px;">Cảm ơn quý khách đã tin tưởng và ủng hộ <strong>Huyen Tuyen Rice</strong>.</p>' +
+          '<a href="index.html" class="button button-primary" style="padding:15px 50px;font-size:18px;border-radius:30px;text-transform:uppercase;letter-spacing:1px;">Quay lại trang chủ</a>' +
+          '</div>';
+
+        // Clear cart after order
+        localStorage.removeItem('cart');
+        updateAllUI();
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+
   // ── Product Data Extraction ──────────────────────────────────────
 
   /**
@@ -427,23 +647,79 @@
       if (!btn) return;
       e.preventDefault();
 
+      var product;
       var card = btn.closest('.item');
-      if (!card) {
-        console.warn('Add to cart button not inside .item card');
-        return;
+      
+      if (card) {
+        product = getProductFromCard(card);
+        // Try to find quantity input within the card (Product detail page)
+        var qtyInput = card.querySelector('.quantity-text-field');
+        if (qtyInput) {
+          product.quantity = parseInt(qtyInput.value, 10) || 1;
+        } else {
+          product.quantity = 1;
+        }
+      } else {
+        // Fallback for buttons with direct data attributes (e.g., Wishlist page)
+        product = {
+          id: btn.getAttribute('data-product-id'),
+          name: btn.getAttribute('data-product-name'),
+          price: parseFloat(btn.getAttribute('data-product-price')) || 0,
+          image: btn.getAttribute('data-product-image'),
+          quantity: 1
+        };
       }
 
-      var product = getProductFromCard(card);
-      product.quantity = 1;
+      if (product.id) {
+        addToCart(product);
 
-      addToCart(product);
+        // Visual feedback
+        var originalHTML = btn.innerHTML;
+        if (btn.classList.contains('fas')) {
+           // Icon-only button
+           var originalClass = btn.className;
+           btn.className = 'button button-primary fas fa-check added';
+           setTimeout(function() {
+             btn.className = originalClass;
+           }, 1000);
+        } else {
+          btn.textContent = 'Added ✓';
+          btn.classList.add('added');
+          setTimeout(function () {
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('added');
+          }, 1000);
+        }
+      }
+    });
+  }
 
-      // Visual feedback
-      var originalHTML = btn.innerHTML;
-      btn.textContent = 'Added ✓';
-      setTimeout(function () {
-        btn.innerHTML = originalHTML;
-      }, 1000);
+  /**
+   * Handle pack size changes on product detail page
+   */
+  function initPackSizeSelection() {
+    document.addEventListener('change', function (e) {
+      var select = e.target.closest('#pack-size');
+      if (!select) return;
+
+      var card = select.closest('.item');
+      if (!card) return;
+
+      var selectedOption = select.options[select.selectedIndex];
+      var newPrice = selectedOption.getAttribute('data-price');
+      var packLabel = selectedOption.textContent.split('-')[0].trim();
+
+      if (newPrice) {
+        // Update card data attribute for cart logic
+        card.setAttribute('data-product-price', newPrice);
+        card.setAttribute('data-product-name', "Premium White Rice - " + packLabel);
+
+        // Update UI price display
+        var priceDisplay = card.querySelector('.price h4');
+        if (priceDisplay) {
+          priceDisplay.textContent = formatCurrency(parseInt(newPrice, 10)) + (packLabel === '1kg' ? ' / kg' : '');
+        }
+      }
     });
   }
 
@@ -566,6 +842,9 @@
     // Set up event listeners
     initAddToCartButtons();
     initCartPageActions();
+    initCheckoutAction();
+    initPackSizeSelection();
+    initWishlistButtons();
 
     // Initial UI update
     updateAllUI();

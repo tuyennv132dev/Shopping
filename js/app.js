@@ -300,6 +300,96 @@ $(function () {
 
 
     /**
+     * Handle Search Form Submission
+     */
+    const handleSearchForm = function () {
+        const $searchForm = $('.form-searchbox');
+        const $responsiveSearchForm = $('.responsive-search-form');
+
+        const executeSearch = function (e) {
+            e.preventDefault();
+            const $form = $(this);
+            const $input = $form.find('input[type="text"]');
+            const $select = $form.find('select');
+            
+            const keyword = $input.val() ? $input.val().trim() : '';
+            const category = $select.val() || '';
+
+            if (keyword === '' && category === '') {
+                return;
+            }
+
+            // Simple redirect to search results page with parameters
+            let searchUrl = 'shop-v6-search-results.html';
+            let params = [];
+            if (keyword) params.push('q=' + encodeURIComponent(keyword));
+            if (category) params.push('cat=' + encodeURIComponent(category));
+            
+            if (params.length > 0) {
+                searchUrl += '?' + params.join('&');
+            }
+            
+            window.location.href = searchUrl;
+        };
+
+        $searchForm.on('submit', executeSearch);
+        $responsiveSearchForm.on('submit', executeSearch);
+    };
+
+    /**
+     * Handle Search Results Page Filtering
+     */
+    const handleSearchResultsFiltering = function () {
+        const $resultsWrapper = $('.search-results-wrapper');
+        if ($resultsWrapper.length === 0) return;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const keyword = urlParams.get('q') ? urlParams.get('q').toLowerCase() : '';
+        const category = urlParams.get('cat') ? urlParams.get('cat').toLowerCase() : '';
+
+        if (!keyword && !category) return;
+
+        let matches = 0;
+        const $products = $('.product-item');
+
+        $products.each(function () {
+            const $item = $(this);
+            const title = $item.find('.item-title').text().toLowerCase();
+            const breadcrumb = $item.find('.bread-crumb').text().toLowerCase();
+            
+            let isMatch = true;
+            
+            if (keyword && !title.includes(keyword) && !breadcrumb.includes(keyword)) {
+                isMatch = false;
+            }
+
+            // Simple category mapping/check
+            if (isMatch && category) {
+                // If category is set, it must match something in the title or breadcrumb
+                // e.g. 'gao-trang' -> check for 'white rice' or 'gạo trắng' if we had translations
+                // For now, we'll check if the breadcrumb contains the category keyword (approximate)
+                const categoryClean = category.replace(/-/g, ' ');
+                if (!breadcrumb.includes(categoryClean) && !title.includes(categoryClean)) {
+                    // Try to match partials if it's a known rice category
+                    if (category.includes('gao') && !breadcrumb.includes('rice')) {
+                         isMatch = false;
+                    }
+                }
+            }
+
+            if (isMatch) {
+                $item.show();
+                matches++;
+            } else {
+                $item.hide();
+            }
+        });
+
+        const displayKeyword = keyword || (category ? category.replace(/-/g, ' ') : 'everything');
+        $resultsWrapper.find('h4:first-child').html('WE FOUND ' + matches + ' RESULTS FOR <i>“' + displayKeyword.toUpperCase() + '”</i>');
+    };
+
+    /**
      * Only One Time Execution Ready event Check DOM elements if all loaded
      */
     $(function () {
@@ -313,6 +403,10 @@ $(function () {
         manuallyRestartProgress();
         // Attach Click Event on Quantity buttons
         attachClickQuantityButton();
+        // Handle Search Form Submission
+        handleSearchForm();
+        // Handle Search Results Filtering
+        handleSearchResultsFiltering();
         // Window Resize Breakpoint Function
         windowResizeBreakpoint();
     });

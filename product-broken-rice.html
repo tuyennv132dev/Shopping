@@ -1,12 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="no-js" lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Broken Rice - Vietnamese Family Rice - Huyen Tuyen Rice</title>
+    <title>Premium Broken Rice - Huyen Tuyen Rice</title>
     <link href="favicon.ico" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
@@ -18,27 +15,184 @@
     <link rel="stylesheet" href="css/jquery-ui-range-slider.min.css">
     <link rel="stylesheet" href="css/utility.css">
     <link rel="stylesheet" href="css/bundle.css">
+    <style>
+        .product-benefit-list { list-style: none; padding: 0; }
+        .product-benefit-list li { margin-bottom: 10px; display: flex; align-items: center; }
+        .product-benefit-list li i { color: #28a745; margin-right: 10px; font-size: 18px; }
+        .review-item { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .review-author { font-weight: bold; color: #333; }
+        .review-stars { color: #f39c12; margin-left: 10px; }
+        
+        /* Fixed Image Layout */
+        .product-zoom-area { 
+            position: relative; 
+            margin-bottom: 30px;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            padding: 10px;
+        }
+        #zoom-pro { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: contain; 
+            display: block;
+            margin: 0 auto;
+        }
+        #gallery {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        #gallery img { 
+            width: 80px; 
+            height: 80px; 
+            object-fit: cover; 
+            cursor: pointer; 
+            border: 2px solid #f0f0f0; 
+            border-radius: 8px;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #gallery a.active img { border-color: #28a745; box-shadow: 0 0 8px rgba(40, 167, 69, 0.3); }
+        #gallery img:hover { border-color: #28a745; transform: translateY(-2px); }
+
+        /* Unified Cart & Quantity Section */
+        .section-6-social-media-quantity-actions {
+            margin-top: 25px;
+            padding: 25px;
+            background: #fcfcfc;
+            border: 1px solid #f1f1f1;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .quantity-wrapper { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+        }
+        .quantity-label { font-weight: 600; color: #444; font-size: 15px; }
+        .quantity { 
+            display: flex; 
+            border: 1px solid #ddd; 
+            border-radius: 30px; 
+            overflow: hidden; 
+            height: 48px;
+            width: 110px;
+            background: #fff;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .quantity-text-field { 
+            width: 30px; 
+            text-align: center; 
+            border: none !important; 
+            outline: none !important;
+            box-shadow: none !important;
+            font-weight: 700;
+            font-size: 16px;
+            color: #333;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .plus-a, .minus-a { 
+            flex: 1;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: #f8f9fa; 
+            cursor: pointer; 
+            text-decoration: none !important; 
+            color: #555; 
+            font-size: 20px; 
+            transition: all 0.2s ease; 
+        }
+        .plus-a:hover, .minus-a:hover { background: #eeeeee; color: #28a745; }
+        
+        .cart-action-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .item-addCart { 
+            flex: 1;
+            height: 54px;
+            border-radius: 30px; 
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background-color: #28a745 !important;
+            border: none !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.25);
+            transition: all 0.3s ease;
+        }
+        .item-addCart:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.35);
+            background-color: #218838 !important;
+        }
+        .wishlist-btn {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #ff4757;
+            border: 1px solid #eee;
+            background: #fff;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .wishlist-btn:hover { 
+            background: #fff5f6; 
+            border-color: #ff4757;
+            transform: scale(1.05);
+        }
+        
+        .item-addCart.added { 
+            background-color: #2c3e50 !important; 
+            box-shadow: none;
+        }
+
+        /* Prevent image overlap */
+        .all-information-wrapper { padding-left: 15px; }
+        @media (max-width: 767px) {
+            #zoom-pro { height: 300px; }
+            .all-information-wrapper { padding-left: 0; margin-top: 30px; }
+        }
+    </style>
 </head>
-<body>
+<body class="single-product-page">
     <div id="app">
         <header>
             <div class="full-layer-outer-header">
                 <div class="container clearfix">
                     <nav>
                         <ul class="primary-nav g-nav">
-                            <li><a href="tel:0914331367"><i class="fas fa-phone u-c-brand u-s-m-r-9"></i> Telephone: 0914 331 367</a></li>
-                            <li><a href="mailto:support@huyentuyenrice.com"><i class="fas fa-envelope u-c-brand u-s-m-r-9"></i> E-mail: support@huyentuyenrice.com</a></li>
+                            <li><a href="tel:0914331367"><i class="fas fa-phone u-c-brand u-s-m-r-9"></i> Hotline: 0914 331 367</a></li>
+                            <li><a href="mailto:support@huyentuyenrice.com"><i class="fas fa-envelope u-c-brand u-s-m-r-9"></i> Email: support@huyentuyenrice.com</a></li>
                         </ul>
                     </nav>
                     <nav>
                         <ul class="secondary-nav g-nav">
                             <li>
-                                <a>My Account <i class="fas fa-chevron-down u-s-m-l-9"></i></a>
+                                <a>Account <i class="fas fa-chevron-down u-s-m-l-9"></i></a>
                                 <ul class="g-dropdown" style="width:200px">
                                     <li><a href="cart.html"><i class="fas fa-cog u-s-m-r-9"></i> My Cart</a></li>
-                                    <li><a href="wishlist.html"><i class="far fa-heart u-s-m-r-9"></i> My Wishlist</a></li>
+                                    <li><a href="wishlist.html"><i class="far fa-heart u-s-m-r-9"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="far fa-check-circle u-s-m-r-9"></i> Checkout</a></li>
-                                    <li><a href="account.html"><i class="fas fa-sign-in-alt u-s-m-r-9"></i> Login / Signup</a></li>
+                                    <li><a href="account.html"><i class="fas fa-sign-in-alt u-s-m-r-9"></i> Login</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -46,13 +200,6 @@
                                 <ul class="g-dropdown" style="width:90px">
                                     <li><a href="#" class="u-c-brand">(VND) VND</a></li>
                                     <li><a href="#">(USD) USD</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a>ENG <i class="fas fa-chevron-down u-s-m-l-9"></i></a>
-                                <ul class="g-dropdown" style="width:70px">
-                                    <li><a href="#" class="u-c-brand">ENG</a></li>
-                                    <li><a href="#">VIE</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -70,20 +217,15 @@
                         <div class="col-lg-6 u-d-none-lg">
                             <form class="form-searchbox">
                                 <label class="sr-only" for="search-landscape">Search</label>
-                                <input id="search-landscape" type="text" class="text-field" placeholder="Searching for rice, nutritious grains...">
+                                <input id="search-landscape" type="text" class="text-field" placeholder="Search for rice, nutritious seeds...">
                                 <div class="select-box-position">
                                     <div class="select-box-wrapper select-hide">
-                                        <label class="sr-only" for="select-category">Select Search Category</label>
                                         <select class="select-box" id="select-category">
                                             <option selected="selected" value="">All Categories</option>
-                                            <option value="gao-trang">Broken Rice</option>
+                                            <option value="gao-trang">White Rice</option>
                                             <option value="gao-thom">Fragrant Rice</option>
                                             <option value="gao-lut">Brown Rice</option>
-                                            <option value="gao-nep">Glutinous Rice</option>
                                             <option value="hat-dinh-duong">Nutritious Seeds</option>
-                                            <option value="ngu-coc">Whole Grains</option>
-                                            <option value="dau-cac-loai">Various Beans</option>
-                                            <option value="combo">Family Combo</option>
                                         </select>
                                     </div>
                                 </div>
@@ -94,157 +236,160 @@
                             <nav>
                                 <ul class="mid-nav g-nav">
                                     <li class="u-d-none-lg"><a href="index.html"><i class="ion ion-md-home u-c-brand"></i></a></li>
-                                    <li class="u-d-none-lg"><a href="wishlist.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a id="mini-cart-trigger"><i class="ion ion-md-basket"></i><span class="item-counter">4</span><span class="item-price">530,000 VND</span></a></li>
+                                    <li><a id="mini-cart-trigger"><i class="ion ion-md-basket"></i><span class="item-counter">0</span><span class="item-price">0 VND</span></a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="fixed-responsive-container">
-                <div class="fixed-responsive-wrapper"><button type="button" class="button fas fa-search" id="responsive-search"></button></div>
-                <div class="fixed-responsive-wrapper"><a href="wishlist.html"><i class="far fa-heart"></i><span class="fixed-item-counter">4</span></a></div>
-            </div>
             <div class="mini-cart-wrapper">
                 <div class="mini-cart">
                     <div class="mini-cart-header">YOUR CART<button type="button" class="button ion ion-md-close" id="mini-cart-close"></button></div>
-                    <ul class="mini-cart-list">
-                        <li class="clearfix"><a href="product-st25-rice.html"><img src="images/product/gao-ST25.jpg" alt="ST25 Rice"><span class="mini-item-name">ST25 Rice - 5kg</span><span class="mini-item-price">225,000 VND</span><span class="mini-item-quantity"> x 1 </span></a></li>
-                        <li class="clearfix"><a href="product-almonds.html"><img src="images/product/hanh-nhan.jpg" alt="Almonds"><span class="mini-item-name">Almonds - 500g</span><span class="mini-item-price">95,000 VND</span><span class="mini-item-quantity"> x 2 </span></a></li>
-                        <li class="clearfix"><a href="product-fruit-granola.html"><img src="images/product/granola.jpg" alt="Granola"><span class="mini-item-name">Fruit Granola - 500g</span><span class="mini-item-price">115,000 VND</span><span class="mini-item-quantity"> x 1 </span></a></li>
-                    </ul>
-                    <div class="mini-shop-total clearfix"><span class="mini-total-heading float-left">Total:</span><span class="mini-total-price float-right">530,000 VND</span></div>
+                    <ul class="mini-cart-list"></ul>
+                    <div class="mini-shop-total clearfix"><span class="mini-total-heading float-left">Total:</span><span class="mini-total-price float-right">0 VND</span></div>
                     <div class="mini-action-anchors"><a href="cart.html" class="cart-anchor">View Cart</a><a href="checkout.html" class="checkout-anchor">Checkout</a></div>
                 </div>
             </div>
         </header>
+
         <div class="page-style-a">
             <div class="container">
                 <div class="page-intro">
-                    <h2>Broken Rice - Vietnamese Family Rice</h2>
+                    <h2>Product Details</h2>
                     <ul class="bread-crumb">
                         <li class="has-separator"><i class="ion ion-md-home"></i><a href="index.html">Home</a></li>
-                        <li class="has-separator"><a href="shop-v1-root-category.html">Types of Rice</a></li>
-                        <li class="is-marked"><a href="product-white-rice.html">Broken Rice</a></li>
+                        <li class="has-separator"><a href="shop-v1-root-category.html">Products</a></li>
+                        <li class="is-marked">Premium Broken Rice</li>
                     </ul>
                 </div>
             </div>
         </div>
+
         <div class="page-single-product u-s-p-t-80">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="col-lg-6 col-md-6">
                         <div class="product-zoom-area">
-                            <img id="zoom-pro" class="img-fluid" src="images/product/Gao_tam_xoan_hai_hau.png" data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png" alt="Broken Rice - Vietnamese Family Rice">
-                            <div id="gallery" class="u-s-m-t-10">
-                                <a class="active" data-image="images/product/Gao_tam_xoan_hai_hau.png" data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png"><img src="images/product/Gao_tam_xoan_hai_hau.png" alt="Broken Rice"></a>
-                                <a data-image="images/product/Gao_thom.jpg" data-zoom-image="images/product/Gao_thom.jpg"><img src="images/product/Gao_thom.jpg" alt="Fragrant Rice"></a>
-                                <a data-image="images/product/Gao_tam_xoan_hai_hau.png" data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png"><img src="images/product/Gao_tam_xoan_hai_hau.png" alt="Broken Rice"></a>
+                            <img id="zoom-pro" src="images/product/Gao_tam_xoan_hai_hau.png" data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png" alt="Premium Broken Rice">
+                            <div id="gallery">
+                                <a class="active" data-image="images/product/Gao_tam_xoan_hai_hau.png" data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png"><img src="images/product/Gao_tam_xoan_hai_hau.png" alt="Gallery 1"></a>
+                                <a data-image="images/product/gao-te.jpg" data-zoom-image="images/product/gao-te.jpg"><img src="images/product/gao-te.jpg" alt="Gallery 2"></a>
+                                <a data-image="images/product/Gao_thom.jpg" data-zoom-image="images/product/Gao_thom.jpg"><img src="images/product/Gao_thom.jpg" alt="Gallery 3"></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="all-information-wrapper">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="all-information-wrapper item" 
+                             data-product-id="product-broken-rice" 
+                             data-product-name="Premium Broken Rice" 
+                             data-product-price="16000" 
+                             data-product-image="images/product/Gao_tam_xoan_hai_hau.png">
+                            
                             <div class="section-1-title-breadcrumb-rating">
-                                <div class="product-title"><h1><a href="product-white-rice.html">Broken Rice - Vietnamese Family Rice</a></h1></div>
-                                <ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li class="is-marked"><a href="shop-v2-sub-category.html">Basic Line</a></li></ul>
-                                <div class="product-rating"><div class="star" title="4.5 out of 5 - based on 19 Reviews"><span style="width:67px"></span></div><span>(19 Reviews)</span></div>
+                                <div class="product-title"><h1>Huyen Tuyen Premium Broken Rice (Tam Xoan)</h1></div>
+                                <div class="product-rating">
+                                    <div class="star" title="4.6/5"><span style="width:69px"></span></div>
+                                    <span>(19 Customer Reviews)</span>
+                                </div>
                             </div>
+
                             <div class="section-2-short-description u-s-p-y-14">
-                                <h6 class="information-heading u-s-m-b-8">Description:</h6>
-                                <p>Clean daily rice with mild fragrance and soft texture, suitable for everyday Vietnamese family meals. Our Broken Rice is carefully selected and milled to ensure quality and freshness for your daily cooking.</p>
+                                <h6 class="information-heading u-s-m-b-8">Short Description:</h6>
+                                <p>Authentic Tam Xoan broken rice, famous for its rich flavor and soft texture. The soul of the classic Vietnamese "Com Tam" (Broken Rice) dish. Cleanly processed and free from impurities.</p>
+                                <ul class="product-benefit-list u-s-m-t-15">
+                                    <li><i class="fas fa-check-circle"></i> Authentic Tam Xoan variety</li>
+                                    <li><i class="fas fa-check-circle"></i> High nutrition, sweet aftertaste</li>
+                                    <li><i class="fas fa-check-circle"></i> Excellent for family breakfasts</li>
+                                </ul>
                             </div>
+
                             <div class="section-3-price-original-discount u-s-p-y-14">
-                                <div class="price"><h4>16,000 VND/kg</h4></div>
-                                <div class="original-price"><span>Original Price:</span><span>20,000 VND/kg</span></div>
-                                <div class="discount-price"><span>Discount:</span><span>20%</span></div>
-                                <div class="total-save"><span>Save:</span><span>4,000 VND</span></div>
+                                <div class="price" style="color: #28a745;"><h4>16,000 VND / kg</h4></div>
+                                <div class="original-price" style="text-decoration: line-through; color: #999;"><span>Original Price: 20,000 VND/kg</span></div>
                             </div>
-                            <div class="section-4-sku-information u-s-p-y-14">
-                                <h6 class="information-heading u-s-m-b-8">Sku Information:</h6>
-                                <div class="availability"><span>SKU:</span><span>RICE-BROKEN-001</span></div>
-                                <div class="availability"><span>Availability:</span><span>In Stock</span></div>
-                                <div class="left"><span>Weight Options:</span><span>1kg, 5kg, 10kg, 25kg</span></div>
-                            </div>
+
                             <div class="section-5-product-variants u-s-p-y-14">
-                                <h6 class="information-heading u-s-m-b-8">Select Pack Size:</h6>
-                                <div class="color-variant select-box-wrapper">
-                                    <label class="sr-only" for="pack-size">Pack Size</label>
-                                    <select class="select-box product-color" id="pack-size">
-                                        <option value="1">1kg - 16,000 VND</option>
-                                        <option value="5">5kg - 80,000 VND</option>
-                                        <option value="10">10kg - 160,000 VND</option>
-                                        <option value="25">25kg - 400,000 VND</option>
+                                <h6 class="information-heading u-s-m-b-8">Select Packaging:</h6>
+                                <div class="select-box-wrapper">
+                                    <select class="select-box" id="pack-size">
+                                        <option value="1" data-price="16000">1kg Bag - 16,000 VND</option>
+                                        <option value="5" data-price="75000">5kg Bag - 75,000 VND (Save 5k)</option>
+                                        <option value="10" data-price="145000">10kg Bag - 145,000 VND (Save 15k)</option>
+                                        <option value="25" data-price="350000">25kg Bag - 350,000 VND (Save 50k)</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="section-6-social-media-quantity-actions u-s-p-y-14">
-                                <form action="#" class="post-form">
-                                    <div class="quantity-wrapper u-s-m-b-22"><span>Quantity:</span><div class="quantity"><input type="text" class="quantity-text-field" value="1"><a class="plus-a" data-max="1000">&#43;</a><a class="minus-a" data-min="1">&#45;</a></div></div>
-                                    <div><button class="button button-outline-secondary" type="submit">Add to Cart</button><button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button><button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button></div>
-                                </form>
+
+                            <div class="section-6-social-media-quantity-actions">
+                                <div class="quantity-wrapper">
+                                    <span class="quantity-label">Quantity:</span>
+                                    <div class="quantity">
+                                        <a class="minus-a" data-min="1">&#45;</a>
+                                        <input type="text" class="quantity-text-field" value="1" readonly>
+                                        <a class="plus-a" data-max="1000">&#43;</a>
+                                    </div>
+                                </div>
+                                <div class="cart-action-buttons">
+                                    <button class="button item-addCart" type="button">ADD TO CART</button>
+                                    <button class="wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="product-tabs u-s-p-t-30">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#desc">Description</a></li><li class="nav-item"><a class="nav-link" data-toggle="tab" href="#review">Reviews (19)</a></li></ul>
+                        <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#desc">Product Description</a></li><li class="nav-item"><a class="nav-link" data-toggle="tab" href="#review">Customer Reviews</a></li></ul>
                         <div class="tab-content u-s-m-t-30">
                             <div id="desc" class="tab-pane active">
-                                <p>Broken Rice is the most common type of rice used in Vietnamese households. Our Broken Rice is carefully milled from high-quality paddy rice, offering a mild fragrance and soft, fluffy texture when cooked. It pairs perfectly with a wide variety of dishes, from stir-fries to soups and grilled meats.</p>
-                                <h6>Key Features:</h6>
-                                <ul>
-                                    <li>Clean, high-quality Broken Rice</li>
-                                    <li>Mild natural fragrance</li>
-                                    <li>Soft, fluffy texture when cooked</li>
-                                    <li>Perfect for daily family meals</li>
-                                    <li>Carefully selected and milled</li>
-                                    <li>Available in multiple pack sizes</li>
+                                <p>Broken rice (Gạo tấm) consists of grains broken during the milling process. In Vietnamese cuisine, particularly in the south, it has been elevated into the iconic Com Tam. Huyen Tuyen Premium Broken Rice is sourced from high-quality Jasmine and Tam Xoan varieties, ensuring each meal is fragrant and delicious.</p>
+                                <h6 class="u-s-m-t-20 u-s-m-b-10">Best for:</h6>
+                                <ul style="list-style: disc; margin-left: 20px; color: #666; line-height: 1.8;">
+                                    <li>Traditional Vietnamese Broken Rice with grilled pork.</li>
+                                    <li>Nutritious rice porridges for children and the elderly.</li>
+                                    <li>Daily family meals for those who prefer smaller grains.</li>
+                                    <li>Commercial use in restaurants and eateries.</li>
                                 </ul>
                             </div>
                             <div id="review" class="tab-pane">
-                                <p><strong>Tuan P - Great value broken rice for daily cooking."</p>
-                                <p><strong>Hoa L - Perfect for com tam. Will order again."</p>
+                                <div class="review-item">
+                                    <span class="review-author">Mr. Tuan - District 1</span>
+                                    <span class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                    <p class="u-s-m-t-10">"Very good broken rice, no stones or grit. Nấu lên rất thơm và dẻo. Highly recommended for Com Tam fans."</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="section-maker">
-            <div class="container">
-                <div class="sec-maker-header text-center"><h3 class="sec-maker-h3">Related Products</h3></div>
-                <div class="slider-fouc">
-                    <div class="products-slider owl-carousel" data-item="4">
-                        <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-sticky-rice.html"><img class="img-fluid" src="images/product/Gao_nep.jpg" alt="Sticky Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v2-sub-category.html">Basic Line</a></li></ul><h6 class="item-title"><a href="product-sticky-rice.html">Sticky Rice</a></h6><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(20)</span></div></div><div class="price-template"><div class="item-new-price">24,000 VND/kg</div><div class="item-old-price">25,000 VND/kg</div></div></div></div>
-                        <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-fragrant-rice.html"><img class="img-fluid" src="images/product/Gao_thom.jpg" alt="Fragrant Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v2-sub-category.html">Basic Line</a></li></ul><h6 class="item-title"><a href="product-fragrant-rice.html">Fragrant Rice</a></h6><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(22)</span></div></div><div class="price-template"><div class="item-new-price">21,000 VND/kg</div><div class="item-old-price">25,000 VND/kg</div></div></div><div class="tag sale"><span>SALE</span></div></div>
-                        <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-brown-rice.html"><img class="img-fluid" src="images/product/Gao_lut.jpg" alt="Brown Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v2-sub-category.html">Health Grains</a></li></ul><h6 class="item-title"><a href="product-brown-rice.html">Brown Rice</a></h6><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(16)</span></div></div><div class="price-template"><div class="item-new-price">35,000 VND/kg</div><div class="item-old-price">39,000 VND/kg</div></div></div></div>
-                        <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-st25-rice.html"><img class="img-fluid" src="images/product/gao-ST25.jpg" alt="ST25 Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v2-sub-category.html">Premium Line</a></li></ul><h6 class="item-title"><a href="product-st25-rice.html">ST25 Rice</a></h6><div class="item-stars"><div class="star" title="4.8 out of 5"><span style="width:72px"></span></div><span>(35)</span></div></div><div class="price-template"><div class="item-new-price">45,000 VND/kg</div><div class="item-old-price">50,000 VND/kg</div></div></div><div class="tag new"><span>NEW</span></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <footer class="footer"><div class="container"><div class="row"><div class="col-lg-4 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Huyen Tuyen Rice</h4><p>Fresh rice, healthy nuts, seeds, and whole grains for every family meal.</p><p>We focus on clean ingredients, safe packaging, and reliable delivery.</p></div></div><div class="col-lg-2 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Shop</h4><ul><li><a href="shop-v1-root-category.html">Types of Rice</a></li><li><a href="shop-v2-sub-category.html">Healthy Nuts & Seeds</a></li><li><a href="shop-v3-sub-sub-category.html">Whole Grains & Cereals</a></li><li><a href="shop-v4-filter-as-category.html">Family Combo Packs</a></li></ul></div></div><div class="col-lg-2 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Support</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="faq.html">FAQ</a></li><li><a href="track-order.html">Track Your Order</a></li></ul></div></div><div class="col-lg-4 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Contact</h4><ul><li><i class="ion ion-md-call"></i> 0914 331 367</li><li><i class="ion ion-md-call"></i> 0983 914 467</li><li><i class="ion ion-md-mail"></i> support@huyentuyenrice.com</li><li><i class="ion ion-md-pin"></i> Vietnam</li></ul><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div></div><div class="footer-bottom text-center"><p>Â© 2026 Huyen Tuyen Rice. All Rights Reserved.</p></div></div></footer>
+
+        <footer class="footer"><div class="container"><div class="row"><div class="col-lg-4 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Huyen Tuyen Rice</h4><p>Authentic Vietnamese rice varieties delivered straight to your door.</p></div></div><div class="col-lg-8 col-md-6"><p>© 2026 Huyen Tuyen Rice. All Rights Reserved.</p></div></div></div></footer>
     </div>
-    <script type="text/javascript" src="js/vendor/modernizr-custom.min.js"></script>
-    <script type="text/javascript" src="js/nprogress.min.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/jquery.scrollUp.min.js"></script>
-    <script type="text/javascript" src="js/jquery.elevatezoom.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.range-slider.min.js"></script>
-    <script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
-    <script type="text/javascript" src="js/jquery.resize-select.min.js"></script>
-    <script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
-    <script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
-    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.elevatezoom.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#zoom-pro').elevateZoom({
+                gallery: 'gallery',
+                galleryActiveClass: 'active',
+                zoomWindowWidth: 400,
+                zoomWindowHeight: 400,
+                borderSize: 1,
+                borderColour: '#eee'
+            });
+        });
+    </script>
 </body>
 </html>
