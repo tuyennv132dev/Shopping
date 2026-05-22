@@ -241,22 +241,15 @@ $(function () {
      */
     const attachClickQuantityButton = function () {
         let $currentTextField,currentVal;
+        // Skip on cart page - cart.js handles quantity buttons there
+        if (document.body.classList.contains('cart-page')) return;
         $('.plus-a').each(function () {
             $(this).on('click', function () {
                 let $currentTextField = $(this).prev();
                 let currentVal = parseInt($currentTextField.val());
-                /*
-                 * Format values
-                 * In JS if variable is not converted to number then by default variable is NaN.
-                 * We known JS has Truthy & Falsey values.
-                 * By default NaN (e.g. the result of 1/0) is false so its convert to true and expression
-                 * becomes true.
-                 */
                 if (!currentVal || currentVal === '' || currentVal === 'NaN' || currentVal === 0) {
-                    // if value is NaN
                     $currentTextField.val(1);
                 }
-                // Compare and add 1 if the condition is satisfy
                 else if (currentVal < $(this).data('max')) {
                     $currentTextField.val(currentVal + 1);
                 }
@@ -266,18 +259,9 @@ $(function () {
             $(this).on('click', function () {
                 $currentTextField = $(this).closest('div').find('input');
                 currentVal = parseInt($currentTextField.val());
-                /*
-                 * Format values
-                 * In JS if variable is not convert to number then by default variable is NaN.
-                 * We known JS has Truthy & Falsey values.
-                 * By default NaN (e.g. the result of 1/0) is false so its convert to true and expression
-                 * becomes true.
-                 */
                 if (!currentVal || currentVal === '' || currentVal === 'NaN' || currentVal === 0) {
-                    // if value is NaN
                     $currentTextField.val(1);
                 }
-                // Compare and minus 1 if the condition is satisfy
                 else if (currentVal > $(this).data('min')) {
                     $currentTextField.val(currentVal - 1);
                 }
