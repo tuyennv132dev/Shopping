@@ -171,6 +171,23 @@
             #zoom-pro { height: 300px; }
             .all-information-wrapper { padding-left: 0; margin-top: 30px; }
         }
+        .wishlist-counter {
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 20px;
+            font-weight: 700;
+            position: absolute;
+            background-color: #ff4757;
+            width: 20px;
+            height: 20px;
+            left: 15px;
+            top: -10px;
+            text-align: center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body class="single-product-page">
@@ -236,6 +253,12 @@
                             <nav>
                                 <ul class="mid-nav g-nav">
                                     <li class="u-d-none-lg"><a href="index.html"><i class="ion ion-md-home u-c-brand"></i></a></li>
+                                    <li class="u-d-none-lg">
+                                        <a href="wishlist.html" style="position: relative;">
+                                            <i class="far fa-heart"></i>
+                                            <span class="wishlist-counter">0</span>
+                                        </a>
+                                    </li>
                                     <li><a id="mini-cart-trigger"><i class="ion ion-md-basket"></i><span class="item-counter">0</span><span class="item-price">0 VND</span></a></li>
                                 </ul>
                             </nav>
