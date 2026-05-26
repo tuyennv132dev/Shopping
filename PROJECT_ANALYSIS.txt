@@ -1,0 +1,37 @@
+# PHÂN TÍCH DỰ ÁN SHOPPING (GROOVER TEMPLATE)
+Ngày phân tích: Thứ Ba, 26 tháng 5, 2026
+
+## 1. Tổng quan dự án
+- Tên: Shopping
+- Lĩnh vực: Thương mại điện tử (Gạo, Hạt dinh dưỡng, Thực phẩm sạch).
+- Thị trường: Việt Nam (VNĐ, sản phẩm nội địa).
+- Loại hình: Website tĩnh (Static) tích hợp logic dynamic qua JavaScript/LocalStorage.
+
+## 2. Công nghệ sử dụng (Tech Stack)
+- Frontend: HTML5, CSS3, Bootstrap 4.
+- Logic: jQuery + Plugins (Owl Carousel, ElevateZoom, NProgress).
+- Quản lý giỏ hàng: JavaScript thuần + LocalStorage (File xử lý chính: js/cart.js).
+- Build Tools: Webpack 4 (Thư mục html_webpack).
+- Automation: PowerShell scripts (scripts/) để cập nhật hàng loạt file HTML.
+
+## 3. Cấu trúc thư mục chính
+- / (Root): Chứa các trang HTML chính (index, shop, blog, product-*.html).
+- /css: Chứa styles (bootstrap, fontawesome, bundle.css).
+- /js: Chứa logic xử lý (app.js, cart.js).
+- /html_webpack: Source code và cấu hình Webpack.
+- /images & /fonts: Tài nguyên hình ảnh và font chữ.
+- /scripts: Script tự động hóa bảo trì.
+
+## 4. Các luồng tính năng chính
+- Giỏ hàng (Cart): Thêm/Sửa/Xóa sản phẩm, tính tổng tiền, lưu trạng thái trong trình duyệt.
+- Sản phẩm: Hệ thống trang chi tiết cho từng loại gạo/hạt với tính năng zoom và feedback.
+- Tìm kiếm/Lọc: Filter theo danh mục và thuộc tính.
+- Checkout: Luồng thanh toán từ Giỏ hàng -> Checkout -> Xác nhận đơn hàng.
+
+## 5. Đánh giá & Ghi chú bảo trì
+- Ưu điểm: Giao diện chuyên nghiệp, phản hồi nhanh, SEO tốt cho từng trang sản phẩm.
+- Lưu ý bảo trì: Khi thay đổi Header/Footer hoặc thông tin chung, nên sử dụng Webpack trong folder `html_webpack` hoặc chạy các script trong `scripts/` để đồng bộ tất cả các file HTML ở root.
+- Key file cần chú ý:
+  + js/cart.js: Quản lý toàn bộ logic mua hàng.
+  + index.html: Trang chủ chính.
+  + html_webpack/package.json: Quản lý dependencies và build commands.

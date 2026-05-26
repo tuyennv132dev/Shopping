@@ -362,3 +362,879 @@
     width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
 }
 #quick-view-bac-huong .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Jasmine Rice Modal Specific Enhancements */
+#quick-view-jasmine-rice .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-jasmine-rice .modal-body { padding: 50px !important; }
+#quick-view-jasmine-rice .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-jasmine-rice .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-jasmine-rice .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-jasmine-rice .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-jasmine-rice .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-jasmine-rice .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-jasmine-rice .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-jasmine-rice .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-jasmine-rice .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-jasmine-rice .plus-a, #quick-view-jasmine-rice .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-jasmine-rice .plus-a:hover, #quick-view-jasmine-rice .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-jasmine-rice .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-jasmine-rice .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-jasmine-rice .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-jasmine-rice .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-jasmine-rice .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* ST24 Rice Modal Specific Enhancements */
+#quick-view-st24 .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-st24 .modal-body { padding: 50px !important; }
+#quick-view-st24 .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-st24 .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-st24 .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-st24 .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-st24 .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-st24 .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-st24 .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-st24 .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-st24 .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-st24 .plus-a, #quick-view-st24 .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-st24 .plus-a:hover, #quick-view-st24 .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-st24 .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-st24 .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-st24 .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-st24 .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-st24 .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* ST25 Rice Modal Specific Enhancements */
+#quick-view-st25 .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-st25 .modal-body { padding: 50px !important; }
+#quick-view-st25 .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-st25 .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-st25 .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-st25 .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-st25 .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-st25 .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-st25 .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-st25 .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-st25 .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-st25 .plus-a, #quick-view-st25 .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-st25 .plus-a:hover, #quick-view-st25 .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-st25 .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-st25 .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-st25 .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-st25 .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-st25 .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Black Rice Modal Specific Enhancements */
+#quick-view-black-rice .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-black-rice .modal-body { padding: 50px !important; }
+#quick-view-black-rice .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-black-rice .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-black-rice .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-black-rice .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-black-rice .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-black-rice .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-black-rice .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-black-rice .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-black-rice .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-black-rice .plus-a, #quick-view-black-rice .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-black-rice .plus-a:hover, #quick-view-black-rice .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-black-rice .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-black-rice .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-black-rice .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-black-rice .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-black-rice .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Mixed Grains Modal Specific Enhancements */
+#quick-view-mixed-grains .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-mixed-grains .modal-body { padding: 50px !important; }
+#quick-view-mixed-grains .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-mixed-grains .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-mixed-grains .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-mixed-grains .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-mixed-grains .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-mixed-grains .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-mixed-grains .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-mixed-grains .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-mixed-grains .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-mixed-grains .plus-a, #quick-view-mixed-grains .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-mixed-grains .plus-a:hover, #quick-view-mixed-grains .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-mixed-grains .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-mixed-grains .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-mixed-grains .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-mixed-grains .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-mixed-grains .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Multi-Grain Powder Modal Specific Enhancements */
+#quick-view-multi-grain-powder .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-multi-grain-powder .modal-body { padding: 50px !important; }
+#quick-view-multi-grain-powder .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-multi-grain-powder .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-multi-grain-powder .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-multi-grain-powder .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-multi-grain-powder .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-multi-grain-powder .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-multi-grain-powder .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-multi-grain-powder .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-multi-grain-powder .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-multi-grain-powder .plus-a, #quick-view-multi-grain-powder .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-multi-grain-powder .plus-a:hover, #quick-view-multi-grain-powder .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-multi-grain-powder .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-multi-grain-powder .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-multi-grain-powder .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-multi-grain-powder .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-multi-grain-powder .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Brown Rice Modal Specific Enhancements */
+#quick-view-brown-rice .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-brown-rice .modal-body { padding: 50px !important; }
+#quick-view-brown-rice .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-brown-rice .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-brown-rice .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-brown-rice .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-brown-rice .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-brown-rice .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-brown-rice .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-brown-rice .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-brown-rice .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-brown-rice .plus-a, #quick-view-brown-rice .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-brown-rice .plus-a:hover, #quick-view-brown-rice .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-brown-rice .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-brown-rice .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-brown-rice .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-brown-rice .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-brown-rice .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Almonds Modal Specific Enhancements */
+#quick-view-almonds .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-almonds .modal-body { padding: 50px !important; }
+#quick-view-almonds .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-almonds .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-almonds .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-almonds .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-almonds .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-almonds .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-almonds .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-almonds .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-almonds .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-almonds .plus-a, #quick-view-almonds .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-almonds .plus-a:hover, #quick-view-almonds .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-almonds .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-almonds .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-almonds .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-almonds .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-almonds .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Walnuts Modal Specific Enhancements */
+#quick-view-walnuts .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-walnuts .modal-body { padding: 50px !important; }
+#quick-view-walnuts .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-walnuts .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-walnuts .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-walnuts .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-walnuts .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-walnuts .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-walnuts .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-walnuts .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-walnuts .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-walnuts .plus-a, #quick-view-walnuts .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-walnuts .plus-a:hover, #quick-view-walnuts .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-walnuts .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-walnuts .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-walnuts .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-walnuts .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-walnuts .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Pistachios Modal Specific Enhancements */
+#quick-view-pistachios .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-pistachios .modal-body { padding: 50px !important; }
+#quick-view-pistachios .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-pistachios .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-pistachios .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-pistachios .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-pistachios .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-pistachios .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-pistachios .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-pistachios .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-pistachios .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-pistachios .plus-a, #quick-view-pistachios .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-pistachios .plus-a:hover, #quick-view-pistachios .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-pistachios .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-pistachios .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-pistachios .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-pistachios .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-pistachios .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Macadamia Nuts Modal Specific Enhancements */
+#quick-view-macadamia .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-macadamia .modal-body { padding: 50px !important; }
+#quick-view-macadamia .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-macadamia .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-macadamia .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-macadamia .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-macadamia .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-macadamia .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-macadamia .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-macadamia .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-macadamia .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-macadamia .plus-a, #quick-view-macadamia .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-macadamia .plus-a:hover, #quick-view-macadamia .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-macadamia .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-macadamia .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-macadamia .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-macadamia .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-macadamia .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
+/* Rolled Oats Modal Specific Enhancements */
+#quick-view-rolled-oats .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-rolled-oats .modal-body { padding: 50px !important; }
+#quick-view-rolled-oats .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-rolled-oats .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-rolled-oats .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-rolled-oats .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-rolled-oats .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+#quick-view-rolled-oats .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-rolled-oats .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-rolled-oats .quantity {
+    display: flex;
+    border: 1.5px solid #aaa;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 54px;
+    width: 140px;
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    align-items: center;
+    justify-content: center;
+}
+#quick-view-rolled-oats .quantity-text-field {
+    width: 60px !important;
+    text-align: center !important;
+    border: none !important;
+    outline: none !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    color: #000 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    display: block !important;
+}
+#quick-view-rolled-oats .plus-a, #quick-view-rolled-oats .minus-a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    transition: 0.2s;
+    text-decoration: none !important;
+    user-select: none;
+    height: 100%;
+}
+#quick-view-rolled-oats .plus-a:hover, #quick-view-rolled-oats .minus-a:hover { color: #28a745; background: #f0f0f0; }
+
+#quick-view-rolled-oats .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-rolled-oats .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 6px 18px rgba(40, 167, 69, 0.35); transition: 0.3s;
+}
+#quick-view-rolled-oats .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-rolled-oats .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; 
+}
+#quick-view-rolled-oats .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }

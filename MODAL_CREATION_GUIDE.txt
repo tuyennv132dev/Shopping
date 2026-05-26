@@ -1,0 +1,115 @@
+# HUONG DAN TAO QUICK-VIEW MODAL CHO SAN PHAM MOI
+Ngay tao: Thu Ba, 26 thang 5, 2026
+
+De tao 1 modal Quick-view cho san pham moi, hay thuc hien theo 3 buoc sau:
+
+---
+
+## BUOC 1: THEM CSS (css/custom-modals.css)
+Copy snippet ben duoi va thay the [product-id] bang ten san pham (vi du: black-rice, almonds).
+
+```css
+/* [Product Name] Modal Specific Enhancements */
+#quick-view-[product-id] .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-[product-id] .modal-body { padding: 50px !important; }
+#quick-view-[product-id] .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-[product-id] .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-[product-id] .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-[product-id] .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+
+#quick-view-[product-id] .section-6-social-media-quantity-actions {
+    margin-top: 35px;
+    padding: 35px;
+    background: #f8faf8;
+    border: 1px solid #eaf0ea;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column; gap: 25px;
+}
+#quick-view-[product-id] .quantity {
+    display: flex; border: 1.5px solid #aaa; border-radius: 30px; overflow: hidden; height: 54px; width: 140px; background: #fff; align-items: center; justify-content: center;
+}
+#quick-view-[product-id] .quantity-text-field {
+    width: 60px !important; text-align: center !important; border: none !important; font-weight: 800 !important; font-size: 20px !important; color: #000 !important; background: transparent !important;
+}
+#quick-view-[product-id] .item-addCart {
+    flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; background-color: #28a745 !important; color: #fff !important; transition: 0.3s;
+}
+#quick-view-[product-id] .wishlist-btn {
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; transition: 0.3s;
+}
+```
+
+---
+
+## BUOC 2: THEM HTML MODAL (index.html)
+Them vao cuoi file `index.html` (truoc the `</body>`).
+QUAN TRONG: Dien dung thong tin vao cac `data-product-*` de gio hang (js/cart.js) hoat dong.
+
+```html
+<div id="quick-view-[product-id]" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="zoom-area">
+                            <img id="zoom-pro-quick-view-[product-id]" class="img-fluid" src="[image-path]" data-zoom-image="[image-path]">
+                            <div id="gallery-quick-view-[product-id]" class="u-s-m-t-10">
+                                <a class="active" data-image="[image-path]" data-zoom-image="[image-path]">
+                                    <img src="[image-path]" style="width:70px;height:70px;object-fit:cover;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="all-information-wrapper item" 
+                             data-product-id="product-[id]" 
+                             data-product-name="[Name]"
+                             data-product-price="[Price-Number]"
+                             data-product-image="[image-path]">
+                            <h1>[Product Name]</h1>
+                            <p>[Description]</p>
+                            <ul class="product-benefit-list">
+                                <li><i class="fas fa-check-circle"></i> Benefit 1</li>
+                                <li><i class="fas fa-check-circle"></i> Benefit 2</li>
+                            </ul>
+                            <div class="price"><h4>[Price-Text]</h4></div>
+                            <div class="section-6-social-media-quantity-actions">
+                                <div class="quantity">
+                                    <a class="minus-a">-</a>
+                                    <input type="text" class="quantity-text-field" value="1" readonly>
+                                    <a class="plus-a">+</a>
+                                </div>
+                                <div class="cart-action-buttons">
+                                    <button class="button item-addCart" type="button">ADD TO CART</button>
+                                    <button class="wishlist-btn wishlist-btn-modal"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## BUOC 3: CAP NHAT LINK VA JAVASCRIPT (index.html)
+
+1. **Link Quick Look:** Tim san pham trong danh sach va doi `href="#quick-view"` thanh `href="#quick-view-[product-id]"`.
+2. **Khoi tao Zoom:** Them code vao phan `<script>` cuoi file:
+
+```javascript
+$('#zoom-pro-quick-view-[product-id]').elevateZoom({
+    gallery: 'gallery-quick-view-[product-id]',
+    galleryActiveClass: 'active',
+    zoomEnabled: false,
+});
+```
+
+---
+Luu y: Luon kiem tra ten file anh va duong dan link san pham cho chinh xac.
