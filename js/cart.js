@@ -1,4 +1,4 @@
-/**
+﻿/**
  * cart.js - Unified cart logic for the whole site
  *
  * Single localStorage key: "cart"
@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  // ── Core Cart Functions ──────────────────────────────────────────
+  // â”€â”€ Core Cart Functions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /**
    * Normalize cart item from localStorage.
@@ -89,7 +89,7 @@
     });
   }
 
-  // ── Cart Operations ──────────────────────────────────────────────
+  // â”€â”€ Cart Operations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   function addToCart(product) {
     if (!product || !product.id) return;
@@ -145,7 +145,7 @@
     }
   }
 
-  // ── Computed Values ──────────────────────────────────────────────
+  // â”€â”€ Computed Values â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   function getTotalQuantity() {
     var cart = getCart();
@@ -169,7 +169,7 @@
     return getWishlist().length;
   }
 
-  // ── Wishlist Operations ──────────────────────────────────────────
+  // â”€â”€ Wishlist Operations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   function getWishlist() {
     try {
@@ -287,7 +287,7 @@
     });
   }
 
-  // ── UI Update Functions ──────────────────────────────────────────
+  // â”€â”€ UI Update Functions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   function updateAllUI() {
     updateCartCount();
@@ -304,6 +304,11 @@
     var els = document.querySelectorAll('.item-counter');
     for (var i = 0; i < els.length; i++) {
       els[i].textContent = total;
+    }
+    var totalPrice = getTotalPrice();
+    var priceEls = document.querySelectorAll('.item-price');
+    for (var i = 0; i < priceEls.length; i++) {
+      priceEls[i].textContent = formatCurrency(totalPrice);
     }
   }
 
@@ -518,7 +523,7 @@
       });
 
       if (!valid) {
-        alert('Vui lòng điền đầy đủ thông tin giao hàng.');
+        alert('Vui lÃ²ng Ä‘iá»n Ä‘áº§y Ä‘á»§ thÃ´ng tin giao hÃ ng.');
         return;
       }
 
@@ -528,13 +533,13 @@
         checkoutArea.innerHTML =
           '<div style="text-align:center;padding:80px 20px;background:#f9f9f9;border-radius:8px;margin-bottom:80px;box-shadow: 0 4px 15px rgba(0,0,0,0.05);">' +
           '<i class="fas fa-check-circle" style="font-size:80px;color:#28a745;margin-bottom:30px;"></i>' +
-          '<h2 style="margin-bottom:20px;color:#333;font-weight:bold;">ĐẶT HÀNG THÀNH CÔNG!</h2>' +
+          '<h2 style="margin-bottom:20px;color:#333;font-weight:bold;">Äáº¶T HÃ€NG THÃ€NH CÃ”NG!</h2>' +
           '<div style="background:#fff;padding:40px;display:inline-block;border:1px solid #ddd;margin-bottom:30px;border-radius:8px;">' +
-          '<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Cảm ơn quý khách đã tin tưởng và ủng hộ Huyen Tuyen Rice" alt="QR Payment" style="max-width:100%;height:auto;">' +
-          '<p style="margin-top:20px;font-weight:bold;color:#2c3e50;font-size:18px;">QUÉT MÃ QR ĐỂ THANH TOÁN</p>' +
+          '<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Cáº£m Æ¡n quÃ½ khÃ¡ch Ä‘Ã£ tin tÆ°á»Ÿng vÃ  á»§ng há»™ Huyen Tuyen Rice" alt="QR Payment" style="max-width:100%;height:auto;">' +
+          '<p style="margin-top:20px;font-weight:bold;color:#2c3e50;font-size:18px;">QUÃ‰T MÃƒ QR Äá»‚ THANH TOÃN</p>' +
           '</div>' +
-          '<p style="font-size:20px;color:#555;line-height:1.6;max-width:600px;margin:0 auto 30px;">Cảm ơn quý khách đã tin tưởng và ủng hộ <strong>Huyen Tuyen Rice</strong>.</p>' +
-          '<a href="index.html" class="button button-primary" style="padding:15px 50px;font-size:18px;border-radius:30px;text-transform:uppercase;letter-spacing:1px;">Quay lại trang chủ</a>' +
+          '<p style="font-size:20px;color:#555;line-height:1.6;max-width:600px;margin:0 auto 30px;">Cáº£m Æ¡n quÃ½ khÃ¡ch Ä‘Ã£ tin tÆ°á»Ÿng vÃ  á»§ng há»™ <strong>Huyen Tuyen Rice</strong>.</p>' +
+          '<a href="index.html" class="button button-primary" style="padding:15px 50px;font-size:18px;border-radius:30px;text-transform:uppercase;letter-spacing:1px;">Quay láº¡i trang chá»§</a>' +
           '</div>';
 
         // Clear cart after order
@@ -547,7 +552,7 @@
     });
   }
 
-  // ── Product Data Extraction ──────────────────────────────────────
+  // â”€â”€ Product Data Extraction â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /**
    * Get product info from a product card (.item) element.
@@ -635,7 +640,7 @@
     }
   }
 
-  // ── Event Listeners ──────────────────────────────────────────────
+  // â”€â”€ Event Listeners â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /**
    * Initialize add-to-cart buttons using event delegation.
@@ -683,7 +688,7 @@
              btn.className = originalClass;
            }, 1000);
         } else {
-          btn.textContent = 'Added ✓';
+          btn.textContent = 'Added âœ“';
           btn.classList.add('added');
           setTimeout(function () {
             btn.innerHTML = originalHTML;
@@ -793,7 +798,7 @@
     });
   }
 
-  // ── Initialization ───────────────────────────────────────────────
+  // â”€â”€ Initialization â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /**
    * Normalize the cart data in localStorage.
@@ -858,7 +863,7 @@
     setTimeout(enrichProductCards, 800);
   }
 
-  // ── Boot ──────────────────────────────────────────────────────────
+  // â”€â”€ Boot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -867,3 +872,6 @@
   }
 
 })();
+
+
+
