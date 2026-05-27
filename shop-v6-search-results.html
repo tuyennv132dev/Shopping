@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="no-js" lang="en-US">
 
 <head>
@@ -32,6 +32,26 @@
     <link rel="stylesheet" href="css/utility.css">
     <!-- Main -->
     <link rel="stylesheet" href="css/bundle.css">
+    <link rel="stylesheet" href="css/custom-modals.css">
+    <style>
+        .wishlist-counter {
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 20px;
+            font-weight: 700;
+            position: absolute;
+            background-color: #ff4757;
+            width: 20px;
+            height: 20px;
+            left: 15px;
+            top: -10px;
+            text-align: center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -155,20 +175,21 @@
                         <nav>
                             <ul class="mid-nav g-nav">
                                 <li class="u-d-none-lg">
-                                    <a href="home.html">
+                                    <a href="index.html">
                                         <i class="ion ion-md-home"></i>
                                     </a>
                                 </li>
                                 <li class="u-d-none-lg">
                                     <a href="wishlist.html">
                                         <i class="far fa-heart"></i>
+                                        <span class="wishlist-counter">0</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a id="mini-cart-trigger">
                                         <i class="ion ion-md-basket"></i>
-                                        <span class="item-counter">4</span>
-                                        <span class="item-price">$220.00</span>
+                                        <span class="item-counter">0</span>
+                                        <span class="item-price">0 VND</span>
                                     </a>
                                 </li>
                             </ul>
@@ -199,42 +220,11 @@
                     <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
                 </div>
                 <ul class="mini-cart-list">
-                    <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="images/product/product@1x.jpg" alt="Product">
-                            <span class="mini-item-name">Casual Hoodie Full Cotton</span>
-                            <span class="mini-item-price">$55.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="images/product/product@1x.jpg" alt="Product">
-                            <span class="mini-item-name">Black Rock Dress with High Jewelery Necklace</span>
-                            <span class="mini-item-price">$55.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="images/product/product@1x.jpg" alt="Product">
-                            <span class="mini-item-name">Xiaomi Note 2 Black Color</span>
-                            <span class="mini-item-price">$55.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="images/product/product@1x.jpg" alt="Product">
-                            <span class="mini-item-name">Dell Inspiron 15</span>
-                            <span class="mini-item-price">$55.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
+                    <!-- Dynamically rendered by js/cart.js -->
                 </ul>
                 <div class="mini-shop-total clearfix">
                     <span class="mini-total-heading float-left">Total:</span>
-                    <span class="mini-total-price float-right">$220.00</span>
+                    <span class="mini-total-price float-right">0 VND</span>
                 </div>
                 <div class="mini-action-anchors">
                     <a href="cart.html" class="cart-anchor">View Cart</a>
@@ -706,7 +696,7 @@
                                     <ul>
                                         <li class="menu-title">Home & Static Pages</li>
                                         <li>
-                                            <a href="home.html">Home</a>
+                                            <a href="index.html">Home</a>
                                         </li>
                                         <li>
                                             <a href="about.html">About</a>
@@ -829,7 +819,7 @@
                 <ul class="bread-crumb">
                     <li class="has-separator">
                         <i class="ion ion-md-home"></i>
-                        <a href="home.html">Home</a>
+                        <a href="index.html">Home</a>
                     </li>
                     <li class="is-marked">
                         <a href="shop-v6-search-results.html">Shop</a>
@@ -844,13 +834,13 @@
         <div class="container">
             <!-- Search-Results -->
             <div class="search-results-wrapper u-s-p-b-80">
-                <h4>WE FOUND 18 RESULTS FOR
-                    <i>“CLOTHING”</i>
+                <h4>WE FOUND 5 RESULTS FOR
+                    <i>“RICE AND GRAINS”</i>
                 </h4>
                 <h4>Related searches:
-                    <a href="shop-v1-root-category.html">men's clothing</a> ,
-                    <a href="shop-v1-root-category.html">mobiles & tablets</a> ,
-                    <a href="shop-v1-root-category.html">books & audible</a>
+                    <a href="shop-v1-root-category.html">premium rice</a> ,
+                    <a href="shop-whole-grains-cereals.html">whole grains</a> ,
+                    <a href="Healthy-Nuts-Seeds.html">healthy nuts & seeds</a>
                 </h4>
             </div>
             <!-- Search-Results /- -->
@@ -862,302 +852,44 @@
                         <h3 class="title-name">Browse Categories</h3>
                         <ul>
                             <li>
-                                <a href="shop-v1-root-category.html">Men's Clothing</a>
+                                <a href="shop-v1-root-category.html">Types of Rice</a>
                                 <button class="button-icon ion ion-md-add js-open"></button>
                                 <ul style="display: block">
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Tops</a>
-                                        <button class="button-icon ion ion-md-add js-open"></button>
-                                        <ul style="display: block">
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">T-Shirts</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Hoodies</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Suits</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v4-filter-as-category.html">Black Bean T-Shirt</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Outwear</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Jackets</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v2-sub-category.html">Trench</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Parkas</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Sweaters</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Accessories</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Watches</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Ties</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Scarves</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Belts</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Bottoms</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Casual Pants</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Shoes</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Jeans</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Shorts</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Underwear</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Boxers</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Briefs</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Robes</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Socks</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Sunglasses</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Pilot</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Wayfarer</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Square</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Round</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="product-white-rice.html">White Rice</a></li>
+                                    <li><a href="product-fragrant-rice.html">Fragrant Rice</a></li>
+                                    <li><a href="product-sticky-rice.html">Sticky Rice</a></li>
+                                    <li><a href="product-brown-rice.html">Brown Rice</a></li>
+                                    <li><a href="product-st25-rice.html">ST25 Rice</a></li>
+                                    <li><a href="product-st24-rice.html">ST24 Rice</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a>Women's Clothing</a>
+                                <a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a>
                                 <button class="button-icon ion ion-md-add"></button>
                                 <ul>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Tops</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Dresses</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Blouses & Shirts</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">T-shirts</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Sweater</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Intimates</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Bras</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Brief Sets</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Bustiers & Corsets</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Panties</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Wedding & Events</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Wedding Dresses</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Evening Dresses</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Prom Dresses</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Flower Dresses</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Bottoms</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Skirts</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v2-sub-category.html">Shoes</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Leggings</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Jeans</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Outwear & Jackets</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Blazers</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Basics Jackets</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Trench</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Leather & Suede</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Accessories</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Sunglasses</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Headwear</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Baseball Caps</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Belts</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="product-cashews.html">Cashew Nuts</a></li>
+                                    <li><a href="product-almonds.html">Almonds</a></li>
+                                    <li><a href="product-walnuts.html">Walnuts</a></li>
+                                    <li><a href="product-macadamia.html">Macadamia Nuts</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="shop-v1-root-category.html">Toys Hobbies & Robots</a>
+                                <a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a>
                                 <button class="button-icon ion ion-md-add"></button>
                                 <ul>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">RC Toys & Hobbies</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">RC Helicopter</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">RC Lego Robots</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">RC Drone</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">RC Car</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">RC Boat</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">RC Robot</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Multi Rotor Parts</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">FPV System</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Radios & Receiver</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Battery & Charger</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Solar Energy</a>
-                                        <button class="button-icon ion ion-md-add"></button>
-                                        <ul>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Solar Powered Toy</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Solar Powered System</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="product-rolled-oats.html">Rolled Oats</a></li>
+                                    <li><a href="product-quinoa.html">Quinoa</a></li>
+                                    <li><a href="product-barley.html">Barley</a></li>
+                                    <li><a href="product-Mixed-grains.html">Mixed Grains</a></li>
+                                    <li><a href="product-brown-rice-mix.html">Brown Rice Mix</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">Mobiles & Tablets</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">Consumer Electronics</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">Books & Audible</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">Beauty & Health</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">Furniture Home & Office</a>
-                            </li>
+                            <li><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
+                            <li><a href="family-combo-page.html">Family Combo Packs</a></li>
+                            <li><a href="custom-deal-page.html">Deals & Offers</a></li>
+                            <li><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li>
+                            <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                            <li><a href="blog.html">Recipes & Rice Tips</a></li>
                         </ul>
                     </div>
                     <!-- Fetch-Categories-from-Root-Category  /- -->
@@ -1165,18 +897,28 @@
                     <!-- Filter-Price -->
                     <div class="facet-filter-by-price">
                         <h3 class="title-name">Price</h3>
-                        <form class="facet-form" action="#" method="post">
+                        <form class="facet-form" action="#" method="post" novalidate>
                             <!-- Final-Result -->
                             <div class="amount-result clearfix">
-                                <div class="price-from">$0</div>
-                                <div class="price-to">$3000</div>
+                                <div class="price-from">0 VND</div>
+                                <div class="price-to">100,000 VND</div>
                             </div>
                             <!-- Final-Result /- -->
+                            <div class="row u-s-m-t-15">
+                                <div class="col-6 u-s-m-b-10">
+                                    <label class="sr-only" for="price-min">Min price</label>
+                                    <input id="price-min" class="text-field" type="number" inputmode="numeric" min="0" max="100000" step="1000" placeholder="Min (VND)">
+                                </div>
+                                <div class="col-6 u-s-m-b-10">
+                                    <label class="sr-only" for="price-max">Max price</label>
+                                    <input id="price-max" class="text-field" type="number" inputmode="numeric" min="0" max="100000" step="1000" placeholder="Max (VND)">
+                                </div>
+                            </div>
                             <!-- Range-Slider  -->
                             <div class="price-filter"></div>
                             <!-- Range-Slider /- -->
                             <!-- Range-Manipulator -->
-                            <div class="price-slider-range" data-min="0" data-max="5000" data-default-low="0" data-default-high="3000" data-currency="$"></div>
+                            <div class="price-slider-range" data-min="0" data-max="100000" data-default-low="0" data-default-high="100000" data-currency=" VND"></div>
                             <!-- Range-Manipulator /- -->
                             <button type="submit" class="button button-primary">Filter</button>
                         </form>
@@ -1295,13 +1037,18 @@
                     <div class="row product-container list-style">
                         <!-- Product 1: ST25 Rice -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item"
+                                 data-product-id="product-st25-rice"
+                                 data-product-name="ST25 Rice - World's Best Rice"
+                                 data-product-price="45000"
+                                 data-product-image="images/product/gao-ST25.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-st25-rice.html">
                                         <img class="img-fluid" src="images/product/gao-ST25.jpg" alt="ST25 Rice">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-st25">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)" aria-label="Add to Wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
@@ -1331,13 +1078,18 @@
 
                         <!-- Product 2: Brown Rice -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item"
+                                 data-product-id="product-brown-rice"
+                                 data-product-name="Organic Brown Rice"
+                                 data-product-price="35000"
+                                 data-product-image="images/product/Gao_lut.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-brown-rice.html">
                                         <img class="img-fluid" src="images/product/Gao_lut.jpg" alt="Brown Rice">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-brown-rice">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)" aria-label="Add to Wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
@@ -1367,13 +1119,18 @@
 
                         <!-- Product 3: Nutritious Grains -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item"
+                                 data-product-id="product-mixed-grains"
+                                 data-product-name="Nutritious Mixed Grains"
+                                 data-product-price="85000"
+                                 data-product-image="images/product/mixed-grains.jpg">
                                 <div class="image-container">
-                                    <a class="item-img-wrapper-link" href="product-rolled-oats.html">
+                                    <a class="item-img-wrapper-link" href="product-Mixed-grains.html">
                                         <img class="img-fluid" src="images/product/mixed-grains.jpg" alt="Mixed Grains">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-mixed-grains">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)" aria-label="Add to Wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
@@ -1388,7 +1145,7 @@
                                             </li>
                                         </ul>
                                         <h6 class="item-title">
-                                            <a href="product-rolled-oats.html">Premium Mixed Grains & Nuts</a>
+                                            <a href="product-Mixed-grains.html">Nutritious Mixed Grains</a>
                                         </h6>
                                         <div class="item-description">
                                             <p>A healthy mix of various grains and nuts, providing essential nutrients and energy for your daily activities.</p>
@@ -1403,13 +1160,18 @@
 
                         <!-- Product 4: Sticky Rice -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item"
+                                 data-product-id="product-sticky-rice"
+                                 data-product-name="Premium White Sticky Rice"
+                                 data-product-price="24000"
+                                 data-product-image="images/product/Gao_nep.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-sticky-rice.html">
                                         <img class="img-fluid" src="images/product/Gao_nep.jpg" alt="Sticky Rice">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-sticky-rice">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)" aria-label="Add to Wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
@@ -1439,13 +1201,18 @@
 
                         <!-- Product 5: Fragrant Rice -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item"
+                                 data-product-id="product-fragrant-rice"
+                                 data-product-name="Fragrant Jasmine Rice"
+                                 data-product-price="21000"
+                                 data-product-image="images/product/Gao_thom.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-fragrant-rice.html">
                                         <img class="img-fluid" src="images/product/Gao_thom.jpg" alt="Fragrant Rice">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-fragrant-rice">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)" aria-label="Add to Wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
@@ -1479,33 +1246,7 @@
                 <!-- Shop-Pagination -->
                 <div class="pagination-area">
                     <div class="pagination-number">
-                        <ul>
-                            <li style="display: none">
-                                <a href="shop-v1-root-category.html" title="Previous">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="shop-v1-root-category.html">1</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">2</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">3</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">...</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html">10</a>
-                            </li>
-                            <li>
-                                <a href="shop-v1-root-category.html" title="Next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- Rendered by js/search-results.js -->
                     </div>
                 </div>
                 <!-- Shop-Pagination /- -->
@@ -1558,7 +1299,7 @@
                             <h6>COMPANY</h6>
                             <ul>
                                 <li>
-                                    <a href="home.html">Home</a>
+                                    <a href="index.html">Home</a>
                                 </li>
                                 <li>
                                     <a href="about.html">About</a>
@@ -1654,7 +1395,7 @@
                     </ul>
                 </div>
                 <p class="copyright-text">Copyright &copy; 2018
-                    <a href="home.html">Groover</a> All Right Reserved
+                    <a href="index.html">Groover</a> All Right Reserved
                 </p>
             </div>
         </div>
@@ -1683,194 +1424,346 @@
         </div>
     </div>
     <!-- Responsive-Search /- -->
-    <!-- Quick-view-Modal -->
-    <div id="quick-view" class="modal fade">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <!-- Product-zoom-area -->
-                            <div class="zoom-area">
-                                <img id="zoom-pro-quick-view" class="img-fluid" src="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg" alt="Zoom Image">
-                                <div id="gallery-quick-view" class="u-s-m-t-10">
-                                    <a class="active" data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Product-zoom-area /- -->
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <!-- Product-details -->
-                            <div class="all-information-wrapper">
-                                <div class="section-1-title-breadcrumb-rating">
-                                    <div class="product-title">
-                                        <h1>
-                                            <a href="single-product.html">Casual Hoodie Full Cotton</a>
-                                        </h1>
-                                    </div>
-                                    <ul class="bread-crumb">
-                                        <li class="has-separator">
-                                            <a href="home.html">Home</a>
-                                        </li>
-                                        <li class="has-separator">
-                                            <a href="shop-v1-root-category.html">Men's Clothing</a>
-                                        </li>
-                                        <li class="has-separator">
-                                            <a href="shop-v2-sub-category.html">Tops</a>
-                                        </li>
-                                        <li class="is-marked">
-                                            <a href="shop-v3-sub-sub-category.html">Hoodies</a>
-                                        </li>
-                                    </ul>
-                                    <div class="product-rating">
-                                        <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                            <span style='width:67px'></span>
-                                        </div>
-                                        <span>(23)</span>
-                                    </div>
-                                </div>
-                                <div class="section-2-short-description u-s-p-y-14">
-                                    <h6 class="information-heading u-s-m-b-8">Description:</h6>
-                                    <p>This hoodie is full cotton. It includes a muff sewn onto the lower front, and (usually) a drawstring to adjust the hood opening. Throughout the U.S., it is common for middle-school, high-school, and college students to wear this sweatshirts—with or without hoods—that display their respective school names or mascots across the chest, either as part of a uniform or personal preference.
-                                    </p>
-                                </div>
-                                <div class="section-3-price-original-discount u-s-p-y-14">
-                                    <div class="price">
-                                        <h4>$55.00</h4>
-                                    </div>
-                                    <div class="original-price">
-                                        <span>Original Price:</span>
-                                        <span>$60.00</span>
-                                    </div>
-                                    <div class="discount-price">
-                                        <span>Discount:</span>
-                                        <span>8%</span>
-                                    </div>
-                                    <div class="total-save">
-                                        <span>Save:</span>
-                                        <span>$5</span>
-                                    </div>
-                                </div>
-                                <div class="section-4-sku-information u-s-p-y-14">
-                                    <h6 class="information-heading u-s-m-b-8">Sku Information:</h6>
-                                    <div class="availability">
-                                        <span>Availability:</span>
-                                        <span>In Stock</span>
-                                    </div>
-                                    <div class="left">
-                                        <span>Only:</span>
-                                        <span>50 left</span>
-                                    </div>
-                                </div>
-                                <div class="section-5-product-variants u-s-p-y-14">
-                                    <h6 class="information-heading u-s-m-b-8">Product Variants:</h6>
-                                    <div class="color u-s-m-b-11">
-                                        <span>Available Color:</span>
-                                        <div class="color-variant select-box-wrapper">
-                                            <select class="select-box product-color">
-                                                <option value="1">Heather Grey</option>
-                                                <option value="3">Black</option>
-                                                <option value="5">White</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="sizes u-s-m-b-11">
-                                        <span>Available Size:</span>
-                                        <div class="size-variant select-box-wrapper">
-                                            <select class="select-box product-size">
-                                                <option value="">Male 2XL</option>
-                                                <option value="">Male 3XL</option>
-                                                <option value="">Kids 4</option>
-                                                <option value="">Kids 6</option>
-                                                <option value="">Kids 8</option>
-                                                <option value="">Kids 10</option>
-                                                <option value="">Kids 12</option>
-                                                <option value="">Female Small</option>
-                                                <option value="">Male Small</option>
-                                                <option value="">Female Medium</option>
-                                                <option value="">Male Medium</option>
-                                                <option value="">Female Large</option>
-                                                <option value="">Male Large</option>
-                                                <option value="">Female XL</option>
-                                                <option value="">Male XL</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="section-6-social-media-quantity-actions u-s-p-y-14">
-                                    <form action="#" class="post-form">
-                                        <div class="quick-social-media-wrapper u-s-m-b-22">
-                                            <span>Share:</span>
-                                            <ul class="social-media-list">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-facebook-f"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-google-plus-g"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fas fa-rss"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-pinterest"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="quantity-wrapper u-s-m-b-22">
-                                            <span>Quantity:</span>
-                                            <div class="quantity">
-                                                <input type="text" class="quantity-text-field" value="1">
-                                                <a class="plus-a" data-max="1000">&#43;</a>
-                                                <a class="minus-a" data-min="1">&#45;</a>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <button class="button button-outline-secondary" type="submit">Add to cart</button>
-                                            <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
-                                            <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Product-details /- -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick-view-Modal /- -->
+    <!-- Product Quick-view Modals -->
+        <div id="quick-view-st25" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-st25" class="img-fluid" src="images/product/gao-ST25.jpg"
+                                        data-zoom-image="images/product/gao-ST25.jpg" alt="ST25 Rice Zoom Image">
+                                    <div id="gallery-quick-view-st25" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/gao-ST25.jpg"
+                                            data-zoom-image="images/product/gao-ST25.jpg">
+                                            <img src="images/product/gao-ST25.jpg" alt="ST25 Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-st25-rice"
+                                     data-product-name="Premium ST25 Rice"
+                                     data-product-price="45000"
+                                     data-product-image="images/product/gao-ST25.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-st25-rice.html">Huyen Tuyen Premium ST25 Rice - World's Best</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.9 out of 5"><span style='width:74px'></span></div>
+                                            <span>(35 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>ST25 rice is officially recognized as one of the best rice varieties in the world. Known for its extra-long, slender grains, it offers an incredible pineapple-like aroma and a soft, chewy, and sweet texture.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Award-winning "World's Best Rice"</li>
+                                            <li><i class="fas fa-check-circle"></i> Low glycemic index, suitable for health-conscious diets</li>
+                                            <li><i class="fas fa-check-circle"></i> Pesticide-free and organic farming standards</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>45,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>50,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ST25 Rice Quick-view-Modal /- -->
+        <div id="quick-view-brown-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-brown-rice" class="img-fluid" src="images/product/Gao_lut.jpg"
+                                        data-zoom-image="images/product/Gao_lut.jpg" alt="Brown Rice Zoom Image">
+                                    <div id="gallery-quick-view-brown-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/Gao_lut.jpg"
+                                            data-zoom-image="images/product/Gao_lut.jpg">
+                                            <img src="images/product/Gao_lut.jpg" alt="Brown Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-brown-rice"
+                                     data-product-name="Premium Brown Rice"
+                                     data-product-price="35000"
+                                     data-product-image="images/product/Gao_lut.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-brown-rice.html">Huyen Tuyen Premium Brown Rice</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(16 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Brown rice is a whole grain rice variety that retains its nutritious bran layer and germ. Rich in fiber, vitamins, and minerals, it is a healthy choice for daily meals. Its nutty flavor and chewy texture make it a favorite among health-conscious families.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Rich in fiber and nutrients</li>
+                                            <li><i class="fas fa-check-circle"></i> Whole grain, naturally healthy</li>
+                                            <li><i class="fas fa-check-circle"></i> Nutty flavor, chewy texture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>35,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>39,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brown Rice Quick-view-Modal /- -->
+        <div id="quick-view-mixed-grains" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-mixed-grains" class="img-fluid" src="images/product/mixed-grains.jpg"
+                                        data-zoom-image="images/product/mixed-grains.jpg" alt="Mixed Grains Zoom Image">
+                                    <div id="gallery-quick-view-mixed-grains" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/mixed-grains.jpg"
+                                            data-zoom-image="images/product/mixed-grains.jpg">
+                                            <img src="images/product/mixed-grains.jpg" alt="Mixed Grains" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-mixed-grains" 
+                                     data-product-name="Nutritious Mixed Grains"
+                                     data-product-price="85000"
+                                     data-product-image="images/product/mixed-grains.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-Mixed-grains.html">Huyen Tuyen Nutritious Mixed Grains</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(27 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>A balanced blend of various nutritious grains including brown rice, black beans, green beans, and more. This mix provides a comprehensive profile of vitamins, minerals, and fiber for a healthy daily diet.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Complete nutritional profile</li>
+                                            <li><i class="fas fa-check-circle"></i> High fiber for digestion</li>
+                                            <li><i class="fas fa-check-circle"></i> Freshly mixed and packaged</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>85,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>95,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mixed Grains Quick-view-Modal /- -->
+        <div id="quick-view-sticky-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-sticky-rice" class="img-fluid" src="images/product/Gao_nep.jpg"
+                                        data-zoom-image="images/product/Gao_nep.jpg" alt="Sticky Rice Zoom Image">
+                                    <div id="gallery-quick-view-sticky-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/Gao_nep.jpg"
+                                            data-zoom-image="images/product/Gao_nep.jpg">
+                                            <img src="images/product/Gao_nep.jpg" alt="Sticky Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-sticky-rice" 
+                                     data-product-name="Premium Sticky Rice"
+                                     data-product-price="24000"
+                                     data-product-image="images/product/Gao_nep.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-sticky-rice.html">Premium Sticky Rice - Super Soft</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(25 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>High-quality sticky rice with large, white, and even grains. When cooked, it becomes very soft, sticky, and has a natural fragrance. Ideal for making traditional cakes and sticky rice dishes.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Pure variety, no mixing</li>
+                                            <li><i class="fas fa-check-circle"></i> High stickiness, stays soft long</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>24,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>25,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Rice Quick-view-Modal /- -->
+        <div id="quick-view-fragrant-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-fragrant-rice" class="img-fluid" src="images/product/Gao_thom.jpg"
+                                        data-zoom-image="images/product/Gao_thom.jpg" alt="Fragrant Rice Zoom Image">
+                                    <div id="gallery-quick-view-fragrant-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/Gao_thom.jpg"
+                                            data-zoom-image="images/product/Gao_thom.jpg">
+                                            <img src="images/product/Gao_thom.jpg" alt="Fragrant Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-fragrant-rice" 
+                                     data-product-name="Premium Fragrant Rice"
+                                     data-product-price="21000"
+                                     data-product-image="images/product/Gao_thom.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-fragrant-rice.html">Premium Fragrant Rice - Jasmine Scent</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(22 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Naturally fragrant rice with a light Jasmine scent. The grains are long, clear, and soft when cooked. Perfect for high-quality daily family meals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Naturally fragrant, no artificial scents</li>
+                                            <li><i class="fas fa-check-circle"></i> Soft and sweet taste</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>21,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>25,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fragrant Rice Quick-view-Modal /- -->
+    <!-- Product Quick-view Modals /- -->
 </div>
 <!-- app /- -->
 <!--[if lte IE 9]>
@@ -1940,6 +1833,39 @@ ga('send', 'pageview')
 <!-- Owl Carousel -->
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <!-- Main -->
+<script type="text/javascript" src="js/vmenu-sync.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/search-results.js" defer></script>
+<script>
+    $(document).ready(function () {
+        $('#zoom-pro-quick-view-st25').elevateZoom({
+            gallery: 'gallery-quick-view-st25',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-brown-rice').elevateZoom({
+            gallery: 'gallery-quick-view-brown-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-mixed-grains').elevateZoom({
+            gallery: 'gallery-quick-view-mixed-grains',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-sticky-rice').elevateZoom({
+            gallery: 'gallery-quick-view-sticky-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-fragrant-rice').elevateZoom({
+            gallery: 'gallery-quick-view-fragrant-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+    });
+</script>
+<script type="text/javascript" src="js/cart.js" defer></script>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="no-js" lang="en-US">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/jquery-ui-range-slider.min.css">
     <link rel="stylesheet" href="css/utility.css">
-    <link rel="stylesheet" href="css/bundle.css">
+<link rel="stylesheet" href="css/bundle.css">
+<link rel="stylesheet" href="css/custom-modals.css">
 </head>
 <body>
 <div id="app">
@@ -88,8 +89,13 @@
                         <nav>
                             <ul class="mid-nav g-nav">
                                 <li class="u-d-none-lg"><a href="index.html"><i class="ion ion-md-home u-c-brand"></i></a></li>
-                                <li class="u-d-none-lg"><a href="wishlist.html"><i class="far fa-heart"></i></a></li>
-                                <li><a id="mini-cart-trigger"><i class="ion ion-md-basket"></i><span class="item-counter">4</span><span class="item-price">530,000 VND</span></a></li>
+                                <li class="u-d-none-lg">
+                                    <a href="wishlist.html" style="position: relative;">
+                                        <i class="far fa-heart"></i>
+                                        <span class="item-counter wishlist-counter">0</span>
+                                    </a>
+                                </li>
+                                <li><a id="mini-cart-trigger" href="javascript:void(0)" role="button"><i class="ion ion-md-basket"></i><span class="item-counter">4</span><span class="item-price">530,000 VND</span></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -100,6 +106,29 @@
             <div class="fixed-responsive-wrapper"><button type="button" class="button fas fa-search" id="responsive-search"></button></div>
             <div class="fixed-responsive-wrapper"><a href="wishlist.html"><i class="far fa-heart"></i><span class="fixed-item-counter">4</span></a></div>
         </div>
+
+        <!-- Mini Cart -->
+        <div class="mini-cart-wrapper">
+            <div class="mini-cart">
+                <div class="mini-cart-header">
+                    YOUR CART
+                    <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
+                </div>
+                <ul class="mini-cart-list">
+                    <!-- Dynamically rendered by js/cart.js -->
+                </ul>
+                <div class="mini-shop-total clearfix">
+                    <span class="mini-total-heading float-left">Total:</span>
+                    <span class="mini-total-price float-right">0 VND</span>
+                </div>
+                <div class="mini-action-anchors">
+                    <a href="cart.html" class="cart-anchor">View Cart</a>
+                    <a href="checkout.html" class="checkout-anchor">Checkout</a>
+                </div>
+            </div>
+        </div>
+        <!-- Mini Cart /- -->
+
         <div class="full-layer-bottom-header">
             <div class="container">
                 <div class="row align-items-center">
@@ -200,13 +229,46 @@
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="fetch-categories">
                         <h3 class="title-name">Browse Categories</h3>
-                        <h3 class="fetch-mark-category"><a href="shop-v1-root-category.html">Types of Rice <span class="total-fetch-items">(8)</span></a></h3>
                         <ul>
-                            <li><a href="shop-v1-root-category.html">White Rice <span class="total-fetch-items">(2)</span></a></li>
-                            <li><a href="shop-v1-root-category.html">Fragrant Rice <span class="total-fetch-items">(2)</span></a></li>
-                            <li><a href="shop-v1-root-category.html">Sticky Rice <span class="total-fetch-items">(1)</span></a></li>
-                            <li><a href="shop-v1-root-category.html">Brown Rice <span class="total-fetch-items">(1)</span></a></li>
-                            <li><a href="shop-v1-root-category.html">Specialty Rice <span class="total-fetch-items">(2)</span></a></li>
+                            <li>
+                                <a href="shop-v1-root-category.html">Types of Rice</a>
+                                <button class="button-icon ion ion-md-add js-open"></button>
+                                <ul style="display: block">
+                                    <li><a href="product-white-rice.html">White Rice</a></li>
+                                    <li><a href="product-fragrant-rice.html">Fragrant Rice</a></li>
+                                    <li><a href="product-sticky-rice.html">Sticky Rice</a></li>
+                                    <li><a href="product-brown-rice.html">Brown Rice</a></li>
+                                    <li><a href="product-st25-rice.html">ST25 Rice</a></li>
+                                    <li><a href="product-st24-rice.html">ST24 Rice</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a>
+                                <button class="button-icon ion ion-md-add"></button>
+                                <ul>
+                                    <li><a href="product-cashews.html">Cashew Nuts</a></li>
+                                    <li><a href="product-almonds.html">Almonds</a></li>
+                                    <li><a href="product-walnuts.html">Walnuts</a></li>
+                                    <li><a href="product-macadamia.html">Macadamia Nuts</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a>
+                                <button class="button-icon ion ion-md-add"></button>
+                                <ul>
+                                    <li><a href="product-rolled-oats.html">Rolled Oats</a></li>
+                                    <li><a href="product-quinoa.html">Quinoa</a></li>
+                                    <li><a href="product-barley.html">Barley</a></li>
+                                    <li><a href="product-Mixed-grains.html">Mixed Grains</a></li>
+                                    <li><a href="product-brown-rice-mix.html">Brown Rice Mix</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
+                            <li><a href="family-combo-page.html">Family Combo Packs</a></li>
+                            <li><a href="custom-deal-page.html">Deals & Offers</a></li>
+                            <li><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li>
+                            <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                            <li><a href="blog.html">Recipes & Rice Tips</a></li>
                         </ul>
                     </div>
                     <div class="facet-filter-associates">
@@ -222,17 +284,6 @@
                         </form>
                     </div>
                     <div class="facet-filter-associates">
-                        <h3 class="title-name">Pack Size</h3>
-                        <form class="facet-form" action="#" method="post">
-                            <div class="associate-wrapper">
-                                <input type="checkbox" class="check-box" id="size-1kg"><label class="label-text" for="size-1kg">1kg <span class="total-fetch-items">(4)</span></label>
-                                <input type="checkbox" class="check-box" id="size-5kg"><label class="label-text" for="size-5kg">5kg <span class="total-fetch-items">(8)</span></label>
-                                <input type="checkbox" class="check-box" id="size-10kg"><label class="label-text" for="size-10kg">10kg <span class="total-fetch-items">(7)</span></label>
-                                <input type="checkbox" class="check-box" id="size-25kg"><label class="label-text" for="size-25kg">25kg <span class="total-fetch-items">(4)</span></label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="facet-filter-associates">
                         <h3 class="title-name">Use Case</h3>
                         <form class="facet-form" action="#" method="post">
                             <div class="associate-wrapper">
@@ -244,7 +295,7 @@
                     </div>
                     <div class="facet-filter-by-price">
                         <h3 class="title-name">Price</h3>
-                        <form class="facet-form" action="#" method="post">
+                        <form class="facet-form" action="#" method="post" novalidate>
                             <div class="amount-result clearfix"><div class="price-from">10,000 VND</div><div class="price-to">60,000 VND</div></div>
                             <div class="price-filter"></div>
                             <div class="price-slider-range" data-min="10000" data-max="60000" data-default-low="10000" data-default-high="60000" data-currency="VND"></div>
@@ -294,34 +345,581 @@
                     </div>
                     <div class="row product-container list-style">
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-white-rice.html"><img class="img-fluid" src="images/product/gao-te.jpg" alt="White Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Basic Line</a></li></ul><h6 class="item-title"><a href="product-white-rice.html">White Rice</a></h6><div class="item-description"><p>Soft, clean daily rice for family meals, suitable for steamed rice, fried rice, and lunch boxes.</p></div><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(24)</span></div></div><div class="price-template"><div class="item-new-price">18,000 VND/kg</div></div></div></div>
+                            <div class="item" data-filter-rice="white" data-filter-use="daily" data-product-id="product-white-rice" data-product-name="Premium White Rice" data-product-price="18000" data-product-image="images/product/gao-te.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-white-rice.html"><img class="img-fluid" src="images/product/gao-te.jpg" alt="White Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-white-rice">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Basic Line</a></li></ul><h6 class="item-title"><a href="product-white-rice.html">White Rice</a></h6><div class="item-description"><p>Soft, clean daily rice for family meals, suitable for steamed rice, fried rice, and lunch boxes.</p></div><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(24)</span></div></div><div class="price-template"><div class="item-new-price">18,000 VND/kg</div></div></div></div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-fragrant-rice.html"><img class="img-fluid" src="images/product/Gao_thom.jpg" alt="Fragrant Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Basic Line</a></li></ul><h6 class="item-title"><a href="product-fragrant-rice.html">Fragrant Rice</a></h6><div class="item-description"><p>Aromatic rice with a light natural scent, ideal for everyday Vietnamese family meals.</p></div><div class="item-stars"><div class="star" title="4.6 out of 5"><span style="width:69px"></span></div><span>(31)</span></div></div><div class="price-template"><div class="item-new-price">21,000 VND/kg</div></div></div></div>
+                            <div class="item" data-filter-rice="fragrant" data-filter-use="daily" data-product-id="product-fragrant-rice" data-product-name="Premium Fragrant Rice" data-product-price="21000" data-product-image="images/product/Gao_thom.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-fragrant-rice.html"><img class="img-fluid" src="images/product/Gao_thom.jpg" alt="Fragrant Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-fragrant-rice">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Basic Line</a></li></ul><h6 class="item-title"><a href="product-fragrant-rice.html">Fragrant Rice</a></h6><div class="item-description"><p>Aromatic rice with a light natural scent, ideal for everyday Vietnamese family meals.</p></div><div class="item-stars"><div class="star" title="4.6 out of 5"><span style="width:69px"></span></div><span>(31)</span></div></div><div class="price-template"><div class="item-new-price">21,000 VND/kg</div></div></div></div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-sticky-rice.html"><img class="img-fluid" src="images/product/Gao_nep.jpg" alt="Sticky Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Sticky Rice</a></li></ul><h6 class="item-title"><a href="product-sticky-rice.html">Sticky Rice</a></h6><div class="item-description"><p>Flexible sticky rice for xôi, traditional cakes, and family dishes that need a chewy texture.</p></div><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(20)</span></div></div><div class="price-template"><div class="item-new-price">24,000 VND/kg</div></div></div></div>
+                            <div class="item" data-filter-rice="sticky" data-filter-use="daily" data-product-id="product-sticky-rice" data-product-name="Premium Sticky Rice" data-product-price="24000" data-product-image="images/product/Gao_nep.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-sticky-rice.html"><img class="img-fluid" src="images/product/Gao_nep.jpg" alt="Sticky Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-sticky-rice">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Sticky Rice</a></li></ul><h6 class="item-title"><a href="product-sticky-rice.html">Sticky Rice</a></h6><div class="item-description"><p>Flexible sticky rice for xôi, traditional cakes, and family dishes that need a chewy texture.</p></div><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(20)</span></div></div><div class="price-template"><div class="item-new-price">24,000 VND/kg</div></div></div></div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-brown-rice.html"><img class="img-fluid" src="images/product/Gao_lut.jpg" alt="Brown Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Health Grains</a></li></ul><h6 class="item-title"><a href="product-brown-rice.html">Brown Rice</a></h6><div class="item-description"><p>Nutty brown rice for healthier meals, rich in fiber and suitable for diet meal preparation.</p></div><div class="item-stars"><div class="star" title="4.7 out of 5"><span style="width:71px"></span></div><span>(18)</span></div></div><div class="price-template"><div class="item-new-price">39,000 VND/kg</div></div></div><div class="tag hot"><span>HOT</span></div></div>
+                            <div class="item" data-filter-rice="brown" data-filter-use="healthy" data-product-id="product-brown-rice" data-product-name="Premium Brown Rice" data-product-price="35000" data-product-image="images/product/Gao_lut.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-brown-rice.html"><img class="img-fluid" src="images/product/Gao_lut.jpg" alt="Brown Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-brown-rice">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Health Grains</a></li></ul><h6 class="item-title"><a href="product-brown-rice.html">Brown Rice</a></h6><div class="item-description"><p>Nutty brown rice for healthier meals, rich in fiber and suitable for diet meal preparation.</p></div><div class="item-stars"><div class="star" title="4.7 out of 5"><span style="width:71px"></span></div><span>(18)</span></div></div><div class="price-template"><div class="item-new-price">35,000 VND/kg</div></div></div><div class="tag hot"><span>HOT</span></div></div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-st25-rice.html"><img class="img-fluid" src="images/product/gao-ST25.jpg" alt="ST25 Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Premium Line</a></li></ul><h6 class="item-title"><a href="product-st25-rice.html">ST25 Rice</a></h6><div class="item-description"><p>Premium Vietnamese fragrant rice with soft grains, natural aroma, and a polished look for special meals.</p></div><div class="item-stars"><div class="star" title="4.8 out of 5"><span style="width:72px"></span></div><span>(35)</span></div></div><div class="price-template"><div class="item-new-price">45,000 VND/kg</div><div class="item-old-price">50,000 VND/kg</div></div></div><div class="tag sale"><span>-10%</span></div></div>
+                            <div class="item" data-filter-rice="specialty" data-filter-use="premium" data-product-id="product-st25-rice" data-product-name="Premium ST25 Rice" data-product-price="45000" data-product-image="images/product/gao-ST25.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-st25-rice.html"><img class="img-fluid" src="images/product/gao-ST25.jpg" alt="ST25 Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-st25">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Premium Line</a></li></ul><h6 class="item-title"><a href="product-st25-rice.html">ST25 Rice</a></h6><div class="item-description"><p>Premium Vietnamese fragrant rice with soft grains, natural aroma, and a polished look for special meals.</p></div><div class="item-stars"><div class="star" title="4.8 out of 5"><span style="width:72px"></span></div><span>(35)</span></div></div><div class="price-template"><div class="item-new-price">45,000 VND/kg</div><div class="item-old-price">50,000 VND/kg</div></div></div><div class="tag sale"><span>-10%</span></div></div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-bac-huong-rice.html"><img class="img-fluid" src="images/product/gao-bac-huong.jpg" alt="Bac Huong Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Premium Line</a></li></ul><h6 class="item-title"><a href="product-bac-huong-rice.html">Bac Huong Rice</a></h6><div class="item-description"><p>Popular aromatic rice from Northern Vietnam, balanced between quality, fragrance, and daily usability.</p></div><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(23)</span></div></div><div class="price-template"><div class="item-new-price">32,000 VND/kg</div><div class="item-old-price">38,000 VND/kg</div></div></div><div class="tag sale"><span>SALE</span></div></div>
+                            <div class="item" data-filter-rice="specialty" data-filter-use="daily premium" data-product-id="product-bac-huong-rice" data-product-name="Bac Huong Rice" data-product-price="32000" data-product-image="images/product/gao-bac-huong.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-bac-huong-rice.html"><img class="img-fluid" src="images/product/gao-bac-huong.jpg" alt="Bac Huong Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-bac-huong">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Premium Line</a></li></ul><h6 class="item-title"><a href="product-bac-huong-rice.html">Bac Huong Rice</a></h6><div class="item-description"><p>Popular aromatic rice from Northern Vietnam, balanced between quality, fragrance, and daily usability.</p></div><div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(23)</span></div></div><div class="price-template"><div class="item-new-price">32,000 VND/kg</div><div class="item-old-price">38,000 VND/kg</div></div></div><div class="tag sale"><span>SALE</span></div></div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-dien-bien-rice.html"><img class="img-fluid" src="images/product/gao-dien-bien.jpg" alt="Dien Bien Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Specialty Rice</a></li></ul><h6 class="item-title"><a href="product-dien-bien-rice.html">Dien Bien Rice</a></h6><div class="item-description"><p>Regional specialty rice with soft cooked texture and a clean taste for traditional family meals.</p></div><div class="item-stars"><div class="star" title="4.6 out of 5"><span style="width:69px"></span></div><span>(17)</span></div></div><div class="price-template"><div class="item-new-price">34,000 VND/kg</div></div></div></div>
+                            <div class="item" data-filter-rice="specialty" data-filter-use="daily" data-product-id="product-broken-rice" data-product-name="Premium Broken Rice" data-product-price="16000" data-product-image="images/product/broken-rice.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-broken-rice.html"><img class="img-fluid" src="images/product/broken-rice.jpg" alt="Broken Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-broken-rice">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Specialty Rice</a></li></ul><h6 class="item-title"><a href="product-broken-rice.html">Broken Rice</a></h6><div class="item-description"><p>Soft broken rice grains for cơm tấm and quick daily meals, easy to cook and budget-friendly.</p></div><div class="item-stars"><div class="star" title="4.6 out of 5"><span style="width:69px"></span></div><span>(17)</span></div></div><div class="price-template"><div class="item-new-price">16,000 VND/kg</div></div></div></div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item"><div class="image-container"><a class="item-img-wrapper-link" href="product-low-sugar-rice.html"><img class="img-fluid" src="images/product/low-sugar-rice.jpg" alt="Low Sugar Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Healthy Rice</a></li></ul><h6 class="item-title"><a href="product-low-sugar-rice.html">Low Sugar Rice</a></h6><div class="item-description"><p>A healthier rice option for customers who want lighter meals and better daily nutrition control.</p></div><div class="item-stars"><div class="star" title="4.4 out of 5"><span style="width:66px"></span></div><span>(14)</span></div></div><div class="price-template"><div class="item-new-price">42,000 VND/kg</div></div></div><div class="tag new"><span>NEW</span></div></div>
+                            <div class="item" data-filter-rice="specialty" data-filter-use="healthy" data-product-id="product-black-rice" data-product-name="Premium Black Rice" data-product-price="42000" data-product-image="images/product/black-rice.jpg"><div class="image-container"><a class="item-img-wrapper-link" href="product-Black-rice.html"><img class="img-fluid" src="images/product/black-rice.jpg" alt="Black Rice"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-black-rice">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div><div class="item-content"><div class="what-product-is"><ul class="bread-crumb"><li class="has-separator"><a href="shop-v1-root-category.html">Rice</a></li><li><a href="shop-v1-root-category.html">Healthy Rice</a></li></ul><h6 class="item-title"><a href="product-Black-rice.html">Black Rice</a></h6><div class="item-description"><p>Antioxidant-rich black rice with a nutty flavor, ideal for healthier meal prep and balanced diets.</p></div><div class="item-stars"><div class="star" title="4.4 out of 5"><span style="width:66px"></span></div><span>(14)</span></div></div><div class="price-template"><div class="item-new-price">42,000 VND/kg</div></div></div><div class="tag new"><span>NEW</span></div></div>
+                        </div>
+                    </div>
+                    <div class="pagination-area u-s-m-t-30">
+                        <div class="pagination-number">
+                            <!-- Rendered by js/search-results.js -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Product Quick-view Modals -->
+        <div id="quick-view-white-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">Brown Rice
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-white-rice" class="img-fluid" src="images/product/gao-te.jpg"
+                                        data-zoom-image="images/product/gao-te.jpg" alt="White Rice Zoom Image">
+                                    <div id="gallery-quick-view-white-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/gao-te.jpg"
+                                            data-zoom-image="images/product/gao-te.jpg">
+                                            <img src="images/product/gao-te.jpg" alt="White Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-white-rice" 
+                                     data-product-name="Premium White Rice"
+                                     data-product-price="18000"
+                                     data-product-image="images/product/gao-te.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-white-rice.html">Huyen Tuyen Premium White Rice</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.8 out of 5"><span style='width:72px'></span></div>
+                                            <span>(45 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Clear white, slender grains, moderately soft and naturally fragrant. The number one choice for a warm family meal.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Naturally cultivated, no chemicals</li>
+                                            <li><i class="fas fa-check-circle"></i> Standard moisture, long-term preservation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>18,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>22,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- White Rice Quick-view-Modal /- -->
+        <div id="quick-view-fragrant-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-fragrant-rice" class="img-fluid" src="images/product/Gao_thom.jpg"
+                                        data-zoom-image="images/product/Gao_thom.jpg" alt="Fragrant Rice Zoom Image">
+                                    <div id="gallery-quick-view-fragrant-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/Gao_thom.jpg"
+                                            data-zoom-image="images/product/Gao_thom.jpg">
+                                            <img src="images/product/Gao_thom.jpg" alt="Fragrant Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-fragrant-rice" 
+                                     data-product-name="Premium Fragrant Rice"
+                                     data-product-price="21000"
+                                     data-product-image="images/product/Gao_thom.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-fragrant-rice.html">Premium Fragrant Rice - Jasmine Scent</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(22 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Naturally fragrant rice with a light Jasmine scent. The grains are long, clear, and soft when cooked. Perfect for high-quality daily family meals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Naturally fragrant, no artificial scents</li>
+                                            <li><i class="fas fa-check-circle"></i> Soft and sweet taste</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>21,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>25,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fragrant Rice Quick-view-Modal /- -->
+        <div id="quick-view-sticky-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-sticky-rice" class="img-fluid" src="images/product/Gao_nep.jpg"
+                                        data-zoom-image="images/product/Gao_nep.jpg" alt="Sticky Rice Zoom Image">
+                                    <div id="gallery-quick-view-sticky-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/Gao_nep.jpg"
+                                            data-zoom-image="images/product/Gao_nep.jpg">
+                                            <img src="images/product/Gao_nep.jpg" alt="Sticky Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-sticky-rice" 
+                                     data-product-name="Premium Sticky Rice"
+                                     data-product-price="24000"
+                                     data-product-image="images/product/Gao_nep.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-sticky-rice.html">Premium Sticky Rice - Super Soft</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(25 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>High-quality sticky rice with large, white, and even grains. When cooked, it becomes very soft, sticky, and has a natural fragrance. Ideal for making traditional cakes and sticky rice dishes.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Pure variety, no mixing</li>
+                                            <li><i class="fas fa-check-circle"></i> High stickiness, stays soft long</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>24,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>25,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Rice Quick-view-Modal /- -->
+        <div id="quick-view-brown-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-brown-rice" class="img-fluid" src="images/product/Gao_lut.jpg"
+                                        data-zoom-image="images/product/Gao_lut.jpg" alt="Brown Rice Zoom Image">
+                                    <div id="gallery-quick-view-brown-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/Gao_lut.jpg"
+                                            data-zoom-image="images/product/Gao_lut.jpg">
+                                            <img src="images/product/Gao_lut.jpg" alt="Brown Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-brown-rice"
+                                     data-product-name="Premium Brown Rice"
+                                     data-product-price="35000"
+                                     data-product-image="images/product/Gao_lut.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-brown-rice.html">Huyen Tuyen Premium Brown Rice</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(16 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Brown rice is a whole grain rice variety that retains its nutritious bran layer and germ. Rich in fiber, vitamins, and minerals, it is a healthy choice for daily meals. Its nutty flavor and chewy texture make it a favorite among health-conscious families.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Rich in fiber and nutrients</li>
+                                            <li><i class="fas fa-check-circle"></i> Whole grain, naturally healthy</li>
+                                            <li><i class="fas fa-check-circle"></i> Nutty flavor, chewy texture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>35,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>39,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brown Rice Quick-view-Modal /- -->
+        <div id="quick-view-st25" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-st25" class="img-fluid" src="images/product/gao-ST25.jpg"
+                                        data-zoom-image="images/product/gao-ST25.jpg" alt="ST25 Rice Zoom Image">
+                                    <div id="gallery-quick-view-st25" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/gao-ST25.jpg"
+                                            data-zoom-image="images/product/gao-ST25.jpg">
+                                            <img src="images/product/gao-ST25.jpg" alt="ST25 Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-st25-rice"
+                                     data-product-name="Premium ST25 Rice"
+                                     data-product-price="45000"
+                                     data-product-image="images/product/gao-ST25.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-st25-rice.html">Huyen Tuyen Premium ST25 Rice - World's Best</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.9 out of 5"><span style='width:74px'></span></div>
+                                            <span>(35 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>ST25 rice is officially recognized as one of the best rice varieties in the world. Known for its extra-long, slender grains, it offers an incredible pineapple-like aroma and a soft, chewy, and sweet texture.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Award-winning "World's Best Rice"</li>
+                                            <li><i class="fas fa-check-circle"></i> Low glycemic index, suitable for health-conscious diets</li>
+                                            <li><i class="fas fa-check-circle"></i> Pesticide-free and organic farming standards</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>45,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>50,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ST25 Rice Quick-view-Modal /- -->
+        <div id="quick-view-bac-huong" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-bac-huong" class="img-fluid" src="images/product/gao-bac-huong.jpg"
+                                        data-zoom-image="images/product/gao-bac-huong.jpg" alt="Bac Huong Rice Zoom Image">
+                                    <div id="gallery-quick-view-bac-huong" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/gao-bac-huong.jpg"
+                                            data-zoom-image="images/product/gao-bac-huong.jpg">
+                                            <img src="images/product/gao-bac-huong.jpg" alt="Bac Huong Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-bac-huong-rice" 
+                                     data-product-name="Bac Huong Rice"
+                                     data-product-price="32000"
+                                     data-product-image="images/product/gao-bac-huong.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-bac-huong-rice.html">Bac Huong Rice - Northern Specialty</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(23 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Bac Huong rice is a famous specialty from the Northern delta. The grains are small, white, and have a rich, sweet taste. It stays soft and fragrant even when cold.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Traditional Northern variety</li>
+                                            <li><i class="fas fa-check-circle"></i> Rich in nutrients, soft texture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>32,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>38,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bac Huong Rice Quick-view-Modal /- -->
+        <div id="quick-view-broken-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-broken-rice" class="img-fluid" src="images/product/Gao_tam_xoan_hai_hau.png"
+                                        data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png" alt="Broken Rice Zoom Image">
+                                    <div id="gallery-quick-view-broken-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/Gao_tam_xoan_hai_hau.png"
+                                            data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png">
+                                            <img src="images/product/Gao_tam_xoan_hai_hau.png" alt="Broken Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-broken-rice" 
+                                     data-product-name="Premium Broken Rice"
+                                     data-product-price="16000"
+                                     data-product-image="images/product/Gao_tam_xoan_hai_hau.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-broken-rice.html">Premium Broken Rice - Traditional Taste</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(19 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>High-quality broken rice, harvested from the famous Hai Hau region. The grains are small but contain the full nutritional value of the rice. Perfect for making traditional Com Tam or daily meals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Famous Hai Hau origin</li>
+                                            <li><i class="fas fa-check-circle"></i> Naturally sweet and fragrant</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>16,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>20,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Broken Rice Quick-view-Modal /- -->
+        <div id="quick-view-black-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-black-rice" class="img-fluid" src="images/product/black-rice.jpg"
+                                        data-zoom-image="images/product/black-rice.jpg" alt="Black Rice Zoom Image">
+                                    <div id="gallery-quick-view-black-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/black-rice.jpg"
+                                            data-zoom-image="images/product/black-rice.jpg">
+                                            <img src="images/product/black-rice.jpg" alt="Black Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" 
+                                     data-product-id="product-black-rice" 
+                                     data-product-name="Premium Black Rice"
+                                     data-product-price="42000"
+                                     data-product-image="images/product/black-rice.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-Black-rice.html">Huyen Tuyen Premium Black Rice</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.9 out of 5"><span style='width:74px'></span></div>
+                                            <span>(20 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Black rice, often referred to as "Forbidden Rice," is a powerful superfood. It is exceptionally rich in antioxidants (anthocyanins), protein, and iron. It has a unique deep purple color when cooked and a wonderful nutty flavor.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High antioxidant content</li>
+                                            <li><i class="fas fa-check-circle"></i> Heart-healthy and diabetic-friendly</li>
+                                            <li><i class="fas fa-check-circle"></i> Organic and chemical-free</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>42,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>48,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Black Rice Quick-view-Modal /- -->
+    <!-- Product Quick-view Modals /- -->
+
 
     <footer class="footer">
         <div class="container">
@@ -329,7 +927,7 @@
                 <div class="col-lg-4 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Huyen Tuyen Rice</h4><p>Fresh rice, healthy nuts, seeds, and whole grains for every family meal.</p><p>We focus on clean ingredients, safe packaging, and reliable delivery.</p></div></div>
                 <div class="col-lg-2 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Shop</h4><ul><li><a href="shop-v1-root-category.html">Types of Rice</a></li><li><a href="shop-v2-sub-category.html">Healthy Nuts & Seeds</a></li><li><a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a></li><li><a href="family-combo-page.html">Family Combo Packs</a></li></ul></div></div>
                 <div class="col-lg-2 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Support</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="faq.html">FAQ</a></li><li><a href="track-order.html">Track Your Order</a></li></ul></div></div>
-                <div class="col-lg-4 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Contact</h4><ul><li><i class="ion ion-md-call"></i> 0914 331 367</li><li><i class="ion ion-md-call"></i> 0983 914 467</li><li><i class="ion ion-md-mail"></i> support@huyentuyenrice.com</li><li><i class="ion ion-md-pin"></i> Vietnam</li></ul><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
+                <div class="col-lg-4 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Contact</h4><ul><li><i class="ion ion-md-call"></i> 0914 331 367</li><li><i class="ion ion-md-call"></i> 0983 914 467</li><li><i class="ion ion-md-mail"></i> support@huyentuyenrice.com</li><li><i class="ion ion-md-pin"></i> Vietnam</li></ul><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div></div>
             </div>
             <div class="footer-bottom text-center"><p>&copy; 2026 Huyen Tuyen Rice. All Rights Reserved.</p></div>
         </div>
@@ -354,6 +952,55 @@
 <script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
 <script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/vmenu-sync.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#zoom-pro-quick-view-white-rice').elevateZoom({
+            gallery: 'gallery-quick-view-white-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-black-rice').elevateZoom({
+            gallery: 'gallery-quick-view-black-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-broken-rice').elevateZoom({
+            gallery: 'gallery-quick-view-broken-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-fragrant-rice').elevateZoom({
+            gallery: 'gallery-quick-view-fragrant-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-sticky-rice').elevateZoom({
+            gallery: 'gallery-quick-view-sticky-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-st25').elevateZoom({
+            gallery: 'gallery-quick-view-st25',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-brown-rice').elevateZoom({
+            gallery: 'gallery-quick-view-brown-rice',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+        $('#zoom-pro-quick-view-bac-huong').elevateZoom({
+            gallery: 'gallery-quick-view-bac-huong',
+            galleryActiveClass: 'active',
+            zoomEnabled: false,
+        });
+    });
+</script>
+<script type="text/javascript" src="js/search-results.js" defer></script>
+<script type="text/javascript" src="js/cart.js" defer></script>
 </body>
 </html>
+
+

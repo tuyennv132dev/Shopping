@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="no-js" lang="en-US">
 
 <head>
@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/utility.css">
     <!-- Main -->
     <link rel="stylesheet" href="css/bundle.css">
+    <link rel="stylesheet" href="css/custom-modals.css">
 </head>
 
 <body>
@@ -673,54 +674,89 @@
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="fetch-categories">
                             <h3 class="title-name">Browse Categories</h3>
-                            <h3 class="fetch-mark-category"><a href="shop-healthy-food-products.html">Healthy Food Products <span class="total-fetch-items">(8)</span></a></h3>
                             <ul>
-                                <li><a href="shop-healthy-food-products.html">Healthy Rice <span class="total-fetch-items">(2)</span></a></li>
-                                <li><a href="shop-healthy-food-products.html">Breakfast Foods <span class="total-fetch-items">(2)</span></a></li>
-                                <li><a href="shop-healthy-food-products.html">Diet Support <span class="total-fetch-items">(2)</span></a></li>
-                                <li><a href="shop-healthy-food-products.html">Healthy Mixes <span class="total-fetch-items">(2)</span></a></li>
+                                <li>
+                                    <a href="shop-v1-root-category.html">Types of Rice</a>
+                                    <button class="button-icon ion ion-md-add js-open"></button>
+                                    <ul style="display: block">
+                                        <li><a href="product-white-rice.html">White Rice</a></li>
+                                        <li><a href="product-fragrant-rice.html">Fragrant Rice</a></li>
+                                        <li><a href="product-sticky-rice.html">Sticky Rice</a></li>
+                                        <li><a href="product-brown-rice.html">Brown Rice</a></li>
+                                        <li><a href="product-st25-rice.html">ST25 Rice</a></li>
+                                        <li><a href="product-st24-rice.html">ST24 Rice</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a>
+                                    <button class="button-icon ion ion-md-add"></button>
+                                    <ul>
+                                        <li><a href="product-cashews.html">Cashew Nuts</a></li>
+                                        <li><a href="product-almonds.html">Almonds</a></li>
+                                        <li><a href="product-walnuts.html">Walnuts</a></li>
+                                        <li><a href="product-macadamia.html">Macadamia Nuts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a>
+                                    <button class="button-icon ion ion-md-add"></button>
+                                    <ul>
+                                        <li><a href="product-rolled-oats.html">Rolled Oats</a></li>
+                                        <li><a href="product-quinoa.html">Quinoa</a></li>
+                                        <li><a href="product-barley.html">Barley</a></li>
+                                        <li><a href="product-Mixed-grains.html">Mixed Grains</a></li>
+                                        <li><a href="product-brown-rice-mix.html">Brown Rice Mix</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
+                                <li><a href="family-combo-page.html">Family Combo Packs</a></li>
+                                <li><a href="custom-deal-page.html">Deals & Offers</a></li>
+                                <li><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li>
+                                <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                <li><a href="blog.html">Recipes & Rice Tips</a></li>
                             </ul>
                         </div>
 
-                        <div class="facet-filter-associates">
-                            <h3 class="title-name">Product Type</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                    <input type="checkbox" class="check-box" id="type-1"><label class="label-text" for="type-1">Healthy Rice <span class="total-fetch-items">(2)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-2"><label class="label-text" for="type-2">Whole Grains <span class="total-fetch-items">(2)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-3"><label class="label-text" for="type-3">Seeds & Nuts <span class="total-fetch-items">(2)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-4"><label class="label-text" for="type-4">Meal Support <span class="total-fetch-items">(2)</span></label>
-                            </div></form>
-                        </div>
+	                        <div class="facet-filter-associates">
+	                            <h3 class="title-name">Product Type</h3>
+	                            <form class="facet-form" action="#" method="post">
+                                    <div class="associate-wrapper">
+	                                    <input type="checkbox" class="check-box" id="rice-whole-grains"><label class="label-text" for="rice-whole-grains">Whole Grains <span class="total-fetch-items">(5)</span></label>
+	                                    <input type="checkbox" class="check-box" id="rice-meal-support"><label class="label-text" for="rice-meal-support">Meal Support <span class="total-fetch-items">(2)</span></label>
+	                                    <input type="checkbox" class="check-box" id="rice-seeds-nuts"><label class="label-text" for="rice-seeds-nuts">Seeds & Nuts <span class="total-fetch-items">(1)</span></label>
+	                            </div></form>
+	                        </div>
 
-                        <div class="facet-filter-associates">
-                            <h3 class="title-name">Pack Size</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                <input type="checkbox" class="check-box" id="pack-250"><label class="label-text" for="pack-250">250g <span class="total-fetch-items">(2)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-500"><label class="label-text" for="pack-500">500g <span class="total-fetch-items">(4)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-1kg"><label class="label-text" for="pack-1kg">1kg <span class="total-fetch-items">(3)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-combo"><label class="label-text" for="pack-combo">Combo Pack <span class="total-fetch-items">(1)</span></label>
-                            </div></form>
-                        </div>
+	                        <div class="facet-filter-associates">
+	                            <h3 class="title-name">Use Case</h3>
+	                            <form class="facet-form" action="#" method="post">
+                                    <div class="associate-wrapper">
+	                                    <input type="checkbox" class="check-box" id="use-diet"><label class="label-text" for="use-diet">Diet Meals <span class="total-fetch-items">(2)</span></label>
+	                                    <input type="checkbox" class="check-box" id="use-breakfast"><label class="label-text" for="use-breakfast">Breakfast <span class="total-fetch-items">(3)</span></label>
+	                                    <input type="checkbox" class="check-box" id="use-high-fiber"><label class="label-text" for="use-high-fiber">High Fiber <span class="total-fetch-items">(3)</span></label>
+	                                    <input type="checkbox" class="check-box" id="use-wellness"><label class="label-text" for="use-wellness">Daily Wellness <span class="total-fetch-items">(3)</span></label>
+	                            </div></form>
+	                        </div>
 
-                        <div class="facet-filter-associates">
-                            <h3 class="title-name">Use Case</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                    <input type="checkbox" class="check-box" id="use-1"><label class="label-text" for="use-1">Diet Meals <span class="total-fetch-items">(3)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-2"><label class="label-text" for="use-2">Breakfast <span class="total-fetch-items">(4)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-3"><label class="label-text" for="use-3">High Fiber <span class="total-fetch-items">(4)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-4"><label class="label-text" for="use-4">Daily Wellness <span class="total-fetch-items">(5)</span></label>
-                            </div></form>
-                        </div>
-
-                        <div class="facet-filter-by-price">
-                            <h3 class="title-name">Price</h3>
-                            <form class="facet-form" action="#" method="post">
-                                <div class="amount-result clearfix"><div class="price-from">0 VND</div><div class="price-to">300,000 VND</div></div>
-                                <div class="price-filter"></div>
-                                <div class="price-slider-range" data-min="0" data-max="300000" data-default-low="0" data-default-high="300000" data-currency="VND"></div>
-                                <button type="submit" class="button button-primary">Filter</button>
-                            </form>
-                        </div>
+	                        <div class="facet-filter-by-price">
+	                            <h3 class="title-name">Price</h3>
+	                            <form class="facet-form" action="#" method="post" novalidate>
+	                                <div class="amount-result clearfix"><div class="price-from">0 VND</div><div class="price-to">200,000 VND</div></div>
+                                    <div class="row u-s-m-t-15">
+                                        <div class="col-6 u-s-m-b-10">
+                                            <label class="sr-only" for="price-min">Min price</label>
+                                            <input id="price-min" class="text-field" type="number" inputmode="numeric" min="0" max="200000" step="1000" placeholder="Min (VND)">
+                                        </div>
+                                        <div class="col-6 u-s-m-b-10">
+                                            <label class="sr-only" for="price-max">Max price</label>
+                                            <input id="price-max" class="text-field" type="number" inputmode="numeric" min="0" max="200000" step="1000" placeholder="Max (VND)">
+                                        </div>
+                                    </div>
+	                                <div class="price-filter"></div>
+	                                <div class="price-slider-range" data-min="0" data-max="200000" data-default-low="0" data-default-high="200000" data-currency="VND"></div>
+	                                <button type="submit" class="button button-primary">Filter</button>
+	                            </form>
+	                        </div>
 
                         <div class="facet-filter-by-shipping">
                             <h3 class="title-name">Shipping</h3>
@@ -738,75 +774,13 @@
                         </div>
                         <div class="row product-container list-style">
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
-                                <div class="image-container">
-                                    <a class="item-img-wrapper-link" href="product-low-sugar-rice.html">
-                                        <img class="img-fluid" src="images/product/low-sugar-rice.jpg" alt="Low Sugar Rice">
-                                    </a>
-                                    <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <div class="what-product-is">
-                                        <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
-                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
-                                            <li><a href="shop-healthy-food-products.html">Healthy Rice</a></li>
-                                        </ul>
-                                        <h6 class="item-title"><a href="product-low-sugar-rice.html">Low Sugar Rice</a></h6>
-                                        <div class="item-description"><p>Low-sugar rice option for customers who prefer lighter daily meals.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
-                                    </div>
-                                    <div class="price-template">
-                                        <div class="item-new-price">42,000 VND/kg</div>
-                                        <div class="item-old-price">48,000 VND/kg</div>
-                                    </div>
-                                </div>
-                                <div class="tag hot"><span>HOT</span></div>
-                            </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
-                                <div class="image-container">
-                                    <a class="item-img-wrapper-link" href="product-germinated-brown-rice.html">
-                                        <img class="img-fluid" src="images/product/germinated-brown-rice.jpg" alt="Germinated Brown Rice">
-                                    </a>
-                                    <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <div class="what-product-is">
-                                        <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
-                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
-                                            <li><a href="shop-healthy-food-products.html">Healthy Rice</a></li>
-                                        </ul>
-                                        <h6 class="item-title"><a href="product-germinated-brown-rice.html">Germinated Brown Rice</a></h6>
-                                        <div class="item-description"><p>Nutritious germinated brown rice with natural aroma and firm texture.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
-                                    </div>
-                                    <div class="price-template">
-                                        <div class="item-new-price">49,000 VND/kg</div>
-                                        <div class="item-old-price">58,000 VND/kg</div>
-                                    </div>
-                                </div>
-                                <div class="tag sale"><span>SALE</span></div>
-                            </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="meal-support" data-filter-use="breakfast wellness" data-product-id="product-fruit-granola" data-product-name="Fruit Granola" data-product-price="115000" data-product-image="images/product/granola.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-fruit-granola.html">
                                         <img class="img-fluid" src="images/product/granola.jpg" alt="Fruit Granola">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-fruit-granola">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -816,10 +790,10 @@
                                         <ul class="bread-crumb">
                                             <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
-                                            <li><a href="shop-healthy-food-products.html">Breakfast Foods</a></li>
+                                            <li><a href="shop-healthy-food-products.html">Meal Support</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-fruit-granola.html">Fruit Granola</a></h6>
-                                        <div class="item-description"><p>Crunchy granola with dried fruits for breakfast bowls and snacks.</p></div>
+                                        <div class="item-description"><p>Crunchy baked granola with honey, dried fruits, and seeds — great with milk or yogurt.</p></div>
                                         <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
                                     </div>
                                     <div class="price-template">
@@ -827,78 +801,17 @@
                                         <div class="item-old-price">130,000 VND/500g</div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
-                                <div class="image-container">
-                                    <a class="item-img-wrapper-link" href="product-trail-mix.html">
-                                        <img class="img-fluid" src="images/product/trail-mix.jpg" alt="Trail Mix">
-                                    </a>
-                                    <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <div class="what-product-is">
-                                        <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
-                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
-                                            <li><a href="shop-healthy-food-products.html">Healthy Mixes</a></li>
-                                        </ul>
-                                        <h6 class="item-title"><a href="product-trail-mix.html">Trail Mix</a></h6>
-                                        <div class="item-description"><p>Nuts, seeds, and dried fruits mixed for quick energy and daily snacks.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
-                                    </div>
-                                    <div class="price-template">
-                                        <div class="item-new-price">135,000 VND/500g</div>
-                                        <div class="item-old-price">155,000 VND/500g</div>
-                                    </div>
-                                </div>
-                                <div class="tag hot"><span>HOT</span></div>
-                            </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
-                                <div class="image-container">
-                                    <a class="item-img-wrapper-link" href="product-chia-seeds.html">
-                                        <img class="img-fluid" src="images/product/chia-seeds.jpg" alt="Chia Seeds">
-                                    </a>
-                                    <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <div class="what-product-is">
-                                        <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
-                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
-                                            <li><a href="shop-healthy-food-products.html">Seeds & Nuts</a></li>
-                                        </ul>
-                                        <h6 class="item-title"><a href="product-chia-seeds.html">Chia Seeds</a></h6>
-                                        <div class="item-description"><p>Chia seeds for smoothies, yogurt bowls, detox drinks, and breakfast.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
-                                    </div>
-                                    <div class="price-template">
-                                        <div class="item-new-price">85,000 VND/250g</div>
-                                        <div class="item-old-price">95,000 VND/250g</div>
-                                    </div>
-                                </div>
                                 <div class="tag new"><span>NEW</span></div>
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="whole-grains" data-filter-use="breakfast high-fiber wellness" data-product-id="product-rolled-oats" data-product-name="Nutritious Rolled Oats" data-product-price="78000" data-product-image="images/product/oats.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-rolled-oats.html">
                                         <img class="img-fluid" src="images/product/oats.jpg" alt="Rolled Oats">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-rolled-oats">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -911,25 +824,145 @@
                                             <li><a href="shop-healthy-food-products.html">Whole Grains</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-rolled-oats.html">Rolled Oats</a></h6>
-                                        <div class="item-description"><p>Rolled oats for porridge, overnight oats, baking, and healthy breakfast.</p></div>
+                                        <div class="item-description"><p>Versatile whole-grain oats for oatmeal, granola, baking, and healthy breakfasts.</p></div>
                                         <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">78,000 VND/500g</div>
-                                        <div class="item-old-price">90,000 VND/500g</div>
+                                        <div class="item-old-price">85,000 VND/500g</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="whole-grains" data-filter-use="diet high-fiber wellness" data-product-id="product-quinoa" data-product-name="White Quinoa" data-product-price="145000" data-product-image="images/product/quinoa.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-quinoa.html">
+                                        <img class="img-fluid" src="images/product/quinoa.jpg" alt="White Quinoa">
+                                    </a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-white-quinoa">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
+                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                            <li><a href="shop-healthy-food-products.html">Whole Grains</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-quinoa.html">White Quinoa</a></h6>
+                                        <div class="item-description"><p>Gluten-free quinoa rich in protein and fiber — perfect for salads, diets, and healthy meals.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">145,000 VND/500g</div>
+                                        <div class="item-old-price">165,000 VND/500g</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="whole-grains" data-filter-use="high-fiber wellness" data-product-id="product-barley" data-product-name="Pearl Barley" data-product-price="68000" data-product-image="images/product/barley.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-barley.html">
+                                        <img class="img-fluid" src="images/product/barley.jpg" alt="Pearl Barley">
+                                    </a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-pearl-barley">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
+                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                            <li><a href="shop-healthy-food-products.html">Whole Grains</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-barley.html">Pearl Barley</a></h6>
+                                        <div class="item-description"><p>Premium barley for soups, stews, and healthy family meals — rich in soluble fiber.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">68,000 VND/500g</div>
+                                        <div class="item-old-price">80,000 VND/500g</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="whole-grains" data-filter-use="high-fiber wellness" data-product-id="product-mixed-grains" data-product-name="Nutritious Mixed Grains" data-product-price="85000" data-product-image="images/product/mixed-grains.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-Mixed-grains.html">
+                                        <img class="img-fluid" src="images/product/mixed-grains.jpg" alt="Mixed Grains">
+                                    </a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-mixed-grains">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
+                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                            <li><a href="shop-healthy-food-products.html">Whole Grains</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-Mixed-grains.html">Mixed Grains</a></h6>
+                                        <div class="item-description"><p>Balanced blend of grains and beans — a fiber-rich option for everyday healthy eating.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">85,000 VND/500g</div>
+                                        <div class="item-old-price">95,000 VND/500g</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="meal-support" data-filter-use="breakfast wellness" data-product-id="product-multi-grain-powder" data-product-name="Multi-Grain Healthy Powder" data-product-price="120000" data-product-image="images/product/multi-grain-powder.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-multi-grain-powder.html">
+                                        <img class="img-fluid" src="images/product/multi-grain-powder.jpg" alt="Multi-Grain Powder">
+                                    </a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-multi-grain-powder">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
+                                            <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                            <li><a href="shop-healthy-food-products.html">Meal Support</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-multi-grain-powder.html">Multi-Grain Powder</a></h6>
+                                        <div class="item-description"><p>Roasted grain powder for a quick nutritious drink — easy meal replacement for busy days.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">120,000 VND/500g</div>
+                                        <div class="item-old-price">135,000 VND/500g</div>
                                     </div>
                                 </div>
                                 <div class="tag sale"><span>SALE</span></div>
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="whole-grains" data-filter-use="diet high-fiber wellness" data-product-id="product-brown-rice-mix" data-product-name="Brown Rice Mix" data-product-price="92000" data-product-image="images/product/brown-rice-mix.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-brown-rice-mix.html">
                                         <img class="img-fluid" src="images/product/brown-rice-mix.jpg" alt="Brown Rice Mix">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-brown-rice-mix">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -939,27 +972,27 @@
                                         <ul class="bread-crumb">
                                             <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
-                                            <li><a href="shop-healthy-food-products.html">Meal Support</a></li>
+                                            <li><a href="shop-healthy-food-products.html">Whole Grains</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-brown-rice-mix.html">Brown Rice Mix</a></h6>
-                                        <div class="item-description"><p>Mixed brown rice and grains for balanced family meals.</p></div>
+                                        <div class="item-description"><p>Nutritious blend of whole grains with low glycemic index — ideal for healthier meal prep.</p></div>
                                         <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
                                     </div>
                                     <div class="price-template">
-                                        <div class="item-new-price">68,000 VND/kg</div>
-                                        <div class="item-old-price">80,000 VND/kg</div>
+                                        <div class="item-new-price">92,000 VND/1kg</div>
+                                        <div class="item-old-price">105,000 VND/1kg</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="seeds-nuts" data-filter-use="wellness" data-product-id="product-black-sesame" data-product-name="Black Sesame Powder" data-product-price="88000" data-product-image="images/product/black-sesame.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-black-sesame-powder.html">
-                                        <img class="img-fluid" src="images/product/black-sesame-powder.jpg" alt="Black Sesame Powder">
+                                        <img class="img-fluid" src="images/product/black-sesame.jpg" alt="Black Sesame Powder">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-black-sesame-powder">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -969,20 +1002,25 @@
                                         <ul class="bread-crumb">
                                             <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
-                                            <li><a href="shop-healthy-food-products.html">Meal Support</a></li>
+                                            <li><a href="shop-healthy-food-products.html">Seeds & Nuts</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-black-sesame-powder.html">Black Sesame Powder</a></h6>
-                                        <div class="item-description"><p>Fine black sesame powder for drinks, desserts, and nutritious meal prep.</p></div>
+                                        <div class="item-description"><p>Deep nutty sesame powder rich in calcium and antioxidants — ideal for drinks and desserts.</p></div>
                                         <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
                                     </div>
                                     <div class="price-template">
-                                        <div class="item-new-price">98,000 VND/500g</div>
-                                        <div class="item-old-price">115,000 VND/500g</div>
+                                        <div class="item-new-price">88,000 VND/500g</div>
+                                        <div class="item-old-price">99,000 VND/500g</div>
                                     </div>
                                 </div>
                                 <div class="tag new"><span>NEW</span></div>
                             </div>
                         </div>
+                        </div>
+                        <div class="pagination-area u-s-m-t-30">
+                            <div class="pagination-number">
+                                <!-- Rendered by js/search-results.js -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -990,22 +1028,553 @@
         </div>
         <!-- Shop-Page /- -->
 
-        <!-- Quick-view-Modal -->
-        <div id="quick-view" class="modal fade">
-            <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
-                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
-                <div class="modal-body"><div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12"><div class="zoom-area"><img id="zoom-pro-quick-view" class="img-fluid" src="images/product/low-sugar-rice.jpg" data-zoom-image="images/product/low-sugar-rice.jpg" alt="Low Sugar Rice"></div></div>
-                    <div class="col-lg-6 col-md-6 col-sm-12"><div class="all-information-wrapper">
-                        <div class="section-1-title-breadcrumb-rating"><div class="product-title"><h1><a href="product-low-sugar-rice.html">Low Sugar Rice</a></h1></div><ul class="bread-crumb"><li class="has-separator"><a href="index.html">Home</a></li><li class="has-separator"><a href="shop-healthy-food-products.html">Healthy Food Products</a></li><li class="is-marked"><a href="product-low-sugar-rice.html">Low Sugar Rice</a></li></ul><div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div></div>
-                        <div class="section-2-short-description u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Description:</h6><p>Low-sugar rice option for customers who prefer lighter daily meals.</p></div>
-                        <div class="section-3-price-original-discount u-s-p-y-14"><div class="price"><h4>42,000 VND/kg</h4></div><div class="original-price"><span>Original Price:</span><span>48,000 VND/kg</span></div></div>
-                        <div class="section-4-sku-information u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Sku Information:</h6><div class="availability"><span>Availability:</span><span>In Stock</span></div></div>
-                    </div></div>
-                </div></div>
-            </div></div>
+        <!-- Product Quick-view Modals -->
+
+        <!-- Fruit Granola Quick-view-Modal -->
+        <div id="quick-view-fruit-granola" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-fruit-granola" class="img-fluid" src="images/product/granola.jpg" data-zoom-image="images/product/granola.jpg" alt="Fruit Granola Zoom Image">
+                                    <div id="gallery-quick-view-fruit-granola" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/granola.jpg" data-zoom-image="images/product/granola.jpg">
+                                            <img src="images/product/granola.jpg" alt="Fruit Granola" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-fruit-granola"
+                                     data-product-name="Fruit Granola"
+                                     data-product-price="115000"
+                                     data-product-image="images/product/granola.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-fruit-granola.html">Huyen Tuyen Premium Fruit Granola</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.6 out of 5"><span style='width:69px'></span></div>
+                                            <span>(18 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Crunchy granola baked with honey, mixed with dried fruits, seeds, and grains. Perfect breakfast with milk or yogurt.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High in natural fibers and healthy energy</li>
+                                            <li><i class="fas fa-check-circle"></i> Rich in nuts, seeds, and raisins</li>
+                                            <li><i class="fas fa-check-circle"></i> Great for breakfast bowls and snacks</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>115,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>130,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Quick-view-Modal /- -->
+        <!-- Fruit Granola Quick-view-Modal /- -->
+
+        <!-- Rolled Oats Quick-view-Modal -->
+        <div id="quick-view-rolled-oats" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-rolled-oats" class="img-fluid" src="images/product/oats.jpg" data-zoom-image="images/product/oats.jpg" alt="Rolled Oats Zoom Image">
+                                    <div id="gallery-quick-view-rolled-oats" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/oats.jpg" data-zoom-image="images/product/oats.jpg">
+                                            <img src="images/product/oats.jpg" alt="Rolled Oats" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-rolled-oats"
+                                     data-product-name="Nutritious Rolled Oats"
+                                     data-product-price="78000"
+                                     data-product-image="images/product/oats.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-rolled-oats.html">Huyen Tuyen Nutritious Rolled Oats</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(22 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Rolled oats are a breakfast staple known for their versatility and soluble fiber, helping you stay full and energized.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High in Beta-Glucan (heart-healthy fiber)</li>
+                                            <li><i class="fas fa-check-circle"></i> Great for oatmeal, baking, and granola</li>
+                                            <li><i class="fas fa-check-circle"></i> 100% whole grain and natural</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>78,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>85,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Rolled Oats Quick-view-Modal /- -->
+
+        <!-- White Quinoa Quick-view-Modal -->
+        <div id="quick-view-white-quinoa" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-white-quinoa" class="img-fluid" src="images/product/quinoa.jpg" data-zoom-image="images/product/quinoa.jpg" alt="White Quinoa Zoom Image">
+                                    <div id="gallery-quick-view-white-quinoa" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/quinoa.jpg" data-zoom-image="images/product/quinoa.jpg">
+                                            <img src="images/product/quinoa.jpg" alt="White Quinoa" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-quinoa"
+                                     data-product-name="White Quinoa"
+                                     data-product-price="145000"
+                                     data-product-image="images/product/quinoa.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-quinoa.html">Huyen Tuyen Premium White Quinoa</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(16 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Superfood quinoa seeds rich in plant protein and fiber. Gluten-free, perfect for diets, salads, and healthy meal plans.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High plant protein and fiber</li>
+                                            <li><i class="fas fa-check-circle"></i> Gluten-free, low glycemic index</li>
+                                            <li><i class="fas fa-check-circle"></i> Easy to cook and versatile</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>145,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>165,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- White Quinoa Quick-view-Modal /- -->
+
+        <!-- Pearl Barley Quick-view-Modal -->
+        <div id="quick-view-pearl-barley" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-pearl-barley" class="img-fluid" src="images/product/barley.jpg" data-zoom-image="images/product/barley.jpg" alt="Pearl Barley Zoom Image">
+                                    <div id="gallery-quick-view-pearl-barley" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/barley.jpg" data-zoom-image="images/product/barley.jpg">
+                                            <img src="images/product/barley.jpg" alt="Pearl Barley" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-barley"
+                                     data-product-name="Pearl Barley"
+                                     data-product-price="68000"
+                                     data-product-image="images/product/barley.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-barley.html">Huyen Tuyen Premium Pearl Barley</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(19 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Nutritious organic barley, perfect for soups, stews, and healthy family meals. Rich in dietary fiber and minerals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High in soluble fibers</li>
+                                            <li><i class="fas fa-check-circle"></i> Great texture for soups and salads</li>
+                                            <li><i class="fas fa-check-circle"></i> Clean, premium whole-grain quality</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>68,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>80,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pearl Barley Quick-view-Modal /- -->
+
+        <!-- Mixed Grains Quick-view-Modal -->
+        <div id="quick-view-mixed-grains" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-mixed-grains" class="img-fluid" src="images/product/mixed-grains.jpg" data-zoom-image="images/product/mixed-grains.jpg" alt="Mixed Grains Zoom Image">
+                                    <div id="gallery-quick-view-mixed-grains" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/mixed-grains.jpg" data-zoom-image="images/product/mixed-grains.jpg">
+                                            <img src="images/product/mixed-grains.jpg" alt="Mixed Grains" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-mixed-grains"
+                                     data-product-name="Nutritious Mixed Grains"
+                                     data-product-price="85000"
+                                     data-product-image="images/product/mixed-grains.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-Mixed-grains.html">Huyen Tuyen Nutritious Mixed Grains</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(27 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>A balanced blend of nutritious grains and beans, providing a comprehensive profile of vitamins, minerals, and fiber.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Complete nutrition profile</li>
+                                            <li><i class="fas fa-check-circle"></i> High fiber for digestion</li>
+                                            <li><i class="fas fa-check-circle"></i> Freshly mixed and packaged</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>85,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>95,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mixed Grains Quick-view-Modal /- -->
+
+        <!-- Multi-Grain Powder Quick-view-Modal -->
+        <div id="quick-view-multi-grain-powder" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-multi-grain-powder" class="img-fluid" src="images/product/multi-grain-powder.jpg" data-zoom-image="images/product/multi-grain-powder.jpg" alt="Multi-Grain Powder Zoom Image">
+                                    <div id="gallery-quick-view-multi-grain-powder" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/multi-grain-powder.jpg" data-zoom-image="images/product/multi-grain-powder.jpg">
+                                            <img src="images/product/multi-grain-powder.jpg" alt="Multi-Grain Powder" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-multi-grain-powder"
+                                     data-product-name="Multi-Grain Healthy Powder"
+                                     data-product-price="120000"
+                                     data-product-image="images/product/multi-grain-powder.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-multi-grain-powder.html">Huyen Tuyen Multi-Grain Healthy Powder</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(23 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Fine powder from premium roasted grains — an ideal meal replacement or nutritional supplement. Mix with warm water for a healthy drink.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Quick and convenient nutrition</li>
+                                            <li><i class="fas fa-check-circle"></i> No preservatives or artificial sugar</li>
+                                            <li><i class="fas fa-check-circle"></i> Supports energy and daily wellness</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>120,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>135,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Multi-Grain Powder Quick-view-Modal /- -->
+
+        <!-- Brown Rice Mix Quick-view-Modal -->
+        <div id="quick-view-brown-rice-mix" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-brown-rice-mix" class="img-fluid" src="images/product/brown-rice-mix.jpg" data-zoom-image="images/product/brown-rice-mix.jpg" alt="Brown Rice Mix Zoom Image">
+                                    <div id="gallery-quick-view-brown-rice-mix" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/brown-rice-mix.jpg" data-zoom-image="images/product/brown-rice-mix.jpg">
+                                            <img src="images/product/brown-rice-mix.jpg" alt="Brown Rice Mix" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-brown-rice-mix"
+                                     data-product-name="Brown Rice Mix"
+                                     data-product-price="92000"
+                                     data-product-image="images/product/brown-rice-mix.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-brown-rice-mix.html">Huyen Tuyen Premium Brown Rice Mix</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(24 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Nutritious blend of whole grains with low glycemic index. High in dietary fiber and antioxidants, perfect for healthy eating.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High fiber and low GI</li>
+                                            <li><i class="fas fa-check-circle"></i> Mix of brown, red, and black grains</li>
+                                            <li><i class="fas fa-check-circle"></i> Supports digestion and heart health</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>92,000 VND / 1kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>105,000 VND/1kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brown Rice Mix Quick-view-Modal /- -->
+
+        <!-- Black Sesame Powder Quick-view-Modal -->
+        <div id="quick-view-black-sesame-powder" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-black-sesame-powder" class="img-fluid" src="images/product/black-sesame.jpg" data-zoom-image="images/product/black-sesame.jpg" alt="Black Sesame Powder Zoom Image">
+                                    <div id="gallery-quick-view-black-sesame-powder" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/black-sesame.jpg" data-zoom-image="images/product/black-sesame.jpg">
+                                            <img src="images/product/black-sesame.jpg" alt="Black Sesame Powder" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-black-sesame"
+                                     data-product-name="Black Sesame Powder"
+                                     data-product-price="88000"
+                                     data-product-image="images/product/black-sesame.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-black-sesame-powder.html">Huyen Tuyen Premium Black Sesame Powder</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(20 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Deep, nutty black sesame powder rich in calcium and antioxidants. Perfect for desserts, drinks, or as a nutritious topping.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> 100% natural, no additives</li>
+                                            <li><i class="fas fa-check-circle"></i> High calcium content</li>
+                                            <li><i class="fas fa-check-circle"></i> Ideal for smoothies and baking</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>88,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>99,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Black Sesame Powder Quick-view-Modal /- -->
+
+        <!-- Product Quick-view Modals /- -->
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -1053,7 +1622,7 @@
                             </ul>
                             <div class="footer-social">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-tiktok"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
                                 <a href="#"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
@@ -1101,9 +1670,40 @@
     <script type="text/javascript" src="js/jquery-ui.range-slider.min.js"></script>
     <script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
     <script type="text/javascript" src="js/jquery.resize-select.min.js"></script>
-    <script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
-    <script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
-    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+	    <script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
+	    <script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
+	    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="js/cart.js"></script>
+        <script type="text/javascript" src="js/search-results.js"></script>
+        <script type="text/javascript">
+            (function ($) {
+                if (!$ || !$.fn || typeof $.fn.elevateZoom !== 'function') return;
+                var ids = [
+                    'fruit-granola',
+                    'rolled-oats',
+                    'white-quinoa',
+                    'pearl-barley',
+                    'mixed-grains',
+                    'multi-grain-powder',
+                    'brown-rice-mix',
+                    'black-sesame-powder'
+                ];
+                for (var i = 0; i < ids.length; i++) {
+                    var key = ids[i];
+                    var imgId = '#zoom-pro-quick-view-' + key;
+                    var galleryId = 'gallery-quick-view-' + key;
+                    if ($(imgId).length) {
+                        $(imgId).elevateZoom({
+                            gallery: galleryId,
+                            galleryActiveClass: 'active',
+                            zoomEnabled: false
+                        });
+                    }
+                }
+            })(window.jQuery);
+        </script>
+        <script type="text/javascript" src="js/vmenu-sync.js"></script>
+	    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
+
