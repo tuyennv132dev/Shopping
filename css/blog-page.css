@@ -1,0 +1,183 @@
+/**
+ * Blog listing page (blog.html) — spacing & card layout
+ * Complements bundle.css (template uses different class names for grid cards)
+ */
+
+.page-blog {
+  padding-bottom: 80px;
+  background-color: #f5f7f6;
+}
+
+.page-blog > .container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 992px) {
+  .page-blog > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.page-blog .blog-grid {
+  padding-top: 8px;
+}
+
+.page-blog .blog-grid > .row {
+  margin-left: -14px;
+  margin-right: -14px;
+}
+
+.page-blog .blog-grid > .row > [class*="col-"] {
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .page-blog .blog-grid > .row > [class*="col-"] {
+    margin-bottom: 32px;
+  }
+}
+
+/* Card */
+.page-blog .blog-post {
+  background: #ffffff;
+  border: 1px solid #e8ece9;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.page-blog .blog-post:hover {
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Image */
+.page-blog .blog-post-image {
+  overflow: hidden;
+  line-height: 0;
+  background: #eef1ef;
+}
+
+.page-blog .blog-post-image a {
+  display: block;
+}
+
+.page-blog .blog-post-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.page-blog .blog-post:hover .blog-post-image img {
+  transform: scale(1.04);
+}
+
+/* Content area */
+.page-blog .blog-post-content {
+  padding: 22px 24px 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .page-blog .blog-post-content {
+    padding: 24px 28px 30px;
+  }
+}
+
+.page-blog .blog-post-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  font-size: 13px;
+  color: #6c757d;
+  margin-bottom: 12px;
+}
+
+.page-blog .blog-post-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.page-blog .blog-post-info i {
+  font-size: 15px;
+  color: #28a745;
+}
+
+.page-blog .blog-post-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 0 0 12px;
+  color: #292929;
+}
+
+@media (min-width: 992px) {
+  .page-blog .blog-post-title {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+}
+
+.page-blog .blog-post-title a {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.page-blog .blog-post-title a:hover {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.page-blog .blog-post-text {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0 0 18px;
+  flex: 1;
+}
+
+.page-blog .blog-post-content .button {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Breadcrumb intro — extra breathing room below title block */
+.page-style-a .page-intro {
+  padding: 0 16px;
+}
+
+.page-style-a .page-intro > h2 {
+  margin-bottom: 16px;
+}
+
+.page-style-a .bread-crumb {
+  margin-bottom: 0;
+}
+
+/* Footer separation from blog content */
+.page-blog + .footer,
+.page-blog ~ .footer {
+  margin-top: 0;
+}
+
+.page-blog ~ .footer .container {
+  padding-top: 48px;
+}
