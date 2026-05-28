@@ -19,17 +19,29 @@
   // â”€â”€ Core Cart Functions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /**
+   * Extract numeric price from a string like "115,000 VND/500g" -> 115000
+   * Takes only the first number segment before any letter unit (kg, g, VND, etc.)
+   */
+  function extractPrice(str) {
+    if (typeof str === 'number') return str;
+    if (typeof str !== 'string') return 0;
+    // Match the first group of digits (with optional thousand separators)
+    // Example: "115,000 VND/500g" -> match "115,000" -> 115000
+    // Example: "95.000 VND" -> match "95.000" -> 95000
+    // Example: "18000" -> match "18000" -> 18000
+    var match = str.match(/(\d[\d,.]*)/);
+    if (!match) return 0;
+    // Remove commas and dots (thousand separators)
+    var numStr = match[1].replace(/[,.]/g, '');
+    return parseFloat(numStr) || 0;
+  }
+
+  /**
    * Normalize cart item from localStorage.
    * Handles old format: { id, name, price, qty } -> { id, name, price, image, quantity }
    */
   function normalizeItem(item) {
-    // Parse price: if it's a string like "18,000 VND/kg", extract the numeric part
-    var price = 0;
-    if (typeof item.price === 'number') {
-      price = item.price;
-    } else if (typeof item.price === 'string') {
-      price = parseFloat(item.price.replace(/[^0-9]/g, '')) || 0;
-    }
+    var price = extractPrice(item.price);
     return {
       id: item.id || 'unknown',
       name: item.name || 'Unknown',
@@ -475,8 +487,39 @@
     if (!tbody) return;
 
     if (cart.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;padding:20px;">Your cart is empty. <a href="index.html">Shop now</a></td></tr>';
+      tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;padding:40px 20px;color:#999;">Your cart is empty. <a href="index.html" style="color:#c9a96e;">Shop now</a></td></tr>';
+      // Also update totals
+      var totalPriceEl = document.querySelector('.qr-order-info strong:last-child');
+      if (totalPriceEl) totalPriceEl.textContent = '0 VND';
       return;
+    }
+
+    // Keywords that indicate 500g-increment products (nuts, seeds, granola, muesli, etc.)
+    var halfKgKeywords = ['almond', 'walnut', 'macadamia', 'cashew', 'pistachio', 'sesame', 'granola', 'muesli', 'chia', 'flax', 'pumpkin', 'sunflower', 'raisin', 'dried', 'cornflakes', 'rolled oat', 'millet', 'quinoa', 'barley', 'buckwheat', 'powder', 'nut', 'seed'];
+
+    function isHalfKgProduct(name) {
+      if (!name) return false;
+      var lower = name.toLowerCase();
+      for (var k = 0; k < halfKgKeywords.length; k++) {
+        if (lower.indexOf(halfKgKeywords[k]) !== -1) return true;
+      }
+      return false;
+    }
+
+    function formatWeight(item) {
+      var qty = item.quantity || 0;
+      if (isHalfKgProduct(item.name)) {
+        // 1 unit = 500g, 2 units = 1kg
+        var grams = qty * 500;
+        if (grams >= 1000) {
+          return (grams / 1000) + ' kg';
+        } else {
+          return grams + 'g';
+        }
+      } else {
+        // Rice / grains: 1 unit = 1kg
+        return qty + ' kg';
+      }
     }
 
     var html = '';
@@ -487,70 +530,89 @@
       var subtotal = (item.price || 0) * (item.quantity || 0);
       totalSum += subtotal;
 
+      // Use image if available, otherwise a placeholder
+      var imgSrc = item.image || 'images/product/product@2x.jpg';
+
       html +=
         '<tr>' +
-        '<td><h6 class="order-h6">' + item.name + ' x ' + item.quantity + '</h6></td>' +
-        '<td><span>' + formatCurrency(subtotal) + '</span></td>' +
+        '<td>' +
+        '<div class="receipt-product">' +
+        '<img src="' + imgSrc + '" alt="' + item.name + '" class="prod-img" onerror="this.src=\'images/product/product@2x.jpg\'">' +
+        '<div>' +
+        '<div class="prod-name">' + item.name + '</div>' +
+        '<div class="prod-qty">' + formatWeight(item) + '</div>' +
+        '</div>' +
+        '</div>' +
+        '</td>' +
+        '<td>' + formatCurrency(subtotal) + '</td>' +
         '</tr>';
     }
 
     html +=
-      '<tr>' +
-      '<td><h3>Total</h3></td>' +
-      '<td><span class="order-total">' + formatCurrency(totalSum) + '</span></td>' +
+      '<tr class="receipt-total-row">' +
+      '<td><span class="total-label">TOTAL</span></td>' +
+      '<td><span class="total-amount">' + formatCurrency(totalSum) + '</span></td>' +
       '</tr>';
 
     tbody.innerHTML = html;
+
+    // Update the QR modal total too
+    var totalPriceEl = document.querySelector('.qr-order-info strong:last-child');
+    if (totalPriceEl) totalPriceEl.textContent = formatCurrency(totalSum);
   }
 
   function initCheckoutAction() {
     if (!document.body.classList.contains('checkout-page')) return;
 
-    const form = document.querySelector('.page-checkout form');
+    var form = document.querySelector('.page-checkout form');
     if (!form) return;
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       // Basic validation
-      const inputs = form.querySelectorAll('input[type="text"]');
-      let valid = true;
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          input.style.borderColor = 'red';
+      var inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
+      var valid = true;
+      for (var i = 0; i < inputs.length; i++) {
+        if (!inputs[i].value.trim()) {
+          inputs[i].style.borderColor = 'red';
           valid = false;
         } else {
-          input.style.borderColor = '';
+          inputs[i].style.borderColor = '';
         }
-      });
+      }
 
       if (!valid) {
-        alert('Vui lÃ²ng Ä‘iá»n Ä‘áº§y Ä‘á»§ thÃ´ng tin giao hÃ ng.');
+        alert('Please fill in all required fields.');
         return;
       }
 
-      // Show "QR Code" (The message requested)
-      const checkoutArea = document.querySelector('.page-checkout .container');
-      if (checkoutArea) {
-        checkoutArea.innerHTML =
-          '<div style="text-align:center;padding:80px 20px;background:#f9f9f9;border-radius:8px;margin-bottom:80px;box-shadow: 0 4px 15px rgba(0,0,0,0.05);">' +
-          '<i class="fas fa-check-circle" style="font-size:80px;color:#28a745;margin-bottom:30px;"></i>' +
-          '<h2 style="margin-bottom:20px;color:#333;font-weight:bold;">Äáº¶T HÃ€NG THÃ€NH CÃ”NG!</h2>' +
-          '<div style="background:#fff;padding:40px;display:inline-block;border:1px solid #ddd;margin-bottom:30px;border-radius:8px;">' +
-          '<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Cáº£m Æ¡n quÃ½ khÃ¡ch Ä‘Ã£ tin tÆ°á»Ÿng vÃ  á»§ng há»™ Huyen Tuyen Rice" alt="QR Payment" style="max-width:100%;height:auto;">' +
-          '<p style="margin-top:20px;font-weight:bold;color:#2c3e50;font-size:18px;">QUÃ‰T MÃƒ QR Äá»‚ THANH TOÃN</p>' +
-          '</div>' +
-          '<p style="font-size:20px;color:#555;line-height:1.6;max-width:600px;margin:0 auto 30px;">Cáº£m Æ¡n quÃ½ khÃ¡ch Ä‘Ã£ tin tÆ°á»Ÿng vÃ  á»§ng há»™ <strong>Huyen Tuyen Rice</strong>.</p>' +
-          '<a href="index.html" class="button button-primary" style="padding:15px 50px;font-size:18px;border-radius:30px;text-transform:uppercase;letter-spacing:1px;">Quay láº¡i trang chá»§</a>' +
-          '</div>';
-
-        // Clear cart after order
-        localStorage.removeItem('cart');
-        updateAllUI();
-
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Get cart total for the QR modal
+      var totalPrice = getTotalPrice();
+      var cart = getCart();
+      if (cart.length === 0) {
+        alert('Your cart is empty. Please add products before placing an order.');
+        return;
       }
+
+      // Update QR modal with real data
+      var invoiceSpan = document.getElementById('receiptInvoice');
+      var invoiceNum = invoiceSpan ? invoiceSpan.textContent : '#INV-' + new Date().toISOString().slice(0,10).replace(/-/g,'');
+      var qrOrderInfo = document.querySelector('.qr-order-info');
+      if (qrOrderInfo) {
+        qrOrderInfo.innerHTML = '<strong>' + invoiceNum + '</strong> &nbsp;·&nbsp; Total: <strong>' + formatCurrency(totalPrice) + '</strong>';
+      }
+
+      // Show the QR modal
+      var modal = document.getElementById('qrModal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Clear cart after order
+      localStorage.removeItem('cart');
+      updateAllUI();
     });
   }
 
@@ -585,10 +647,10 @@
       image = imgEl ? imgEl.getAttribute('src') : '';
     }
 
-    // Parse price: remove all non-numeric characters (keep digits only)
-    // "18,000 VND/kg" -> 18000
-    // "95,000 VND/500g" -> 95000
-    var price = parseFloat(priceAttr.replace(/[^0-9]/g, '')) || 0;
+    // Parse price: extract only the first number segment before any letter unit
+    // "115,000 VND/500g" -> match "115,000" -> 115000
+    // "18,000 VND/kg" -> match "18,000" -> 18000
+    var price = extractPrice(priceAttr);
 
     return {
       id: id,
@@ -874,6 +936,4 @@
   }
 
 })();
-
-
 
