@@ -11,6 +11,19 @@
 (function() {
   'use strict';
 
+  // ---- Helper: lấy base URL (bỏ query params và hash) ----
+  function getBaseUrl() {
+    var path = window.location.pathname;
+    // Normalize path: thay \ bằng /, remove double /
+    path = path.replace(/\\/g, '/').replace(/\/+/g, '/');
+    // Đảm bảo path kết thúc không có /
+    // nhưng nếu là root thì giữ /
+    if (path.length > 1 && path.endsWith('/')) {
+      path = path.slice(0, -1);
+    }
+    return window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + path;
+  }
+
   // ---- Đọc ngôn ngữ từ URL (ưu tiên) + localStorage ----
   var params = new URLSearchParams(window.location.search);
   var langFromUrl = params.get('lang');
@@ -22,13 +35,12 @@
     if (s === 'vi') savedLang = 'vi';
   } catch(e) {}
 
-  // Nếu URL không có ?lang=, redirect đến URL phù hợp
+  // Nếu URL không có ?lang=, redirect đến URL phù hợp (bỏ hash)
   if (langFromUrl !== 'en' && langFromUrl !== 'vi') {
     try { localStorage.setItem('gt_lang', savedLang); } catch(e) {}
     var targetLang = savedLang;
-    var cleanUrl = window.location.origin + window.location.pathname;
-    window.location.href = cleanUrl + '?lang=' + targetLang;
-    return; // Dừng mọi xử lý, chờ redirect
+    location.replace(getBaseUrl() + '?lang=' + targetLang);
+    return; // Dừng xử lý, chờ redirect
   }
 
   // Nếu URL có ?lang=, lưu vào localStorage và set cookie
@@ -36,7 +48,6 @@
   try { localStorage.setItem('gt_lang', langFromUrl); } catch(e) {}
 
   // Set cookie cho Google Translate
-  // /en/vi = dịch Anh→Việt, /en/en = giữ nguyên English
   document.cookie = 'googtrans=/en/' + savedLang + '; path=/; max-age=31536000';
 
   // ---- CSS ẩn Google Translate UI ----
@@ -72,14 +83,11 @@
     sc.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.body.appendChild(sc);
   }
-  // Nếu lang=en => KHÔNG load script nào, trang sẽ hiện English gốc
 
-  // ---- Chuyển ngôn ngữ: redirect đến URL mới ----
+  // ---- Chuyển ngôn ngữ: redirect đến URL mới (bỏ hash) ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
-    var base = window.location.origin + window.location.pathname;
-    // Dùng location.replace thay href để tránh lưu history + hash
-    location.replace(base + '?lang=' + lang);
+    location.replace(getBaseUrl() + '?lang=' + lang);
   }
 
   // ---- Dropdown ENG/VIE ----
