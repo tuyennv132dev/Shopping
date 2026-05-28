@@ -1,27 +1,45 @@
 /**
  * google-translate.js - Google Translate cho Huyen Tuyen Rice
  * 
- * Giải pháp: dùng query parameter `?lang=en` hoặc `?lang=vi` để xác định ngôn ngữ
- * Google Translate chỉ được kích hoạt khi `?lang=vi` được set.
- * Khi `?lang=en`, không load Google Translate để tránh cache.
+ * Cơ chế:
+ * - Mỗi lần load trang, tự động redirect đến URL có ?lang= (en hoặc vi)
+ * - VIE: load Google Translate script → dịch trang
+ * - ENG: KHÔNG load Google Translate script → English gốc
+ * - Cookie googtrans luôn được set đồng bộ với ?lang=
  */
 
 (function() {
   'use strict';
 
-  // ---- Đọc trạng thái từ URL (ưu tiên) và localStorage ----
+  // ---- Đọc ngôn ngữ từ URL (ưu tiên) + localStorage ----
   var params = new URLSearchParams(window.location.search);
   var langFromUrl = params.get('lang');
   var savedLang = 'en';
-  try { var s = localStorage.getItem('gt_lang'); if (s === 'vi') savedLang = 'vi'; } catch(e) {}
 
-  // URL parameter có quyền cao nhất
-  if (langFromUrl === 'en' || langFromUrl === 'vi') {
-    savedLang = langFromUrl;
-    try { localStorage.setItem('gt_lang', langFromUrl); } catch(e) {}
+  // Đọc từ localStorage
+  try {
+    var s = localStorage.getItem('gt_lang');
+    if (s === 'vi') savedLang = 'vi';
+  } catch(e) {}
+
+  // Nếu URL không có ?lang=, redirect đến URL phù hợp
+  if (langFromUrl !== 'en' && langFromUrl !== 'vi') {
+    try { localStorage.setItem('gt_lang', savedLang); } catch(e) {}
+    var targetLang = savedLang;
+    var cleanUrl = window.location.origin + window.location.pathname;
+    window.location.href = cleanUrl + '?lang=' + targetLang;
+    return; // Dừng mọi xử lý, chờ redirect
   }
 
-  // ---- CSS ẩn Google Translate ----
+  // Nếu URL có ?lang=, lưu vào localStorage và set cookie
+  savedLang = langFromUrl;
+  try { localStorage.setItem('gt_lang', langFromUrl); } catch(e) {}
+
+  // Set cookie cho Google Translate
+  // /en/vi = dịch Anh→Việt, /en/en = giữ nguyên English
+  document.cookie = 'googtrans=/en/' + savedLang + '; path=/; max-age=31536000';
+
+  // ---- CSS ẩn Google Translate UI ----
   var ss = document.createElement('style');
   ss.textContent = 
     '.goog-te-banner-frame,.skiptranslate,#goog-gt-tt,' +
@@ -32,17 +50,8 @@
     'body{top:0!important}';
   document.head.appendChild(ss);
 
-  // ---- Nếu là VIE, set cookie + load Google Translate ----
+  // ---- Chỉ load Google Translate khi cần (lang=vi) ----
   if (savedLang === 'vi') {
-    document.cookie = 'googtrans=/en/vi; path=/;';
-    loadGoogleTranslate();
-  } else {
-    // ENG: xóa cookie + KHÔNG load Google Translate
-    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    // KHÔNG load script Google Translate để tránh cache
-  }
-
-  function loadGoogleTranslate() {
     var div = document.createElement('div');
     div.id = 'google_translate_element';
     div.style.cssText = 'display:none';
@@ -63,17 +72,11 @@
     sc.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.body.appendChild(sc);
   }
+  // Nếu lang=en => KHÔNG load script nào, trang sẽ hiện English gốc
 
-  // ---- Chuyển ngôn ngữ ----
+  // ---- Chuyển ngôn ngữ: redirect đến URL mới ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
-
-    // Xóa cookie
-    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-
-    // Redirect đến URL với query parameter `lang=`
-    // Nếu cùng URL + cùng lang → browser dùng cache → Google Translate không refresh
-    // Nếu khác URL → browser load mới hoàn toàn
     var base = window.location.origin + window.location.pathname;
     window.location.href = base + '?lang=' + lang;
   }
