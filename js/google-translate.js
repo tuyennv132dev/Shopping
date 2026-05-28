@@ -1,37 +1,48 @@
 /**
  * google-translate.js - Google Translate cho Huyen Tuyen Rice
  * 
- * Chuyển đổi ENG/VIE bằng cách điều khiển trực tiếp
- * combo select của Google Translate
+ * Giải pháp: dùng query parameter `?lang=en` hoặc `?lang=vi` để xác định ngôn ngữ
+ * Google Translate chỉ được kích hoạt khi `?lang=vi` được set.
+ * Khi `?lang=en`, không load Google Translate để tránh cache.
  */
 
 (function() {
   'use strict';
 
-  // ---- Trạng thái ----
+  // ---- Đọc trạng thái từ URL (ưu tiên) và localStorage ----
+  var params = new URLSearchParams(window.location.search);
+  var langFromUrl = params.get('lang');
   var savedLang = 'en';
   try { var s = localStorage.getItem('gt_lang'); if (s === 'vi') savedLang = 'vi'; } catch(e) {}
 
-  // Set cookie cho lần load đầu tiên
-  document.cookie = 'googtrans=/en/' + savedLang + '; path=/;';
+  // URL parameter có quyền cao nhất
+  if (langFromUrl === 'en' || langFromUrl === 'vi') {
+    savedLang = langFromUrl;
+    try { localStorage.setItem('gt_lang', langFromUrl); } catch(e) {}
+  }
 
-  // ---- CSS ẩn Google Translate nhưng GIỮ .goog-te-combo để JS điều khiển ----
+  // ---- CSS ẩn Google Translate ----
   var ss = document.createElement('style');
   ss.textContent = 
     '.goog-te-banner-frame,.skiptranslate,#goog-gt-tt,' +
-    '.goog-te-balloon-frame,.goog-te-gadget-icon,' +
-    '#google_translate_element,' +
-    'iframe[src*="translate.googleapis.com"]{' +
+    '.goog-te-balloon-frame,.goog-te-gadget-simple,' +
+    '.goog-te-gadget-icon,#google_translate_element,' +
+    '.goog-te-gadget,iframe[src*="translate.googleapis.com"]{' +
       'display:none!important}' +
-    'body{top:0!important}' +
-    /* Ẩn combo ra ngoài màn hình nhưng vẫn giữ trong DOM để JS dùng */
-    '.goog-te-gadget-simple{height:0!important;overflow:hidden!important;padding:0!important;margin:0!important;border:none!important}' +
-    '.goog-te-combo{position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none}';
+    'body{top:0!important}';
   document.head.appendChild(ss);
 
-  // ---- Khởi tạo Google Translate ----
-  function initGT() {
-    if (document.getElementById('gt_init_done')) return;
+  // ---- Nếu là VIE, set cookie + load Google Translate ----
+  if (savedLang === 'vi') {
+    document.cookie = 'googtrans=/en/vi; path=/;';
+    loadGoogleTranslate();
+  } else {
+    // ENG: xóa cookie + KHÔNG load Google Translate
+    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    // KHÔNG load script Google Translate để tránh cache
+  }
+
+  function loadGoogleTranslate() {
     var div = document.createElement('div');
     div.id = 'google_translate_element';
     div.style.cssText = 'display:none';
@@ -46,11 +57,6 @@
           autoDisplay: false
         }, 'google_translate_element');
       } catch(e) {}
-      // Đánh dấu đã init
-      var mark = document.createElement('div');
-      mark.id = 'gt_init_done';
-      mark.style.display = 'none';
-      document.body.appendChild(mark);
     };
 
     var sc = document.createElement('script');
@@ -62,17 +68,14 @@
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
 
-    // Xóa cookie googtrans ở mọi path
+    // Xóa cookie
     document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 
-    // Nếu VIE, set cookie
-    if (lang === 'vi') {
-      document.cookie = 'googtrans=/en/vi; path=/;';
-    }
-
-    // Force redirect đến URL sạch không query params để Google load hoàn toàn mới
+    // Redirect đến URL với query parameter `lang=`
+    // Nếu cùng URL + cùng lang → browser dùng cache → Google Translate không refresh
+    // Nếu khác URL → browser load mới hoàn toàn
     var base = window.location.origin + window.location.pathname;
-    window.location.href = base + '?_=' + Date.now();
+    window.location.href = base + '?lang=' + lang;
   }
 
   // ---- Dropdown ENG/VIE ----
@@ -96,8 +99,9 @@
     }
   }
 
-  // Boot
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { initGT(); markActive(); });
-  } else { initGT(); markActive(); }
+    document.addEventListener('DOMContentLoaded', markActive);
+  } else {
+    markActive();
+  }
 })();
