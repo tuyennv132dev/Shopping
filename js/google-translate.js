@@ -15,12 +15,22 @@
   var savedLang = 'en';
   try { var s = localStorage.getItem('gt_lang'); if (s === 'vi') savedLang = 'vi'; } catch(e) {}
 
-  // ---- Set/Xóa cookie tùy theo ngôn ngữ ----
+  // ---- Cookie cho Google Translate ----
   if (savedLang === 'vi') {
     document.cookie = 'googtrans=/en/vi; path=/; max-age=31536000';
   } else {
-    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    document.cookie = 'googtrans=; path=/; max-age=-1';
   }
+
+  // ---- Meta notranslate khi ở chế độ ENG ----
+  var meta = document.createElement('meta');
+  meta.name = 'google';
+  if (savedLang === 'vi') {
+    meta.content = 'translate'; // cho phép dịch
+  } else {
+    meta.content = 'notranslate'; // chặn Google Translate
+  }
+  document.head.appendChild(meta);
 
   // ---- CSS ẩn Google Translate UI ----
   var ss = document.createElement('style');
@@ -33,7 +43,7 @@
     'body{top:0!important}';
   document.head.appendChild(ss);
 
-  // ---- Chỉ load Google Translate khi cần (VIE) ----
+  // ---- Load Google Translate nếu VIE ----
   if (savedLang === 'vi') {
     var div = document.createElement('div');
     div.id = 'google_translate_element';
@@ -56,19 +66,11 @@
     document.body.appendChild(sc);
   }
 
-  // ---- Chuyển ngôn ngữ: set cookie + reload ----
+  // ---- Chuyển ngôn ngữ ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
-
-    if (lang === 'vi') {
-      document.cookie = 'googtrans=/en/vi; path=/; max-age=31536000';
-    } else {
-      document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    }
-
-    // Reload với URL KHÔNG có query params và KHÔNG có hash
-    var url = window.location.protocol + '//' + window.location.host + window.location.pathname;
-    location.replace(url);
+    document.cookie = 'googtrans=/en/' + lang + '; path=/; max-age=31536000';
+    location.replace(window.location.protocol + '//' + window.location.host + window.location.pathname);
   }
 
   // ---- Dropdown ENG/VIE ----
