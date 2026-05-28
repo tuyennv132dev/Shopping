@@ -61,21 +61,8 @@
   // ---- 2. Chuyển ngôn ngữ ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
-
-    // Dùng Google Translate API để chuyển ngay (không cần reload)
-    var combo = document.querySelector('.goog-te-combo');
-    if (combo) {
-      if (lang === 'vi') {
-        combo.value = 'vi';
-      } else {
-        combo.value = 'en';
-      }
-      combo.dispatchEvent(new Event('change'));
-      return;
-    }
-
-    // Fallback: set cookie + redirect
     document.cookie = 'googtrans=/en/' + lang + '; path=/;';
+    // Reload để Google đọc cookie mới
     location.reload();
   }
 
