@@ -2,9 +2,9 @@
  * google-translate.js - Google Translate cho Huyen Tuyen Rice
  * Hỗ trợ: ENG (English) và VIE (Tiếng Việt)
  * 
- * - Chọn VIE: set cookie googtrans=/en/vi → Google dịch sang Tiếng Việt
- * - Chọn ENG: set cookie googtrans=/en/en → Google giữ nguyên English (không dịch)
- * - Nếu lần đầu truy cập (không có localStorage): mặc định ENG, KHÔNG set cookie gì
+ * - Chọn VIE: set cookie → Google Translate dịch toàn trang sang Tiếng Việt
+ * - Chọn ENG: xóa cookie + clear Google Translate cache → trả về English gốc
+ * - Ẩn hoàn toàn UI của Google Translate
  */
 
 (function() {
@@ -17,22 +17,20 @@
     if (s === 'vi') savedLang = 'vi';
   } catch(e) {}
 
-  // Set cookie TRƯỚC khi Google Translate khởi tạo
-  // Quan trọng: set cookie với path, domain và max-age
+  // Nếu là VIE, set cookie để Google Translate dịch
+  // Nếu là ENG (mặc định), KHÔNG set cookie gì
   if (savedLang === 'vi') {
     document.cookie = 'googtrans=/en/vi; path=/;';
-  } else {
-    // Set cookie /en/en = giữ nguyên English gốc
-    document.cookie = 'googtrans=/en/en; path=/;';
   }
 
-  // ---- CSS ẩn Google Translate ----
+  // ---- CSS ẩn hoàn toàn Google Translate ----
   var style = document.createElement('style');
   style.textContent = 
-    '.goog-te-banner-frame, .skiptranslate iframe, ' +
+    '.goog-te-banner-frame, .skiptranslate, ' +
     '#goog-gt-tt, .goog-te-balloon-frame, ' +
     '.goog-te-gadget-simple, .goog-te-gadget-icon, ' +
-    '#google_translate_element, .goog-te-gadget { ' +
+    '#google_translate_element, .goog-te-gadget, ' +
+    'iframe[src*="translate.googleapis.com"] { ' +
       'display: none !important; ' +
     '} ' +
     'body { top: 0px !important; }';
@@ -65,38 +63,33 @@
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
 
-    // Set cookie googtrans
-    document.cookie = 'googtrans=/en/' + lang + '; path=/;';
+    // Xóa cookie googtrans ở mọi path
+    ['/', '/Shopping', '/Shopping/'].forEach(function(p) {
+      document.cookie = 'googtrans=; path=' + p + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    });
 
-    // Dùng Google Translate API để chuyển ngôn ngữ trực tiếp
-    if (window.google && google.translate) {
-      try {
-        // Google Translate tạo iframe với combo, thay đổi giá trị sẽ kích hoạt dịch
-        var iframe = document.querySelector('iframe.goog-te-menu-frame');
-        if (iframe) {
-          var doc = iframe.contentDocument || iframe.contentWindow.document;
-          if (doc) {
-            var combo = doc.querySelector('.goog-te-menu2-item span.text');
-            if (combo) {
-              // Click vào đúng mục
-              var items = doc.querySelectorAll('.goog-te-menu2-item');
-              var langCode = lang === 'vi' ? 'vi' : 'en';
-              for (var i = 0; i < items.length; i++) {
-                var text = items[i].textContent.trim().toLowerCase();
-                if ((langCode === 'vi' && (text.indexOf('vietnam') !== -1 || text.indexOf('việt') !== -1)) ||
-                    (langCode === 'en' && text.indexOf('english') !== -1)) {
-                  items[i].querySelector('span.text').click();
-                  return;
-                }
-              }
-            }
-          }
+    // Xóa tất cả cache Google Translate
+    try {
+      for (var i = localStorage.length - 1; i >= 0; i--) {
+        var key = localStorage.key(i);
+        if (key && (key.indexOf('_gt') === 0 || key.indexOf('google') === 0 || key === 'gt_lc')) {
+          localStorage.removeItem(key);
         }
-      } catch(e) {}
+      }
+    } catch(e) {}
+
+    if (lang === 'vi') {
+      document.cookie = 'googtrans=/en/vi; path=/;';
     }
 
-    // Fallback: reload
-    location.reload();
+    // Xóa tất cả iframe của Google Translate trước khi redirect
+    try {
+      document.querySelectorAll('iframe[src*="google"]').forEach(function(f) { f.remove(); });
+    } catch(e) {}
+
+    // Dùng location.replace (không tạo history entry) để Google load trang mới hoàn toàn
+    var url = window.location.protocol + '//' + window.location.host + window.location.pathname + '?v=' + Date.now();
+    location.assign(url);
   }
 
   // ---- 3. Dropdown ENG/VIE ----
