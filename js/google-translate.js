@@ -1,23 +1,27 @@
 /**
  * google-translate.js - Google Translate cho Huyen Tuyen Rice
  * Hỗ trợ: ENG (English) và VIE (Tiếng Việt)
+ * Khi chọn ENG: xóa hoàn toàn cookie Google Translate để tắt dịch
+ * Khi chọn VIE: set cookie để Google Translate dịch sang tiếng Việt
  */
 
 (function() {
   'use strict';
 
-  // Đọc ngôn ngữ đã lưu
+  // ---- 0. Kiểm tra và khôi phục trạng thái ----
   var savedLang = 'en';
   try {
     var s = localStorage.getItem('gt_lang');
-    if (s === 'vi') savedLang = 'vi';
+    if (s === 'vi' || s === 'en') savedLang = s;
   } catch(e) {}
 
-  // Set cookie googtrans TRƯỚC khi load Google Translate
+  // Nếu lần trước chọn VI, set cookie để Google Translate dịch
+  // Nếu lần trước chọn EN, XÓA cookie để tắt hoàn toàn Google Translate
   if (savedLang === 'vi') {
     document.cookie = 'googtrans=/en/vi; path=/;';
   } else {
-    document.cookie = 'googtrans=/en/en; path=/;';
+    // Xóa cookie googtrans để tắt Google Translate
+    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
   }
 
   // ---- 1. Thêm div ẩn + script Google Translate ----
@@ -28,7 +32,7 @@
     div.style.cssText = 'display:none;';
     document.body.appendChild(div);
 
-    // CSS ẩn banner
+    // CSS ẩn banner Google
     var style = document.createElement('style');
     style.textContent = 
       '.goog-te-banner-frame.skiptranslate { display:none !important; } ' +
@@ -55,11 +59,18 @@
   // ---- 2. Chuyển ngôn ngữ ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
-    document.cookie = 'googtrans=/en/' + (lang === 'vi' ? 'vi' : 'en') + '; path=/;';
+
+    if (lang === 'vi') {
+      // Bật Google Translate: set cookie
+      document.cookie = 'googtrans=/en/vi; path=/;';
+    } else {
+      // Tắt Google Translate: XÓA cookie
+      document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    }
     location.reload();
   }
 
-  // ---- 3. Gắn sự kiện click cho dropdown ENG/VI ----
+  // ---- 3. Gắn sự kiện click cho dropdown ENG/VIE ----
   document.addEventListener('click', function(e) {
     var link = e.target.closest('.secondary-nav li a');
     if (!link) return;
