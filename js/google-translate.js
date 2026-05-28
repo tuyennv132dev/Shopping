@@ -15,15 +15,18 @@
   // Set cookie cho lần load đầu tiên
   document.cookie = 'googtrans=/en/' + savedLang + '; path=/;';
 
-  // ---- CSS ẩn Google Translate nhưng GIỮ combo select ----
+  // ---- CSS ẩn Google Translate nhưng GIỮ .goog-te-combo để JS điều khiển ----
   var ss = document.createElement('style');
   ss.textContent = 
     '.goog-te-banner-frame,.skiptranslate,#goog-gt-tt,' +
-    '.goog-te-balloon-frame,.goog-te-gadget-simple,' +
-    '.goog-te-gadget-icon,#google_translate_element,' +
-    '.goog-te-gadget,iframe[src*="translate.googleapis.com"]{' +
+    '.goog-te-balloon-frame,.goog-te-gadget-icon,' +
+    '#google_translate_element,' +
+    'iframe[src*="translate.googleapis.com"]{' +
       'display:none!important}' +
-    'body{top:0!important}';
+    'body{top:0!important}' +
+    /* Ẩn combo ra ngoài màn hình nhưng vẫn giữ trong DOM để JS dùng */
+    '.goog-te-gadget-simple{height:0!important;overflow:hidden!important;padding:0!important;margin:0!important;border:none!important}' +
+    '.goog-te-combo{position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none}';
   document.head.appendChild(ss);
 
   // ---- Khởi tạo Google Translate ----
@@ -55,23 +58,21 @@
     document.body.appendChild(sc);
   }
 
-  // ---- Chuyển ngôn ngữ bằng cách click vào combo ----
+  // ---- Chuyển ngôn ngữ ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
 
-    // Tìm combo select mà Google Translate tạo ra
-    var combo = document.querySelector('.goog-te-combo');
-    if (combo) {
-      combo.value = lang; // 'en' hoặc 'vi'
-      combo.dispatchEvent(new Event('change'));
-      savedLang = lang;
-      markActive();
-      return;
+    // Xóa cookie googtrans ở mọi path
+    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+
+    // Nếu VIE, set cookie
+    if (lang === 'vi') {
+      document.cookie = 'googtrans=/en/vi; path=/;';
     }
 
-    // Fallback: set cookie + reload
-    document.cookie = 'googtrans=/en/' + lang + '; path=/;';
-    location.reload();
+    // Force redirect đến URL sạch không query params để Google load hoàn toàn mới
+    var base = window.location.origin + window.location.pathname;
+    window.location.href = base + '?_=' + Date.now();
   }
 
   // ---- Dropdown ENG/VIE ----
