@@ -1,102 +1,242 @@
 /**
- * google-translate.js - Google Translate cho Huyen Tuyen Rice
- * 
- * Cơ chế:
- * - Mỗi lần load trang, tự động redirect đến URL có ?lang= (en hoặc vi)
- * - VIE: load Google Translate script → dịch trang
- * - ENG: KHÔNG load Google Translate script → English gốc
- * - Cookie googtrans luôn được set đồng bộ với ?lang=
+ * Site language switcher for Huyen Tuyen Rice.
+ *
+ * Source content is English. Vietnamese is applied through Google Translate.
+ * ENG clears Google Translate state and reloads the original page.
+ * VIE stores the preference, sets googtrans=/en/vi, and loads Google Translate.
  */
-
-(function() {
+(function () {
   'use strict';
 
-  // ---- Đọc ngôn ngữ ----
-  var savedLang = 'en';
-  try { var s = localStorage.getItem('gt_lang'); if (s === 'vi') savedLang = 'vi'; } catch(e) {}
+  var STORAGE_KEY = 'gt_lang';
+  var SOURCE_LANG = 'en';
+  var VI_LANG = 'vi';
+  var TRANSLATE_COOKIE = 'googtrans';
 
-  // ---- Cookie cho Google Translate ----
-  if (savedLang === 'vi') {
-    document.cookie = 'googtrans=/en/vi; path=/; max-age=31536000';
-  } else {
-    document.cookie = 'googtrans=; path=/; max-age=-1';
+  function getSavedLang() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === VI_LANG ? VI_LANG : SOURCE_LANG;
+    } catch (e) {
+      return SOURCE_LANG;
+    }
   }
 
-  // ---- Meta notranslate khi ở chế độ ENG ----
-  var meta = document.createElement('meta');
-  meta.name = 'google';
-  if (savedLang === 'vi') {
-    meta.content = 'translate'; // cho phép dịch
-  } else {
-    meta.content = 'notranslate'; // chặn Google Translate
+  function setSavedLang(lang) {
+    try {
+      localStorage.setItem(STORAGE_KEY, lang === VI_LANG ? VI_LANG : SOURCE_LANG);
+    } catch (e) {}
   }
-  document.head.appendChild(meta);
 
-  // ---- CSS ẩn Google Translate UI ----
-  var ss = document.createElement('style');
-  ss.textContent = 
-    '.goog-te-banner-frame,.skiptranslate,#goog-gt-tt,' +
-    '.goog-te-balloon-frame,.goog-te-gadget-simple,' +
-    '.goog-te-gadget-icon,#google_translate_element,' +
-    '.goog-te-gadget,iframe[src*="translate.googleapis.com"]{' +
+  function getCookieDomains() {
+    var host = window.location.hostname;
+    var domains = [''];
+
+    if (!host || host === 'localhost' || /^[0-9.]+$/.test(host)) {
+      return domains;
+    }
+
+    domains.push(host);
+    domains.push('.' + host);
+
+    var parts = host.split('.');
+    for (var i = 1; i < parts.length - 1; i++) {
+      domains.push('.' + parts.slice(i).join('.'));
+    }
+
+    return domains;
+  }
+
+  function writeCookie(value, maxAge) {
+    var domains = getCookieDomains();
+    for (var i = 0; i < domains.length; i++) {
+      var cookie = TRANSLATE_COOKIE + '=' + value + '; path=/; max-age=' + maxAge + '; SameSite=Lax';
+      if (domains[i]) cookie += '; domain=' + domains[i];
+      document.cookie = cookie;
+    }
+  }
+
+  function clearTranslateCookie() {
+    var domains = getCookieDomains();
+    for (var i = 0; i < domains.length; i++) {
+      var cookie = TRANSLATE_COOKIE + '=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; max-age=0';
+      if (domains[i]) cookie += '; domain=' + domains[i];
+      document.cookie = cookie;
+    }
+  }
+
+  function setVietnameseCookie() {
+    writeCookie('/' + SOURCE_LANG + '/' + VI_LANG, 31536000);
+  }
+
+  function addNoTranslateMeta() {
+    var meta = document.querySelector('meta[name="google"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'google';
+      document.head.appendChild(meta);
+    }
+    meta.content = 'notranslate';
+  }
+
+  function addTranslateMeta() {
+    var meta = document.querySelector('meta[name="google"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'google';
+      document.head.appendChild(meta);
+    }
+    meta.content = 'translate';
+  }
+
+  function hideGoogleTranslateUi() {
+    if (document.getElementById('google-translate-hide-style')) return;
+
+    var style = document.createElement('style');
+    style.id = 'google-translate-hide-style';
+    style.textContent =
+      '.goog-te-banner-frame,.skiptranslate,#goog-gt-tt,' +
+      '.goog-te-balloon-frame,.goog-te-gadget-simple,' +
+      '.goog-te-gadget-icon,#google_translate_element,' +
+      '.goog-te-gadget,iframe[src*="translate.googleapis.com"]{' +
       'display:none!important}' +
-    'body{top:0!important}';
-  document.head.appendChild(ss);
+      'body{top:0!important}';
+    document.head.appendChild(style);
+  }
 
-  // ---- Load Google Translate nếu VIE ----
-  if (savedLang === 'vi') {
-    var div = document.createElement('div');
-    div.id = 'google_translate_element';
-    div.style.cssText = 'display:none';
-    document.body.appendChild(div);
+  function ensureTranslateContainer() {
+    var el = document.getElementById('google_translate_element');
+    if (el) return el;
 
-    window.googleTranslateElementInit = function() {
+    el = document.createElement('div');
+    el.id = 'google_translate_element';
+    el.style.display = 'none';
+    document.body.appendChild(el);
+    return el;
+  }
+
+  function forceVietnameseSelection(attempt) {
+    attempt = attempt || 0;
+    var combo = document.querySelector('.goog-te-combo');
+
+    if (combo) {
+      combo.value = VI_LANG;
+      combo.dispatchEvent(new Event('change'));
+      return;
+    }
+
+    if (attempt < 30) {
+      window.setTimeout(function () {
+        forceVietnameseSelection(attempt + 1);
+      }, 200);
+    }
+  }
+
+  function loadGoogleTranslate() {
+    if (window.__htrGoogleTranslateLoaded) {
+      forceVietnameseSelection(0);
+      return;
+    }
+    window.__htrGoogleTranslateLoaded = true;
+
+    ensureTranslateContainer();
+
+    window.googleTranslateElementInit = function () {
       try {
         new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'en,vi',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          pageLanguage: SOURCE_LANG,
+          includedLanguages: SOURCE_LANG + ',' + VI_LANG,
           autoDisplay: false
         }, 'google_translate_element');
-      } catch(e) {}
+      } catch (e) {}
+
+      forceVietnameseSelection(0);
     };
 
-    var sc = document.createElement('script');
-    sc.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    document.body.appendChild(sc);
+    var script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.body.appendChild(script);
   }
 
-  // ---- Chuyển ngôn ngữ ----
-  function switchLang(lang) {
-    try { localStorage.setItem('gt_lang', lang); } catch(e) {}
-    document.cookie = 'googtrans=/en/' + lang + '; path=/; max-age=31536000';
-    location.replace(window.location.protocol + '//' + window.location.host + window.location.pathname);
+  function reloadCleanPage() {
+    window.location.reload();
   }
 
-  // ---- Dropdown ENG/VIE ----
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.secondary-nav li a');
-    if (!link) return;
-    var txt = link.textContent.trim().toUpperCase();
-    if (txt === 'ENG') { e.preventDefault(); switchLang('en'); }
-    else if (txt === 'VIE') { e.preventDefault(); switchLang('vi'); }
-  });
+  function switchLanguage(lang) {
+    if (lang === VI_LANG) {
+      setSavedLang(VI_LANG);
+      setVietnameseCookie();
+      reloadCleanPage();
+      return;
+    }
 
-  // ---- Đánh dấu active ----
-  function markActive() {
-    var links = document.querySelectorAll('.secondary-nav li a');
+    setSavedLang(SOURCE_LANG);
+    clearTranslateCookie();
+    reloadCleanPage();
+  }
+
+  function normalizeLanguageText(text) {
+    return String(text || '').replace(/\s+/g, ' ').trim().toUpperCase();
+  }
+
+  function isLanguageOption(link) {
+    var text = normalizeLanguageText(link.textContent);
+    if (text !== 'ENG' && text !== 'VIE') return false;
+
+    var dropdown = link.closest('ul.g-dropdown');
+    if (dropdown) return true;
+
+    var parentLi = link.parentElement;
+    return !!(parentLi && parentLi.querySelector('ul.g-dropdown'));
+  }
+
+  function markActiveLanguage() {
+    var currentLang = getSavedLang();
+    var links = document.querySelectorAll('.secondary-nav a');
+
     for (var i = 0; i < links.length; i++) {
+      if (!isLanguageOption(links[i])) continue;
+
+      var text = normalizeLanguageText(links[i].textContent);
       links[i].classList.remove('u-c-brand');
-      var txt = links[i].textContent.trim().toUpperCase();
-      if ((savedLang === 'vi' && txt === 'VIE') || (savedLang !== 'vi' && txt === 'ENG')) {
+      if ((currentLang === VI_LANG && text === 'VIE') || (currentLang !== VI_LANG && text === 'ENG')) {
         links[i].classList.add('u-c-brand');
       }
     }
   }
 
+  function bindLanguageClicks() {
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('.secondary-nav a');
+      if (!link || !isLanguageOption(link)) return;
+
+      var text = normalizeLanguageText(link.textContent);
+      event.preventDefault();
+
+      if (text === 'VIE') switchLanguage(VI_LANG);
+      if (text === 'ENG') switchLanguage(SOURCE_LANG);
+    });
+  }
+
+  function init() {
+    hideGoogleTranslateUi();
+    bindLanguageClicks();
+    markActiveLanguage();
+
+    if (getSavedLang() === VI_LANG) {
+      addTranslateMeta();
+      setVietnameseCookie();
+      loadGoogleTranslate();
+      return;
+    }
+
+    addNoTranslateMeta();
+    clearTranslateCookie();
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', markActive);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    markActive();
+    init();
   }
 })();
