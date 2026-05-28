@@ -2,8 +2,9 @@
  * google-translate.js - Google Translate cho Huyen Tuyen Rice
  * Hỗ trợ: ENG (English) và VIE (Tiếng Việt)
  * 
- * - Chọn VIE: bật Google Translate, ẩn banner Google, chỉ dùng dropdown của dự án
- * - Chọn ENG: xóa cookie Google Translate, reload về tiếng Anh mặc định
+ * - Chọn VIE: set cookie → Google dịch sang Tiếng Việt
+ * - Chọn ENG: xóa cookie → Google không dịch, hiển thị English gốc
+ * - Ẩn hoàn toàn banner/popup Google Translate
  */
 
 (function() {
@@ -13,50 +14,52 @@
   var savedLang = 'en';
   try {
     var s = localStorage.getItem('gt_lang');
-    if (s === 'vi' || s === 'en') savedLang = s;
+    if (s === 'vi') savedLang = 'vi';
   } catch(e) {}
 
-  // Set/Xóa cookie googtrans
+  // Set cookie TRƯỚC khi Google Translate load
+  // VIE = /en/vi, ENG = xóa cookie
   if (savedLang === 'vi') {
     document.cookie = 'googtrans=/en/vi; path=/;';
   } else {
+    // Xóa cookie hoàn toàn - Google sẽ không dịch gì
     document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
   }
 
   // ---- CSS ẩn hoàn toàn Google Translate ----
   var style = document.createElement('style');
   style.textContent = 
-    '.goog-te-banner-frame.skiptranslate, ' +
     '.goog-te-banner-frame, ' +
+    '.goog-te-banner-frame.skiptranslate, ' +
     '#goog-gt-tt, ' +
     '.goog-te-balloon-frame, ' +
     '.goog-te-gadget-simple, ' +
     '.goog-te-gadget-icon, ' +
     'iframe[src*="translate.googleapis.com"], ' +
     '.goog-te-spinner-pos, ' +
-    '#google_translate_element { ' +
+    '#google_translate_element, ' +
+    '.skiptranslate > iframe { ' +
       'display: none !important; ' +
     '} ' +
-    'body { top: 0px !important; } ' +
-    /* Ẩn thanh thông báo "This page is in English" */
-    '.skiptranslate > iframe:first-child { display: none !important; } ' +
-    'iframe.goog-te-banner-frame { display: none !important; }';
+    'body { top: 0px !important; }';
   document.head.appendChild(style);
 
-  // ---- 1. Tạo widget ẩn + load Google Translate ----
+  // ---- 1. Load Google Translate (ẩn) ----
   function initGT() {
     var div = document.createElement('div');
     div.id = 'google_translate_element';
-    div.style.cssText = 'display:none;position:fixed;top:-9999px;left:-9999px;';
+    div.style.cssText = 'display:none;';
     document.body.appendChild(div);
 
     window.googleTranslateElementInit = function() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,vi',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
+      try {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,vi',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      } catch(e) {}
     };
 
     var script = document.createElement('script');
@@ -69,15 +72,43 @@
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
 
     if (lang === 'vi') {
+      // Set cookie để Google Translate dịch sang Việt
       document.cookie = 'googtrans=/en/vi; path=/;';
     } else {
-      // Xóa cookie để tắt Google Translate hoàn toàn
+      // Xóa cookie googtrans ở TẤT CẢ các path/domain để Google không dịch
+      // Path=/
       document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      // Path=/Shopping
+      document.cookie = 'googtrans=; path=/Shopping; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      // Path=/Shopping/
+      document.cookie = 'googtrans=; path=/Shopping/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      // Domain .github.io
+      document.cookie = 'googtrans=; path=/; domain=.github.io; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      document.cookie = 'googtrans=; path=/Shopping; domain=.github.io; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      document.cookie = 'googtrans=; path=/Shopping/; domain=.github.io; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+
+      // Cũng dùng Google Translate API để chuyển về English nếu có iframe
+      try {
+        var iframes = document.querySelectorAll('iframe.goog-te-menu-frame');
+        if (iframes.length) {
+          var doc = iframes[0].contentDocument || iframes[0].contentWindow.document;
+          if (doc) {
+            var items = doc.querySelectorAll('.goog-te-menu2-item span.text');
+            for (var i = 0; i < items.length; i++) {
+              var txt = items[i].textContent.trim().toLowerCase();
+              if (txt.indexOf('english') !== -1) {
+                items[i].click();
+                return;
+              }
+            }
+          }
+        }
+      } catch(ex) {}
     }
     location.reload();
   }
 
-  // ---- 3. Gắn sự kiện cho dropdown ENG/VIE ----
+  // ---- 3. Gắn sự kiện dropdown ENG/VIE ----
   document.addEventListener('click', function(e) {
     var link = e.target.closest('.secondary-nav li a');
     if (!link) return;
