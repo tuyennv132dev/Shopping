@@ -78,7 +78,8 @@
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
     var base = window.location.origin + window.location.pathname;
-    window.location.href = base + '?lang=' + lang;
+    // Dùng location.replace thay href để tránh lưu history + hash
+    location.replace(base + '?lang=' + lang);
   }
 
   // ---- Dropdown ENG/VIE ----
