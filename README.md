@@ -130,8 +130,8 @@ When editing the project:
 
 Current store contact information used in the website:
 
-- Phone: `0914 331 367`
-- Phone: `0983 914 467`
+- Phone: `09xx xxx xxx`
+- Phone: `09xx xxx xxx`
 - Email: `support@huyentuyenrice.com`
 - Location: Vietnam
 
