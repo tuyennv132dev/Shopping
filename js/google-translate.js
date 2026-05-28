@@ -2,40 +2,43 @@
  * google-translate.js - Google Translate cho Huyen Tuyen Rice
  * Hỗ trợ: ENG (English) và VIE (Tiếng Việt)
  * 
- * Sử dụng Google Translate API trực tiếp để chuyển đổi
- * Không dùng cookie (vì cookie không ổn định)
+ * - Chọn VIE: set cookie googtrans=/en/vi → Google dịch sang Tiếng Việt
+ * - Chọn ENG: set cookie googtrans=/en/en → Google giữ nguyên English (không dịch)
+ * - Nếu lần đầu truy cập (không có localStorage): mặc định ENG, KHÔNG set cookie gì
  */
 
 (function() {
   'use strict';
 
-  // ---- CSS ẩn Google Translate (giữ lại .goog-te-combo để điều khiển) ----
-  var style = document.createElement('style');
-  style.textContent = 
-    '.goog-te-banner-frame, .skiptranslate iframe, ' +
-    '#goog-gt-tt, .goog-te-balloon-frame, ' +
-    '.goog-te-gadget-simple, .goog-te-gadget-icon, ' +
-    '#google_translate_element, ' +
-    '.goog-te-gadget { display: none !important; } ' +
-    'body { top: 0px !important; } ' +
-    /* Đảm bảo combo select luôn hiện để JS điều khiển */
-    '.goog-te-combo { position: fixed; top: -9999px; left: -9999px; opacity: 0; pointer-events: none; }';
-  document.head.appendChild(style);
-
+  // ---- 0. Đọc trạng thái ----
   var savedLang = 'en';
   try {
     var s = localStorage.getItem('gt_lang');
     if (s === 'vi') savedLang = 'vi';
   } catch(e) {}
 
-  // Set cookie TRƯỚC khi load Google Translate
+  // Set cookie TRƯỚC khi Google Translate khởi tạo
+  // Quan trọng: set cookie với path, domain và max-age
   if (savedLang === 'vi') {
     document.cookie = 'googtrans=/en/vi; path=/;';
   } else {
+    // Set cookie /en/en = giữ nguyên English gốc
     document.cookie = 'googtrans=/en/en; path=/;';
   }
 
-  // ---- 1. Load Google Translate ----
+  // ---- CSS ẩn Google Translate ----
+  var style = document.createElement('style');
+  style.textContent = 
+    '.goog-te-banner-frame, .skiptranslate iframe, ' +
+    '#goog-gt-tt, .goog-te-balloon-frame, ' +
+    '.goog-te-gadget-simple, .goog-te-gadget-icon, ' +
+    '#google_translate_element, .goog-te-gadget { ' +
+      'display: none !important; ' +
+    '} ' +
+    'body { top: 0px !important; }';
+  document.head.appendChild(style);
+
+  // ---- 1. Khởi tạo Google Translate ----
   function initGT() {
     var div = document.createElement('div');
     div.id = 'google_translate_element';
@@ -61,12 +64,42 @@
   // ---- 2. Chuyển ngôn ngữ ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
+
+    // Set cookie googtrans
     document.cookie = 'googtrans=/en/' + lang + '; path=/;';
-    // Reload để Google đọc cookie mới
+
+    // Dùng Google Translate API để chuyển ngôn ngữ trực tiếp
+    if (window.google && google.translate) {
+      try {
+        // Google Translate tạo iframe với combo, thay đổi giá trị sẽ kích hoạt dịch
+        var iframe = document.querySelector('iframe.goog-te-menu-frame');
+        if (iframe) {
+          var doc = iframe.contentDocument || iframe.contentWindow.document;
+          if (doc) {
+            var combo = doc.querySelector('.goog-te-menu2-item span.text');
+            if (combo) {
+              // Click vào đúng mục
+              var items = doc.querySelectorAll('.goog-te-menu2-item');
+              var langCode = lang === 'vi' ? 'vi' : 'en';
+              for (var i = 0; i < items.length; i++) {
+                var text = items[i].textContent.trim().toLowerCase();
+                if ((langCode === 'vi' && (text.indexOf('vietnam') !== -1 || text.indexOf('việt') !== -1)) ||
+                    (langCode === 'en' && text.indexOf('english') !== -1)) {
+                  items[i].querySelector('span.text').click();
+                  return;
+                }
+              }
+            }
+          }
+        }
+      } catch(e) {}
+    }
+
+    // Fallback: reload
     location.reload();
   }
 
-  // ---- 3. Gắn sự kiện dropdown ENG/VIE ----
+  // ---- 3. Dropdown ENG/VIE ----
   document.addEventListener('click', function(e) {
     var link = e.target.closest('.secondary-nav li a');
     if (!link) return;
