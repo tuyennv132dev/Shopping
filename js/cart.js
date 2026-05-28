@@ -486,6 +486,8 @@
     var tbody = document.querySelector('.checkout-order table tbody');
     if (!tbody) return;
 
+    updateCheckoutReceiptMeta();
+
     if (cart.length === 0) {
       tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;padding:40px 20px;color:#999;">Your cart is empty. <a href="index.html" style="color:#c9a96e;">Shop now</a></td></tr>';
       // Also update totals
@@ -559,6 +561,28 @@
     // Update the QR modal total too
     var totalPriceEl = document.querySelector('.qr-order-info strong:last-child');
     if (totalPriceEl) totalPriceEl.textContent = formatCurrency(totalSum);
+  }
+
+  function pad2(value) {
+    return String(value).padStart(2, '0');
+  }
+
+  function updateCheckoutReceiptMeta() {
+    var now = new Date();
+    var day = pad2(now.getDate());
+    var month = pad2(now.getMonth() + 1);
+    var year = now.getFullYear();
+    var dateText = day + '/' + month + '/' + year;
+    var invoiceText = '#INV-' + year + month + day;
+
+    var dateEl = document.getElementById('receiptDate');
+    if (dateEl) dateEl.textContent = dateText;
+
+    var invoiceEl = document.getElementById('receiptInvoice');
+    if (invoiceEl) invoiceEl.textContent = invoiceText;
+
+    var qrOrderInfo = document.querySelector('.qr-order-info strong:first-child');
+    if (qrOrderInfo) qrOrderInfo.textContent = 'Order ' + invoiceText;
   }
 
   function initCheckoutAction() {

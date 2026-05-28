@@ -530,9 +530,13 @@ $(function () {
         // Specificity = 2
         $('.section-maker [data-toggle="tab"]').on('shown.bs.tab', function (e) {
             // Get the current click id of tab
-            let $currentID = $(e.target).attr('href');
-            // Trigger refresh `event` to current active `tab`
-            $($currentID + '.active').children().trigger('refresh.owl.carousel');
+            let currentID = $(e.target).attr('href');
+            let $activeSliders = $(currentID).find('.products-slider.owl-carousel');
+            // Hidden tab panes have zero width during initial carousel setup, so refresh
+            // the real Owl instance after Bootstrap finishes showing the pane.
+            window.requestAnimationFrame(function () {
+                $activeSliders.trigger('refresh.owl.carousel');
+            });
         });
 
     };

@@ -1228,6 +1228,23 @@ body {
     opacity: 0;
     transition: all 0.3s; }
 
+.products-slider .image-container {
+  width: 100%; }
+
+.products-slider .item-img-wrapper-link {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff; }
+
+.products-slider .item-img-wrapper-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block; }
+
 .item-action-behaviors {
   position: absolute;
   top: 0;

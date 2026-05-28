@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Product Details - Huyen Tuyen Rice</title>
+    <link href="favicon.ico" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/jquery-ui-range-slider.min.css">
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="css/bundle.css">
+    <style>
+        .product-benefit-list { list-style: none; padding: 0; }
+        .product-benefit-list li { margin-bottom: 10px; display: flex; align-items: center; }
+        .product-benefit-list li i { color: #28a745; margin-right: 10px; font-size: 18px; }
+        .product-zoom-area { position: relative; margin-bottom: 30px; border: 1px solid #f0f0f0; border-radius: 12px; overflow: hidden; background: #fff; padding: 10px; }
+        #zoom-pro { width: 100%; height: 400px; object-fit: contain; display: block; margin: 0 auto; }
+        #gallery { display: flex; gap: 12px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        #gallery img { width: 80px; height: 80px; object-fit: cover; cursor: pointer; border: 2px solid #f0f0f0; border-radius: 8px; transition: 0.3s; }
+        #gallery a.active img, #gallery img:hover { border-color: #28a745; box-shadow: 0 0 8px rgba(40, 167, 69, 0.25); }
+        .section-6-social-media-quantity-actions { margin-top: 25px; padding: 25px; background: #fcfcfc; border: 1px solid #f1f1f1; border-radius: 12px; display: flex; flex-direction: column; gap: 20px; }
+        .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+        .quantity-label { font-weight: 600; color: #444; font-size: 15px; }
+        .quantity { display: flex; border: 1px solid #ddd; border-radius: 30px; overflow: hidden; height: 48px; width: 110px; background: #fff; }
+        .quantity-text-field { width: 30px; text-align: center; border: none !important; outline: none !important; font-weight: 700; font-size: 16px; color: #333; background: transparent; padding: 0; margin: 0; }
+        .plus-a, .minus-a { flex: 1; display: flex; align-items: center; justify-content: center; background: #f8f9fa; cursor: pointer; text-decoration: none !important; color: #555; font-size: 20px; transition: all 0.2s ease; }
+        .plus-a:hover, .minus-a:hover { background: #eeeeee; color: #28a745; }
+        .cart-action-buttons { display: flex; gap: 15px; align-items: center; }
+        .item-addCart { flex: 1; height: 54px; border-radius: 30px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background-color: #28a745 !important; border: none !important; color: #fff !important; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.25); transition: all 0.3s ease; }
+        .item-addCart:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(40, 167, 69, 0.35); background-color: #218838 !important; }
+        .wishlist-btn { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #ff4757; border: 1px solid #eee; background: #fff; transition: 0.3s; cursor: pointer; }
+        .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.05); }
+        .all-information-wrapper { padding-left: 15px; }
+        .wishlist-counter { color: #fff; font-size: 10px; line-height: 20px; font-weight: 700; position: absolute; background-color: #ff4757; width: 20px; height: 20px; left: 15px; top: -10px; text-align: center; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        @media (max-width: 767px) { #zoom-pro { height: 300px; } .all-information-wrapper { padding-left: 0; margin-top: 30px; } }
+    </style>
+</head>
+<body class="single-product-page">
+    <div id="app">
+        <header>
+            <div class="full-layer-outer-header">
+                <div class="container clearfix">
+                    <nav>
+                        <ul class="primary-nav g-nav">
+                            <li><a href="tel:0914331367"><i class="fas fa-phone u-c-brand u-s-m-r-9"></i> Hotline: 0914 331 367</a></li>
+                            <li><a href="mailto:support@huyentuyenrice.com"><i class="fas fa-envelope u-c-brand u-s-m-r-9"></i> Email: support@huyentuyenrice.com</a></li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul class="secondary-nav g-nav">
+                            <li><a>Account <i class="fas fa-chevron-down u-s-m-l-9"></i></a><ul class="g-dropdown" style="width:200px"><li><a href="cart.html"><i class="fas fa-cog u-s-m-r-9"></i> My Cart</a></li><li><a href="wishlist.html"><i class="far fa-heart u-s-m-r-9"></i> Wishlist</a></li><li><a href="checkout.html"><i class="far fa-check-circle u-s-m-r-9"></i> Checkout</a></li></ul></li>
+                            <li><a>ENG <i class="fas fa-chevron-down u-s-m-l-9"></i></a><ul class="g-dropdown" style="width:70px"><li><a href="#" class="u-c-brand">ENG</a></li><li><a href="#">VIE</a></li></ul></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="full-layer-mid-header">
+                <div class="container">
+                    <div class="row clearfix align-items-center">
+                        <div class="col-lg-3 col-md-9 col-sm-6"><div class="brand-logo text-lg-center"><a href="index.html"><img src="images/main-logo/groover-branding-1.png" alt="Huyen Tuyen Rice" class="app-brand-logo" style="max-width: 180px; height: auto;"></a></div></div>
+                        <div class="col-lg-6 u-d-none-lg"><form class="form-searchbox"><label class="sr-only" for="search-landscape">Search</label><input id="search-landscape" type="text" class="text-field" placeholder="Search for rice, nutritious seeds..."><div class="select-box-position"><div class="select-box-wrapper select-hide"><select class="select-box" id="select-category"><option selected="selected" value="">All Categories</option><option value="gao-trang">White Rice</option><option value="hat-dinh-duong">Nutritious Seeds</option><option value="dau-cac-loai">Beans & Legumes</option><option value="baby-food">Baby & Kids Food</option></select></div></div><button id="btn-search" type="submit" class="button button-primary fas fa-search"></button></form></div>
+                        <div class="col-lg-3 col-md-3 col-sm-6"><nav><ul class="mid-nav g-nav"><li class="u-d-none-lg"><a href="index.html"><i class="ion ion-md-home u-c-brand"></i></a></li><li class="u-d-none-lg"><a href="wishlist.html" style="position: relative;"><i class="far fa-heart"></i><span class="wishlist-counter">0</span></a></li><li><a id="mini-cart-trigger"><i class="ion ion-md-basket"></i><span class="item-counter">0</span><span class="item-price">0 VND</span></a></li></ul></nav></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mini-cart-wrapper"><div class="mini-cart"><div class="mini-cart-header">YOUR CART<button type="button" class="button ion ion-md-close" id="mini-cart-close"></button></div><ul class="mini-cart-list"></ul><div class="mini-shop-total clearfix"><span class="mini-total-heading float-left">Total:</span><span class="mini-total-price float-right">0 VND</span></div><div class="mini-action-anchors"><a href="cart.html" class="cart-anchor">View Cart</a><a href="checkout.html" class="checkout-anchor">Checkout</a></div></div></div>
+        </header>
+
+        <div class="page-style-a"><div class="container"><div class="page-intro"><h2>Product Details</h2><ul class="bread-crumb"><li class="has-separator"><i class="ion ion-md-home"></i><a href="index.html">Home</a></li><li class="has-separator"><a href="#" data-product-category-url id="breadcrumb-category">Products</a></li><li class="is-marked" id="breadcrumb-current">Product</li></ul></div></div></div>
+
+        <div class="page-single-product u-s-p-t-80"><div class="container"><div class="row"><div class="col-lg-6 col-md-6"><div class="product-zoom-area"><img id="zoom-pro" src="images/product/product@2x.jpg" data-zoom-image="images/product/product@2x.jpg" alt="Product"><div id="gallery"></div></div></div><div class="col-lg-6 col-md-6"><div class="all-information-wrapper item"><div class="section-1-title-breadcrumb-rating"><div class="product-title"><h1 id="product-name">Product</h1></div><div class="product-rating"><div class="star" title="4.5/5"><span style="width:67px"></span></div><span id="product-review-count">(0 Customer Reviews)</span></div></div><div class="section-2-short-description u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Short Description:</h6><p id="short-description"></p><ul class="product-benefit-list u-s-m-t-15" id="benefit-list"></ul></div><div class="section-3-price-original-discount u-s-p-y-14"><div class="price" style="color: #28a745;"><h4 id="product-price">0 VND</h4></div><div class="original-price" style="text-decoration: line-through; color: #999;"><span id="product-old-price"></span></div></div><div class="section-5-product-variants u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Select Packaging:</h6><div class="select-box-wrapper"><select class="select-box" id="pack-size"></select></div></div><div class="section-6-social-media-quantity-actions"><div class="quantity-wrapper"><span class="quantity-label">Quantity:</span><div class="quantity"><a class="minus-a" data-min="1">-</a><input type="text" class="quantity-text-field" value="1" readonly><a class="plus-a" data-max="1000">+</a></div></div><div class="cart-action-buttons"><button class="button item-addCart" type="button">ADD TO CART</button><button class="wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button></div></div></div></div></div></div></div>
+
+        <div class="product-tabs u-s-p-t-30"><div class="container"><div class="row"><div class="col-lg-12"><ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#desc">Product Description</a></li><li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tips">Usage Tips</a></li></ul><div class="tab-content u-s-m-t-30"><div id="desc" class="tab-pane active"><p id="product-detail-copy"></p></div><div id="tips" class="tab-pane"><ul style="list-style: disc; margin-left: 20px; color: #666; line-height: 1.8;" id="cooking-tips"></ul></div></div></div></div></div></div>
+
+        <footer class="footer"><div class="container"><div class="row"><div class="col-lg-4 col-md-6 u-s-m-b-30"><div class="footer-widget"><h4>Huyen Tuyen Rice</h4><p>Fresh rice, healthy nuts, seeds, beans, and whole grains for every family meal.</p></div></div><div class="col-lg-8 col-md-6"><p>&copy; 2026 Huyen Tuyen Rice. All Rights Reserved.</p></div></div></div></footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.elevatezoom.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/product-detail-renderer.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/google-translate.js"></script>
+</body>
+</html>

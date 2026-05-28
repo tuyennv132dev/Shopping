@@ -2,13 +2,16 @@
  * Site language switcher for Huyen Tuyen Rice.
  *
  * Source content is English. Vietnamese is applied through Google Translate.
- * ENG clears Google Translate state and reloads the original page.
+ * ENG clears Google Translate state and reloads the original English page.
  * VIE stores the preference, sets googtrans=/en/vi, and loads Google Translate.
+ * The switcher labels are marked as notranslate so clicks keep working after
+ * Google mutates the page text.
  */
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'gt_lang';
+  var STORAGE_KEY = 'htr_lang';
+  var LEGACY_STORAGE_KEYS = ['gt_lang', 'site_lang', 'language'];
   var SOURCE_LANG = 'en';
   var VI_LANG = 'vi';
   var TRANSLATE_COOKIE = 'googtrans';
@@ -24,6 +27,17 @@
   function setSavedLang(lang) {
     try {
       localStorage.setItem(STORAGE_KEY, lang === VI_LANG ? VI_LANG : SOURCE_LANG);
+      for (var i = 0; i < LEGACY_STORAGE_KEYS.length; i++) {
+        localStorage.removeItem(LEGACY_STORAGE_KEYS[i]);
+      }
+    } catch (e) {}
+  }
+
+  function removeLegacyLanguageState() {
+    try {
+      for (var i = 0; i < LEGACY_STORAGE_KEYS.length; i++) {
+        localStorage.removeItem(LEGACY_STORAGE_KEYS[i]);
+      }
     } catch (e) {}
   }
 
@@ -62,6 +76,19 @@
       if (domains[i]) cookie += '; domain=' + domains[i];
       document.cookie = cookie;
     }
+  }
+
+  function clearTranslateState() {
+    clearTranslateCookie();
+
+    try {
+      sessionStorage.removeItem(TRANSLATE_COOKIE);
+      sessionStorage.removeItem('googleTranslateElementInit');
+    } catch (e) {}
+
+    try {
+      localStorage.removeItem(TRANSLATE_COOKIE);
+    } catch (e) {}
   }
 
   function setVietnameseCookie() {
@@ -159,6 +186,13 @@
   }
 
   function reloadCleanPage() {
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.delete('googtrans');
+      window.location.replace(url.toString());
+      return;
+    } catch (e) {}
+
     window.location.reload();
   }
 
@@ -171,7 +205,7 @@
     }
 
     setSavedLang(SOURCE_LANG);
-    clearTranslateCookie();
+    clearTranslateState();
     reloadCleanPage();
   }
 
@@ -179,7 +213,13 @@
     return String(text || '').replace(/\s+/g, ' ').trim().toUpperCase();
   }
 
+  function getLanguageLabel(lang) {
+    return lang === VI_LANG ? 'VIE' : 'ENG';
+  }
+
   function isLanguageOption(link) {
+    if (link.getAttribute('data-htr-lang')) return true;
+
     var text = normalizeLanguageText(link.textContent);
     if (text !== 'ENG' && text !== 'VIE') return false;
 
@@ -190,16 +230,97 @@
     return !!(parentLi && parentLi.querySelector('ul.g-dropdown'));
   }
 
+  function detectLanguageFromLink(link) {
+    var explicitLang = link.getAttribute('data-htr-lang');
+    if (explicitLang === SOURCE_LANG || explicitLang === VI_LANG) return explicitLang;
+
+    var text = normalizeLanguageText(link.textContent);
+    if (text === 'ENG' || text === 'ENGLISH' || text.indexOf('ANH') !== -1) return SOURCE_LANG;
+    if (text === 'VIE' || text === 'VI' || text.indexOf('VIET') !== -1 || text.indexOf('VIỆT') !== -1) return VI_LANG;
+
+    return '';
+  }
+
+  function getDirectAnchor(parentLi) {
+    if (!parentLi) return null;
+
+    for (var i = 0; i < parentLi.children.length; i++) {
+      if (parentLi.children[i].tagName === 'A') return parentLi.children[i];
+    }
+
+    return null;
+  }
+
+  function getLanguageTriggerFromOption(link) {
+    var dropdown = link.closest('ul.g-dropdown');
+    if (!dropdown) return null;
+
+    return getDirectAnchor(dropdown.parentElement);
+  }
+
+  function setLanguageTriggerText(trigger, lang) {
+    if (!trigger) return;
+
+    var icon = trigger.querySelector('i');
+    trigger.textContent = getLanguageLabel(lang) + ' ';
+    if (icon) trigger.appendChild(icon);
+  }
+
+  function updateLanguageTriggers(lang) {
+    var triggers = document.querySelectorAll('.secondary-nav [data-htr-lang-trigger]');
+
+    for (var i = 0; i < triggers.length; i++) {
+      setLanguageTriggerText(triggers[i], lang);
+    }
+  }
+
+  function prepareLanguageSwitcher() {
+    var navs = document.querySelectorAll('.secondary-nav');
+
+    for (var i = 0; i < navs.length; i++) {
+      var links = navs[i].querySelectorAll('a');
+
+      for (var j = 0; j < links.length; j++) {
+        var text = normalizeLanguageText(links[j].textContent);
+        var lang = '';
+
+        if (text === 'ENG') lang = SOURCE_LANG;
+        if (text === 'VIE') lang = VI_LANG;
+        if (!lang || !isLanguageOption(links[j])) continue;
+
+        links[j].setAttribute('href', '#');
+        links[j].setAttribute('data-htr-lang', lang);
+        links[j].setAttribute('translate', 'no');
+        links[j].classList.add('notranslate');
+
+        var li = links[j].closest('li');
+        if (li) {
+          li.setAttribute('translate', 'no');
+          li.classList.add('notranslate');
+        }
+
+        var trigger = getLanguageTriggerFromOption(links[j]);
+        if (trigger) {
+          trigger.setAttribute('data-htr-lang-trigger', 'true');
+          trigger.setAttribute('translate', 'no');
+          trigger.classList.add('notranslate');
+        }
+      }
+    }
+  }
+
   function markActiveLanguage() {
     var currentLang = getSavedLang();
     var links = document.querySelectorAll('.secondary-nav a');
 
+    updateLanguageTriggers(currentLang);
+
     for (var i = 0; i < links.length; i++) {
       if (!isLanguageOption(links[i])) continue;
 
-      var text = normalizeLanguageText(links[i].textContent);
+      var lang = detectLanguageFromLink(links[i]);
       links[i].classList.remove('u-c-brand');
-      if ((currentLang === VI_LANG && text === 'VIE') || (currentLang !== VI_LANG && text === 'ENG')) {
+      if ((currentLang === VI_LANG && lang === VI_LANG) || (currentLang !== VI_LANG && lang === SOURCE_LANG)) {
         links[i].classList.add('u-c-brand');
       }
     }
@@ -210,16 +331,19 @@
       var link = event.target.closest('.secondary-nav a');
       if (!link || !isLanguageOption(link)) return;
 
-      var text = normalizeLanguageText(link.textContent);
-      event.preventDefault();
+      var lang = detectLanguageFromLink(link);
+      if (!lang) return;
 
-      if (text === 'VIE') switchLanguage(VI_LANG);
-      if (text === 'ENG') switchLanguage(SOURCE_LANG);
+      event.preventDefault();
+      event.stopPropagation();
+
+      switchLanguage(lang);
     });
   }
 
   function init() {
     hideGoogleTranslateUi();
+    prepareLanguageSwitcher();
     bindLanguageClicks();
     markActiveLanguage();
 
@@ -230,8 +354,9 @@
       return;
     }
 
+    removeLegacyLanguageState();
     addNoTranslateMeta();
-    clearTranslateCookie();
+    clearTranslateState();
   }
 
   if (document.readyState === 'loading') {
