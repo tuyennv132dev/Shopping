@@ -11,44 +11,16 @@
 (function() {
   'use strict';
 
-  // ---- Helper: lấy base URL (bỏ query params và hash) ----
-  function getBaseUrl() {
-    var path = window.location.pathname;
-    // Normalize path: thay \ bằng /, remove double /
-    path = path.replace(/\\/g, '/').replace(/\/+/g, '/');
-    // Đảm bảo path kết thúc không có /
-    // nhưng nếu là root thì giữ /
-    if (path.length > 1 && path.endsWith('/')) {
-      path = path.slice(0, -1);
-    }
-    return window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + path;
-  }
-
-  // ---- Đọc ngôn ngữ từ URL (ưu tiên) + localStorage ----
-  var params = new URLSearchParams(window.location.search);
-  var langFromUrl = params.get('lang');
+  // ---- Đọc ngôn ngữ ----
   var savedLang = 'en';
+  try { var s = localStorage.getItem('gt_lang'); if (s === 'vi') savedLang = 'vi'; } catch(e) {}
 
-  // Đọc từ localStorage
-  try {
-    var s = localStorage.getItem('gt_lang');
-    if (s === 'vi') savedLang = 'vi';
-  } catch(e) {}
-
-  // Nếu URL không có ?lang=, redirect đến URL phù hợp (bỏ hash)
-  if (langFromUrl !== 'en' && langFromUrl !== 'vi') {
-    try { localStorage.setItem('gt_lang', savedLang); } catch(e) {}
-    var targetLang = savedLang;
-    location.replace(getBaseUrl() + '?lang=' + targetLang);
-    return; // Dừng xử lý, chờ redirect
+  // ---- Set/Xóa cookie tùy theo ngôn ngữ ----
+  if (savedLang === 'vi') {
+    document.cookie = 'googtrans=/en/vi; path=/; max-age=31536000';
+  } else {
+    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
   }
-
-  // Nếu URL có ?lang=, lưu vào localStorage và set cookie
-  savedLang = langFromUrl;
-  try { localStorage.setItem('gt_lang', langFromUrl); } catch(e) {}
-
-  // Set cookie cho Google Translate
-  document.cookie = 'googtrans=/en/' + savedLang + '; path=/; max-age=31536000';
 
   // ---- CSS ẩn Google Translate UI ----
   var ss = document.createElement('style');
@@ -61,7 +33,7 @@
     'body{top:0!important}';
   document.head.appendChild(ss);
 
-  // ---- Chỉ load Google Translate khi cần (lang=vi) ----
+  // ---- Chỉ load Google Translate khi cần (VIE) ----
   if (savedLang === 'vi') {
     var div = document.createElement('div');
     div.id = 'google_translate_element';
@@ -84,10 +56,19 @@
     document.body.appendChild(sc);
   }
 
-  // ---- Chuyển ngôn ngữ: redirect đến URL mới (bỏ hash) ----
+  // ---- Chuyển ngôn ngữ: set cookie + reload ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
-    location.replace(getBaseUrl() + '?lang=' + lang);
+
+    if (lang === 'vi') {
+      document.cookie = 'googtrans=/en/vi; path=/; max-age=31536000';
+    } else {
+      document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    }
+
+    // Reload với URL KHÔNG có query params và KHÔNG có hash
+    var url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+    location.replace(url);
   }
 
   // ---- Dropdown ENG/VIE ----
