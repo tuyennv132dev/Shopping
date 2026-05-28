@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/utility.css">
     <!-- Main -->
     <link rel="stylesheet" href="css/bundle.css">
+    <link rel="stylesheet" href="css/custom-modals.css">
 </head>
 
 <body>
@@ -163,15 +164,16 @@
                                         </a>
                                     </li>
                                     <li class="u-d-none-lg">
-                                        <a href="wishlist.html">
+                                        <a href="wishlist.html" style="position:relative;">
                                             <i class="far fa-heart"></i>
+                                            <span class="wishlist-counter">0</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a id="mini-cart-trigger">
                                             <i class="ion ion-md-basket"></i>
-                                            <span class="item-counter">4</span>
-                                            <span class="item-price">530,000 VND</span>
+                                            <span class="item-counter">0</span>
+                                            <span class="item-price">0 VND</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -189,7 +191,7 @@
                 <div class="fixed-responsive-wrapper">
                     <a href="wishlist.html">
                         <i class="far fa-heart"></i>
-                        <span class="fixed-item-counter">4</span>
+                        <span class="fixed-item-counter">0</span>
                     </a>
                 </div>
             </div>
@@ -202,34 +204,11 @@
                         <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
                     </div>
                     <ul class="mini-cart-list">
-                        <li class="clearfix">
-                            <a href="product-st25-rice.html">
-                                <img src="images/product/gao-ST25.jpg" alt="ST25 Rice">
-                                <span class="mini-item-name">ST25 Rice - 5kg</span>
-                                <span class="mini-item-price">225,000 VND</span>
-                                <span class="mini-item-quantity"> x 1 </span>
-                            </a>
-                        </li>
-                        <li class="clearfix">
-                            <a href="product-almonds.html">
-                                <img src="images/product/hanh-nhan.jpg" alt="Almonds">
-                                <span class="mini-item-name">Almonds - 500g</span>
-                                <span class="mini-item-price">95,000 VND</span>
-                                <span class="mini-item-quantity"> x 2 </span>
-                            </a>
-                        </li>
-                        <li class="clearfix">
-                            <a href="product-fruit-granola.html">
-                                <img src="images/product/granola.jpg" alt="Granola">
-                                <span class="mini-item-name">Fruit Granola - 500g</span>
-                                <span class="mini-item-price">115,000 VND</span>
-                                <span class="mini-item-quantity"> x 1 </span>
-                            </a>
-                        </li>
+                        <!-- Dynamically rendered by js/cart.js -->
                     </ul>
                     <div class="mini-shop-total clearfix">
                         <span class="mini-total-heading float-left">Total:</span>
-                        <span class="mini-total-price float-right">530,000 VND</span>
+                        <span class="mini-total-price float-right">0 VND</span>
                     </div>
                     <div class="mini-action-anchors">
                         <a href="cart.html" class="cart-anchor">View Cart</a>
@@ -673,13 +652,13 @@
                 </div>
                 <div class="slider-fouc">
                     <div class="products-slider owl-carousel" data-item="4">
-                        <div class="item">
+                        <div class="item" data-product-id="product-daily-rice-family-pack" data-product-name="Daily Rice Family Pack" data-product-price="285000" data-product-image="images/product/combo-rice-family.jpg">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-daily-rice-family-pack.html">
                                     <img class="img-fluid" src="images/product/combo-rice-family.jpg" alt="Daily Rice Family Pack">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-daily-rice-family-pack">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -703,13 +682,13 @@
                             </div>
                             <div class="tag hot"><span>HOT</span></div>
                         </div>
-                        <div class="item">
+                        <div class="item" data-product-id="product-healthy-breakfast-combo" data-product-name="Healthy Breakfast Combo" data-product-price="265000" data-product-image="images/product/combo-breakfast.jpg">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-healthy-breakfast-combo.html">
                                     <img class="img-fluid" src="images/product/combo-breakfast.jpg" alt="Healthy Breakfast Combo">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-healthy-breakfast-combo">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -733,13 +712,13 @@
                             </div>
                             <div class="tag sale"><span>SALE</span></div>
                         </div>
-                        <div class="item">
+                        <div class="item" data-product-id="product-brown-rice-nuts-combo" data-product-name="Brown Rice & Nuts Combo" data-product-price="330000" data-product-image="images/product/combo-brown-rice-nuts.jpg">
                             <div class="image-container">
-                                <a class="item-img-wrapper-link" href="product-brown-rice.html">
+                                <a class="item-img-wrapper-link" href="product-brown-rice-nuts-combo.html">
                                     <img class="img-fluid" src="images/product/combo-brown-rice-nuts.jpg" alt="Brown Rice & Nuts Combo">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-brown-rice-nuts-combo">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -750,7 +729,7 @@
                                         <li class="has-separator"><a href="shop-v1-root-category.html">Combo Packs</a></li>
                                         <li><a href="shop-v2-sub-category.html">Healthy Combos</a></li>
                                     </ul>
-                                    <h6 class="item-title"><a href="product-brown-rice.html">Brown Rice & Nuts Combo</a></h6>
+                                    <h6 class="item-title"><a href="product-brown-rice-nuts-combo.html">Brown Rice & Nuts Combo</a></h6>
                                     <div class="item-stars">
                                         <div class="star" title="4.5 out of 5"><span style="width:67px"></span></div>
                                         <span>(21)</span>
@@ -762,13 +741,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
+                        <div class="item" data-product-id="product-healthy-gift-set" data-product-name="Healthy Gift Set" data-product-price="450000" data-product-image="images/product/combo-gift-set.jpg">
                             <div class="image-container">
-                                <a class="item-img-wrapper-link" href="product-healthy-breakfast-combo.html">
+                                <a class="item-img-wrapper-link" href="product-healthy-gift-set.html">
                                     <img class="img-fluid" src="images/product/combo-gift-set.jpg" alt="Healthy Gift Set">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-healthy-gift-set">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -779,7 +758,7 @@
                                         <li class="has-separator"><a href="shop-v1-root-category.html">Combo Packs</a></li>
                                         <li><a href="shop-v2-sub-category.html">Gift Sets</a></li>
                                     </ul>
-                                    <h6 class="item-title"><a href="product-healthy-breakfast-combo.html">Healthy Gift Set</a></h6>
+                                    <h6 class="item-title"><a href="product-healthy-gift-set.html">Healthy Gift Set</a></h6>
                                     <div class="item-stars">
                                         <div class="star" title="4.5 out of 5"><span style="width:67px"></span></div>
                                         <span>(16)</span>
@@ -797,6 +776,259 @@
             </div>
         </section>
         <!-- Family Combo Deals Section /- -->
+
+        <!-- Product Quick-view Modals -->
+        <div id="quick-view-daily-rice-family-pack" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-daily-rice-family-pack" class="img-fluid" src="images/product/combo-rice-family.jpg" data-zoom-image="images/product/combo-rice-family.jpg" alt="Daily Rice Family Pack Zoom Image">
+                                    <div id="gallery-quick-view-daily-rice-family-pack" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/combo-rice-family.jpg" data-zoom-image="images/product/combo-rice-family.jpg">
+                                            <img src="images/product/combo-rice-family.jpg" alt="Daily Rice Family Pack" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/Gao_thom.jpg" data-zoom-image="images/product/Gao_thom.jpg">
+                                            <img src="images/product/Gao_thom.jpg" alt="Fragrant Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/Gao_tam_xoan_hai_hau.png" data-zoom-image="images/product/Gao_tam_xoan_hai_hau.png">
+                                            <img src="images/product/Gao_tam_xoan_hai_hau.png" alt="Bac Huong Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-daily-rice-family-pack" data-product-name="Daily Rice Family Pack" data-product-price="285000" data-product-image="images/product/combo-rice-family.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-daily-rice-family-pack.html">Huyen Tuyen Daily Rice Family Pack</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(26 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>An economical family pack containing carefully selected high-quality daily rice. Perfect for weekly family meals with a mild natural fragrance and soft, fluffy texture when cooked.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Clean, high-quality daily rice for the whole family</li>
+                                            <li><i class="fas fa-check-circle"></i> Great value family pack</li>
+                                            <li><i class="fas fa-check-circle"></i> Soft, fluffy texture for daily meals</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>285,000 VND / pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>320,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-healthy-breakfast-combo" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-healthy-breakfast-combo" class="img-fluid" src="images/product/combo-breakfast.jpg" data-zoom-image="images/product/combo-breakfast.jpg" alt="Healthy Breakfast Combo Zoom Image">
+                                    <div id="gallery-quick-view-healthy-breakfast-combo" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/combo-breakfast.jpg" data-zoom-image="images/product/combo-breakfast.jpg">
+                                            <img src="images/product/combo-breakfast.jpg" alt="Healthy Breakfast Combo" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/granola.jpg" data-zoom-image="images/product/granola.jpg">
+                                            <img src="images/product/granola.jpg" alt="Granola" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/oats.jpg" data-zoom-image="images/product/oats.jpg">
+                                            <img src="images/product/oats.jpg" alt="Oats" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-healthy-breakfast-combo" data-product-name="Healthy Breakfast Combo" data-product-price="265000" data-product-image="images/product/combo-breakfast.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-healthy-breakfast-combo.html">Huyen Tuyen Healthy Breakfast Combo</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(24 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>A nutritious breakfast combo featuring premium rolled oats, granola, nuts, and whole grains. Perfect for quick and healthy mornings—simply mix with milk or yogurt.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Packed with oats, granola, and nutritious grains</li>
+                                            <li><i class="fas fa-check-circle"></i> Quick to prepare</li>
+                                            <li><i class="fas fa-check-circle"></i> Rich in fiber and natural energy</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>265,000 VND / pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>310,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-brown-rice-nuts-combo" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-brown-rice-nuts-combo" class="img-fluid" src="images/product/combo-brown-rice-nuts.jpg" data-zoom-image="images/product/combo-brown-rice-nuts.jpg" alt="Brown Rice & Nuts Combo Zoom Image">
+                                    <div id="gallery-quick-view-brown-rice-nuts-combo" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/combo-brown-rice-nuts.jpg" data-zoom-image="images/product/combo-brown-rice-nuts.jpg">
+                                            <img src="images/product/combo-brown-rice-nuts.jpg" alt="Brown Rice & Nuts Combo" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/Gao_lut.jpg" data-zoom-image="images/product/Gao_lut.jpg">
+                                            <img src="images/product/Gao_lut.jpg" alt="Brown Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/hanh-nhan.jpg" data-zoom-image="images/product/hanh-nhan.jpg">
+                                            <img src="images/product/hanh-nhan.jpg" alt="Almonds" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-brown-rice-nuts-combo" data-product-name="Brown Rice & Nuts Combo" data-product-price="330000" data-product-image="images/product/combo-brown-rice-nuts.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-brown-rice-nuts-combo.html">Huyen Tuyen Brown Rice & Nuts Combo</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(21 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>A wholesome combination of premium brown rice, mixed nuts, and nutritious grains—balanced nutrition with complex carbs, healthy fats, and plant-based protein.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Brown rice combined with premium nuts</li>
+                                            <li><i class="fas fa-check-circle"></i> Great for health-conscious meals</li>
+                                            <li><i class="fas fa-check-circle"></i> High in fiber and minerals</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>330,000 VND / pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>370,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-healthy-gift-set" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-healthy-gift-set" class="img-fluid" src="images/product/combo-gift-set.jpg" data-zoom-image="images/product/combo-gift-set.jpg" alt="Healthy Gift Set Zoom Image">
+                                    <div id="gallery-quick-view-healthy-gift-set" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/combo-gift-set.jpg" data-zoom-image="images/product/combo-gift-set.jpg">
+                                            <img src="images/product/combo-gift-set.jpg" alt="Healthy Gift Set" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/multi-grain-powder.jpg" data-zoom-image="images/product/multi-grain-powder.jpg">
+                                            <img src="images/product/multi-grain-powder.jpg" alt="Multi-Grain Powder" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/granola.jpg" data-zoom-image="images/product/granola.jpg">
+                                            <img src="images/product/granola.jpg" alt="Granola" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-healthy-gift-set" data-product-name="Healthy Gift Set" data-product-price="450000" data-product-image="images/product/combo-gift-set.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-healthy-gift-set.html">Huyen Tuyen Healthy Gift Set</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(16 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>A beautifully packaged gift set featuring Huyen Tuyen's finest selection of premium rice, nutritious grains, and healthy products—perfect for health-conscious friends and family.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Elegant packaging for all occasions</li>
+                                            <li><i class="fas fa-check-circle"></i> Curated selection of premium healthy products</li>
+                                            <li><i class="fas fa-check-circle"></i> Meaningful gift for loved ones</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>450,000 VND / set</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>500,000 VND/set</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
@@ -892,9 +1124,18 @@
     <script type="text/javascript" src="js/jquery.resize-select.min.js"></script>
     <script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
     <script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
-    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="js/vmenu-sync.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/cart.js" defer></script>
+<script>
+        $(document).ready(function () {
+            $('#zoom-pro-quick-view-daily-rice-family-pack').elevateZoom({ gallery: 'gallery-quick-view-daily-rice-family-pack', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-healthy-breakfast-combo').elevateZoom({ gallery: 'gallery-quick-view-healthy-breakfast-combo', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-brown-rice-nuts-combo').elevateZoom({ gallery: 'gallery-quick-view-brown-rice-nuts-combo', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-healthy-gift-set').elevateZoom({ gallery: 'gallery-quick-view-healthy-gift-set', galleryActiveClass: 'active', zoomEnabled: false });
+        });
+</script>
 </body>
 </html>
 

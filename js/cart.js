@@ -321,7 +321,9 @@
   }
 
   function updateFixedCounter() {
-    var total = getTotalQuantity();
+    // Fixed responsive counter sits on the wishlist icon across the site,
+    // so it should reflect wishlist total (not cart quantity).
+    var total = getWishlistTotal();
     var els = document.querySelectorAll('.fixed-item-counter');
     for (var i = 0; i < els.length; i++) {
       els[i].textContent = total;

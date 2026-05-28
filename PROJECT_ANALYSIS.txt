@@ -1,37 +1,699 @@
 # PHÂN TÍCH DỰ ÁN SHOPPING (GROOVER TEMPLATE)
-Ngày phân tích: Thứ Ba, 26 tháng 5, 2026
+Ngày phân tích ban đầu: Thứ Ba, 26 tháng 5, 2026
+Cập nhật lần cuối: Thứ Tư, 28 tháng 5, 2026
 
+================================================================================
 ## 1. Tổng quan dự án
-- Tên: Shopping
-- Lĩnh vực: Thương mại điện tử (Gạo, Hạt dinh dưỡng, Thực phẩm sạch).
-- Thị trường: Việt Nam (VNĐ, sản phẩm nội địa).
-- Loại hình: Website tĩnh (Static) tích hợp logic dynamic qua JavaScript/LocalStorage.
+================================================================================
+- Tên dự án: Shopping (Huyen Tuyen Rice)
+- Template gốc: Groover - Online Shopping Template
+- Lĩnh vực: Thương mại điện tử - Gạo, Hạt dinh dưỡng, Ngũ cốc, Thực phẩm sạch.
+- Thị trường mục tiêu: Việt Nam (đơn vị tiền: VNĐ, sản phẩm nội địa).
+- Thương hiệu: Huyen Tuyen Rice
+- Loại hình: Website tĩnh (Static HTML) tích hợp logic dynamic qua JavaScript/LocalStorage.
+- Ngôn ngữ giao diện: Tiếng Anh (chính), một số nội dung Tiếng Việt (checkout, thông báo).
+- Liên hệ: 0914 331 367 / 0983 914 467 / support@huyentuyenrice.com
 
+================================================================================
 ## 2. Công nghệ sử dụng (Tech Stack)
-- Frontend: HTML5, CSS3, Bootstrap 4.
-- Logic: jQuery + Plugins (Owl Carousel, ElevateZoom, NProgress).
-- Quản lý giỏ hàng: JavaScript thuần + LocalStorage (File xử lý chính: js/cart.js).
-- Build Tools: Webpack 4 (Thư mục html_webpack).
-- Automation: PowerShell scripts (scripts/) để cập nhật hàng loạt file HTML.
+================================================================================
+### 2.1 Frontend
+- HTML5 (Semantic), CSS3
+- Bootstrap 4.1.1 (Responsive Grid, Modal, Tab, Dropdown)
+- Google Fonts: Open Sans (body), Raleway (banners)
+- Icon Libraries: Font Awesome 5, Ionicons 4.2.0
+- Animate.css (hiệu ứng CSS animation)
 
-## 3. Cấu trúc thư mục chính
-- / (Root): Chứa các trang HTML chính (index, shop, blog, product-*.html).
-- /css: Chứa styles (bootstrap, fontawesome, bundle.css).
-- /js: Chứa logic xử lý (app.js, cart.js).
-- /html_webpack: Source code và cấu hình Webpack.
-- /images & /fonts: Tài nguyên hình ảnh và font chữ.
-- /scripts: Script tự động hóa bảo trì.
+### 2.2 JavaScript & Plugins
+- jQuery 3.3.1 (core DOM manipulation)
+- Owl Carousel 2.3.4 (product sliders, main slider, brand slider)
+- ElevateZoom (zoom ảnh sản phẩm trên trang chi tiết & quick-view modal)
+- NProgress (thanh loading tiến trình)
+- jQuery UI Range Slider (lọc giá sản phẩm)
+- jQuery SlimScroll 1.3.8 (cuộn mượt trong sidebar filter)
+- jQuery ScrollUp (nút cuộn lên đầu trang)
+- Popper.js 1.14.3 (hỗ trợ Bootstrap dropdown/tooltip)
+- Modernizr (phát hiện tính năng trình duyệt)
+- Custom Plugins tự viết:
+  + jquery.custom-megamenu.js (mega menu đa cấp)
+  + jquery.custom-countdown.js (đếm ngược deal)
+  + jquery.resize-select.js (resize select box danh mục tìm kiếm)
 
-## 4. Các luồng tính năng chính
-- Giỏ hàng (Cart): Thêm/Sửa/Xóa sản phẩm, tính tổng tiền, lưu trạng thái trong trình duyệt.
-- Sản phẩm: Hệ thống trang chi tiết cho từng loại gạo/hạt với tính năng zoom và feedback.
-- Tìm kiếm/Lọc: Filter theo danh mục và thuộc tính.
-- Checkout: Luồng thanh toán từ Giỏ hàng -> Checkout -> Xác nhận đơn hàng.
+### 2.3 Quản lý giỏ hàng & Wishlist
+- JavaScript thuần (Vanilla JS, IIFE pattern) + LocalStorage
+- File xử lý chính: js/cart.js (880 dòng)
+- localStorage key "cart": Mảng đối tượng { id, name, price, image, quantity }
+- localStorage key "wishlist": Mảng đối tượng { id, name, price, image }
+- Tự động normalize dữ liệu cũ (qty -> quantity)
+- Dọn dẹp key cũ: shoppingCart, cartItems, groceryCart
 
-## 5. Đánh giá & Ghi chú bảo trì
-- Ưu điểm: Giao diện chuyên nghiệp, phản hồi nhanh, SEO tốt cho từng trang sản phẩm.
-- Lưu ý bảo trì: Khi thay đổi Header/Footer hoặc thông tin chung, nên sử dụng Webpack trong folder `html_webpack` hoặc chạy các script trong `scripts/` để đồng bộ tất cả các file HTML ở root.
-- Key file cần chú ý:
-  + js/cart.js: Quản lý toàn bộ logic mua hàng.
-  + index.html: Trang chủ chính.
-  + html_webpack/package.json: Quản lý dependencies và build commands.
+### 2.4 Build Tools & Automation
+- Webpack 4.12.2 (Thư mục html_webpack/)
+  + Babel (ES6+ -> ES5 transpile)
+  + SCSS -> CSS compile (node-sass, sass-loader)
+  + MiniCssExtractPlugin (tách CSS từ JS)
+  + HtmlWebpackPlugin (tạo 25+ file HTML từ template)
+  + UglifyJsPlugin (minify JS cho production)
+  + underscore-template-loader (HTML template partials)
+  + file-loader (xử lý hình ảnh, fonts)
+- PowerShell Scripts tự động hoá:
+  + scripts/update_product_pages.ps1 (cập nhật hàng loạt trang sản phẩm)
+  + fix_duplicate.ps1 (xóa section bị duplicate trong index.html)
+
+### 2.5 Version Control
+- Git (.gitignore: .idea, .vscode, node_modules/, /shelf/, /workspace.xml)
+
+================================================================================
+## 3. Cấu trúc thư mục dự án
+================================================================================
+
+Shopping/
+├── index.html                          # Trang chủ chính (6408 dòng, ~446KB) - PHIÊN BẢN HIỆN TẠI
+├── home-html.html                      # Phiên bản Home cũ/backup (~348KB)
+│
+├── ## TRANG SẢN PHẨM CHI TIẾT (product-*.html) ─────────────────────────
+├── product-white-rice.html             # Gạo trắng cao cấp
+├── product-jasmine-rice.html           # Gạo Jasmine
+├── product-fragrant-rice.html          # Gạo thơm
+├── product-bac-huong-rice.html         # Gạo Bắc Hương
+├── product-sticky-rice.html            # Gạo nếp
+├── product-brown-rice.html             # Gạo lứt
+├── product-brown-rice-mix.html         # Gạo lứt trộn
+├── product-st25-rice.html              # Gạo ST25
+├── product-st24-rice.html              # Gạo ST24
+├── product-Black-rice.html             # Gạo đen
+├── product-broken-rice.html            # Gạo tấm
+├── product-cashews.html                # Hạt điều
+├── product-almonds.html                # Hạnh nhân
+├── product-walnuts.html                # Óc chó
+├── product-macadamia.html              # Hạt Macadamia
+├── product-black-sesame-powder.html    # Bột mè đen
+├── product-rolled-oats.html            # Yến mạch cán
+├── product-barley.html                 # Lúa mạch
+├── product-quinoa.html                 # Hạt Quinoa
+├── product-millet.html                 # Hạt kê
+├── product-buckwheat.html              # Kiều mạch
+├── product-cornflakes.html             # Ngũ cốc bắp
+├── product-muesli.html                 # Muesli
+├── product-fruit-granola.html          # Granola trái cây
+├── product-Mixed-grains.html           # Ngũ cốc hỗn hợp
+├── product-Multi-grains.html           # Đa ngũ cốc
+├── product-multi-grain-powder.html     # Bột ngũ cốc
+├── product-brown-rice-nuts-combo.html  # Combo gạo lứt & hạt
+├── product-daily-rice-family-pack.html # Gói gạo gia đình hàng ngày
+├── product-weekly-rice-pack.html       # Gói gạo tuần
+├── product-large-family-rice-pack.html # Gói gạo gia đình lớn
+├── product-premium-rice-combo.html     # Combo gạo cao cấp
+├── product-healthy-breakfast-combo.html# Combo bữa sáng lành mạnh
+├── product-healthy-gift-set.html       # Set quà tặng sức khỏe
+│
+├── ## TRANG DANH MỤC / CỬA HÀNG (shop-*.html) ────────────────────────
+├── shop-v1-root-category.html          # Danh mục gốc (Types of Rice)
+├── shop-v2-sub-category.html           # Danh mục con
+├── shop-v3-sub-sub-category.html       # Danh mục con con (có sidebar filter)
+├── shop-v4-filter-as-category.html     # Filter dạng danh mục
+├── shop-v5-product-not-found.html      # Trang không tìm thấy sản phẩm
+├── shop-v6-search-results.html         # Trang kết quả tìm kiếm
+├── shop-healthy-food-products.html     # Thực phẩm lành mạnh
+├── shop-whole-grains-cereals.html      # Ngũ cốc nguyên hạt
+├── shop-beans-legumes.html             # Đậu các loại
+├── shop-baby-kids-food.html            # Thực phẩm trẻ em
+├── Healthy-Nuts-Seeds.html             # Hạt dinh dưỡng
+├── single-product.html                 # Template trang sản phẩm đơn lẻ (dùng với Webpack)
+│
+├── ## TRANG KHUYẾN MÃI / COMBO ──────────────────────────────────────────
+├── custom-deal-page.html               # Trang deal tùy chỉnh (~70KB)
+├── family-combo-page.html              # Trang combo gia đình (~85KB)
+├── monthly-sale-page.html              # Trang sale tháng (~65KB)
+│
+├── ## TRANG LUỒNG MUA HÀNG ──────────────────────────────────────────────
+├── cart.html                           # Giỏ hàng (body class: cart-page) (~84KB)
+├── cart-empty.html                     # Giỏ hàng rỗng
+├── checkout.html                       # Thanh toán (body class: checkout-page)
+├── confirmation.html                   # Xác nhận đơn hàng
+├── wishlist.html                       # Danh sách yêu thích (body class: wishlist-page)
+├── wishlist-empty.html                 # Wishlist rỗng
+├── track-order.html                    # Theo dõi đơn hàng
+├── account.html                        # Trang tài khoản (Login/Signup)
+├── lost-password.html                  # Quên mật khẩu
+│
+├── ## TRANG NỘI DUNG / BLOG ─────────────────────────────────────────────
+├── blog.html                           # Trang blog chính
+├── blog-detail.html                    # Chi tiết bài blog (template)
+├── blog-family-rice-meal-ideas.html    # Bài: Ý tưởng bữa ăn gia đình
+├── blog-fragrant-rice-daily-meals.html # Bài: Gạo thơm cho bữa ăn hàng ngày
+├── blog-granola-breakfast-bowl.html    # Bài: Bowl granola bữa sáng
+├── blog-healthy-brown-rice-bowl.html   # Bài: Bowl gạo lứt lành mạnh
+├── blog-how-to-store-rice-properly.html# Bài: Cách bảo quản gạo
+├── blog-mixed-grain-porridge.html      # Bài: Cháo ngũ cốc hỗn hợp
+├── blog-rice-meals-kids.html           # Bài: Bữa ăn gạo cho trẻ em
+├── blog-warm-oatmeal-nuts.html         # Bài: Yến mạch ấm với hạt
+│
+├── ## TRANG THÔNG TIN ────────────────────────────────────────────────────
+├── about.html                          # Giới thiệu (~80KB)
+├── contact.html                        # Liên hệ (có Google Maps)
+├── faq.html                            # Câu hỏi thường gặp
+├── store-directory.html                # Hệ thống cửa hàng
+├── terms-and-conditions.html           # Điều khoản sử dụng
+├── rice-grain-recipes.html             # Công thức nấu ăn với gạo & hạt
+├── rice-market-news.html               # Tin tức thị trường gạo
+├── 404.html                            # Trang lỗi 404
+│
+├── ## CSS ────────────────────────────────────────────────────────────────
+├── css/
+│   ├── bootstrap.min.css               # Bootstrap 4 core
+│   ├── fontawesome.min.css             # Font Awesome 5 icons
+│   ├── ionicons.min.css                # Ionicons 4 icons
+│   ├── animate.min.css                 # Animate.css effects
+│   ├── owl.carousel.min.css            # Owl Carousel styles
+│   ├── jquery-ui-range-slider.min.css  # Price range slider
+│   ├── utility.css                     # Utility classes (~65KB)
+│   ├── bundle.css                      # Main theme styles (~96KB) ← THEME MẶC ĐỊNH (xanh lá)
+│   ├── bundle.black.css                # Theme đen
+│   ├── bundle.blue.css                 # Theme xanh dương
+│   ├── bundle.green.css                # Theme xanh lá
+│   ├── bundle.green-munsell.css        # Theme xanh munsell
+│   ├── bundle.orange.css               # Theme cam
+│   ├── bundle.pink.css                 # Theme hồng
+│   ├── bundle.purple.css               # Theme tím
+│   ├── bundle.skyblue.css              # Theme xanh trời
+│   ├── custom-modals.css               # CSS cho Quick-View modals (~119KB)
+│   └── blog-page.css                   # CSS riêng cho blog
+│
+├── ## JAVASCRIPT ─────────────────────────────────────────────────────────
+├── js/
+│   ├── app.js                          # Script chính (821 dòng) - 5 modules IIFE:
+│   │                                   #   1. Plugin Init (zoom, carousel, megamenu, scroll, countdown)
+│   │                                   #   2. Global Functions (backdrop, search, responsive, mini-cart, quantity)
+│   │                                   #   3. Homepage Functions (sliders, brand slider)
+│   │                                   #   4. Contact Page (Google Maps init)
+│   │                                   #   5. Product Detail (rating stars)
+│   │                                   #   6. Shop Page (price filter, grid/list, categories, slimscroll)
+│   ├── cart.js                         # Quản lý giỏ hàng & wishlist (880 dòng) - Core functions:
+│   │                                   #   - Cart CRUD: getCart, saveCart, addToCart, removeFromCart, updateQuantity
+│   │                                   #   - Wishlist: getWishlist, addToWishlist, removeFromWishlist
+│   │                                   #   - UI: renderMiniCart, renderCartPage, renderCheckoutPage, renderWishlistPage
+│   │                                   #   - Checkout: initCheckoutAction (form submit -> QR code)
+│   │                                   #   - Product Data: getProductFromCard, enrichProductCards (data-* attributes)
+│   ├── search-results.js              # Lọc & phân trang kết quả tìm kiếm (303 dòng):
+│   │                                   #   - Client-side filtering by price, rice type, use case
+│   │                                   #   - Price slider sync with jQuery UI
+│   │                                   #   - Facet checkbox filtering (data-filter-rice, data-filter-use)
+│   │                                   #   - Pagination rendering & navigation
+│   ├── vmenu-sync.js                   # Đồng bộ menu danh mục (v-menu) trên tất cả trang (202 dòng)
+│   │                                   #   - Inject canonical menu HTML vào .v-menu .v-list
+│   │                                   #   - 3 mega-menu chính: Types of Rice, Healthy Nuts & Seeds, Whole Grains
+│   │                                   #   - 6 link đơn: Recipes, News, Baby Food, Healthy Products, Guide, View More
+│   ├── ## jQuery Plugins
+│   ├── jquery.min.js                   # jQuery 3.3.1
+│   ├── bootstrap.min.js                # Bootstrap 4
+│   ├── popper.min.js / popper.js       # Popper.js
+│   ├── owl.carousel.min.js / .js       # Owl Carousel
+│   ├── jquery.elevatezoom.min.js / .js # Elevate Zoom
+│   ├── nprogress.min.js / .js          # NProgress
+│   ├── jquery-ui.range-slider.min.js / .js # jQuery UI Range Slider
+│   ├── jquery.slimscroll.min.js / .js  # SlimScroll
+│   ├── jquery.scrollUp.min.js / .js    # ScrollUp
+│   ├── jquery.resize-select.min.js / .js # Resize Select
+│   ├── jquery.custom-megamenu.min.js / .js # Custom Mega Menu
+│   ├── jquery.custom-countdown.min.js / .js # Custom Countdown
+│   └── vendor/
+│       ├── modernizr-custom.min.js     # Modernizr (phát hiện tính năng)
+│       └── modernizr-custom.js
+│
+├── ## HÌNH ẢNH ───────────────────────────────────────────────────────────
+├── images/
+│   ├── product/                        # 29 ảnh sản phẩm (gạo, hạt, ngũ cốc)
+│   ├── main-logo/                      # Logo Huyen Tuyen Rice
+│   ├── main-slider/                    # Ảnh slider trang chủ
+│   ├── banners/                        # Banner quảng cáo
+│   ├── blog/                           # Ảnh bài viết blog
+│   ├── about/                          # Ảnh trang giới thiệu
+│   ├── brand-logos/                    # Logo thương hiệu đối tác
+│   ├── payment/                        # Icon phương thức thanh toán
+│   ├── rating-star/                    # Ảnh sao đánh giá
+│   ├── pattern/                        # Pattern/texture nền
+│   └── vendor/                         # Ảnh vendor/nhà cung cấp
+│
+├── ## FONTS ──────────────────────────────────────────────────────────────
+├── fonts/
+│   └── vendor/
+│       ├── font-awesomev5.1.0/         # Font Awesome 5 webfonts
+│       └── ion-iconsv4.2.0/            # Ionicons 4 webfonts
+│
+├── ## WEBPACK BUILD SYSTEM ───────────────────────────────────────────────
+├── html_webpack/
+│   ├── package.json                    # Dependencies & scripts (dev, watch, build)
+│   ├── webpack.config.js               # Cấu hình Webpack (311 dòng, 9 entry points, 25 HTML plugins)
+│   ├── .babelrc                        # Babel config
+│   ├── src/                            # Source code (27 HTML templates, includes/, scss/, js/, images/, fonts/)
+│   │   ├── includes/                   # Partial HTML components (header, footer, sidebar...)
+│   │   ├── scss/                       # SCSS source files
+│   │   └── js/                         # JS source files
+│   └── dist/                           # Compiled output
+│
+├── ## TÀI LIỆU & SCRIPTS ────────────────────────────────────────────────
+├── doc-imgs/                           # Ảnh tài liệu hướng dẫn & components
+├── PROJECT_ANALYSIS.txt                # File này - phân tích dự án
+├── MODAL_CREATION_GUIDE.txt            # Hướng dẫn tạo Quick-View modal cho sản phẩm mới
+├── fix_duplicate.ps1                   # Script xóa section duplicate trong index.html
+├── scripts/update_product_pages.ps1    # Script cập nhật hàng loạt trang sản phẩm
+├── LICENSE                             # Giấy phép
+├── .gitignore                          # Git ignore rules
+└── favicon.ico                         # Favicon
+
+================================================================================
+## 4. Kiến trúc & Luồng hoạt động chi tiết
+================================================================================
+
+### 4.1 Kiến trúc tổng thể
+┌──────────────────────────────────────────────────────────────────────┐
+│                        STATIC HTML PAGES                            │
+│  (index.html, product-*.html, shop-*.html, blog-*.html, cart.html) │
+├──────────────────────────────────────────────────────────────────────┤
+│              CSS Layer                    │     JS Layer            │
+│  ┌─────────────────────────┐    ┌────────────────────────────────┐ │
+│  │ bootstrap.min.css       │    │ jQuery 3.3.1                   │ │
+│  │ fontawesome.min.css     │    │ Bootstrap.js                   │ │
+│  │ ionicons.min.css        │    │ Owl Carousel                   │ │
+│  │ animate.min.css         │    │ ElevateZoom                    │ │
+│  │ owl.carousel.min.css    │    │ NProgress                      │ │
+│  │ jquery-ui-range.css     │    │ jQuery UI Range Slider         │ │
+│  │ utility.css             │    │ Custom plugins (mega menu etc) │ │
+│  │ bundle.css (theme)      │    │ app.js (global logic)          │ │
+│  │ custom-modals.css       │    │ cart.js (cart + wishlist)       │ │
+│  └─────────────────────────┘    │ vmenu-sync.js (menu sync)     │ │
+│                                  │ search-results.js (filter)    │ │
+│                                  └────────────────────────────────┘ │
+├──────────────────────────────────────────────────────────────────────┤
+│                      LocalStorage (Browser)                         │
+│   ┌──────────────────┐  ┌──────────────────────────────────┐       │
+│   │ "cart" key        │  │ "wishlist" key                   │       │
+│   │ [{id, name,       │  │ [{id, name, price, image}]       │       │
+│   │   price, image,   │  │                                  │       │
+│   │   quantity}]      │  │                                  │       │
+│   └──────────────────┘  └──────────────────────────────────┘       │
+└──────────────────────────────────────────────────────────────────────┘
+
+### 4.2 Luồng tải trang (Page Load Flow)
+1. Browser tải HTML -> <head> loads CSS (bootstrap -> fontawesome -> ionicons -> animate -> owl -> range-slider -> utility -> bundle.css -> custom-modals.css)
+2. <body> render DOM -> Footer trước </body> loads JS theo thứ tự:
+   a. js/vendor/modernizr-custom.min.js (feature detection)
+   b. js/nprogress.min.js (loading bar)
+   c. js/jquery.min.js (jQuery core)
+   d. js/bootstrap.min.js (Bootstrap components)
+   e. js/popper.min.js (dropdown positioning)
+   f. js/jquery.scrollUp.min.js (scroll to top)
+   g. js/jquery.elevatezoom.min.js (image zoom)
+   h. js/jquery-ui.range-slider.min.js (price filter)
+   i. js/jquery.slimscroll.min.js (slim scrollbar)
+   j. js/jquery.resize-select.min.js (select resizer)
+   k. js/jquery.custom-megamenu.min.js (mega menu)
+   l. js/jquery.custom-countdown.min.js (countdown timer)
+   m. js/owl.carousel.min.js (carousels)
+   n. js/app.js (application logic)
+   o. js/cart.js (cart/wishlist logic)
+   p. js/vmenu-sync.js (trên một số trang)
+   q. js/search-results.js (chỉ trên trang search results)
+3. jQuery document.ready fires -> app.js khởi tạo:
+   - NProgress config
+   - ScrollUp plugin
+   - ElevateZoom cho product detail
+   - ResizeSelect cho search category
+   - MegaMenu plugin
+   - CountDown timer
+   - Responsive search form
+   - Mini cart trigger
+   - VMenu toggle
+   - Quantity buttons (+/-)
+   - Search form handler
+   - Price range slider
+   - Grid/List view toggle
+   - SlimScroll for filters
+4. cart.js IIFE tự khởi chạy:
+   - clearOldCart() -> dọn key cũ
+   - normalizeCartInStorage() -> convert format cũ
+   - enrichProductCards() -> gán data-* attributes vào .item cards
+   - initAddToCartButtons() -> event delegation cho .item-addCart
+   - initCartPageActions() -> +/- quantity, remove
+   - initCheckoutAction() -> form submit handler
+   - initPackSizeSelection() -> #pack-size dropdown
+   - initWishlistButtons() -> .item-addwishlist / .wishlist-btn
+   - updateAllUI() -> cập nhật tất cả UI (count, mini-cart, cart page, checkout, wishlist)
+
+### 4.3 Luồng mua hàng (Purchase Flow)
+┌─────────────┐    ┌────────────────┐    ┌───────────────┐    ┌────────────────┐
+│ Trang chủ / │    │ Trang chi tiết │    │   Giỏ hàng    │    │   Thanh toán   │
+│ Danh mục    │───>│ sản phẩm       │───>│  (cart.html)  │───>│ (checkout.html)│
+│             │    │ (product-*.html)│    │               │    │                │
+│ Quick View  │    │ + zoom + qty   │    │ + edit qty    │    │ + billing form │
+│ Add to Cart │    │ + add to cart  │    │ + remove      │    │ + order summary│
+└─────────────┘    └────────────────┘    │ + subtotals   │    │ + place order  │
+                                          └───────────────┘    └───────┬────────┘
+                                                                       │
+                                                               ┌───────▼────────┐
+                                                               │  QR Code Page  │
+                                                               │ "Đặt hàng      │
+                                                               │  thành công!"  │
+                                                               │ + Clear cart   │
+                                                               │ + Back to Home │
+                                                               └────────────────┘
+
+Chi tiết luồng:
+1. DUYỆT SẢN PHẨM: User xem sản phẩm trên index.html / shop-*.html
+2. XEM NHANH: Click "Quick Look" -> Bootstrap Modal hiện với ảnh zoom, giá, nút +/-, Add to Cart
+3. XEM CHI TIẾT: Click vào sản phẩm -> product-*.html với ElevateZoom, rating, reviews tab
+4. THÊM VÀO GIỎ: Click .item-addCart -> cart.js#addToCart():
+   - Lấy product info từ data-* attributes hoặc DOM parsing
+   - Nếu đã có trong cart -> tăng quantity
+   - Nếu chưa có -> push vào array
+   - saveCart() -> localStorage.setItem('cart', JSON.stringify(...))
+   - updateAllUI() -> cập nhật badge count, mini-cart, cart page
+   - Visual feedback: nút chuyển "Added ✔" trong 1 giây
+5. XEM GIỎ HÀNG: cart.html (body class="cart-page"):
+   - renderCartPage() tạo bảng từ localStorage
+   - +/- quantity buttons -> updateQuantity()
+   - Remove button -> removeFromCart()
+   - Subtotal & total tự tính
+   - "Continue Checkout" -> checkout.html
+6. THANH TOÁN: checkout.html (body class="checkout-page"):
+   - renderCheckoutPage() hiển thị order summary từ cart
+   - Form: Full Name, Email, Phone, Address
+   - Submit -> validate inputs -> hiển thị QR Code + thông báo "ĐẶT HÀNG THÀNH CÔNG!"
+   - localStorage.removeItem('cart') -> xóa giỏ hàng
+   - Cuộn lên đầu trang
+
+### 4.4 Luồng tìm kiếm sản phẩm (Search Flow)
+1. User nhập keyword vào search box + chọn category (optional)
+2. app.js#handleSearchForm() intercept form submit
+3. Redirect đến: shop-v6-search-results.html?q={keyword}&cat={category}
+4. search-results.js init:
+   - Parse URL params (q, cat)
+   - Lọc .product-item theo keyword (title, breadcrumb)
+   - Lọc theo category
+   - Hiển thị số kết quả
+5. Client-side filtering bổ sung:
+   - Price range slider (jQuery UI)
+   - Facet checkboxes: rice type (data-filter-rice), use case (data-filter-use)
+   - Pagination (pageSize từ #show-records select)
+6. Responsive search: nút #responsive-search trên mobile -> fadeIn search form
+
+### 4.5 Luồng Wishlist
+1. Click .item-addwishlist hoặc .wishlist-btn trên product card
+2. cart.js#addToWishlist() -> lưu vào localStorage 'wishlist'
+3. Visual feedback: icon heart chuyển đỏ 1 giây
+4. Wishlist badge (.wishlist-counter, .fixed-item-counter) cập nhật
+5. Trang wishlist.html (body class="wishlist-page"):
+   - renderWishlistPage() tạo bảng từ wishlist data
+   - Nút "Add to Cart" từ wishlist -> addToCart()
+   - Nút "Remove" -> removeFromWishlist()
+
+### 4.6 Luồng Quick-View Modal
+1. Click nút "Quick Look" trên product card
+2. Trigger Bootstrap modal (#quick-view-{product-id})
+3. Modal hiển thị: ảnh + zoom (ElevateZoom), tên, mô tả, giá, benefits list
+4. Quantity +/-, Add to Cart, Wishlist button
+5. Dữ liệu sản phẩm lấy từ data-product-* attributes trên .item wrapper
+6. Hướng dẫn tạo modal mới: xem MODAL_CREATION_GUIDE.txt (3 bước: CSS -> HTML -> JS)
+
+### 4.7 Luồng đồng bộ Menu (V-Menu Sync)
+1. vmenu-sync.js chạy ngay khi DOM ready
+2. Tìm .v-menu .v-list trong trang
+3. Replace innerHTML bằng canonical menu HTML
+4. Đảm bảo tất cả trang có cùng menu danh mục:
+   - Types of Rice (mega-dropdown: Daily White, Sticky, Brown, Specialty, Healthy & Meal Plans, Rice Packs)
+   - Healthy Nuts & Seeds (mega-dropdown: Nuts, Seeds & Powders, Explore)
+   - Whole Grains & Cereals (mega-dropdown: Whole Grains, Breakfast Cereals, Mixes & Powders, Combos, Explore)
+   - Rice & Grain Recipes
+   - Rice Market News
+   - Baby & Kids Food
+   - Healthy Food Products
+   - Rice Classification Guide
+   - View More
+
+================================================================================
+## 5. Hệ thống danh mục sản phẩm
+================================================================================
+
+### 5.1 Categories chính (Mega Menu Level 1)
+├── 1. Types of Rice (Các loại gạo)
+│   ├── Daily White Rice: Premium White Rice, Jasmine Rice, Fragrant Rice, Bac Huong Rice
+│   ├── Sticky Rice: Premium Sticky Rice
+│   ├── Brown Rice: Premium Brown Rice, Brown Rice Mix, Brown Rice & Nuts Combo
+│   ├── Specialty Rice: ST25 Rice, ST24 Rice, Black Rice, Broken Rice
+│   ├── Healthy & Meal Plans: Healthy Food Products, Whole-grain Mixes, Antioxidant Rice
+│   └── Rice Packs: Weekly Rice Pack, Daily Family Pack, Large Family Pack, Premium Rice Combo
+│
+├── 2. Healthy Nuts & Seeds (Hạt dinh dưỡng)
+│   ├── Nuts: Cashew Nuts, Almonds, Walnuts, Macadamia Nuts
+│   ├── Seeds & Powders: Black Sesame Powder
+│   └── Explore: View All, Healthy Food Products, Fruit Granola, Beans & Legumes
+│
+├── 3. Whole Grains & Cereals (Ngũ cốc nguyên hạt)
+│   ├── Whole Grains: Rolled Oats, Pearl Barley, White Quinoa, Millet, Buckwheat
+│   ├── Breakfast Cereals: Corn Flakes, Muesli, Fruit Granola
+│   ├── Mixes & Powders: Mixed Grains, Multi-Grains, Multi-Grain Powder
+│   ├── Combos: Healthy Breakfast Combo, Premium Rice Combo
+│   └── Explore: View All, Healthy Food Products, Healthy Nuts & Seeds
+│
+├── 4. Rice & Grain Recipes
+├── 5. Rice Market News
+├── 6. Baby & Kids Food
+├── 7. Healthy Food Products
+└── 8. Rice Classification Guide (-> Blog)
+
+### 5.2 Trang danh mục (Shop pages)
+- shop-v1-root-category.html: Root category (Types of Rice) - grid view
+- shop-v2-sub-category.html: Sub category - grid view
+- shop-v3-sub-sub-category.html: Sub-sub category + sidebar filters (price, rice type)
+- shop-v4-filter-as-category.html: Filter-based category + facets
+- shop-v5-product-not-found.html: "No products found" page
+- shop-v6-search-results.html: Search results + full filtering (price slider, facets, pagination)
+- shop-healthy-food-products.html: Curated healthy products
+- shop-whole-grains-cereals.html: Whole grains category
+- shop-beans-legumes.html: Beans & legumes
+- shop-baby-kids-food.html: Baby & kids food
+
+================================================================================
+## 6. Hệ thống UI Components
+================================================================================
+
+### 6.1 Header (3 layers)
+- Top Header: Telephone, Email, My Account dropdown (Cart, Wishlist, Checkout, Login), Currency (VND/USD), Language (ENG/VIE)
+- Mid Header: Logo (Huyen Tuyen Rice), Search box (keyword + category select), Cart icon (count + total price), Wishlist icon (count)
+- Bottom Header: V-Menu (Product catalog - mega menu bên trái), Bottom Nav (New Rice Products, Deals, Family Combos, Customer Guide mega-dropdown, Monthly Sale)
+
+### 6.2 Product Card (.item)
+- .item-img-wrapper-link: Ảnh sản phẩm + hover effects
+- Quick View button: trigger modal
+- .item-title: Tên sản phẩm
+- .item-new-price / .item-old-price: Giá hiện tại / giá cũ
+- .item-addCart: Nút thêm vào giỏ
+- .item-addwishlist: Nút thêm wishlist
+- data-product-*: Attributes cho cart.js (id, name, price, image)
+
+### 6.3 Mini Cart
+- Slide-in panel từ bên phải (.mini-cart-wrapper)
+- Trigger: #mini-cart-trigger
+- Close: #mini-cart-close
+- Content: .mini-cart-list (dynamic rendered by cart.js)
+- Total: .mini-total-price
+- Actions: View Cart -> cart.html, Checkout -> checkout.html
+
+### 6.4 Sliders (Owl Carousel)
+- .slider-main: Main homepage slider (3 slides, autoplay 8s)
+- .products-slider: Product carousels (responsive: 1/2-3/4 items)
+- .specific-category-slider: Category-specific product slider
+- .brand-slider-content: Brand logos slider (autoplay)
+
+### 6.5 Quick-View Modals
+- 30+ modals cho từng sản phẩm (#quick-view-{product-id})
+- Styles trong css/custom-modals.css (~119KB)
+- Cấu trúc: Modal -> Row -> Col(image + zoom) + Col(info + cart actions)
+- Mỗi modal cần ElevateZoom init trong <script> cuối index.html
+
+### 6.6 Footer
+- 4 columns: About, Shop links, Support links, Contact info + Social
+- Footer bottom: Copyright
+- Social: Facebook, YouTube, Instagram
+
+### 6.7 Responsive
+- Fixed responsive container: Search button + Wishlist icon (hiện trên mobile)
+- Bootstrap 4 breakpoints: xs(<576) / sm(≥576) / md(≥768) / lg(≥992) / xl(≥1200)
+- V-Menu toggle: landscape (dropdown) vs portrait (collapse)
+- Body backdrop: chỉ hiện trên landscape mode
+
+================================================================================
+## 7. Hệ thống Webpack (html_webpack/)
+================================================================================
+
+### 7.1 Entry Points (9 bundles)
+- vendor.js: Third-party libraries
+- utility.js: Utility CSS/JS
+- bundle.js (app.js): Main application CSS/JS
+- bundle.{color}.js: 8 color theme variants (black, blue, green, green-munsell, orange, pink, purple, skyblue)
+
+### 7.2 Loaders
+- babel-loader: ES6+ -> ES5 (babel-preset-env)
+- sass-loader -> css-loader -> MiniCssExtractPlugin.loader: SCSS -> CSS extraction
+- underscore-template-loader: HTML partials/includes
+- file-loader: Images, fonts (hash in production)
+
+### 7.3 Plugins
+- MiniCssExtractPlugin: Tách CSS files (content hash for caching)
+- HtmlWebpackPlugin x 25: Generate 25 HTML pages from templates
+- UglifyJsPlugin: Minify JS (production only)
+- CleanWebpackPlugin: Clean dist/ trước mỗi build
+
+### 7.4 Build Commands
+- npm run dev: webpack --mode development --progress
+- npm run watch: webpack --mode development --watch --progress
+- npm run build: webpack --mode production
+
+### 7.5 Mối quan hệ Webpack vs Root files
+- html_webpack/src/*.html: Source templates (có includes, partials)
+- Root /*.html: Output / Hand-edited files (đã tùy chỉnh cho Huyen Tuyen Rice)
+- QUAN TRỌNG: Các file root đã được tùy chỉnh riêng (thêm sản phẩm, modal, content),
+  KHÔNG NÊN chạy webpack build đè lên mà cần merge manual.
+  Khi thêm sản phẩm/trang mới, cập nhật trực tiếp root HTML.
+
+================================================================================
+## 8. Danh sách sản phẩm đầy đủ (35 sản phẩm)
+================================================================================
+
+### 8.1 Gạo (Rice) - 12 loại
+| # | Tên sản phẩm       | File HTML                        | Ảnh                    |
+|---|---------------------|----------------------------------|------------------------|
+| 1 | Premium White Rice  | product-white-rice.html          | product/gao-te.jpg     |
+| 2 | Jasmine Rice        | product-jasmine-rice.html        | product/Gao_hai_hau.jpg|
+| 3 | Fragrant Rice       | product-fragrant-rice.html       | product/Gao_thom.jpg   |
+| 4 | Bac Huong Rice      | product-bac-huong-rice.html      | product/gao-bac-huong.jpg|
+| 5 | Sticky Rice         | product-sticky-rice.html         | product/Gao_nep.jpg    |
+| 6 | Brown Rice          | product-brown-rice.html          | product/Gao_lut.jpg    |
+| 7 | Brown Rice Mix      | product-brown-rice-mix.html      | product/brown-rice-mix.jpg|
+| 8 | ST25 Rice           | product-st25-rice.html           | product/gao-ST25.jpg   |
+| 9 | ST24 Rice           | product-st24-rice.html           | product/ST-24.jpg      |
+|10 | Black Rice          | product-Black-rice.html          | product/black-rice.jpg |
+|11 | Broken Rice         | product-broken-rice.html         | product/Gao_tam_xoan_hai_hau.png|
+|12 | Multi-Grain Powder  | product-multi-grain-powder.html  | product/multi-grain-powder.jpg|
+
+### 8.2 Hạt dinh dưỡng (Nuts & Seeds) - 5 loại
+| # | Tên sản phẩm       | File HTML                        | Ảnh                    |
+|---|---------------------|----------------------------------|------------------------|
+| 1 | Cashew Nuts         | product-cashews.html             | product/Hat_lac.jpg    |
+| 2 | Almonds             | product-almonds.html             | product/hanh-nhan.jpg  |
+| 3 | Walnuts             | product-walnuts.html             | product/hat-oc-cho.jpg |
+| 4 | Macadamia Nuts      | product-macadamia.html           | product/macadamia.jpg  |
+| 5 | Black Sesame Powder | product-black-sesame-powder.html | product/black-sesame.jpg|
+
+### 8.3 Ngũ cốc (Whole Grains & Cereals) - 10 loại
+| # | Tên sản phẩm       | File HTML                        | Ảnh                    |
+|---|---------------------|----------------------------------|------------------------|
+| 1 | Rolled Oats         | product-rolled-oats.html         | product/oats.jpg       |
+| 2 | Pearl Barley        | product-barley.html              | product/barley.jpg     |
+| 3 | White Quinoa        | product-quinoa.html              | product/quinoa.jpg     |
+| 4 | Millet              | product-millet.html              | product/mixed-grains.jpg|
+| 5 | Buckwheat           | product-buckwheat.html           | product/mixed-grains.jpg|
+| 6 | Corn Flakes         | product-cornflakes.html          | product/granola.jpg    |
+| 7 | Muesli              | product-muesli.html              | product/granola.jpg    |
+| 8 | Fruit Granola       | product-fruit-granola.html       | product/granola.jpg    |
+| 9 | Mixed Grains        | product-Mixed-grains.html        | product/mixed-grains.jpg|
+|10 | Multi-Grains        | product-Multi-grains.html        | product/Mixed_Health_Grains.png|
+
+### 8.4 Combo / Pack - 7 loại
+| # | Tên sản phẩm              | File HTML                              |
+|---|---------------------------|----------------------------------------|
+| 1 | Brown Rice & Nuts Combo   | product-brown-rice-nuts-combo.html     |
+| 2 | Daily Rice Family Pack    | product-daily-rice-family-pack.html    |
+| 3 | Weekly Rice Pack          | product-weekly-rice-pack.html          |
+| 4 | Large Family Rice Pack    | product-large-family-rice-pack.html    |
+| 5 | Premium Rice Combo        | product-premium-rice-combo.html        |
+| 6 | Healthy Breakfast Combo   | product-healthy-breakfast-combo.html   |
+| 7 | Healthy Gift Set          | product-healthy-gift-set.html          |
+
+### 8.5 Blog / Bài viết - 8 bài
+| # | Tên bài viết                            | File HTML                               |
+|---|-----------------------------------------|-----------------------------------------|
+| 1 | How to Store Rice Properly              | blog-how-to-store-rice-properly.html    |
+| 2 | Family Rice Meal Ideas                  | blog-family-rice-meal-ideas.html        |
+| 3 | Fragrant Rice for Daily Meals           | blog-fragrant-rice-daily-meals.html     |
+| 4 | Granola Breakfast Bowl                  | blog-granola-breakfast-bowl.html        |
+| 5 | Healthy Brown Rice Bowl                 | blog-healthy-brown-rice-bowl.html       |
+| 6 | Mixed Grain Porridge                    | blog-mixed-grain-porridge.html          |
+| 7 | Rice Meals for Kids                     | blog-rice-meals-kids.html               |
+| 8 | Warm Oatmeal with Nuts                  | blog-warm-oatmeal-nuts.html            |
+
+================================================================================
+## 9. Đánh giá & Ghi chú bảo trì
+================================================================================
+
+### 9.1 Ưu điểm
+- Giao diện chuyên nghiệp, đầy đủ tính năng e-commerce cơ bản
+- Responsive tốt (Bootstrap 4 grid)
+- Hệ thống danh mục sản phẩm phong phú với mega menu đa cấp
+- Quick-view modal cho mỗi sản phẩm (30+ modals)
+- Cart/Wishlist hoạt động đầy đủ (CRUD) với LocalStorage
+- SEO tốt: mỗi sản phẩm có trang riêng
+- 8 color theme variants sẵn có
+- Nhiều plugin UI (carousel, zoom, countdown, price slider)
+- Blog system với 8 bài viết chi tiết
+
+### 9.2 Điểm cần lưu ý
+- **File lớn**: index.html = 6408 dòng (~446KB) - chứa nhiều section + 30+ modals
+- **Trùng lặp code**: Header/Footer/Menu lặp lại trong mỗi file HTML
+  -> Giải pháp: vmenu-sync.js đồng bộ menu, nhưng header/footer vẫn manual
+- **Không có backend**: Tất cả logic phía client (LocalStorage), không lưu trữ server
+- **Checkout đơn giản**: Form validation basic, hiển thị QR code (không kết nối payment gateway thật)
+- **Mixed encoding**: Một số text Tiếng Việt bị garbled trong cart.js (UTF-8 encoding issue)
+- **CSS lớn**: custom-modals.css = 119KB (mỗi modal có CSS riêng)
+
+### 9.3 Key files cần chú ý khi sửa đổi
+| File                | Vai trò                                     | Lưu ý                                    |
+|---------------------|---------------------------------------------|-------------------------------------------|
+| index.html          | Trang chủ, chứa 30+ Quick-View modals       | Rất lớn (446KB), cẩn thận khi edit       |
+| js/cart.js          | Toàn bộ logic Cart + Wishlist + Checkout     | IIFE pattern, event delegation            |
+| js/app.js           | Logic chung: sliders, search, UI interactions| 5 IIFE modules                            |
+| js/vmenu-sync.js    | Đồng bộ menu danh mục trên mọi trang        | Sửa ở đây = sửa menu toàn site           |
+| js/search-results.js| Client-side filtering & pagination           | Chỉ chạy trên shop-v6-search-results.html|
+| css/bundle.css      | Theme CSS chính                              | ~96KB, controls brand colors              |
+| css/custom-modals.css| Styles cho tất cả quick-view modals         | ~119KB, mỗi modal có styles riêng        |
+| MODAL_CREATION_GUIDE.txt | Hướng dẫn tạo Quick-View modal mới      | 3 bước: CSS -> HTML -> JS                |
+
+### 9.4 Quy trình bảo trì
+1. **Thêm sản phẩm mới:**
+   - Tạo product-{name}.html (copy từ template product có sẵn)
+   - Thêm ảnh vào images/product/
+   - Thêm Quick-View modal vào index.html (theo MODAL_CREATION_GUIDE.txt)
+   - Thêm CSS modal vào css/custom-modals.css
+   - Cập nhật menu trong js/vmenu-sync.js
+   - Cập nhật trang danh mục (shop-*.html) nếu cần
+
+2. **Sửa Header/Footer/Menu chung:**
+   - Sửa js/vmenu-sync.js (cho menu danh mục)
+   - Với Header/Footer: phải sửa thủ công từng file HTML
+   - Hoặc dùng scripts/update_product_pages.ps1 cho batch update
+   - Hoặc dùng Webpack (html_webpack) cho template-based update
+
+3. **Thay đổi theme màu:**
+   - Đổi link CSS từ bundle.css sang bundle.{color}.css trong <head>
+   - 8 màu có sẵn: black, blue, green, green-munsell, orange, pink, purple, skyblue
+
+4. **Build Webpack (nếu cần):**
+   - cd html_webpack
+   - npm install
+   - npm run dev (development) / npm run build (production)
+   - CẢNH BÁO: Output sẽ ghi vào html_webpack/dist, KHÔNG ĐÈ file root!
+   - Cần merge manual nếu muốn dùng output
+
+================================================================================
+## 10. Tổng kết số liệu
+================================================================================
+- Tổng file HTML: 84+ files (root directory)
+- Tổng file CSS: 19 files
+- Tổng file JS: 26+ files (kể cả min versions)
+- Tổng số sản phẩm: 34 sản phẩm (12 gạo + 5 hạt + 10 ngũ cốc + 7 combo)
+- Tổng bài blog: 8 bài viết chi tiết
+- Tổng Quick-View modals: 30+ modals
+- Color themes: 8+1 variants
+- Ảnh sản phẩm: 29 files trong images/product/
+- Dung lượng project (ước tính): ~10MB+ (không tính node_modules)

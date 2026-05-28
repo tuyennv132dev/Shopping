@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/utility.css">
     <!-- Main -->
     <link rel="stylesheet" href="css/bundle.css">
+    <link rel="stylesheet" href="css/custom-modals.css">
 </head>
 
 <body>
@@ -163,15 +164,16 @@
                                         </a>
                                     </li>
                                     <li class="u-d-none-lg">
-                                        <a href="wishlist.html">
+                                        <a href="wishlist.html" style="position: relative;">
                                             <i class="far fa-heart"></i>
+                                            <span class="wishlist-counter">0</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a id="mini-cart-trigger">
                                             <i class="ion ion-md-basket"></i>
-                                            <span class="item-counter">4</span>
-                                            <span class="item-price">530,000 VND</span>
+                                            <span class="item-counter">0</span>
+                                            <span class="item-price">0 VND</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -189,7 +191,7 @@
                 <div class="fixed-responsive-wrapper">
                     <a href="wishlist.html">
                         <i class="far fa-heart"></i>
-                        <span class="fixed-item-counter">4</span>
+                        <span class="fixed-item-counter">0</span>
                     </a>
                 </div>
             </div>
@@ -677,39 +679,47 @@
                             <ul>
                                 <li><a href="shop-baby-kids-food.html">Baby Porridge <span class="total-fetch-items">(2)</span></a></li>
                                 <li><a href="shop-baby-kids-food.html">Kids Cereals <span class="total-fetch-items">(2)</span></a></li>
-                                <li><a href="shop-baby-kids-food.html">Rice Snacks <span class="total-fetch-items">(2)</span></a></li>
+                                <li><a href="shop-baby-kids-food.html">Kids Snacks <span class="total-fetch-items">(2)</span></a></li>
                                 <li><a href="shop-baby-kids-food.html">Nutrition Mixes <span class="total-fetch-items">(2)</span></a></li>
                             </ul>
                         </div>
 
                         <div class="facet-filter-associates">
                             <h3 class="title-name">Product Type</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                    <input type="checkbox" class="check-box" id="type-1"><label class="label-text" for="type-1">Rice Porridge <span class="total-fetch-items">(2)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-2"><label class="label-text" for="type-2">Oat Cereal <span class="total-fetch-items">(2)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-3"><label class="label-text" for="type-3">Grain Powder <span class="total-fetch-items">(2)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-4"><label class="label-text" for="type-4">Kids Snacks <span class="total-fetch-items">(2)</span></label>
-                            </div></form>
-                        </div>
+                            <form class="facet-form" action="#" method="post">
+                                <div class="associate-wrapper">
+                                    <input type="checkbox" class="check-box" id="rice-baby-porridge">
+                                    <label class="label-text" for="rice-baby-porridge">Baby Porridge <span class="total-fetch-items">(2)</span></label>
 
-                        <div class="facet-filter-associates">
-                            <h3 class="title-name">Pack Size</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                <input type="checkbox" class="check-box" id="pack-250"><label class="label-text" for="pack-250">250g <span class="total-fetch-items">(2)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-500"><label class="label-text" for="pack-500">500g <span class="total-fetch-items">(4)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-1kg"><label class="label-text" for="pack-1kg">1kg <span class="total-fetch-items">(3)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-combo"><label class="label-text" for="pack-combo">Combo Pack <span class="total-fetch-items">(1)</span></label>
-                            </div></form>
+                                    <input type="checkbox" class="check-box" id="rice-kids-cereals">
+                                    <label class="label-text" for="rice-kids-cereals">Kids Cereals <span class="total-fetch-items">(2)</span></label>
+
+                                    <input type="checkbox" class="check-box" id="rice-kids-snacks">
+                                    <label class="label-text" for="rice-kids-snacks">Kids Snacks <span class="total-fetch-items">(2)</span></label>
+
+                                    <input type="checkbox" class="check-box" id="rice-nutrition-mixes">
+                                    <label class="label-text" for="rice-nutrition-mixes">Nutrition Mixes <span class="total-fetch-items">(2)</span></label>
+                                </div>
+                            </form>
                         </div>
 
                         <div class="facet-filter-associates">
                             <h3 class="title-name">Use Case</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                    <input type="checkbox" class="check-box" id="use-1"><label class="label-text" for="use-1">Breakfast <span class="total-fetch-items">(5)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-2"><label class="label-text" for="use-2">Light Meals <span class="total-fetch-items">(4)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-3"><label class="label-text" for="use-3">Kids Snacks <span class="total-fetch-items">(3)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-4"><label class="label-text" for="use-4">Family Nutrition <span class="total-fetch-items">(4)</span></label>
-                            </div></form>
+                            <form class="facet-form" action="#" method="post">
+                                <div class="associate-wrapper">
+                                    <input type="checkbox" class="check-box" id="use-breakfast">
+                                    <label class="label-text" for="use-breakfast">Breakfast <span class="total-fetch-items">(5)</span></label>
+
+                                    <input type="checkbox" class="check-box" id="use-light-meals">
+                                    <label class="label-text" for="use-light-meals">Light Meals <span class="total-fetch-items">(4)</span></label>
+
+                                    <input type="checkbox" class="check-box" id="use-kids-snacks">
+                                    <label class="label-text" for="use-kids-snacks">Kids Snacks <span class="total-fetch-items">(3)</span></label>
+
+                                    <input type="checkbox" class="check-box" id="use-family-nutrition">
+                                    <label class="label-text" for="use-family-nutrition">Family Nutrition <span class="total-fetch-items">(4)</span></label>
+                                </div>
+                            </form>
                         </div>
 
                         <div class="facet-filter-by-price">
@@ -738,13 +748,13 @@
                         </div>
                         <div class="row product-container list-style">
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="baby-porridge" data-filter-use="breakfast light-meals family-nutrition" data-product-id="product-baby-rice-porridge.html" data-product-name="Baby Rice Porridge" data-product-price="85000" data-product-image="images/product/baby-rice-porridge.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-baby-rice-porridge.html">
                                         <img class="img-fluid" src="images/product/baby-rice-porridge.jpg" alt="Baby Rice Porridge">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-baby-rice-porridge">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -769,13 +779,13 @@
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="kids-cereals" data-filter-use="breakfast light-meals family-nutrition" data-product-id="product-brown-rice-baby-cereal.html" data-product-name="Brown Rice Baby Cereal" data-product-price="95000" data-product-image="images/product/brown-rice-baby-cereal.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-brown-rice-baby-cereal.html">
                                         <img class="img-fluid" src="images/product/brown-rice-baby-cereal.jpg" alt="Brown Rice Baby Cereal">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-brown-rice-baby-cereal">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -800,13 +810,13 @@
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="kids-cereals" data-filter-use="breakfast family-nutrition" data-product-id="product-oat-cereal-kids.html" data-product-name="Oat Cereal for Kids" data-product-price="78000" data-product-image="images/product/oats.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-oat-cereal-kids.html">
                                         <img class="img-fluid" src="images/product/oats.jpg" alt="Oat Cereal for Kids">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-oat-cereal-kids">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -830,13 +840,13 @@
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="nutrition-mixes" data-filter-use="breakfast light-meals family-nutrition" data-product-id="product-mixed-grain-baby-powder.html" data-product-name="Mixed Grain Baby Powder" data-product-price="125000" data-product-image="images/product/multi-grain-powder.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-mixed-grain-baby-powder.html">
                                         <img class="img-fluid" src="images/product/multi-grain-powder.jpg" alt="Mixed Grain Baby Powder">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-mixed-grain-baby-powder">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -861,13 +871,13 @@
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="kids-snacks" data-filter-use="kids-snacks" data-product-id="product-kids-rice-crackers.html" data-product-name="Kids Rice Crackers" data-product-price="55000" data-product-image="images/product/kids-rice-crackers.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-kids-rice-crackers.html">
                                         <img class="img-fluid" src="images/product/kids-rice-crackers.jpg" alt="Kids Rice Crackers">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-kids-rice-crackers">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -877,7 +887,7 @@
                                         <ul class="bread-crumb">
                                             <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li>
-                                            <li><a href="shop-baby-kids-food.html">Rice Snacks</a></li>
+                                            <li><a href="shop-baby-kids-food.html">Kids Snacks</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-kids-rice-crackers.html">Kids Rice Crackers</a></h6>
                                         <div class="item-description"><p>Light rice crackers for simple snacks and lunchbox treats.</p></div>
@@ -891,13 +901,13 @@
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="baby-porridge" data-filter-use="breakfast light-meals family-nutrition" data-product-id="product-pumpkin-grain-porridge.html" data-product-name="Pumpkin Grain Porridge" data-product-price="105000" data-product-image="images/product/pumpkin-grain-porridge.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-pumpkin-grain-porridge.html">
                                         <img class="img-fluid" src="images/product/pumpkin-grain-porridge.jpg" alt="Pumpkin Grain Porridge">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-pumpkin-grain-porridge">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -922,13 +932,13 @@
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="kids-snacks" data-filter-use="kids-snacks" data-product-id="product-banana-granola-bites.html" data-product-name="Banana Granola Bites" data-product-price="72000" data-product-image="images/product/banana-granola-bites.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-banana-granola-bites.html">
                                         <img class="img-fluid" src="images/product/banana-granola-bites.jpg" alt="Banana Granola Bites">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-banana-granola-bites">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -953,13 +963,13 @@
                             </div>
                         </div>
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="item" data-filter-rice="nutrition-mixes" data-filter-use="breakfast family-nutrition" data-product-id="product-kids-breakfast-combo.html" data-product-name="Family Kids Breakfast Combo" data-product-price="235000" data-product-image="images/product/combo-breakfast.jpg">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-kids-breakfast-combo.html">
                                         <img class="img-fluid" src="images/product/combo-breakfast.jpg" alt="Family Kids Breakfast Combo">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-kids-breakfast-combo">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -983,6 +993,11 @@
                                 <div class="tag sale"><span>SALE</span></div>
                             </div>
                         </div>
+                        <div class="pagination-area u-s-m-t-30">
+                            <div class="pagination-number">
+                                <!-- Rendered by js/search-results.js -->
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -990,22 +1005,463 @@
         </div>
         <!-- Shop-Page /- -->
 
-        <!-- Quick-view-Modal -->
-        <div id="quick-view" class="modal fade">
-            <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
-                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
-                <div class="modal-body"><div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12"><div class="zoom-area"><img id="zoom-pro-quick-view" class="img-fluid" src="images/product/baby-rice-porridge.jpg" data-zoom-image="images/product/baby-rice-porridge.jpg" alt="Baby Rice Porridge"></div></div>
-                    <div class="col-lg-6 col-md-6 col-sm-12"><div class="all-information-wrapper">
-                        <div class="section-1-title-breadcrumb-rating"><div class="product-title"><h1><a href="product-baby-rice-porridge.html">Baby Rice Porridge</a></h1></div><ul class="bread-crumb"><li class="has-separator"><a href="index.html">Home</a></li><li class="has-separator"><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li><li class="is-marked"><a href="product-baby-rice-porridge.html">Baby Rice Porridge</a></li></ul><div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div></div>
-                        <div class="section-2-short-description u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Description:</h6><p>Soft rice porridge base for simple, gentle meals prepared at home.</p></div>
-                        <div class="section-3-price-original-discount u-s-p-y-14"><div class="price"><h4>85,000 VND/pack</h4></div><div class="original-price"><span>Original Price:</span><span>98,000 VND/pack</span></div></div>
-                        <div class="section-4-sku-information u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Sku Information:</h6><div class="availability"><span>Availability:</span><span>In Stock</span></div></div>
-                    </div></div>
-                </div></div>
-            </div></div>
+        <!-- Product Quick-view Modals -->
+        <div id="quick-view-baby-rice-porridge" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-baby-rice-porridge" class="img-fluid" src="images/product/baby-rice-porridge.jpg" data-zoom-image="images/product/baby-rice-porridge.jpg" alt="Baby Rice Porridge Zoom Image">
+                                    <div id="gallery-quick-view-baby-rice-porridge" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/baby-rice-porridge.jpg" data-zoom-image="images/product/baby-rice-porridge.jpg">
+                                            <img src="images/product/baby-rice-porridge.jpg" alt="Baby Rice Porridge" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-baby-rice-porridge.html" data-product-name="Baby Rice Porridge" data-product-price="85000" data-product-image="images/product/baby-rice-porridge.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-baby-rice-porridge.html">Baby Rice Porridge</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Soft rice porridge base for gentle, home-prepared meals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Mild taste, easy to digest</li>
+                                            <li><i class="fas fa-check-circle"></i> Great for breakfast and light meals</li>
+                                            <li><i class="fas fa-check-circle"></i> Clean ingredients, family-friendly</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>85,000 VND/pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>98,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Quick-view-Modal /- -->
+
+        <div id="quick-view-brown-rice-baby-cereal" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-brown-rice-baby-cereal" class="img-fluid" src="images/product/brown-rice-baby-cereal.jpg" data-zoom-image="images/product/brown-rice-baby-cereal.jpg" alt="Brown Rice Baby Cereal Zoom Image">
+                                    <div id="gallery-quick-view-brown-rice-baby-cereal" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/brown-rice-baby-cereal.jpg" data-zoom-image="images/product/brown-rice-baby-cereal.jpg">
+                                            <img src="images/product/brown-rice-baby-cereal.jpg" alt="Brown Rice Baby Cereal" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-brown-rice-baby-cereal.html" data-product-name="Brown Rice Baby Cereal" data-product-price="95000" data-product-image="images/product/brown-rice-baby-cereal.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-brown-rice-baby-cereal.html">Brown Rice Baby Cereal</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Brown rice cereal with a mild flavor for breakfast and light meals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Gentle texture for kids</li>
+                                            <li><i class="fas fa-check-circle"></i> Simple to mix with milk or porridge</li>
+                                            <li><i class="fas fa-check-circle"></i> Family-friendly everyday cereal</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>95,000 VND/pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>110,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-oat-cereal-kids" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-oat-cereal-kids" class="img-fluid" src="images/product/oats.jpg" data-zoom-image="images/product/oats.jpg" alt="Oat Cereal for Kids Zoom Image">
+                                    <div id="gallery-quick-view-oat-cereal-kids" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/oats.jpg" data-zoom-image="images/product/oats.jpg">
+                                            <img src="images/product/oats.jpg" alt="Oat Cereal for Kids" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-oat-cereal-kids.html" data-product-name="Oat Cereal for Kids" data-product-price="78000" data-product-image="images/product/oats.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-oat-cereal-kids.html">Oat Cereal for Kids</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Rolled oat cereal for warm bowls, milk mixes, and quick breakfasts.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Great for breakfast bowls</li>
+                                            <li><i class="fas fa-check-circle"></i> Easy to mix and serve</li>
+                                            <li><i class="fas fa-check-circle"></i> Whole-grain energy for kids</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>78,000 VND/500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>90,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-mixed-grain-baby-powder" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-mixed-grain-baby-powder" class="img-fluid" src="images/product/multi-grain-powder.jpg" data-zoom-image="images/product/multi-grain-powder.jpg" alt="Mixed Grain Baby Powder Zoom Image">
+                                    <div id="gallery-quick-view-mixed-grain-baby-powder" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/multi-grain-powder.jpg" data-zoom-image="images/product/multi-grain-powder.jpg">
+                                            <img src="images/product/multi-grain-powder.jpg" alt="Mixed Grain Baby Powder" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-mixed-grain-baby-powder.html" data-product-name="Mixed Grain Baby Powder" data-product-price="125000" data-product-image="images/product/multi-grain-powder.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-mixed-grain-baby-powder.html">Mixed Grain Baby Powder</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Finely milled mixed grains for porridge, cereal drinks, and homemade meals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Smooth, easy-to-mix powder</li>
+                                            <li><i class="fas fa-check-circle"></i> Suitable for porridge and drinks</li>
+                                            <li><i class="fas fa-check-circle"></i> Great for family nutrition</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>125,000 VND/pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>145,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-kids-rice-crackers" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-kids-rice-crackers" class="img-fluid" src="images/product/kids-rice-crackers.jpg" data-zoom-image="images/product/kids-rice-crackers.jpg" alt="Kids Rice Crackers Zoom Image">
+                                    <div id="gallery-quick-view-kids-rice-crackers" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/kids-rice-crackers.jpg" data-zoom-image="images/product/kids-rice-crackers.jpg">
+                                            <img src="images/product/kids-rice-crackers.jpg" alt="Kids Rice Crackers" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-kids-rice-crackers.html" data-product-name="Kids Rice Crackers" data-product-price="55000" data-product-image="images/product/kids-rice-crackers.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-kids-rice-crackers.html">Kids Rice Crackers</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Light rice crackers for simple snacks and lunchbox treats.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Light and crunchy</li>
+                                            <li><i class="fas fa-check-circle"></i> Easy to pack for school</li>
+                                            <li><i class="fas fa-check-circle"></i> Great everyday kids snack</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>55,000 VND/pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>65,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-pumpkin-grain-porridge" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-pumpkin-grain-porridge" class="img-fluid" src="images/product/pumpkin-grain-porridge.jpg" data-zoom-image="images/product/pumpkin-grain-porridge.jpg" alt="Pumpkin Grain Porridge Zoom Image">
+                                    <div id="gallery-quick-view-pumpkin-grain-porridge" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/pumpkin-grain-porridge.jpg" data-zoom-image="images/product/pumpkin-grain-porridge.jpg">
+                                            <img src="images/product/pumpkin-grain-porridge.jpg" alt="Pumpkin Grain Porridge" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-pumpkin-grain-porridge.html" data-product-name="Pumpkin Grain Porridge" data-product-price="105000" data-product-image="images/product/pumpkin-grain-porridge.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-pumpkin-grain-porridge.html">Pumpkin Grain Porridge</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Pumpkin and grain porridge mix for a naturally sweet, warm meal.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Naturally sweet pumpkin taste</li>
+                                            <li><i class="fas fa-check-circle"></i> Great for breakfast and light meals</li>
+                                            <li><i class="fas fa-check-circle"></i> Warm, comforting family porridge</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>105,000 VND/pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>120,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-banana-granola-bites" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-banana-granola-bites" class="img-fluid" src="images/product/banana-granola-bites.jpg" data-zoom-image="images/product/banana-granola-bites.jpg" alt="Banana Granola Bites Zoom Image">
+                                    <div id="gallery-quick-view-banana-granola-bites" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/banana-granola-bites.jpg" data-zoom-image="images/product/banana-granola-bites.jpg">
+                                            <img src="images/product/banana-granola-bites.jpg" alt="Banana Granola Bites" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-banana-granola-bites.html" data-product-name="Banana Granola Bites" data-product-price="72000" data-product-image="images/product/banana-granola-bites.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-banana-granola-bites.html">Banana Granola Bites</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Small granola bites with banana flavor for easy school snacks.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Bite-sized for kids</li>
+                                            <li><i class="fas fa-check-circle"></i> Perfect for lunchboxes</li>
+                                            <li><i class="fas fa-check-circle"></i> Great on-the-go snack</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>72,000 VND/pack</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>85,000 VND/pack</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quick-view-kids-breakfast-combo" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-kids-breakfast-combo" class="img-fluid" src="images/product/combo-breakfast.jpg" data-zoom-image="images/product/combo-breakfast.jpg" alt="Family Kids Breakfast Combo Zoom Image">
+                                    <div id="gallery-quick-view-kids-breakfast-combo" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/combo-breakfast.jpg" data-zoom-image="images/product/combo-breakfast.jpg">
+                                            <img src="images/product/combo-breakfast.jpg" alt="Family Kids Breakfast Combo" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-kids-breakfast-combo.html" data-product-name="Family Kids Breakfast Combo" data-product-price="235000" data-product-image="images/product/combo-breakfast.jpg">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title"><h1><a href="product-kids-breakfast-combo.html">Family Kids Breakfast Combo</a></h1></div>
+                                        <div class="product-rating"><div class='star' title="4.5 out of 5"><span style='width:67px'></span></div><span>(18 Reviews)</span></div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>A family combo with oats, cereal, and grain powder for children’s breakfasts.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Convenient breakfast bundle</li>
+                                            <li><i class="fas fa-check-circle"></i> Variety for kids and parents</li>
+                                            <li><i class="fas fa-check-circle"></i> Great for family nutrition</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>235,000 VND/combo</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>270,000 VND/combo</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Quick-view Modals /- -->
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -1106,6 +1562,20 @@
     <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="js/vmenu-sync.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/search-results.js"></script>
+<script type="text/javascript" src="js/cart.js" defer></script>
+<script>
+        $(document).ready(function () {
+            $('#zoom-pro-quick-view-baby-rice-porridge').elevateZoom({ gallery: 'gallery-quick-view-baby-rice-porridge', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-brown-rice-baby-cereal').elevateZoom({ gallery: 'gallery-quick-view-brown-rice-baby-cereal', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-oat-cereal-kids').elevateZoom({ gallery: 'gallery-quick-view-oat-cereal-kids', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-mixed-grain-baby-powder').elevateZoom({ gallery: 'gallery-quick-view-mixed-grain-baby-powder', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-kids-rice-crackers').elevateZoom({ gallery: 'gallery-quick-view-kids-rice-crackers', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-pumpkin-grain-porridge').elevateZoom({ gallery: 'gallery-quick-view-pumpkin-grain-porridge', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-banana-granola-bites').elevateZoom({ gallery: 'gallery-quick-view-banana-granola-bites', galleryActiveClass: 'active', zoomEnabled: false });
+            $('#zoom-pro-quick-view-kids-breakfast-combo').elevateZoom({ gallery: 'gallery-quick-view-kids-breakfast-combo', galleryActiveClass: 'active', zoomEnabled: false });
+        });
+</script>
 </body>
 </html>
 

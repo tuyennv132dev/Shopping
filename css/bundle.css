@@ -1298,6 +1298,10 @@ body {
   margin-bottom: 8px; }
 
 .price-template {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
   font-weight: 600; }
   .price-template:after {
     content: '';
@@ -1308,13 +1312,15 @@ body {
   font-size: 12px; }
 
 .item-new-price {
-  float: left;
+  float: none;
   color: #d90429; }
 
 .item-old-price {
-  float: right;
+  float: none;
   color: #707070;
-  text-decoration: line-through; }
+  text-align: right;
+  text-decoration: line-through;
+  white-space: nowrap; }
 
 .item:hover .item-img-wrapper-link:before {
   opacity: 1; }
@@ -1805,6 +1811,19 @@ body {
       color: #292929; }
 
 .item-counter {
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 26px;
+  font-weight: 700;
+  position: absolute;
+  background-color: #d90429;
+  width: 26px;
+  left: 17px;
+  top: -15px;
+  text-align: center;
+  border-radius: 50%; }
+
+.wishlist-counter {
   color: #ffffff;
   font-size: 12px;
   line-height: 26px;
@@ -3331,7 +3350,24 @@ body {
   display: flex; }
 
 .grid-style .item {
-  margin: 0 0 30px; }
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 30px;
+  width: 100%; }
+
+.grid-style .image-container {
+  flex: 0 0 auto; }
+
+.grid-style .item-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column; }
+
+.grid-style .what-product-is {
+  flex: 1 1 auto; }
+
+.grid-style .price-template {
+  margin-top: auto; }
 
 .grid-style .item-description {
   display: none; }
@@ -3353,7 +3389,9 @@ body {
   .list-style .item {
     display: table;
     border-spacing: 20px;
-    margin: 0 0 30px; }
+    margin: 0 0 30px;
+    table-layout: fixed;
+    width: 100%; }
   .list-style .image-container {
     width: 215px;
     max-width: 215px;
@@ -3375,7 +3413,8 @@ body {
       border-color: #d90429; }
   .list-style .item-content {
     display: table-cell;
-    vertical-align: middle; }
+    vertical-align: middle;
+    width: calc(100% - 235px); }
   .list-style .item-description {
     font-size: 13px; }
     .list-style .item-description p {
@@ -3591,7 +3630,8 @@ body {
     margin: 0 auto;
     padding: 15px; }
   .list-style .item-content {
-    display: block; } }
+    display: block;
+    width: 100%; } }
 
 /* Extra small devices (portrait phones, less than and equal to 575px) */
 @media (max-width: 575px) {

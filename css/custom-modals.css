@@ -1551,6 +1551,26 @@
 }
 #quick-view-brown-rice-mix .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
 
+/* Millet Modal Specific Enhancements */
+#quick-view-millet .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+#quick-view-millet .modal-body { padding: 50px !important; }
+#quick-view-millet .all-information-wrapper { padding-left: 40px !important; }
+#quick-view-millet .product-benefit-list { list-style: none; padding: 0; margin-top: 25px; }
+#quick-view-millet .product-benefit-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 16px; color: #444; }
+#quick-view-millet .product-benefit-list li i { color: #28a745; margin-right: 15px; font-size: 20px; }
+#quick-view-millet .section-6-social-media-quantity-actions { margin-top: 30px; padding: 30px; background: #f8faf8; border: 1px solid #eaf0ea; border-radius: 20px; display: flex; flex-direction: column; gap: 20px; }
+#quick-view-millet .quantity-wrapper { display: flex; align-items: center; gap: 20px; }
+#quick-view-millet .quantity-label { font-weight: 700; color: #333; font-size: 18px; }
+#quick-view-millet .quantity { display: flex; border: 1.5px solid #aaa; border-radius: 30px; overflow: hidden; height: 54px; width: 140px; background: #fff; align-items: center; justify-content: center; }
+#quick-view-millet .quantity-text-field { width: 60px !important; text-align: center !important; border: none !important; font-weight: 800 !important; font-size: 20px !important; color: #000 !important; background: transparent !important; }
+#quick-view-millet .plus-a, #quick-view-millet .minus-a { width: 40px; height: 54px; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; color: #444; cursor: pointer; user-select: none; }
+#quick-view-millet .plus-a:hover, #quick-view-millet .minus-a:hover { color: #28a745; background: #f0f0f0; }
+#quick-view-millet .cart-action-buttons { display: flex; gap: 20px; align-items: center; }
+#quick-view-millet .item-addCart { flex: 1; height: 56px; border-radius: 30px; font-size: 17px; font-weight: 700; background-color: #28a745 !important; color: #fff !important; transition: 0.3s; }
+#quick-view-millet .item-addCart:hover { background-color: #218838 !important; transform: translateY(-4px); box-shadow: 0 10px 25px rgba(40, 167, 69, 0.45); }
+#quick-view-millet .wishlist-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #ff4757; border: 1.5px solid #eee; transition: 0.3s; }
+#quick-view-millet .wishlist-btn:hover { background: #fff5f6; border-color: #ff4757; transform: scale(1.15); box-shadow: 0 5px 15px rgba(255, 71, 87, 0.15); }
+
 /* Black Sesame Powder Modal Specific Enhancements */
 #quick-view-black-sesame-powder .modal-content { border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
 #quick-view-black-sesame-powder .modal-body { padding: 50px !important; }

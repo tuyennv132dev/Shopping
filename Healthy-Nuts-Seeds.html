@@ -53,9 +53,21 @@
             <div class="row">
                 <!-- Sidebar -->
                 <div class="col-lg-3 col-md-3 col-sm-12">
-                    <div class="fetch-categories u-s-m-b-30">
+                    <div class="fetch-categories">
                         <h3 class="title-name">Browse Categories</h3>
                         <ul>
+                            <li>
+                                <a href="shop-v1-root-category.html">Types of Rice</a>
+                                <button class="button-icon ion ion-md-add"></button>
+                                <ul>
+                                    <li><a href="product-white-rice.html">White Rice</a></li>
+                                    <li><a href="product-fragrant-rice.html">Fragrant Rice</a></li>
+                                    <li><a href="product-sticky-rice.html">Sticky Rice</a></li>
+                                    <li><a href="product-brown-rice.html">Brown Rice</a></li>
+                                    <li><a href="product-st25-rice.html">ST25 Rice</a></li>
+                                    <li><a href="product-st24-rice.html">ST24 Rice</a></li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a>
                                 <button class="button-icon ion ion-md-add js-open"></button>
@@ -64,35 +76,62 @@
                                     <li><a href="product-cashews.html">Cashew Nuts</a></li>
                                     <li><a href="product-walnuts.html">Walnuts</a></li>
                                     <li><a href="product-macadamia.html">Macadamia Nuts</a></li>
+                                    <li><a href="product-black-sesame-powder.html">Black Sesame Powder</a></li>
                                 </ul>
                             </li>
-                            <li><a href="shop-v1-root-category.html">Types of Rice</a></li>
-                            <li><a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a></li>
+                            <li>
+                                <a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a>
+                                <button class="button-icon ion ion-md-add"></button>
+                                <ul>
+                                    <li><a href="product-rolled-oats.html">Rolled Oats</a></li>
+                                    <li><a href="product-quinoa.html">Quinoa</a></li>
+                                    <li><a href="product-barley.html">Barley</a></li>
+                                    <li><a href="product-Mixed-grains.html">Mixed Grains</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
+                            <li><a href="family-combo-page.html">Family Combo Packs</a></li>
+                            <li><a href="custom-deal-page.html">Deals & Offers</a></li>
+                            <li><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li>
+                            <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                            <li><a href="blog.html">Recipes & Rice Tips</a></li>
                         </ul>
                     </div>
 
                     <div class="facet-filter-associates">
-                        <h3 class="title-name">Nut Category</h3>
-                        <form class="facet-form">
+                        <h3 class="title-name">Product Type</h3>
+                        <form class="facet-form" action="#" method="post">
                             <div class="associate-wrapper">
-                                <input type="checkbox" class="check-box" id="cat-nuts"><label class="label-text" for="cat-nuts">Premium Nuts <span class="total-fetch-items">(4)</span></label>
-                                <input type="checkbox" class="check-box" id="cat-seeds"><label class="label-text" for="cat-seeds">Super Seeds <span class="total-fetch-items">(3)</span></label>
+                                <input type="checkbox" class="check-box" id="rice-nuts"><label class="label-text" for="rice-nuts">Nuts <span class="total-fetch-items">(4)</span></label>
+                                <input type="checkbox" class="check-box" id="rice-powders"><label class="label-text" for="rice-powders">Powders <span class="total-fetch-items">(1)</span></label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="facet-filter-associates">
+                        <h3 class="title-name">Use Case</h3>
+                        <form class="facet-form" action="#" method="post">
+                            <div class="associate-wrapper">
+                                <input type="checkbox" class="check-box" id="use-snack"><label class="label-text" for="use-snack">Snack <span class="total-fetch-items">(4)</span></label>
+                                <input type="checkbox" class="check-box" id="use-baking"><label class="label-text" for="use-baking">Baking <span class="total-fetch-items">(4)</span></label>
+                                <input type="checkbox" class="check-box" id="use-wellness"><label class="label-text" for="use-wellness">Daily Wellness <span class="total-fetch-items">(5)</span></label>
                             </div>
                         </form>
                     </div>
 
                     <div class="facet-filter-by-price">
                         <h3 class="title-name">Price</h3>
-                        <form class="facet-form">
-                            <div class="amount-result clearfix"><div class="price-from">10,000 VND</div><div class="price-to">200,000 VND</div></div>
-                            <div class="price-slider-range" data-min="10000" data-max="200000" data-default-low="10000" data-default-high="200000" data-currency="VND"></div>
-                            <button type="submit" class="button button-primary u-s-m-t-20">Filter</button>
+                        <form class="facet-form" action="#" method="post" novalidate>
+                            <div class="amount-result clearfix"><div class="price-from">0 VND</div><div class="price-to">200,000 VND</div></div>
+                            <div class="price-filter"></div>
+                            <div class="price-slider-range" data-min="0" data-max="200000" data-default-low="0" data-default-high="200000" data-currency="VND"></div>
+                            <button type="submit" class="button button-primary">Filter</button>
                         </form>
                     </div>
 
                     <div class="facet-filter-by-shipping">
                         <h3 class="title-name">Shipping</h3>
-                        <form class="facet-form">
+                        <form class="facet-form" action="#" method="post">
                             <input type="checkbox" class="check-box" id="cb-free-ship"><label class="label-text" for="cb-free-ship">Free Shipping</label>
                         </form>
                     </div>
@@ -101,67 +140,229 @@
                 <!-- Product Grid -->
                 <div class="col-lg-9 col-md-9 col-sm-12">
                     <div class="page-bar clearfix">
-                        <div class="shop-settings"><a id="list-anchor"><i class="fas fa-th-list"></i></a><a id="grid-anchor" class="active"><i class="fas fa-th"></i></a></div>
+                        <div class="shop-settings"><a id="list-anchor" class="active"><i class="fas fa-th-list"></i></a><a id="grid-anchor"><i class="fas fa-th"></i></a></div>
                         <div class="toolbar-sorter">
                             <div class="select-box-wrapper">
-                                <select class="select-box"><option>Sort By: Best Selling</option><option>Sort By: Lowest Price</option></select>
+                                <label class="sr-only" for="sort-by">Sort By</label>
+                                <select class="select-box" id="sort-by">
+                                    <option selected="selected" value="">Sort By: Best Selling</option>
+                                    <option value="">Sort By: Latest</option>
+                                    <option value="">Sort By: Lowest Price</option>
+                                    <option value="">Sort By: Highest Price</option>
+                                    <option value="">Sort By: Best Rating</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="toolbar-sorter-2">
+                            <div class="select-box-wrapper">
+                                <label class="sr-only" for="show-records">Show Records Per Page</label>
+                                <select class="select-box" id="show-records">
+                                    <option selected="selected" value="">Show: 8</option>
+                                    <option value="">Show: 16</option>
+                                    <option value="">Show: 28</option>
+                                </select>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row product-container grid-style">
-                        <!-- Product Item: Almonds -->
+                    <div class="row product-container list-style">
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item" data-product-id="product-almonds" data-product-name="Premium Almonds" data-product-price="95000" data-product-image="images/product/hanh-nhan.jpg">
-                                <div class="image-container"><a class="item-img-wrapper-link" href="product-almonds.html"><img class="img-fluid" src="images/product/hanh-nhan.jpg" alt="Almonds"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-almonds">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div>
+                            <div class="item" data-filter-rice="nuts" data-filter-use="snack baking wellness" data-product-id="product-almonds" data-product-name="Premium Almonds" data-product-price="95000" data-product-image="images/product/hanh-nhan.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-almonds.html"><img class="img-fluid" src="images/product/hanh-nhan.jpg" alt="Almonds"></a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-almonds">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
                                 <div class="item-content">
-                                    <h6 class="item-title"><a href="product-almonds.html">Premium Almonds</a></h6>
-                                    <div class="price-template"><div class="item-new-price">95,000 VND</div></div>
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="Healthy-Nuts-Seeds.html">Nuts</a></li>
+                                            <li><a href="Healthy-Nuts-Seeds.html">Everyday Snack</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-almonds.html">Almonds</a></h6>
+                                        <div class="item-description"><p>Crunchy, premium almonds packed with healthy fats and Vitamin E. Great for snacking, baking, and topping oats.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">95,000 VND / 500g</div>
+                                        <div class="item-old-price">110,000 VND/500g</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product Item: Cashews -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item" data-product-id="product-cashews" data-product-name="Premium Cashews" data-product-price="125000" data-product-image="images/product/pistachios.jpg">
-                                <div class="image-container"><a class="item-img-wrapper-link" href="product-cashews.html"><img class="img-fluid" src="images/product/pistachios.jpg" alt="Cashews"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-cashews">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div>
+                            <div class="item" data-filter-rice="nuts" data-filter-use="snack baking wellness" data-product-id="product-cashews" data-product-name="Premium Cashews" data-product-price="125000" data-product-image="images/product/pistachios.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-cashews.html"><img class="img-fluid" src="images/product/pistachios.jpg" alt="Cashews"></a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-cashews">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
                                 <div class="item-content">
-                                    <h6 class="item-title"><a href="product-cashews.html">Premium Cashews</a></h6>
-                                    <div class="price-template"><div class="item-new-price">125,000 VND</div></div>
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="Healthy-Nuts-Seeds.html">Nuts</a></li>
+                                            <li><a href="Healthy-Nuts-Seeds.html">Healthy Snack</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-cashews.html">Cashew Nuts</a></h6>
+                                        <div class="item-description"><p>Buttery cashews with a naturally sweet taste. High in protein and minerals—perfect for snacking and baking.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(19)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">125,000 VND / 500g</div>
+                                        <div class="item-old-price">145,000 VND/500g</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product Item: Macadamia -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item" data-product-id="product-macadamia" data-product-name="Premium Macadamia" data-product-price="155000" data-product-image="images/product/macadamia.jpg">
-                                <div class="image-container"><a class="item-img-wrapper-link" href="product-macadamia.html"><img class="img-fluid" src="images/product/macadamia.jpg" alt="Macadamia"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-macadamia">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div>
+                            <div class="item" data-filter-rice="nuts" data-filter-use="snack baking wellness" data-product-id="product-walnuts" data-product-name="Premium Walnuts" data-product-price="115000" data-product-image="images/product/hat-oc-cho.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-walnuts.html"><img class="img-fluid" src="images/product/hat-oc-cho.jpg" alt="Walnuts"></a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-walnuts">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
                                 <div class="item-content">
-                                    <h6 class="item-title"><a href="product-macadamia.html">Premium Macadamia</a></h6>
-                                    <div class="price-template"><div class="item-new-price">155,000 VND</div></div>
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="Healthy-Nuts-Seeds.html">Nuts</a></li>
+                                            <li><a href="Healthy-Nuts-Seeds.html">Daily Wellness</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-walnuts.html">Walnuts</a></h6>
+                                        <div class="item-description"><p>Omega‑3 rich walnuts for brain & heart health. Delicious in salads, granola mixes, and baking recipes.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(21)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">115,000 VND / 500g</div>
+                                        <div class="item-old-price">130,000 VND/500g</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product Item: Walnuts -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item" data-product-id="product-walnuts" data-product-name="Premium Walnuts" data-product-price="135000" data-product-image="images/product/hat-oc-cho.jpg">
-                                <div class="image-container"><a class="item-img-wrapper-link" href="product-walnuts.html"><img class="img-fluid" src="images/product/hat-oc-cho.jpg" alt="Walnuts"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-walnuts">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div>
+                            <div class="item" data-filter-rice="nuts" data-filter-use="snack wellness" data-product-id="product-macadamia" data-product-name="Premium Macadamia Nuts" data-product-price="185000" data-product-image="images/product/macadamia.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-macadamia.html"><img class="img-fluid" src="images/product/macadamia.jpg" alt="Macadamia Nuts"></a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-macadamia">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
                                 <div class="item-content">
-                                    <h6 class="item-title"><a href="product-walnuts.html">Premium Walnuts</a></h6>
-                                    <div class="price-template"><div class="item-new-price">135,000 VND</div></div>
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="Healthy-Nuts-Seeds.html">Nuts</a></li>
+                                            <li><a href="Healthy-Nuts-Seeds.html">Premium Snack</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-macadamia.html">Macadamia Nuts</a></h6>
+                                        <div class="item-description"><p>Rich, buttery macadamias packed with heart‑healthy fats. A luxury snack for any time of the day.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(22)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">185,000 VND / 500g</div>
+                                        <div class="item-old-price">210,000 VND/500g</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product Item: Green Beans -->
                         <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item" data-product-id="product-green-beans" data-product-name="Green Beans" data-product-price="42000" data-product-image="images/product/do-xanh-nguyen-hat.jpg">
-                                <div class="image-container"><a class="item-img-wrapper-link" href="#"><img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-green-beans">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div>
-                                <div class="item-content"><h6>Green Beans</h6><div class="price-template">42,000 VND</div></div>
+                            <div class="item" data-filter-rice="powders" data-filter-use="baking wellness" data-product-id="product-black-sesame" data-product-name="Black Sesame Powder" data-product-price="88000" data-product-image="images/product/black-sesame.jpg">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="product-black-sesame-powder.html"><img class="img-fluid" src="images/product/black-sesame.jpg" alt="Black Sesame Powder"></a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-black-sesame-powder">Quick Look</a>
+                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <li class="has-separator"><a href="Healthy-Nuts-Seeds.html">Powders</a></li>
+                                            <li><a href="Healthy-Nuts-Seeds.html">Nutrition Boost</a></li>
+                                        </ul>
+                                        <h6 class="item-title"><a href="product-black-sesame-powder.html">Black Sesame Powder</a></h6>
+                                        <div class="item-description"><p>Deep, nutty black sesame powder rich in calcium and antioxidants. Ideal for smoothies, desserts, and baking.</p></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(20)</span></div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">88,000 VND / 500g</div>
+                                        <div class="item-old-price">99,000 VND/500g</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!-- Product Item: Granola -->
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item" data-product-id="product-granola" data-product-name="Premium Granola" data-product-price="115000" data-product-image="images/product/granola.jpg">
-                                <div class="image-container"><a class="item-img-wrapper-link" href="#"><img class="img-fluid" src="images/product/granola.jpg"></a><div class="item-action-behaviors"><a class="item-quick-look" data-toggle="modal" href="#quick-view-granola">Quick Look</a><a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a><a class="item-addCart" href="javascript:void(0)">Add to Cart</a></div></div>
-                                <div class="item-content"><h6>Premium Granola</h6><div class="price-template">115,000 VND</div></div>
+                    </div>
+
+                    <div class="pagination-area u-s-m-t-30">
+                        <div class="pagination-number">
+                            <!-- Rendered by js/search-results.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Quick-view Modals -->
+    <div id="quick-view-almonds" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="zoom-area">
+                                <img id="zoom-pro-quick-view-almonds" class="img-fluid" src="images/product/hanh-nhan.jpg" data-zoom-image="images/product/hanh-nhan.jpg" alt="Almonds Zoom Image">
+                                <div id="gallery-quick-view-almonds" class="u-s-m-t-10">
+                                    <a class="active" data-image="images/product/hanh-nhan.jpg" data-zoom-image="images/product/hanh-nhan.jpg">
+                                        <img src="images/product/hanh-nhan.jpg" alt="Almonds" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="all-information-wrapper item" data-product-id="product-almonds" data-product-name="Premium Almonds" data-product-price="95000" data-product-image="images/product/hanh-nhan.jpg">
+                                <div class="section-1-title-breadcrumb-rating">
+                                    <div class="product-title"><h1><a href="product-almonds.html">Huyen Tuyen Premium Almonds</a></h1></div>
+                                    <div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18 Reviews)</span></div>
+                                </div>
+                                <div class="section-2-short-description u-s-p-y-14">
+                                    <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                    <p>Our premium almonds are carefully selected for their size and crunch. They provide healthy fats, protein, and essential vitamins—perfect for snacking, baking, or topping your morning oatmeal.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> High in Vitamin E and antioxidants</li>
+                                        <li><i class="fas fa-check-circle"></i> Supports heart health and brain function</li>
+                                        <li><i class="fas fa-check-circle"></i> Non-GMO and naturally gluten-free</li>
+                                    </ul>
+                                </div>
+                                <div class="section-3-price-original-discount u-s-p-y-14">
+                                    <div class="price" style="color: #28a745;"><h4>95,000 VND / 500g</h4></div>
+                                    <div class="original-price" style="text-decoration: line-through; color: #999;"><span>110,000 VND/500g</span></div>
+                                </div>
+                                <div class="section-6-social-media-quantity-actions">
+                                    <div class="quantity-wrapper">
+                                        <span class="quantity-label">Quantity:</span>
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">&#45;</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">&#43;</a>
+                                        </div>
+                                    </div>
+                                    <div class="cart-action-buttons">
+                                        <button class="button item-addCart" type="button">ADD TO CART</button>
+                                        <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,13 +371,236 @@
         </div>
     </div>
 
-    <!-- Modals -->
-    <div id="quick-view-almonds" class="modal fade"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button><div class="modal-body"><div class="row"><div class="col-lg-6"><img id="zoom-almonds" src="images/product/hanh-nhan.jpg" class="img-fluid"></div><div class="col-lg-6"><div class="all-information-wrapper item" data-product-id="product-almonds" data-product-name="Premium Almonds" data-product-price="95000" data-product-image="images/product/hanh-nhan.jpg"><h1>Almonds</h1><div class="price"><h4>95,000 VND</h4></div><div class="section-6-social-media-quantity-actions"><div class="quantity"><a class="minus-a">-</a><input type="text" class="quantity-text-field" value="1" readonly><a class="plus-a">+</a></div><div class="cart-action-buttons"><button class="button item-addCart">ADD TO CART</button></div></div></div></div></div></div></div></div></div>
-    <div id="quick-view-cashews" class="modal fade"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button><div class="modal-body"><div class="row"><div class="col-lg-6"><img id="zoom-cashews" src="images/product/pistachios.jpg" class="img-fluid"></div><div class="col-lg-6"><div class="all-information-wrapper item" data-product-id="product-cashews" data-product-name="Premium Cashews" data-product-price="125000" data-product-image="images/product/pistachios.jpg"><h1>Cashews</h1><div class="price"><h4>125,000 VND</h4></div><div class="section-6-social-media-quantity-actions"><div class="quantity"><a class="minus-a">-</a><input type="text" class="quantity-text-field" value="1" readonly><a class="plus-a">+</a></div><div class="cart-action-buttons"><button class="button item-addCart">ADD TO CART</button></div></div></div></div></div></div></div></div></div>
-    <div id="quick-view-macadamia" class="modal fade"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button><div class="modal-body"><div class="row"><div class="col-lg-6"><img id="zoom-macadamia" src="images/product/macadamia.jpg" class="img-fluid"></div><div class="col-lg-6"><div class="all-information-wrapper item" data-product-id="product-macadamia" data-product-name="Premium Macadamia" data-product-price="155000" data-product-image="images/product/macadamia.jpg"><h1>Macadamia</h1><div class="price"><h4>155,000 VND</h4></div><div class="section-6-social-media-quantity-actions"><div class="quantity"><a class="minus-a">-</a><input type="text" class="quantity-text-field" value="1" readonly><a class="plus-a">+</a></div><div class="cart-action-buttons"><button class="button item-addCart">ADD TO CART</button></div></div></div></div></div></div></div></div></div>
-    <div id="quick-view-walnuts" class="modal fade"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button><div class="modal-body"><div class="row"><div class="col-lg-6"><img id="zoom-walnuts" src="images/product/hat-oc-cho.jpg" class="img-fluid"></div><div class="col-lg-6"><div class="all-information-wrapper item" data-product-id="product-walnuts" data-product-name="Premium Walnuts" data-product-price="135000" data-product-image="images/product/hat-oc-cho.jpg"><h1>Walnuts</h1><div class="price"><h4>135,000 VND</h4></div><div class="section-6-social-media-quantity-actions"><div class="quantity"><a class="minus-a">-</a><input type="text" class="quantity-text-field" value="1" readonly><a class="plus-a">+</a></div><div class="cart-action-buttons"><button class="button item-addCart">ADD TO CART</button></div></div></div></div></div></div></div></div></div>
-    <div id="quick-view-green-beans" class="modal fade"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button><div class="modal-body"><div class="row"><div class="col-lg-6"><img id="zoom-green-beans" src="images/product/do-xanh-nguyen-hat.jpg" class="img-fluid"></div><div class="col-lg-6"><div class="all-information-wrapper item" data-product-id="product-green-beans" data-product-name="Green Beans" data-product-price="42000" data-product-image="images/product/do-xanh-nguyen-hat.jpg"><h1>Green Beans</h1><div class="price"><h4>42,000 VND</h4></div><div class="section-6-social-media-quantity-actions"><div class="quantity"><a class="minus-a">-</a><input type="text" class="quantity-text-field" value="1" readonly><a class="plus-a">+</a></div><div class="cart-action-buttons"><button class="button item-addCart">ADD TO CART</button></div></div></div></div></div></div></div></div></div>
-    <div id="quick-view-granola" class="modal fade"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button><div class="modal-body"><div class="row"><div class="col-lg-6"><img id="zoom-granola" src="images/product/granola.jpg" class="img-fluid"></div><div class="col-lg-6"><div class="all-information-wrapper item" data-product-id="product-granola" data-product-name="Premium Granola" data-product-price="115000" data-product-image="images/product/granola.jpg"><h1>Granola</h1><div class="price"><h4>115,000 VND</h4></div><div class="section-6-social-media-quantity-actions"><div class="quantity"><a class="minus-a">-</a><input type="text" class="quantity-text-field" value="1" readonly><a class="plus-a">+</a></div><div class="cart-action-buttons"><button class="button item-addCart">ADD TO CART</button></div></div></div></div></div></div></div></div></div>
+    <div id="quick-view-cashews" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="zoom-area">
+                                <img id="zoom-pro-quick-view-cashews" class="img-fluid" src="images/product/pistachios.jpg" data-zoom-image="images/product/pistachios.jpg" alt="Cashews Zoom Image">
+                                <div id="gallery-quick-view-cashews" class="u-s-m-t-10">
+                                    <a class="active" data-image="images/product/pistachios.jpg" data-zoom-image="images/product/pistachios.jpg">
+                                        <img src="images/product/pistachios.jpg" alt="Cashews" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="all-information-wrapper item" data-product-id="product-cashews" data-product-name="Premium Cashews" data-product-price="125000" data-product-image="images/product/pistachios.jpg">
+                                <div class="section-1-title-breadcrumb-rating">
+                                    <div class="product-title"><h1><a href="product-cashews.html">Huyen Tuyen Premium Cashews</a></h1></div>
+                                    <div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(19 Reviews)</span></div>
+                                </div>
+                                <div class="section-2-short-description u-s-p-y-14">
+                                    <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                    <p>Cashews are creamy, buttery, and naturally sweet. They are a good source of plant protein and minerals, making them ideal for healthy snacking, baking, or adding to salads.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Good source of protein and healthy fats</li>
+                                        <li><i class="fas fa-check-circle"></i> Rich in Magnesium, Copper, and Zinc</li>
+                                        <li><i class="fas fa-check-circle"></i> Great for snacks, baking, and mixes</li>
+                                    </ul>
+                                </div>
+                                <div class="section-3-price-original-discount u-s-p-y-14">
+                                    <div class="price" style="color: #28a745;"><h4>125,000 VND / 500g</h4></div>
+                                    <div class="original-price" style="text-decoration: line-through; color: #999;"><span>145,000 VND/500g</span></div>
+                                </div>
+                                <div class="section-6-social-media-quantity-actions">
+                                    <div class="quantity-wrapper">
+                                        <span class="quantity-label">Quantity:</span>
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">&#45;</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">&#43;</a>
+                                        </div>
+                                    </div>
+                                    <div class="cart-action-buttons">
+                                        <button class="button item-addCart" type="button">ADD TO CART</button>
+                                        <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quick-view-walnuts" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="zoom-area">
+                                <img id="zoom-pro-quick-view-walnuts" class="img-fluid" src="images/product/hat-oc-cho.jpg" data-zoom-image="images/product/hat-oc-cho.jpg" alt="Walnuts Zoom Image">
+                                <div id="gallery-quick-view-walnuts" class="u-s-m-t-10">
+                                    <a class="active" data-image="images/product/hat-oc-cho.jpg" data-zoom-image="images/product/hat-oc-cho.jpg">
+                                        <img src="images/product/hat-oc-cho.jpg" alt="Walnuts" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="all-information-wrapper item" data-product-id="product-walnuts" data-product-name="Premium Walnuts" data-product-price="115000" data-product-image="images/product/hat-oc-cho.jpg">
+                                <div class="section-1-title-breadcrumb-rating">
+                                    <div class="product-title"><h1><a href="product-walnuts.html">Huyen Tuyen Premium Walnuts</a></h1></div>
+                                    <div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(21 Reviews)</span></div>
+                                </div>
+                                <div class="section-2-short-description u-s-p-y-14">
+                                    <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                    <p>Walnuts are exceptionally high in Omega-3 fatty acids and provide powerful antioxidants. Great for brain health, heart health, and as a crunchy addition to salads or snacks.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Excellent source of Omega-3s</li>
+                                        <li><i class="fas fa-check-circle"></i> Supports brain and cognitive function</li>
+                                        <li><i class="fas fa-check-circle"></i> Raw and naturally nutrient-dense</li>
+                                    </ul>
+                                </div>
+                                <div class="section-3-price-original-discount u-s-p-y-14">
+                                    <div class="price" style="color: #28a745;"><h4>115,000 VND / 500g</h4></div>
+                                    <div class="original-price" style="text-decoration: line-through; color: #999;"><span>130,000 VND/500g</span></div>
+                                </div>
+                                <div class="section-6-social-media-quantity-actions">
+                                    <div class="quantity-wrapper">
+                                        <span class="quantity-label">Quantity:</span>
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">&#45;</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">&#43;</a>
+                                        </div>
+                                    </div>
+                                    <div class="cart-action-buttons">
+                                        <button class="button item-addCart" type="button">ADD TO CART</button>
+                                        <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quick-view-macadamia" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="zoom-area">
+                                <img id="zoom-pro-quick-view-macadamia" class="img-fluid" src="images/product/macadamia.jpg" data-zoom-image="images/product/macadamia.jpg" alt="Macadamia Nuts Zoom Image">
+                                <div id="gallery-quick-view-macadamia" class="u-s-m-t-10">
+                                    <a class="active" data-image="images/product/macadamia.jpg" data-zoom-image="images/product/macadamia.jpg">
+                                        <img src="images/product/macadamia.jpg" alt="Macadamia Nuts" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="all-information-wrapper item" data-product-id="product-macadamia" data-product-name="Premium Macadamia Nuts" data-product-price="185000" data-product-image="images/product/macadamia.jpg">
+                                <div class="section-1-title-breadcrumb-rating">
+                                    <div class="product-title"><h1><a href="product-macadamia.html">Huyen Tuyen Premium Macadamia Nuts</a></h1></div>
+                                    <div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(22 Reviews)</span></div>
+                                </div>
+                                <div class="section-2-short-description u-s-p-y-14">
+                                    <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                    <p>Macadamia nuts are known as the "Queen of Nuts" for their rich, buttery flavor and creamy texture. They are packed with heart-healthy monounsaturated fats and essential nutrients.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Highest content of heart-healthy fats</li>
+                                        <li><i class="fas fa-check-circle"></i> Rich in Manganese and Thiamin</li>
+                                        <li><i class="fas fa-check-circle"></i> Buttery texture and premium quality</li>
+                                    </ul>
+                                </div>
+                                <div class="section-3-price-original-discount u-s-p-y-14">
+                                    <div class="price" style="color: #28a745;"><h4>185,000 VND / 500g</h4></div>
+                                    <div class="original-price" style="text-decoration: line-through; color: #999;"><span>210,000 VND/500g</span></div>
+                                </div>
+                                <div class="section-6-social-media-quantity-actions">
+                                    <div class="quantity-wrapper">
+                                        <span class="quantity-label">Quantity:</span>
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">&#45;</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">&#43;</a>
+                                        </div>
+                                    </div>
+                                    <div class="cart-action-buttons">
+                                        <button class="button item-addCart" type="button">ADD TO CART</button>
+                                        <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quick-view-black-sesame-powder" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="zoom-area">
+                                <img id="zoom-pro-quick-view-black-sesame-powder" class="img-fluid" src="images/product/black-sesame.jpg" data-zoom-image="images/product/black-sesame.jpg" alt="Black Sesame Powder Zoom Image">
+                                <div id="gallery-quick-view-black-sesame-powder" class="u-s-m-t-10">
+                                    <a class="active" data-image="images/product/black-sesame.jpg" data-zoom-image="images/product/black-sesame.jpg">
+                                        <img src="images/product/black-sesame.jpg" alt="Black Sesame Powder" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                    </a>
+                                    <a data-image="images/product/black-sesame-2.jpg" data-zoom-image="images/product/black-sesame-2.jpg">
+                                        <img src="images/product/black-sesame-2.jpg" alt="Black Sesame Powder 2" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="all-information-wrapper item" data-product-id="product-black-sesame" data-product-name="Black Sesame Powder" data-product-price="88000" data-product-image="images/product/black-sesame.jpg">
+                                <div class="section-1-title-breadcrumb-rating">
+                                    <div class="product-title"><h1><a href="product-black-sesame-powder.html">Huyen Tuyen Premium Black Sesame Powder</a></h1></div>
+                                    <div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(20 Reviews)</span></div>
+                                </div>
+                                <div class="section-2-short-description u-s-p-y-14">
+                                    <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                    <p>Deep, nutty black sesame powder, rich in calcium and antioxidants. Perfect for desserts, drinks, or as a nutritious topping.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> 100% natural, no additives</li>
+                                        <li><i class="fas fa-check-circle"></i> High calcium content</li>
+                                        <li><i class="fas fa-check-circle"></i> Ideal for smoothies and baking</li>
+                                    </ul>
+                                </div>
+                                <div class="section-3-price-original-discount u-s-p-y-14">
+                                    <div class="price" style="color: #28a745;"><h4>88,000 VND / 500g</h4></div>
+                                    <div class="original-price" style="text-decoration: line-through; color: #999;"><span>99,000 VND/500g</span></div>
+                                </div>
+                                <div class="section-6-social-media-quantity-actions">
+                                    <div class="quantity-wrapper">
+                                        <span class="quantity-label">Quantity:</span>
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">&#45;</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">&#43;</a>
+                                        </div>
+                                    </div>
+                                    <div class="cart-action-buttons">
+                                        <button class="button item-addCart" type="button">ADD TO CART</button>
+                                        <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer u-s-m-t-40"><div class="container text-center"><p>&copy; 2026 Huyen Tuyen Rice. All Rights Reserved.</p></div></footer>
 </div>
@@ -186,10 +610,15 @@
 <script type="text/javascript" src="js/jquery-ui.range-slider.min.js"></script>
 <script type="text/javascript" src="js/vmenu-sync.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/search-results.js"></script>
 <script type="text/javascript" src="js/cart.js" defer></script>
 <script>
 $(document).ready(function() {
-    $('[id^=zoom-]').elevateZoom({ zoomEnabled: false });
+    $('#zoom-pro-quick-view-almonds').elevateZoom({ gallery: 'gallery-quick-view-almonds', galleryActiveClass: 'active', zoomEnabled: false });
+    $('#zoom-pro-quick-view-cashews').elevateZoom({ gallery: 'gallery-quick-view-cashews', galleryActiveClass: 'active', zoomEnabled: false });
+    $('#zoom-pro-quick-view-walnuts').elevateZoom({ gallery: 'gallery-quick-view-walnuts', galleryActiveClass: 'active', zoomEnabled: false });
+    $('#zoom-pro-quick-view-macadamia').elevateZoom({ gallery: 'gallery-quick-view-macadamia', galleryActiveClass: 'active', zoomEnabled: false });
+    $('#zoom-pro-quick-view-black-sesame-powder').elevateZoom({ gallery: 'gallery-quick-view-black-sesame-powder', galleryActiveClass: 'active', zoomEnabled: false });
 });
 </script>
 </body>
