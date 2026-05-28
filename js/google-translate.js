@@ -9,14 +9,17 @@
 (function() {
   'use strict';
 
-  // ---- CSS ẩn Google Translate ----
+  // ---- CSS ẩn Google Translate (giữ lại .goog-te-combo để điều khiển) ----
   var style = document.createElement('style');
   style.textContent = 
     '.goog-te-banner-frame, .skiptranslate iframe, ' +
     '#goog-gt-tt, .goog-te-balloon-frame, ' +
     '.goog-te-gadget-simple, .goog-te-gadget-icon, ' +
-    '#google_translate_element { display: none !important; } ' +
-    'body { top: 0px !important; }';
+    '#google_translate_element, ' +
+    '.goog-te-gadget { display: none !important; } ' +
+    'body { top: 0px !important; } ' +
+    /* Đảm bảo combo select luôn hiện để JS điều khiển */
+    '.goog-te-combo { position: fixed; top: -9999px; left: -9999px; opacity: 0; pointer-events: none; }';
   document.head.appendChild(style);
 
   var savedLang = 'en';
