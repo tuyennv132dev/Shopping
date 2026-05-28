@@ -1,112 +1,75 @@
 /**
  * google-translate.js - Google Translate cho Huyen Tuyen Rice
- * Hỗ trợ: ENG (English) và VIE (Tiếng Việt)
  * 
- * - Chọn VIE: set cookie → Google Translate dịch toàn trang sang Tiếng Việt
- * - Chọn ENG: xóa cookie + clear Google Translate cache → trả về English gốc
- * - Ẩn hoàn toàn UI của Google Translate
+ * - VIE: set googtrans=/en/vi → Google dịch Anh→Việt
+ * - ENG: xóa googtrans → Google không dịch, English gốc
+ * - Ẩn hoàn toàn UI Google Translate
+ * 
+ * Nguyên tắc: CHỈ set cookie VIE. Với ENG thì xóa sạch.
  */
 
 (function() {
   'use strict';
 
-  // ---- 0. Đọc trạng thái ----
+  // ---- Trạng thái ----
   var savedLang = 'en';
-  try {
-    var s = localStorage.getItem('gt_lang');
-    if (s === 'vi') savedLang = 'vi';
-  } catch(e) {}
+  try { var s = localStorage.getItem('gt_lang'); if (s === 'vi') savedLang = 'vi'; } catch(e) {}
 
-  // Nếu là VIE, set cookie để Google Translate dịch
-  // Nếu là ENG (mặc định), KHÔNG set cookie gì
+  // Set cookie TRƯỚC khi Google Translate khởi tạo
+  // QUAN TRỌNG: chỉ set khi VIE. ENG thì không set gì
   if (savedLang === 'vi') {
-    document.cookie = 'googtrans=/en/vi; path=/;';
+    document.cookie = 'googtrans=/en/vi; path=/';
   }
 
-  // ---- CSS ẩn hoàn toàn Google Translate ----
-  var style = document.createElement('style');
-  style.textContent = 
-    '.goog-te-banner-frame, .skiptranslate, ' +
-    '#goog-gt-tt, .goog-te-balloon-frame, ' +
-    '.goog-te-gadget-simple, .goog-te-gadget-icon, ' +
-    '#google_translate_element, .goog-te-gadget, ' +
-    'iframe[src*="translate.googleapis.com"] { ' +
-      'display: none !important; ' +
-    '} ' +
-    'body { top: 0px !important; }';
-  document.head.appendChild(style);
+  // ---- CSS ẩn Google Translate ----
+  var s = document.createElement('style');
+  s.textContent = '.goog-te-banner-frame,.skiptranslate,#goog-gt-tt,.goog-te-balloon-frame,.goog-te-gadget-simple,.goog-te-gadget-icon,#google_translate_element,.goog-te-gadget,iframe[src*="translate.googleapis.com"]{display:none!important}body{top:0!important}';
+  document.head.appendChild(s);
 
-  // ---- 1. Khởi tạo Google Translate ----
+  // ---- Khởi tạo Google Translate ----
   function initGT() {
-    var div = document.createElement('div');
-    div.id = 'google_translate_element';
-    div.style.cssText = 'display:none;';
-    document.body.appendChild(div);
-
+    if (document.getElementById('google_translate_element')) return;
+    var d = document.createElement('div');
+    d.id = 'google_translate_element';
+    d.style.cssText = 'display:none;position:absolute;top:-9999px';
+    document.body.appendChild(d);
     window.googleTranslateElementInit = function() {
-      try {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'en,vi',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        }, 'google_translate_element');
-      } catch(e) {}
+      try { new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,vi',layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false}, 'google_translate_element'); } catch(e) {}
     };
-
-    var script = document.createElement('script');
-    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    document.body.appendChild(script);
+    var sc = document.createElement('script');
+    sc.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(sc);
   }
 
-  // ---- 2. Chuyển ngôn ngữ ----
+  // ---- Chuyển ngôn ngữ ----
   function switchLang(lang) {
     try { localStorage.setItem('gt_lang', lang); } catch(e) {}
 
     // Xóa cookie googtrans ở mọi path
-    ['/', '/Shopping', '/Shopping/'].forEach(function(p) {
-      document.cookie = 'googtrans=; path=' + p + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    });
+    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    document.cookie = 'googtrans=; path=/Shopping; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    document.cookie = 'googtrans=; path=/Shopping/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 
-    // Xóa tất cả cache Google Translate
-    try {
-      for (var i = localStorage.length - 1; i >= 0; i--) {
-        var key = localStorage.key(i);
-        if (key && (key.indexOf('_gt') === 0 || key.indexOf('google') === 0 || key === 'gt_lc')) {
-          localStorage.removeItem(key);
-        }
-      }
-    } catch(e) {}
-
+    // Nếu VIE, set cookie
     if (lang === 'vi') {
-      document.cookie = 'googtrans=/en/vi; path=/;';
+      document.cookie = 'googtrans=/en/vi; path=/';
     }
 
-    // Xóa tất cả iframe của Google Translate trước khi redirect
-    try {
-      document.querySelectorAll('iframe[src*="google"]').forEach(function(f) { f.remove(); });
-    } catch(e) {}
-
-    // Dùng location.replace (không tạo history entry) để Google load trang mới hoàn toàn
-    var url = window.location.protocol + '//' + window.location.host + window.location.pathname + '?v=' + Date.now();
-    location.assign(url);
+    // Redirect đến URL với timestamp để cache bust
+    var base = window.location.origin + window.location.pathname;
+    window.location.href = base + '?v=' + Date.now();
   }
 
-  // ---- 3. Dropdown ENG/VIE ----
+  // ---- Dropdown ----
   document.addEventListener('click', function(e) {
     var link = e.target.closest('.secondary-nav li a');
     if (!link) return;
-    var text = link.textContent.trim().toUpperCase();
-    if (text === 'ENG') {
-      e.preventDefault();
-      switchLang('en');
-    } else if (text === 'VIE') {
-      e.preventDefault();
-      switchLang('vi');
-    }
+    var txt = link.textContent.trim().toUpperCase();
+    if (txt === 'ENG') { e.preventDefault(); switchLang('en'); }
+    else if (txt === 'VIE') { e.preventDefault(); switchLang('vi'); }
   });
 
-  // ---- 4. Đánh dấu active ----
+  // ---- Active ----
   function markActive() {
     var links = document.querySelectorAll('.secondary-nav li a');
     for (var i = 0; i < links.length; i++) {
@@ -120,12 +83,6 @@
 
   // Boot
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      initGT();
-      markActive();
-    });
-  } else {
-    initGT();
-    markActive();
-  }
+    document.addEventListener('DOMContentLoaded', function() { initGT(); markActive(); });
+  } else { initGT(); markActive(); }
 })();
