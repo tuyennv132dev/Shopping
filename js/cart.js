@@ -90,6 +90,8 @@
     return value.toLocaleString('vi-VN') + ' VND';
   }
 
+  var VAT_RATE = 0.1;
+
   /**
    * Clean up any old/broken cart data
    */
@@ -175,6 +177,17 @@
       total += (typeof cart[i].price === 'number' ? cart[i].price : 0) * (typeof cart[i].quantity === 'number' ? cart[i].quantity : 0);
     }
     return total;
+  }
+
+  function getOrderTotals() {
+    var subtotal = getTotalPrice();
+    var vat = Math.round(subtotal * VAT_RATE);
+    return {
+      subtotal: subtotal,
+      vat: vat,
+      shipping: 0,
+      grandTotal: subtotal + vat
+    };
   }
 
   function getWishlistTotal() {
@@ -421,12 +434,10 @@
     if (billing) billing.style.display = '';
 
     var html = '';
-    var subtotalSum = 0;
 
     for (var i = 0; i < cart.length; i++) {
       var item = cart[i];
       var subtotal = (item.price || 0) * (item.quantity || 0);
-      subtotalSum += subtotal;
 
       html +=
         '<tr data-product-id="' + item.id + '">' +
@@ -464,13 +475,18 @@
 
     tbody.innerHTML = html;
 
+    var totals = getOrderTotals();
+
     // Update billing totals
     var calcTexts = document.querySelectorAll('.calc-text');
     if (calcTexts.length >= 1) {
-      calcTexts[0].textContent = formatCurrency(subtotalSum);
+      calcTexts[0].textContent = formatCurrency(totals.subtotal);
+    }
+    if (calcTexts.length >= 2) {
+      calcTexts[1].textContent = formatCurrency(totals.vat);
     }
     if (calcTexts.length >= 3) {
-      calcTexts[calcTexts.length - 1].textContent = formatCurrency(subtotalSum);
+      calcTexts[calcTexts.length - 1].textContent = formatCurrency(totals.grandTotal);
     }
 
     // Also update mini cart in header
@@ -525,12 +541,10 @@
     }
 
     var html = '';
-    var totalSum = 0;
 
     for (var i = 0; i < cart.length; i++) {
       var item = cart[i];
       var subtotal = (item.price || 0) * (item.quantity || 0);
-      totalSum += subtotal;
 
       // Use image if available, otherwise a placeholder
       var imgSrc = item.image || 'images/product/product@2x.jpg';
@@ -550,17 +564,27 @@
         '</tr>';
     }
 
+    var totals = getOrderTotals();
+
     html +=
+      '<tr>' +
+      '<td>Subtotal</td>' +
+      '<td>' + formatCurrency(totals.subtotal) + '</td>' +
+      '</tr>' +
+      '<tr>' +
+      '<td>VAT (10%)</td>' +
+      '<td>' + formatCurrency(totals.vat) + '</td>' +
+      '</tr>' +
       '<tr class="receipt-total-row">' +
       '<td><span class="total-label">TOTAL</span></td>' +
-      '<td><span class="total-amount">' + formatCurrency(totalSum) + '</span></td>' +
+      '<td><span class="total-amount">' + formatCurrency(totals.grandTotal) + '</span></td>' +
       '</tr>';
 
     tbody.innerHTML = html;
 
     // Update the QR modal total too
     var totalPriceEl = document.querySelector('.qr-order-info strong:last-child');
-    if (totalPriceEl) totalPriceEl.textContent = formatCurrency(totalSum);
+    if (totalPriceEl) totalPriceEl.textContent = formatCurrency(totals.grandTotal);
   }
 
   function pad2(value) {
@@ -612,7 +636,7 @@
       }
 
       // Get cart total for the QR modal
-      var totalPrice = getTotalPrice();
+      var totalPrice = getOrderTotals().grandTotal;
       var cart = getCart();
       if (cart.length === 0) {
         alert('Your cart is empty. Please add products before placing an order.');

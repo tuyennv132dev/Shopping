@@ -181,8 +181,7 @@
       '<li><a href="rice-market-news.html"><i class="ion ion-md-trending-up"></i>Rice Market News</a></li>' +
       '<li><a href="shop-baby-kids-food.html"><i class="ion ion-ios-nutrition"></i>Baby & Kids Food</a></li>' +
       '<li><a href="shop-healthy-food-products.html"><i class="ion ion-md-heart"></i>Healthy Food Products</a></li>' +
-      '<li><a href="blog.html"><i class="ion ion-ios-list-box"></i>Rice Classification Guide</a></li>' +
-      '<li><a class="v-more"><i class="ion ion-md-add"></i><span>View More</span></a></li>';
+      '<li><a href="blog.html"><i class="ion ion-ios-list-box"></i>Rice Classification Guide</a></li>';
   }
 
   function init() {
