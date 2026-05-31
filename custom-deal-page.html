@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/utility.css">
     <!-- Main -->
     <link rel="stylesheet" href="css/bundle.css"><link rel="stylesheet" href="css/brand-polish.css">
+    <link rel="stylesheet" href="css/custom-modals.css">
 </head>
 
 <body>
@@ -343,7 +344,7 @@
 	                                                                </li>
 	                                                            </ul>
 	                                                        </div>
-	
+
 	                                                        <!-- Seeds & Powders -->
 	                                                        <div class="col-lg-4">
 	                                                            <ul class="v-level-2">
@@ -355,7 +356,7 @@
 	                                                                </li>
 	                                                            </ul>
 	                                                        </div>
-	
+
 	                                                        <!-- Explore -->
 	                                                        <div class="col-lg-4">
 	                                                            <ul class="v-level-2">
@@ -399,7 +400,7 @@
 	                                                                </li>
 	                                                            </ul>
 	                                                        </div>
-	
+
 	                                                        <!-- Breakfast Cereals -->
 	                                                        <div class="col-lg-4">
 	                                                            <ul class="v-level-2">
@@ -413,7 +414,7 @@
 	                                                                </li>
 	                                                            </ul>
 	                                                        </div>
-	
+
 	                                                        <!-- Mixes & Powders -->
 	                                                        <div class="col-lg-4">
 	                                                            <ul class="v-level-2">
@@ -428,7 +429,7 @@
 	                                                            </ul>
 	                                                        </div>
 	                                                    </div>
-	
+
 	                                                    <div class="row">
 	                                                        <!-- Combos -->
 	                                                        <div class="col-lg-4">
@@ -442,7 +443,7 @@
 	                                                                </li>
 	                                                            </ul>
 	                                                        </div>
-	
+
 	                                                        <!-- Explore -->
 	                                                        <div class="col-lg-4">
 	                                                            <ul class="v-level-2">
@@ -465,21 +466,21 @@
 	                                                    Rice & Grain Recipes
 	                                                </a>
 	                                            </li>
-	
+
 	                                            <li>
 	                                                <a href="rice-market-news.html">
 	                                                    <i class="ion ion-md-trending-up"></i>
 	                                                    Rice Market News
 	                                                </a>
 	                                            </li>
-	
+
 	                                            <li>
 	                                                <a href="shop-baby-kids-food.html">
 	                                                    <i class="ion ion-ios-nutrition"></i>
 	                                                    Baby & Kids Food
 	                                                </a>
 	                                            </li>
-	
+
 	                                            <li>
 	                                                <a href="shop-healthy-food-products.html">
 	                                                    <i class="ion ion-md-heart"></i>
@@ -685,13 +686,17 @@
                 <div class="slider-fouc">
                     <div class="products-slider owl-carousel" data-item="4">
                         <!-- ST25 Rice Deal -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-st25-rice"
+                            data-product-name="ST25 Rice"
+                            data-product-price="45000"
+                            data-product-image="images/product/rice-selection-st25-rice.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-st25-rice.html">
-                                    <img class="img-fluid" src="images/product/gao-ST25.jpg" alt="ST25 Rice">
+                                    <img class="img-fluid" src="images/product/rice-selection-st25-rice.png" alt="ST25 Rice">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-st25">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -716,13 +721,17 @@
                             <div class="tag hot"><span>-10%</span></div>
                         </div>
                         <!-- Bac Huong Rice Deal -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-bac-huong-rice"
+                            data-product-name="Bac Huong Rice"
+                            data-product-price="32000"
+                            data-product-image="images/product/rice-selection-bac-huong-rice.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-bac-huong-rice.html">
-                                    <img class="img-fluid" src="images/product/gao-bac-huong.jpg" alt="Bac Huong Rice">
+                                    <img class="img-fluid" src="images/product/rice-selection-bac-huong-rice.png" alt="Bac Huong Rice">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-bac-huong">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -747,13 +756,17 @@
                             <div class="tag sale"><span>SALE</span></div>
                         </div>
                         <!-- Sticky Rice -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-sticky-rice"
+                            data-product-name="Sticky Rice"
+                            data-product-price="24000"
+                            data-product-image="images/product/rice-selection-sticky-rice.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-sticky-rice.html">
-                                    <img class="img-fluid" src="images/product/Gao_nep.jpg" alt="Sticky Rice">
+                                    <img class="img-fluid" src="images/product/rice-selection-sticky-rice.png" alt="Sticky Rice">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-sticky-rice">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -777,13 +790,17 @@
                             </div>
                         </div>
                         <!-- Brown Rice -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-brown-rice"
+                            data-product-name="Brown Rice"
+                            data-product-price="35000"
+                            data-product-image="images/product/rice-selection-brown-rice.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-brown-rice.html">
-                                    <img class="img-fluid" src="images/product/Gao_lut.jpg" alt="Brown Rice">
+                                    <img class="img-fluid" src="images/product/rice-selection-brown-rice.png" alt="Brown Rice">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-brown-rice">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -823,13 +840,17 @@
                 <div class="slider-fouc">
                     <div class="products-slider owl-carousel" data-item="4">
                         <!-- Rolled Oats -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-rolled-oats"
+                            data-product-name="Rolled Oats"
+                            data-product-price="78000"
+                            data-product-image="images/product/whole-grains-rolled-oats.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-rolled-oats.html">
-                                    <img class="img-fluid" src="images/product/oats.jpg" alt="Rolled Oats">
+                                    <img class="img-fluid" src="images/product/whole-grains-rolled-oats.png" alt="Rolled Oats">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-rolled-oats">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -854,13 +875,17 @@
                             <div class="tag new"><span>NEW</span></div>
                         </div>
                         <!-- Fruit Granola -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-fruit-granola"
+                            data-product-name="Fruit Granola"
+                            data-product-price="115000"
+                            data-product-image="images/product/whole-grains-fruit-granola.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-fruit-granola.html">
-                                    <img class="img-fluid" src="images/product/granola.jpg" alt="Fruit Granola">
+                                    <img class="img-fluid" src="images/product/whole-grains-fruit-granola.png" alt="Fruit Granola">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-fruit-granola">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -885,13 +910,17 @@
                             <div class="tag sale"><span>SALE</span></div>
                         </div>
                         <!-- Almonds -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-almonds"
+                            data-product-name="Almonds"
+                            data-product-price="95000"
+                            data-product-image="images/product/nuts-seeds-almonds.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-almonds.html">
                                     <img class="img-fluid" src="images/product/nuts-seeds-almonds.png" alt="Almonds">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-almonds">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -916,13 +945,17 @@
                             <div class="tag hot"><span>HOT</span></div>
                         </div>
                         <!-- Cashews -->
-                        <div class="item">
+                        <div class="item"
+                            data-product-id="product-cashews"
+                            data-product-name="Cashew Nuts"
+                            data-product-price="125000"
+                            data-product-image="images/product/nuts-seeds-cashews.png">
                             <div class="image-container">
                                 <a class="item-img-wrapper-link" href="product-cashews.html">
                                     <img class="img-fluid" src="images/product/nuts-seeds-cashews.png" alt="Cashew Nuts">
                                 </a>
                                 <div class="item-action-behaviors">
-                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                    <a class="item-quick-look" data-toggle="modal" href="#quick-view-cashews">Quick Look</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                     <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                 </div>
@@ -951,6 +984,573 @@
             </div>
         </section>
         <!-- Healthy Breakfast Deals Section /- -->
+
+        <!-- ST25 Rice Quick-view-Modal -->
+        <div id="quick-view-st25" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-st25" class="img-fluid" src="images/product/rice-selection-st25-rice.png"
+                                        data-zoom-image="images/product/rice-selection-st25-rice.png" alt="ST25 Rice Zoom Image">
+                                    <div id="gallery-quick-view-st25" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/rice-selection-st25-rice.png"
+                                            data-zoom-image="images/product/rice-selection-st25-rice.png">
+                                            <img src="images/product/rice-selection-st25-rice.png" alt="ST25 Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-st25-rice"
+                                     data-product-name="Premium ST25 Rice"
+                                     data-product-price="45000"
+                                     data-product-image="images/product/rice-selection-st25-rice.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-st25-rice.html">Huyen Tuyen Premium ST25 Rice - World's Best</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.9 out of 5"><span style='width:74px'></span></div>
+                                            <span>(35 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>ST25 rice is officially recognized as one of the best rice varieties in the world. Known for its extra-long, slender grains, it offers an incredible pineapple-like aroma and a soft, chewy, and sweet texture.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Award-winning "World's Best Rice"</li>
+                                            <li><i class="fas fa-check-circle"></i> Low glycemic index, suitable for health-conscious diets</li>
+                                            <li><i class="fas fa-check-circle"></i> Pesticide-free and organic farming standards</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>45,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>50,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ST25 Rice Quick-view-Modal /- -->
+
+        <!-- Bac Huong Rice Quick-view-Modal -->
+        <div id="quick-view-bac-huong" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-bac-huong" class="img-fluid" src="images/product/rice-selection-bac-huong-rice.png"
+                                        data-zoom-image="images/product/rice-selection-bac-huong-rice.png" alt="Bac Huong Rice Zoom Image">
+                                    <div id="gallery-quick-view-bac-huong" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/rice-selection-bac-huong-rice.png"
+                                            data-zoom-image="images/product/rice-selection-bac-huong-rice.png">
+                                            <img src="images/product/rice-selection-bac-huong-rice.png" alt="Bac Huong Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-bac-huong-rice"
+                                     data-product-name="Bac Huong Rice"
+                                     data-product-price="32000"
+                                     data-product-image="images/product/rice-selection-bac-huong-rice.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-bac-huong-rice.html">Bac Huong Rice - Northern Specialty</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(23 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Bac Huong rice is a famous specialty from the Northern delta. The grains are small, white, and have a rich, sweet taste. It stays soft and fragrant even when cold.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Traditional Northern variety</li>
+                                            <li><i class="fas fa-check-circle"></i> Rich in nutrients, soft texture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>32,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>38,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bac Huong Rice Quick-view-Modal /- -->
+
+        <!-- Sticky Rice Quick-view-Modal -->
+        <div id="quick-view-sticky-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-sticky-rice" class="img-fluid" src="images/product/rice-selection-sticky-rice.png"
+                                        data-zoom-image="images/product/rice-selection-sticky-rice.png" alt="Sticky Rice Zoom Image">
+                                    <div id="gallery-quick-view-sticky-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/rice-selection-sticky-rice.png"
+                                            data-zoom-image="images/product/rice-selection-sticky-rice.png">
+                                            <img src="images/product/rice-selection-sticky-rice.png" alt="Sticky Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-sticky-rice"
+                                     data-product-name="Premium Sticky Rice"
+                                     data-product-price="24000"
+                                     data-product-image="images/product/rice-selection-sticky-rice.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-sticky-rice.html">Premium Sticky Rice - Super Soft</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(25 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>High-quality sticky rice with large, white, and even grains. When cooked, it becomes very soft, sticky, and has a natural fragrance. Ideal for making traditional cakes and sticky rice dishes.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Pure variety, no mixing</li>
+                                            <li><i class="fas fa-check-circle"></i> High stickiness, stays soft long</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>24,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>25,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Rice Quick-view-Modal /- -->
+
+        <!-- Brown Rice Quick-view-Modal -->
+        <div id="quick-view-brown-rice" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-brown-rice" class="img-fluid" src="images/product/rice-selection-brown-rice.png"
+                                        data-zoom-image="images/product/rice-selection-brown-rice.png" alt="Brown Rice Zoom Image">
+                                    <div id="gallery-quick-view-brown-rice" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/rice-selection-brown-rice.png"
+                                            data-zoom-image="images/product/rice-selection-brown-rice.png">
+                                            <img src="images/product/rice-selection-brown-rice.png" alt="Brown Rice" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-brown-rice"
+                                     data-product-name="Premium Brown Rice"
+                                     data-product-price="35000"
+                                     data-product-image="images/product/rice-selection-brown-rice.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-brown-rice.html">Huyen Tuyen Premium Brown Rice</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(16 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Brown rice is a whole grain rice variety that retains its nutritious bran layer and germ. Rich in fiber, vitamins, and minerals, it is a healthy choice for daily meals. Its nutty flavor and chewy texture make it a favorite among health-conscious families.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> Rich in fiber and nutrients</li>
+                                            <li><i class="fas fa-check-circle"></i> Whole grain, naturally healthy</li>
+                                            <li><i class="fas fa-check-circle"></i> Nutty flavor, chewy texture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>35,000 VND / kg</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>39,000 VND/kg</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brown Rice Quick-view-Modal /- -->
+
+        <!-- Rolled Oats Quick-view-Modal -->
+        <div id="quick-view-rolled-oats" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-rolled-oats" class="img-fluid" src="images/product/whole-grains-rolled-oats.png"
+                                        data-zoom-image="images/product/whole-grains-rolled-oats.png" alt="Rolled Oats Zoom Image">
+                                    <div id="gallery-quick-view-rolled-oats" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/whole-grains-rolled-oats.png"
+                                            data-zoom-image="images/product/whole-grains-rolled-oats.png">
+                                            <img src="images/product/whole-grains-rolled-oats.png" alt="Rolled Oats" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-rolled-oats"
+                                     data-product-name="Nutritious Rolled Oats"
+                                     data-product-price="78000"
+                                     data-product-image="images/product/whole-grains-rolled-oats.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-rolled-oats.html">Huyen Tuyen Nutritious Rolled Oats</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(22 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Rolled oats are a breakfast staple known for their versatility and health benefits. They are a great source of complex carbohydrates and soluble fiber, helping you stay full and energized throughout the morning.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High in heart-healthy Beta-Glucan</li>
+                                            <li><i class="fas fa-check-circle"></i> Perfect for oatmeal, granola, or baking</li>
+                                            <li><i class="fas fa-check-circle"></i> 100% whole grain and natural</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>78,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>90,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Rolled Oats Quick-view-Modal /- -->
+
+        <!-- Fruit Granola Quick-view-Modal -->
+        <div id="quick-view-fruit-granola" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-fruit-granola" class="img-fluid" src="images/product/whole-grains-fruit-granola.png"
+                                        data-zoom-image="images/product/whole-grains-fruit-granola.png" alt="Fruit Granola Zoom Image">
+                                    <div id="gallery-quick-view-fruit-granola" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/whole-grains-fruit-granola.png"
+                                            data-zoom-image="images/product/whole-grains-fruit-granola.png">
+                                            <img src="images/product/whole-grains-fruit-granola.png" alt="Fruit Granola" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/whole-grains-rolled-oats.png"
+                                            data-zoom-image="images/product/whole-grains-rolled-oats.png">
+                                            <img src="images/product/whole-grains-rolled-oats.png" alt="Oats" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                        <a data-image="images/product/whole-grains-white-quinoa.png"
+                                            data-zoom-image="images/product/whole-grains-white-quinoa.png">
+                                            <img src="images/product/whole-grains-white-quinoa.png" alt="Quinoa" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-fruit-granola"
+                                     data-product-name="Fruit Granola"
+                                     data-product-price="115000"
+                                     data-product-image="images/product/whole-grains-fruit-granola.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-fruit-granola.html">Huyen Tuyen Premium Fruit Granola</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.6 out of 5"><span style='width:69px'></span></div>
+                                            <span>(18 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Crunchy granola baked with honey, mixed with delicious dried fruits, nutritious seeds, and grains. Perfect breakfast option with milk or yogurt.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High in natural fibers and healthy energy</li>
+                                            <li><i class="fas fa-check-circle"></i> Rich in almonds, pumpkin seeds, and raisins</li>
+                                            <li><i class="fas fa-check-circle"></i> Low calorie, ideal for weight control diets</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>115,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>130,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fruit Granola Quick-view-Modal /- -->
+
+        <!-- Almonds Quick-view-Modal -->
+        <div id="quick-view-almonds" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-almonds" class="img-fluid" src="images/product/nuts-seeds-almonds.png"
+                                        data-zoom-image="images/product/nuts-seeds-almonds.png" alt="Almonds Zoom Image">
+                                    <div id="gallery-quick-view-almonds" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/nuts-seeds-almonds.png"
+                                            data-zoom-image="images/product/nuts-seeds-almonds.png">
+                                            <img src="images/product/nuts-seeds-almonds.png" alt="Almonds" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-almonds"
+                                     data-product-name="Premium Almonds"
+                                     data-product-price="95000"
+                                     data-product-image="images/product/nuts-seeds-almonds.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-almonds.html">Huyen Tuyen Premium Almonds</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(18 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Our premium almonds are carefully selected for their size and crunch. They are a powerhouse of nutrients, providing healthy fats, protein, and essential vitamins. Perfect for snacking, baking, or topping your morning oatmeal.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High in Vitamin E and antioxidants</li>
+                                            <li><i class="fas fa-check-circle"></i> Supports heart health and brain function</li>
+                                            <li><i class="fas fa-check-circle"></i> Non-GMO and naturally gluten-free</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>95,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>110,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Almonds Quick-view-Modal /- -->
+
+        <!-- Cashew Nuts Quick-view-Modal -->
+        <div id="quick-view-cashews" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-cashews" class="img-fluid" src="images/product/nuts-seeds-cashews.png"
+                                        data-zoom-image="images/product/nuts-seeds-cashews.png" alt="Cashew Nuts Zoom Image">
+                                    <div id="gallery-quick-view-cashews" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/nuts-seeds-cashews.png"
+                                            data-zoom-image="images/product/nuts-seeds-cashews.png">
+                                            <img src="images/product/nuts-seeds-cashews.png" alt="Cashew Nuts" style="width:70px;height:70px;object-fit:cover;border:1px solid #eee;border-radius:5px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item"
+                                     data-product-id="product-cashews"
+                                     data-product-name="Premium Cashews"
+                                     data-product-price="125000"
+                                     data-product-image="images/product/nuts-seeds-cashews.png">
+                                    <div class="section-1-title-breadcrumb-rating">
+                                        <div class="product-title">
+                                            <h1><a href="product-cashews.html">Huyen Tuyen Premium Cashews</a></h1>
+                                        </div>
+                                        <div class="product-rating">
+                                            <div class='star' title="4.5 out of 5"><span style='width:67px'></span></div>
+                                            <span>(19 Reviews)</span>
+                                        </div>
+                                    </div>
+                                    <div class="section-2-short-description u-s-p-y-14">
+                                        <h6 class="information-heading u-s-m-b-8">Description:</h6>
+                                        <p>Cashew nuts are creamy, naturally sweet, and rich in plant protein and minerals. They are ideal for healthy snacking, baking, salads, stir-fries, or adding a buttery crunch to daily meals.</p>
+                                        <ul class="product-benefit-list">
+                                            <li><i class="fas fa-check-circle"></i> High in protein and fiber</li>
+                                            <li><i class="fas fa-check-circle"></i> Rich in magnesium, copper, and zinc</li>
+                                            <li><i class="fas fa-check-circle"></i> Heart-healthy and low-calorie snack</li>
+                                        </ul>
+                                    </div>
+                                    <div class="section-3-price-original-discount u-s-p-y-14">
+                                        <div class="price" style="color: #28a745;"><h4>125,000 VND / 500g</h4></div>
+                                        <div class="original-price" style="text-decoration: line-through; color: #999;"><span>145,000 VND/500g</span></div>
+                                    </div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity-wrapper">
+                                            <span class="quantity-label">Quantity:</span>
+                                            <div class="quantity">
+                                                <a class="minus-a" data-min="1">&#45;</a>
+                                                <input type="text" class="quantity-text-field" value="1" readonly>
+                                                <a class="plus-a" data-max="1000">&#43;</a>
+                                            </div>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cashew Nuts Quick-view-Modal /- -->
+
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -1013,7 +1613,7 @@
                 </div>
 
                 <div class="footer-bottom text-center">
-                    <p>Â© 2026 Huyen Tuyen Rice. All Rights Reserved.</p>
+                    <p>Ã‚Â© 2026 Huyen Tuyen Rice. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
@@ -1057,8 +1657,33 @@
     <script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
     <script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
     <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/vmenu-sync.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/google-translate.js"></script></body>
-</html>
+    <script type="text/javascript" src="js/vmenu-sync.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/cart.js" defer></script>
+    <script>
+        $(function () {
+            var quickViewZooms = [
+                ['#zoom-pro-quick-view-st25', 'gallery-quick-view-st25'],
+                ['#zoom-pro-quick-view-bac-huong', 'gallery-quick-view-bac-huong'],
+                ['#zoom-pro-quick-view-sticky-rice', 'gallery-quick-view-sticky-rice'],
+                ['#zoom-pro-quick-view-brown-rice', 'gallery-quick-view-brown-rice'],
+                ['#zoom-pro-quick-view-rolled-oats', 'gallery-quick-view-rolled-oats'],
+                ['#zoom-pro-quick-view-fruit-granola', 'gallery-quick-view-fruit-granola'],
+                ['#zoom-pro-quick-view-almonds', 'gallery-quick-view-almonds'],
+                ['#zoom-pro-quick-view-cashews', 'gallery-quick-view-cashews']
+            ];
 
+            quickViewZooms.forEach(function (config) {
+                var $image = $(config[0]);
+                if (!$image.length || typeof $image.elevateZoom !== 'function') return;
+                $image.elevateZoom({
+                    gallery: config[1],
+                    galleryActiveClass: 'active',
+                    zoomEnabled: false,
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript" src="js/google-translate.js"></script>
+</body>
+</html>
