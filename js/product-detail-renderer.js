@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Shared renderer for newly added product detail pages.
  * Each page is a real URL; content is selected from the current filename.
  */
@@ -301,7 +301,7 @@
       category: 'Healthy Nuts & Seeds',
       categoryUrl: 'Healthy-Nuts-Seeds.html',
       subcategory: 'Super Seeds',
-      image: 'images/product/black-sesame.jpg',
+      image: 'images/product/nuts-seeds-chia-seeds.png',
       price: '88,000 VND/500g',
       oldPrice: '100,000 VND/500g',
       numericPrice: 88000,
@@ -319,7 +319,7 @@
       category: 'Healthy Nuts & Seeds',
       categoryUrl: 'Healthy-Nuts-Seeds.html',
       subcategory: 'Super Seeds',
-      image: 'images/product/pistachios.jpg',
+      image: 'images/product/nuts-seeds-pumpkin-seeds.png',
       price: '82,000 VND/500g',
       oldPrice: '95,000 VND/500g',
       numericPrice: 82000,
@@ -337,7 +337,7 @@
       category: 'Healthy Nuts & Seeds',
       categoryUrl: 'Healthy-Nuts-Seeds.html',
       subcategory: 'Mixed Snacks',
-      image: 'images/product/mixed-grains.jpg',
+      image: 'images/product/nuts-seeds-trail-mix.png',
       price: '115,000 VND/500g',
       oldPrice: '130,000 VND/500g',
       numericPrice: 115000,
