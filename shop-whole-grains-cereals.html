@@ -692,14 +692,47 @@
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="fetch-categories">
                             <h3 class="title-name">Browse Categories</h3>
-                            <h3 class="fetch-mark-category">
-                                <a href="shop-whole-grains-cereals.html">Whole Grains & Cereals <span class="total-fetch-items">(10)</span></a>
-                            </h3>
                             <ul>
-                                <li><a href="shop-whole-grains-cereals.html">Whole Grains <span class="total-fetch-items">(3)</span></a></li>
-                                <li><a href="shop-whole-grains-cereals.html">Breakfast Cereals <span class="total-fetch-items">(4)</span></a></li>
-                                <li><a href="shop-whole-grains-cereals.html">Mixed Grains <span class="total-fetch-items">(2)</span></a></li>
-                                <li><a href="shop-whole-grains-cereals.html">Grain Powder <span class="total-fetch-items">(1)</span></a></li>
+                                <li>
+                                    <a href="shop-v1-root-category.html">Types of Rice</a>
+                                    <button class="button-icon ion ion-md-add"></button>
+                                    <ul>
+                                        <li><a href="product-white-rice.html">White Rice</a></li>
+                                        <li><a href="product-fragrant-rice.html">Fragrant Rice</a></li>
+                                        <li><a href="product-sticky-rice.html">Sticky Rice</a></li>
+                                        <li><a href="product-brown-rice.html">Brown Rice</a></li>
+                                        <li><a href="product-st25-rice.html">ST25 Rice</a></li>
+                                        <li><a href="product-st24-rice.html">ST24 Rice</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a>
+                                    <button class="button-icon ion ion-md-add"></button>
+                                    <ul>
+                                        <li><a href="product-cashews.html">Cashew Nuts</a></li>
+                                        <li><a href="product-almonds.html">Almonds</a></li>
+                                        <li><a href="product-walnuts.html">Walnuts</a></li>
+                                        <li><a href="product-macadamia.html">Macadamia Nuts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a>
+                                    <button class="button-icon ion ion-md-add js-open"></button>
+                                    <ul style="display: block">
+                                        <li><a href="product-rolled-oats.html">Rolled Oats</a></li>
+                                        <li><a href="product-quinoa.html">Quinoa</a></li>
+                                        <li><a href="product-barley.html">Barley</a></li>
+                                        <li><a href="product-Mixed-grains.html">Mixed Grains</a></li>
+                                        <li><a href="product-brown-rice-mix.html">Brown Rice Mix</a></li>
+                                        <li><a href="product-multi-grain-powder.html">Multi-Grain Powder</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
+                                <li><a href="family-combo-page.html">Family Combo Packs</a></li>
+                                <li><a href="custom-deal-page.html">Deals & Offers</a></li>
+                                <li><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li>
+                                <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                <li><a href="blog.html">Recipes & Rice Tips</a></li>
                             </ul>
                         </div>
 
@@ -761,11 +794,12 @@
                                 <div class="select-box-wrapper">
                                     <label class="sr-only" for="sort-by">Sort By</label>
                                     <select class="select-box" id="sort-by">
-                                        <option selected="selected" value="">Sort By: Best Selling</option>
-                                        <option value="">Sort By: Latest</option>
-                                        <option value="">Sort By: Lowest Price</option>
-                                        <option value="">Sort By: Highest Price</option>
-                                        <option value="">Sort By: Best Rating</option>
+                                        <option selected="selected" value="">Sort By: All Products</option>
+                                        <option value="hot">Hot Products</option>
+                                        <option value="sale">Sale Products</option>
+                                        <option value="new">New Products</option>
+                                        <option value="price-asc">Price: Low to High</option>
+                                        <option value="price-desc">Price: High to Low</option>
                                     </select>
                                 </div>
                             </div>
@@ -773,9 +807,10 @@
                                 <div class="select-box-wrapper">
                                     <label class="sr-only" for="show-records">Show Records Per Page</label>
                                     <select class="select-box" id="show-records">
-                                        <option selected="selected" value="">Show: 10</option>
-                                        <option value="">Show: 16</option>
-                                        <option value="">Show: 28</option>
+                                        <option selected="selected" value="5">Show: 5</option>
+                                        <option value="10">Show: 10</option>
+                                        <option value="15">Show: 15</option>
+                                        <option value="all">Show: ALL</option>
                                     </select>
                                 </div>
                             </div>
