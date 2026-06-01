@@ -162,6 +162,7 @@
   function getPageSize() {
     var sel = document.getElementById('show-records');
     if (!sel) return 8;
+    if (String(sel.value).toLowerCase() === 'all') return Number.MAX_SAFE_INTEGER;
     var val = parseInt(sel.value, 10);
     if (!isNaN(val) && val > 0) return val;
     // Fallback: parse label like "Show: 8"
@@ -171,6 +172,15 @@
       if (m) return parseInt(m[1], 10) || 8;
     }
     return 8;
+  }
+
+  function getSortMode() {
+    var sel = document.getElementById('sort-by');
+    return sel ? String(sel.value || '') : '';
+  }
+
+  function productHasTag(productItemEl, tagName) {
+    return !!productItemEl.querySelector('.item .tag.' + tagName);
   }
 
   function renderPagination(containerEl, page, totalPages, onPageChange) {
@@ -236,7 +246,29 @@
         okUse = cardUse.some(function (t) { return useCases.indexOf(t) !== -1; });
       }
 
-      if (okMin && okMax && okRice && okUse) filtered.push(products[i]);
+    if (okMin && okMax && okRice && okUse) filtered.push(products[i]);
+    }
+
+    var sortMode = getSortMode();
+    if (sortMode === 'hot' || sortMode === 'sale' || sortMode === 'new') {
+      filtered = filtered.filter(function (product) {
+        return productHasTag(product, sortMode);
+      });
+    } else if (sortMode === 'price-asc') {
+      filtered.sort(function (a, b) {
+        return getProductPrice(a) - getProductPrice(b);
+      });
+    } else if (sortMode === 'price-desc') {
+      filtered.sort(function (a, b) {
+        return getProductPrice(b) - getProductPrice(a);
+      });
+    }
+
+    var container = document.querySelector('.product-container');
+    if (container) {
+      for (var s = 0; s < filtered.length; s++) {
+        container.appendChild(filtered[s]);
+      }
     }
 
     var totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
@@ -287,6 +319,13 @@
     var showSel = document.getElementById('show-records');
     if (showSel) {
       showSel.addEventListener('change', function () {
+        apply(products, 1);
+      });
+    }
+
+    var sortSel = document.getElementById('sort-by');
+    if (sortSel) {
+      sortSel.addEventListener('change', function () {
         apply(products, 1);
       });
     }
