@@ -246,7 +246,7 @@
         '<tr data-product-id="' + item.id + '">' +
         '<td>' +
         '<div class="cart-anchor-image">' +
-        '<a href="' + item.id + '">' +
+        '<a href="' + (item.url || item.id) + '">' +
         '<img src="' + item.image + '" alt="' + item.name + '" style="width:80px;height:80px;object-fit:cover;">' +
         '<h6>' + item.name + '</h6>' +
         '</a>' +
@@ -676,11 +676,16 @@
     var name = card.getAttribute('data-product-name');
     var priceAttr = card.getAttribute('data-product-price');
     var image = card.getAttribute('data-product-image');
+    var url = card.getAttribute('data-product-url');
 
     // Fallback to DOM parsing
     if (!id) {
       var link = card.querySelector('.item-img-wrapper-link');
       id = link ? link.getAttribute('href') : 'product-' + Date.now();
+    }
+    if (!url) {
+      var productLink = card.querySelector('.item-img-wrapper-link') || card.querySelector('.item-title a');
+      url = productLink ? productLink.getAttribute('href') : id;
     }
     if (!name) {
       var nameEl = card.querySelector('.item-title a');
@@ -704,7 +709,8 @@
       id: id,
       name: name,
       price: price,
-      image: image
+      image: image,
+      url: url
     };
   }
 

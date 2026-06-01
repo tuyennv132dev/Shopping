@@ -31,7 +31,7 @@
     <!-- Utility -->
     <link rel="stylesheet" href="css/utility.css">
     <!-- Main -->
-    <link rel="stylesheet" href="css/bundle.css"><link rel="stylesheet" href="css/brand-polish.css">
+    <link rel="stylesheet" href="css/bundle.css"><link rel="stylesheet" href="css/custom-modals.css"><link rel="stylesheet" href="css/brand-polish.css">
 </head>
 
 <body>
@@ -683,46 +683,65 @@
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="fetch-categories">
                             <h3 class="title-name">Browse Categories</h3>
-                            <h3 class="fetch-mark-category"><a href="shop-beans-legumes.html">Beans & Legumes <span class="total-fetch-items">(8)</span></a></h3>
                             <ul>
-                                <li><a href="shop-beans-legumes.html">Beans <span class="total-fetch-items">(4)</span></a></li>
-                                <li><a href="shop-beans-legumes.html">Legumes <span class="total-fetch-items">(2)</span></a></li>
-                                <li><a href="shop-beans-legumes.html">Cooking Beans <span class="total-fetch-items">(1)</span></a></li>
-                                <li><a href="shop-beans-legumes.html">Healthy Bean Mixes <span class="total-fetch-items">(1)</span></a></li>
+                                <li>
+                                    <a href="shop-v1-root-category.html">Types of Rice</a>
+                                    <button class="button-icon ion ion-md-add"></button>
+                                    <ul>
+                                        <li><a href="product-white-rice.html">White Rice</a></li>
+                                        <li><a href="product-fragrant-rice.html">Fragrant Rice</a></li>
+                                        <li><a href="product-sticky-rice.html">Sticky Rice</a></li>
+                                        <li><a href="product-brown-rice.html">Brown Rice</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a></li>
+                                <li><a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a></li>
+                                <li>
+                                    <a href="shop-beans-legumes.html">Beans & Legumes</a>
+                                    <button class="button-icon ion ion-md-add js-open"></button>
+                                    <ul style="display: block">
+                                        <li><a href="product-black-beans.html">Black Beans</a></li>
+                                        <li><a href="product-green-beans.html">Green Beans</a></li>
+                                        <li><a href="product-red-beans.html">Red Beans</a></li>
+                                        <li><a href="product-soybeans.html">Soybeans</a></li>
+                                        <li><a href="product-chickpeas.html">Chickpeas</a></li>
+                                        <li><a href="product-lentils.html">Lentils</a></li>
+                                        <li><a href="product-mixed-beans-pack.html">Mixed Beans Pack</a></li>
+                                        <li><a href="product-five-color-bean-mix.html">Five-Color Bean Mix</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="shop-baby-kids-food.html">Baby & Kids Food</a></li>
+                                <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                <li><a href="family-combo-page.html">Family Combo Packs</a></li>
                             </ul>
                         </div>
-
                         <div class="facet-filter-associates">
-                            <h3 class="title-name">Product Type</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                    <input type="checkbox" class="check-box" id="type-1"><label class="label-text" for="type-1">Black Beans <span class="total-fetch-items">(1)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-2"><label class="label-text" for="type-2">Green Beans <span class="total-fetch-items">(1)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-3"><label class="label-text" for="type-3">Red Beans <span class="total-fetch-items">(1)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-4"><label class="label-text" for="type-4">Soybeans <span class="total-fetch-items">(1)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-5"><label class="label-text" for="type-5">Chickpeas <span class="total-fetch-items">(1)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-6"><label class="label-text" for="type-6">Lentils <span class="total-fetch-items">(1)</span></label>
-                                    <input type="checkbox" class="check-box" id="type-7"><label class="label-text" for="type-7">Bean Mixes <span class="total-fetch-items">(2)</span></label>
-                            </div></form>
+                                                        <h3 class="title-name">Product Type</h3>
+                            <form class="facet-form" action="#" method="post">
+                                <div class="associate-wrapper">
+                                    <input type="checkbox" class="check-box" id="rice-black"><label class="label-text" for="rice-black">Black Beans <span class="total-fetch-items">(1)</span></label>
+                                    <input type="checkbox" class="check-box" id="rice-green"><label class="label-text" for="rice-green">Green Beans <span class="total-fetch-items">(1)</span></label>
+                                    <input type="checkbox" class="check-box" id="rice-red"><label class="label-text" for="rice-red">Red Beans <span class="total-fetch-items">(1)</span></label>
+                                    <input type="checkbox" class="check-box" id="rice-soybean"><label class="label-text" for="rice-soybean">Soybeans <span class="total-fetch-items">(1)</span></label>
+                                    <input type="checkbox" class="check-box" id="rice-chickpea"><label class="label-text" for="rice-chickpea">Chickpeas <span class="total-fetch-items">(1)</span></label>
+                                    <input type="checkbox" class="check-box" id="rice-lentil"><label class="label-text" for="rice-lentil">Lentils <span class="total-fetch-items">(1)</span></label>
+                                    <input type="checkbox" class="check-box" id="rice-mixed"><label class="label-text" for="rice-mixed">Bean Mixes <span class="total-fetch-items">(2)</span></label>
+                                </div>
+                            </form>
                         </div>
 
                         <div class="facet-filter-associates">
-                            <h3 class="title-name">Pack Size</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                <input type="checkbox" class="check-box" id="pack-250"><label class="label-text" for="pack-250">250g <span class="total-fetch-items">(2)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-500"><label class="label-text" for="pack-500">500g <span class="total-fetch-items">(4)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-1kg"><label class="label-text" for="pack-1kg">1kg <span class="total-fetch-items">(3)</span></label>
-                                <input type="checkbox" class="check-box" id="pack-combo"><label class="label-text" for="pack-combo">Combo Pack <span class="total-fetch-items">(1)</span></label>
-                            </div></form>
-                        </div>
-
-                        <div class="facet-filter-associates">
-                            <h3 class="title-name">Use Case</h3>
-                            <form class="facet-form" action="#" method="post"><div class="associate-wrapper">
-                                    <input type="checkbox" class="check-box" id="use-1"><label class="label-text" for="use-1">Home Cooking <span class="total-fetch-items">(5)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-2"><label class="label-text" for="use-2">Desserts & Sweet Soup <span class="total-fetch-items">(3)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-3"><label class="label-text" for="use-3">Plant-Based Protein <span class="total-fetch-items">(4)</span></label>
-                                    <input type="checkbox" class="check-box" id="use-4"><label class="label-text" for="use-4">Family Meals <span class="total-fetch-items">(6)</span></label>
-                            </div></form>
+                                                        <h3 class="title-name">Use Case</h3>
+                            <form class="facet-form" action="#" method="post">
+                                <div class="associate-wrapper">
+                                    <input type="checkbox" class="check-box" id="use-cooking"><label class="label-text" for="use-cooking">Home Cooking <span class="total-fetch-items">(5)</span></label>
+                                    <input type="checkbox" class="check-box" id="use-dessert"><label class="label-text" for="use-dessert">Desserts & Sweet Soup <span class="total-fetch-items">(4)</span></label>
+                                    <input type="checkbox" class="check-box" id="use-protein"><label class="label-text" for="use-protein">Plant-Based Protein <span class="total-fetch-items">(3)</span></label>
+                                    <input type="checkbox" class="check-box" id="use-imported"><label class="label-text" for="use-imported">Imported Legumes <span class="total-fetch-items">(2)</span></label>
+                                    <input type="checkbox" class="check-box" id="use-mixes"><label class="label-text" for="use-mixes">Bean Mixes <span class="total-fetch-items">(2)</span></label>
+                                    <input type="checkbox" class="check-box" id="use-family"><label class="label-text" for="use-family">Family Meals <span class="total-fetch-items">(6)</span></label>
+                                </div>
+                            </form>
                         </div>
 
                         <div class="facet-filter-by-price">
@@ -734,30 +753,30 @@
                                 <button type="submit" class="button button-primary">Filter</button>
                             </form>
                         </div>
-
-                        <div class="facet-filter-by-shipping">
-                            <h3 class="title-name">Shipping</h3>
-                            <form class="facet-form" action="#" method="post">
-                                <input type="checkbox" class="check-box" id="cb-free-ship"><label class="label-text" for="cb-free-ship">Free Shipping</label>
-                            </form>
+                        <div class="facet-filter-by-rating">
+                            <h3 class="title-name">Rating</h3>
+                            <div class="facet-form">
+                                <div class="facet-link"><div class="item-stars"><div class="star"><span style="width:76px"></span></div></div><span class="total-fetch-items">(3)</span></div>
+                                <div class="facet-link"><div class="item-stars"><div class="star"><span style="width:60px"></span></div></div><span class="total-fetch-items">& Up (8)</span></div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-lg-9 col-md-9 col-sm-12">
                         <div class="page-bar clearfix">
                             <div class="shop-settings"><a id="list-anchor" class="active"><i class="fas fa-th-list"></i></a><a id="grid-anchor"><i class="fas fa-th"></i></a></div>
-                            <div class="toolbar-sorter"><div class="select-box-wrapper"><label class="sr-only" for="sort-by">Sort By</label><select class="select-box" id="sort-by"><option selected="selected" value="">Sort By: Best Selling</option><option value="">Sort By: Latest</option><option value="">Sort By: Lowest Price</option><option value="">Sort By: Highest Price</option><option value="">Sort By: Best Rating</option></select></div></div>
-                            <div class="toolbar-sorter-2"><div class="select-box-wrapper"><label class="sr-only" for="show-records">Show Records Per Page</label><select class="select-box" id="show-records"><option selected="selected" value="">Show: 8</option><option value="">Show: 16</option><option value="">Show: 28</option></select></div></div>
+                            <div class="toolbar-sorter"><div class="select-box-wrapper"><label class="sr-only" for="sort-by">Sort By</label><select class="select-box" id="sort-by"><option selected="selected" value="">Sort By: All Products</option><option value="hot">Hot Products</option><option value="sale">Sale Products</option><option value="new">New Products</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option></select></div></div>
+                            <div class="toolbar-sorter-2"><div class="select-box-wrapper"><label class="sr-only" for="show-records">Show Records Per Page</label><select class="select-box" id="show-records"><option selected="selected" value="5">Show: 5</option><option value="10">Show: 10</option><option value="15">Show: 15</option><option value="all">Show: ALL</option></select></div></div>
                         </div>
                         <div class="row product-container list-style">
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="black" data-filter-use="cooking dessert family" data-product-id="product-black-beans" data-product-name="Black Beans" data-product-price="65000" data-product-image="images/product/black-beans.png" data-product-url="product-black-beans.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-black-beans.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Black Beans">
+                                        <img class="img-fluid" src="images/product/black-beans.png" alt="Black Beans">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-black-beans">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -765,7 +784,6 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Cooking Beans</a></li>
                                         </ul>
@@ -778,17 +796,16 @@
                                         <div class="item-old-price">75,000 VND/kg</div>
                                     </div>
                                 </div>
-                                <div class="tag hot"><span>HOT</span></div>
+                                    <div class="tag hot"><span>HOT</span></div>
                             </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            </div>                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="green" data-filter-use="cooking dessert family" data-product-id="product-green-beans" data-product-name="Green Beans" data-product-price="58000" data-product-image="images/product/green-beans.png" data-product-url="product-green-beans.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-green-beans.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Green Beans">
+                                        <img class="img-fluid" src="images/product/green-beans.png" alt="Green Beans">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-green-beans">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -796,30 +813,28 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Cooking Beans</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-green-beans.html">Green Beans</a></h6>
                                         <div class="item-description"><p>Fresh green beans for desserts, sprouts, porridge, and traditional family dishes.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(16)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">58,000 VND/kg</div>
                                         <div class="item-old-price">68,000 VND/kg</div>
                                     </div>
                                 </div>
-                                <div class="tag sale"><span>SALE</span></div>
+                                    <div class="tag sale"><span>SALE</span></div>
                             </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            </div>                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="red" data-filter-use="cooking dessert family" data-product-id="product-red-beans" data-product-name="Red Beans" data-product-price="72000" data-product-image="images/product/red-beans.png" data-product-url="product-red-beans.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-red-beans.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Red Beans">
+                                        <img class="img-fluid" src="images/product/red-beans.png" alt="Red Beans">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-red-beans">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -827,30 +842,28 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Cooking Beans</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-red-beans.html">Red Beans</a></h6>
                                         <div class="item-description"><p>Soft red beans for sweet soup, baking, porridge, and nutritious snacks.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(17)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">72,000 VND/kg</div>
                                         <div class="item-old-price">82,000 VND/kg</div>
                                     </div>
                                 </div>
-                                <div class="tag new"><span>NEW</span></div>
+                                    <div class="tag new"><span>NEW</span></div>
                             </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            </div>                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="soybean" data-filter-use="protein cooking family" data-product-id="product-soybeans" data-product-name="Soybeans" data-product-price="55000" data-product-image="images/product/soybeans.png" data-product-url="product-soybeans.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-soybeans.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Soybeans">
+                                        <img class="img-fluid" src="images/product/soybeans.png" alt="Soybeans">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-soybeans">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -858,13 +871,12 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Plant-Based Protein</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-soybeans.html">Soybeans</a></h6>
                                         <div class="item-description"><p>Selected soybeans for soy milk, tofu, roasted snacks, and family cooking.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:66px"></span></div><span>(15)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">55,000 VND/kg</div>
@@ -872,15 +884,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            </div>                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="chickpea" data-filter-use="imported protein" data-product-id="product-chickpeas" data-product-name="Chickpeas" data-product-price="92000" data-product-image="images/product/chickpeas.png" data-product-url="product-chickpeas.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-chickpeas.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Chickpeas">
+                                        <img class="img-fluid" src="images/product/chickpeas.png" alt="Chickpeas">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-chickpeas">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -888,30 +899,28 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Imported Legumes</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-chickpeas.html">Chickpeas</a></h6>
                                         <div class="item-description"><p>High-protein chickpeas for salads, stews, hummus, and healthy meal prep.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(14)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">92,000 VND/500g</div>
                                         <div class="item-old-price">110,000 VND/500g</div>
                                     </div>
                                 </div>
-                                <div class="tag hot"><span>HOT</span></div>
+                                    <div class="tag hot"><span>HOT</span></div>
                             </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            </div>                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="lentil" data-filter-use="imported protein cooking" data-product-id="product-lentils" data-product-name="Lentils" data-product-price="88000" data-product-image="images/product/lentils.png" data-product-url="product-lentils.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-lentils.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Lentils">
+                                        <img class="img-fluid" src="images/product/lentils.png" alt="Lentils">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-lentils">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -919,30 +928,28 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Imported Legumes</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-lentils.html">Lentils</a></h6>
                                         <div class="item-description"><p>Quick-cooking lentils for soups, porridge, and balanced plant-based meals.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:66px"></span></div><span>(13)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">88,000 VND/500g</div>
                                         <div class="item-old-price">100,000 VND/500g</div>
                                     </div>
                                 </div>
-                                <div class="tag sale"><span>SALE</span></div>
+                                    <div class="tag sale"><span>SALE</span></div>
                             </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            </div>                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="mixed" data-filter-use="mixes family cooking" data-product-id="product-mixed-beans-pack" data-product-name="Mixed Beans Pack" data-product-price="145000" data-product-image="images/product/mixed-beans-pack.png" data-product-url="product-mixed-beans-pack.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-mixed-beans-pack.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Mixed Beans Pack">
+                                        <img class="img-fluid" src="images/product/mixed-beans-pack.png" alt="Mixed Beans Pack">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-mixed-beans-pack">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -950,13 +957,12 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Bean Mixes</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-mixed-beans-pack.html">Mixed Beans Pack</a></h6>
                                         <div class="item-description"><p>A balanced mix of black beans, green beans, red beans, and soybeans for weekly cooking.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:68px"></span></div><span>(19)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">145,000 VND/pack</div>
@@ -964,15 +970,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
+                            </div>                            <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                            <div class="item" data-filter-rice="mixed" data-filter-use="mixes family dessert" data-product-id="product-five-color-bean-mix" data-product-name="Five-Color Bean Mix" data-product-price="155000" data-product-image="images/product/five-color-bean-mix.png" data-product-url="product-five-color-bean-mix.html">
                                 <div class="image-container">
                                     <a class="item-img-wrapper-link" href="product-five-color-bean-mix.html">
-                                        <img class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" alt="Five-Color Bean Mix">
+                                        <img class="img-fluid" src="images/product/five-color-bean-mix.png" alt="Five-Color Bean Mix">
                                     </a>
                                     <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view-five-color-bean-mix">Quick Look</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -980,22 +985,25 @@
                                 <div class="item-content">
                                     <div class="what-product-is">
                                         <ul class="bread-crumb">
-                                            <li class="has-separator"><a href="shop-v1-root-category.html">Product Catalog</a></li>
                                             <li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
                                             <li><a href="shop-beans-legumes.html">Bean Mixes</a></li>
                                         </ul>
                                         <h6 class="item-title"><a href="product-five-color-bean-mix.html">Five-Color Bean Mix</a></h6>
                                         <div class="item-description"><p>Colorful bean mix for nutritious porridge, dessert soup, and family breakfast bowls.</p></div>
-                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div>
+                                        <div class="item-stars"><div class="star" title="4.5 out of 5"><span style="width:70px"></span></div><span>(21)</span></div>
                                     </div>
                                     <div class="price-template">
                                         <div class="item-new-price">155,000 VND/pack</div>
                                         <div class="item-old-price">175,000 VND/pack</div>
                                     </div>
                                 </div>
-                                <div class="tag new"><span>NEW</span></div>
+                                    <div class="tag new"><span>NEW</span></div>
                             </div>
-                        </div>
+                            </div>                        </div>
+                        <div class="pagination-area u-s-m-t-30">
+                            <div class="pagination-number">
+                                <!-- Rendered by js/search-results.js -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1003,22 +1011,352 @@
         </div>
         <!-- Shop-Page /- -->
 
-        <!-- Quick-view-Modal -->
-        <div id="quick-view" class="modal fade">
-            <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
-                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
-                <div class="modal-body"><div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12"><div class="zoom-area"><img id="zoom-pro-quick-view" class="img-fluid" src="images/product/do-xanh-nguyen-hat.jpg" data-zoom-image="images/product/do-xanh-nguyen-hat.jpg" alt="Black Beans"></div></div>
-                    <div class="col-lg-6 col-md-6 col-sm-12"><div class="all-information-wrapper">
-                        <div class="section-1-title-breadcrumb-rating"><div class="product-title"><h1><a href="product-black-beans.html">Black Beans</a></h1></div><ul class="bread-crumb"><li class="has-separator"><a href="index.html">Home</a></li><li class="has-separator"><a href="shop-beans-legumes.html">Beans & Legumes</a></li><li class="is-marked"><a href="product-black-beans.html">Black Beans</a></li></ul><div class="product-rating"><div class="star" title="4.5 out of 5"><span style="width:67px"></span></div><span>(18)</span></div></div>
-                        <div class="section-2-short-description u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Description:</h6><p>Rich, clean black beans suitable for sweet soup, porridge, and healthy daily meals.</p></div>
-                        <div class="section-3-price-original-discount u-s-p-y-14"><div class="price"><h4>65,000 VND/kg</h4></div><div class="original-price"><span>Original Price:</span><span>75,000 VND/kg</span></div></div>
-                        <div class="section-4-sku-information u-s-p-y-14"><h6 class="information-heading u-s-m-b-8">Sku Information:</h6><div class="availability"><span>Availability:</span><span>In Stock</span></div></div>
-                    </div></div>
-                </div></div>
-            </div></div>
-        </div>
-        <!-- Quick-view-Modal /- -->
+        <!-- Beans & Legumes Quick-view Modals -->
+        <div id="quick-view-black-beans" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-black-beans" class="img-fluid" src="images/product/black-beans.png" data-zoom-image="images/product/black-beans.png" alt="Black Beans Zoom Image">
+                                    <div id="gallery-quick-view-black-beans" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/black-beans.png" data-zoom-image="images/product/black-beans.png">
+                                            <img src="images/product/black-beans.png" alt="Black Beans" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-black-beans" data-product-name="Black Beans" data-product-price="65000" data-product-image="images/product/black-beans.png" data-product-url="product-black-beans.html">
+                                    <h1><a href="product-black-beans.html">Huyen Tuyen Black Beans</a></h1>
+                                    <p>Rich, clean black beans suitable for sweet soup, porridge, and healthy daily meals.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Good source of plant protein and fiber</li>
+                                        <li><i class="fas fa-check-circle"></i> Suitable for sweet soup and porridge</li>
+                                    </ul>
+                                    <div class="price"><h4>65,000 VND/kg</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>75,000 VND/kg</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <div id="quick-view-green-beans" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-green-beans" class="img-fluid" src="images/product/green-beans.png" data-zoom-image="images/product/green-beans.png" alt="Green Beans Zoom Image">
+                                    <div id="gallery-quick-view-green-beans" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/green-beans.png" data-zoom-image="images/product/green-beans.png">
+                                            <img src="images/product/green-beans.png" alt="Green Beans" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-green-beans" data-product-name="Green Beans" data-product-price="58000" data-product-image="images/product/green-beans.png" data-product-url="product-green-beans.html">
+                                    <h1><a href="product-green-beans.html">Huyen Tuyen Green Beans</a></h1>
+                                    <p>Fresh green beans for desserts, sprouts, porridge, and traditional family dishes.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Naturally mild and easy to cook</li>
+                                        <li><i class="fas fa-check-circle"></i> Good for desserts and porridge</li>
+                                    </ul>
+                                    <div class="price"><h4>58,000 VND/kg</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>68,000 VND/kg</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <div id="quick-view-red-beans" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-red-beans" class="img-fluid" src="images/product/red-beans.png" data-zoom-image="images/product/red-beans.png" alt="Red Beans Zoom Image">
+                                    <div id="gallery-quick-view-red-beans" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/red-beans.png" data-zoom-image="images/product/red-beans.png">
+                                            <img src="images/product/red-beans.png" alt="Red Beans" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-red-beans" data-product-name="Red Beans" data-product-price="72000" data-product-image="images/product/red-beans.png" data-product-url="product-red-beans.html">
+                                    <h1><a href="product-red-beans.html">Huyen Tuyen Red Beans</a></h1>
+                                    <p>Soft red beans for sweet soup, baking, porridge, and nutritious snacks.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Soft texture after cooking</li>
+                                        <li><i class="fas fa-check-circle"></i> Good for desserts and fillings</li>
+                                    </ul>
+                                    <div class="price"><h4>72,000 VND/kg</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>82,000 VND/kg</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <div id="quick-view-soybeans" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-soybeans" class="img-fluid" src="images/product/soybeans.png" data-zoom-image="images/product/soybeans.png" alt="Soybeans Zoom Image">
+                                    <div id="gallery-quick-view-soybeans" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/soybeans.png" data-zoom-image="images/product/soybeans.png">
+                                            <img src="images/product/soybeans.png" alt="Soybeans" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-soybeans" data-product-name="Soybeans" data-product-price="55000" data-product-image="images/product/soybeans.png" data-product-url="product-soybeans.html">
+                                    <h1><a href="product-soybeans.html">Huyen Tuyen Soybeans</a></h1>
+                                    <p>Selected soybeans for soy milk, tofu, roasted snacks, and family cooking.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Plant-based protein source</li>
+                                        <li><i class="fas fa-check-circle"></i> Ideal for soy milk and tofu</li>
+                                    </ul>
+                                    <div class="price"><h4>55,000 VND/kg</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>65,000 VND/kg</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <div id="quick-view-chickpeas" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-chickpeas" class="img-fluid" src="images/product/chickpeas.png" data-zoom-image="images/product/chickpeas.png" alt="Chickpeas Zoom Image">
+                                    <div id="gallery-quick-view-chickpeas" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/chickpeas.png" data-zoom-image="images/product/chickpeas.png">
+                                            <img src="images/product/chickpeas.png" alt="Chickpeas" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-chickpeas" data-product-name="Chickpeas" data-product-price="92000" data-product-image="images/product/chickpeas.png" data-product-url="product-chickpeas.html">
+                                    <h1><a href="product-chickpeas.html">Huyen Tuyen Chickpeas</a></h1>
+                                    <p>High-protein chickpeas for salads, stews, hummus, and healthy meal prep.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Great for meal prep</li>
+                                        <li><i class="fas fa-check-circle"></i> Works well in salads, stews, and dips</li>
+                                    </ul>
+                                    <div class="price"><h4>92,000 VND/500g</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>110,000 VND/500g</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <div id="quick-view-lentils" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-lentils" class="img-fluid" src="images/product/lentils.png" data-zoom-image="images/product/lentils.png" alt="Lentils Zoom Image">
+                                    <div id="gallery-quick-view-lentils" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/lentils.png" data-zoom-image="images/product/lentils.png">
+                                            <img src="images/product/lentils.png" alt="Lentils" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-lentils" data-product-name="Lentils" data-product-price="88000" data-product-image="images/product/lentils.png" data-product-url="product-lentils.html">
+                                    <h1><a href="product-lentils.html">Huyen Tuyen Lentils</a></h1>
+                                    <p>Quick-cooking lentils for soups, porridge, and balanced plant-based meals.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Quick cooking compared with many beans</li>
+                                        <li><i class="fas fa-check-circle"></i> Good for soups and porridge</li>
+                                    </ul>
+                                    <div class="price"><h4>88,000 VND/500g</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>100,000 VND/500g</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <div id="quick-view-mixed-beans-pack" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-mixed-beans-pack" class="img-fluid" src="images/product/mixed-beans-pack.png" data-zoom-image="images/product/mixed-beans-pack.png" alt="Mixed Beans Pack Zoom Image">
+                                    <div id="gallery-quick-view-mixed-beans-pack" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/mixed-beans-pack.png" data-zoom-image="images/product/mixed-beans-pack.png">
+                                            <img src="images/product/mixed-beans-pack.png" alt="Mixed Beans Pack" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-mixed-beans-pack" data-product-name="Mixed Beans Pack" data-product-price="145000" data-product-image="images/product/mixed-beans-pack.png" data-product-url="product-mixed-beans-pack.html">
+                                    <h1><a href="product-mixed-beans-pack.html">Huyen Tuyen Mixed Beans Pack</a></h1>
+                                    <p>A balanced mix of black beans, green beans, red beans, and soybeans for weekly cooking.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Multiple beans in one pack</li>
+                                        <li><i class="fas fa-check-circle"></i> Convenient for porridge and dessert soup</li>
+                                    </ul>
+                                    <div class="price"><h4>145,000 VND/pack</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>165,000 VND/pack</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <div id="quick-view-five-color-bean-mix" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="zoom-area">
+                                    <img id="zoom-pro-quick-view-five-color-bean-mix" class="img-fluid" src="images/product/five-color-bean-mix.png" data-zoom-image="images/product/five-color-bean-mix.png" alt="Five-Color Bean Mix Zoom Image">
+                                    <div id="gallery-quick-view-five-color-bean-mix" class="u-s-m-t-10">
+                                        <a class="active" data-image="images/product/five-color-bean-mix.png" data-zoom-image="images/product/five-color-bean-mix.png">
+                                            <img src="images/product/five-color-bean-mix.png" alt="Five-Color Bean Mix" style="width:70px;height:70px;object-fit:cover;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="all-information-wrapper item" data-product-id="product-five-color-bean-mix" data-product-name="Five-Color Bean Mix" data-product-price="155000" data-product-image="images/product/five-color-bean-mix.png" data-product-url="product-five-color-bean-mix.html">
+                                    <h1><a href="product-five-color-bean-mix.html">Huyen Tuyen Five-Color Bean Mix</a></h1>
+                                    <p>Colorful bean mix for nutritious porridge, dessert soup, and family breakfast bowls.</p>
+                                    <ul class="product-benefit-list">
+                                        <li><i class="fas fa-check-circle"></i> Colorful mix for attractive meals</li>
+                                        <li><i class="fas fa-check-circle"></i> Convenient family-size pack</li>
+                                    </ul>
+                                    <div class="price"><h4>155,000 VND/pack</h4></div>
+                                    <div class="original-price"><span>Original Price:</span><span>175,000 VND/pack</span></div>
+                                    <div class="section-6-social-media-quantity-actions">
+                                        <div class="quantity">
+                                            <a class="minus-a" data-min="1">-</a>
+                                            <input type="text" class="quantity-text-field" value="1" readonly>
+                                            <a class="plus-a" data-max="1000">+</a>
+                                        </div>
+                                        <div class="cart-action-buttons">
+                                            <button class="button item-addCart" type="button">ADD TO CART</button>
+                                            <button class="wishlist-btn wishlist-btn-modal" type="button" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- Beans & Legumes Quick-view Modals /- -->
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -1127,6 +1465,20 @@
     <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="js/vmenu-sync.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/search-results.js" defer></script>
+<script type="text/javascript" src="js/cart.js" defer></script>
+<script>
+    $(document).ready(function () {
+        $('#zoom-pro-quick-view-black-beans').elevateZoom({ gallery: 'gallery-quick-view-black-beans', galleryActiveClass: 'active', zoomEnabled: false });
+        $('#zoom-pro-quick-view-green-beans').elevateZoom({ gallery: 'gallery-quick-view-green-beans', galleryActiveClass: 'active', zoomEnabled: false });
+        $('#zoom-pro-quick-view-red-beans').elevateZoom({ gallery: 'gallery-quick-view-red-beans', galleryActiveClass: 'active', zoomEnabled: false });
+        $('#zoom-pro-quick-view-soybeans').elevateZoom({ gallery: 'gallery-quick-view-soybeans', galleryActiveClass: 'active', zoomEnabled: false });
+        $('#zoom-pro-quick-view-chickpeas').elevateZoom({ gallery: 'gallery-quick-view-chickpeas', galleryActiveClass: 'active', zoomEnabled: false });
+        $('#zoom-pro-quick-view-lentils').elevateZoom({ gallery: 'gallery-quick-view-lentils', galleryActiveClass: 'active', zoomEnabled: false });
+        $('#zoom-pro-quick-view-mixed-beans-pack').elevateZoom({ gallery: 'gallery-quick-view-mixed-beans-pack', galleryActiveClass: 'active', zoomEnabled: false });
+        $('#zoom-pro-quick-view-five-color-bean-mix').elevateZoom({ gallery: 'gallery-quick-view-five-color-bean-mix', galleryActiveClass: 'active', zoomEnabled: false });
+    });
+</script>
 <script type="text/javascript" src="js/google-translate.js"></script></body>
 </html>
 
