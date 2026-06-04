@@ -42,13 +42,13 @@
    */
   function normalizeItem(item) {
     var price = extractPrice(item.price);
-    return {
+    return applyCanonicalProductPrice({
       id: item.id || 'unknown',
       name: item.name || 'Unknown',
       price: price,
       image: item.image || '',
       quantity: typeof item.quantity === 'number' ? item.quantity : (typeof item.qty === 'number' ? item.qty : 1)
-    };
+    });
   }
 
   function getCart() {
@@ -92,6 +92,61 @@
 
   var VAT_RATE = 0.1;
 
+  var PRODUCT_PRICE_OVERRIDES = {
+    'product-white-rice': 18000,
+    'product-sticky-rice': 25000,
+    'product-fragrant-rice': 22000,
+    'product-broken-rice': 15000,
+    'product-bac-huong-rice': 28000,
+    'product-st25-rice': 50000,
+    'product-st24-rice': 42000,
+    'product-jasmine-rice': 35000,
+    'product-brown-rice': 35000,
+    'product-black-rice': 40000,
+    'product-mixed-grains': 44000,
+    'product-multi-grain-powder': 50000,
+    'product-multi-grains': 50000,
+    'product-rolled-oats': 35000,
+    'product-barley': 38000,
+    'product-quinoa': 48000,
+    'product-fruit-granola': 45000,
+    'product-millet': 38000,
+    'product-buckwheat': 42000,
+    'product-brown-rice-mix': 46000,
+    'product-cornflakes': 39000,
+    'product-muesli': 50000
+  };
+
+  function normalizeProductKey(id) {
+    if (!id || typeof id !== 'string') return '';
+    return id
+      .split('#')[0]
+      .split('?')[0]
+      .split('/')
+      .pop()
+      .replace(/\.html$/i, '')
+      .toLowerCase();
+  }
+
+  function getCanonicalProductPrice(id) {
+    var key = normalizeProductKey(id);
+    return Object.prototype.hasOwnProperty.call(PRODUCT_PRICE_OVERRIDES, key) ? PRODUCT_PRICE_OVERRIDES[key] : null;
+  }
+
+  function hasExplicitPackVariant(product) {
+    var name = product && product.name ? product.name : '';
+    return /\s-\s(?:\d+(?:\.\d+)?\s*(?:kg|g)|standard|family|premium|bulk|double)/i.test(name);
+  }
+
+  function applyCanonicalProductPrice(product) {
+    if (!product) return product;
+    var canonicalPrice = getCanonicalProductPrice(product.id || product.url);
+    if (canonicalPrice !== null && !hasExplicitPackVariant(product)) {
+      product.price = canonicalPrice;
+    }
+    return product;
+  }
+
   /**
    * Clean up any old/broken cart data
    */
@@ -107,6 +162,7 @@
 
   function addToCart(product) {
     if (!product || !product.id) return;
+    product = applyCanonicalProductPrice(product);
 
     var cart = getCart();
     var existingIndex = -1;
@@ -293,7 +349,7 @@
       } else {
         btn.style.color = '#ff4757';
       }
-      
+
       setTimeout(function () {
         if (btn.tagName === 'BUTTON') {
           btn.classList.remove('added');
@@ -705,13 +761,13 @@
     // "18,000 VND/kg" -> match "18,000" -> 18000
     var price = extractPrice(priceAttr);
 
-    return {
+    return applyCanonicalProductPrice({
       id: id,
       name: name,
       price: price,
       image: image,
       url: url
-    };
+    });
   }
 
   /**
@@ -772,7 +828,7 @@
 
       var product;
       var card = btn.closest('.item');
-      
+
       if (card) {
         product = getProductFromCard(card);
         // Try to find quantity input within the card (Product detail page)
