@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LOGO = ROOT / "images" / "main-logo" / "huyen-tuyen-rice-logo-transparent.png"
 OUT_DIR = ROOT / "images" / "packaging"
 OUT_FILE = OUT_DIR / "huyen-tuyen-rice-packaging-qr.png"
+OUT_FILE_EN = OUT_DIR / "huyen-tuyen-rice-packaging-qr-en.png"
 QR_URL = "https://tuyennv132dev.github.io/Shopping/"
 
 
@@ -100,7 +101,7 @@ def main():
     draw.line((420, 900, 1080, 900), fill="#e2a42a", width=4)
 
     rounded_rect(draw, (400, 950, 1000, 1165), 24, "#fff4d3", "#e0c070", 3)
-    draw_centered(draw, (700, 1010), "GAO CHAT LUONG CAO", font("arialbd.ttf", 42), "#2d5c26")
+    draw_centered(draw, (700, 1010), "PREMIUM QUALITY RICE", font("arialbd.ttf", 40), "#2d5c26")
     draw_centered(draw, (700, 1060), "High-quality rice for daily family meals", font("arial.ttf", 27), "#5e4a2a")
     draw_centered(draw, (700, 1113), "Net weight: 5 kg", font("arialbd.ttf", 36), "#7a3f18")
 
@@ -111,7 +112,7 @@ def main():
     draw_centered(draw, (910, 1290), "SCAN TO SHOP", font("arialbd.ttf", 30), "#2e6b28")
     draw.multiline_text(
         (910, 1370),
-        "Quet ma QR de\nxem san pham,\ngia ban va dat hang",
+        "Scan this QR code\nto view products,\nprices and orders",
         font=font("arial.ttf", 29),
         fill="#4c3b24",
         anchor="mm",
@@ -121,8 +122,8 @@ def main():
     draw_centered(draw, (700, 1575), QR_URL, font("arialbd.ttf", 23), "white")
     draw_centered(draw, (700, 1630), "VND/kg | Fresh Rice | Huyen Tuyen Rice", font("arial.ttf", 28), "#f9e7b2")
 
-    img.convert("RGB").save(OUT_FILE, quality=96)
-    print(OUT_FILE)
+    img.convert("RGB").save(OUT_FILE_EN, quality=96)
+    print(OUT_FILE_EN)
 
 
 if __name__ == "__main__":
