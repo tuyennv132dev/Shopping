@@ -1,68 +1,121 @@
 # Huyen Tuyen Rice Shopping Website
 
-Static e-commerce website for Huyen Tuyen Rice, focused on Vietnamese rice, whole grains, nuts, seeds, healthy food products, family combo packs, and recipe content.
+Static e-commerce website for Huyen Tuyen Rice, focused on Premium Vietnamese rice, whole grains, nuts, seeds, healthy food products, family combo packs, and recipe content.
 
-The project is based on the Groover online shopping template and has been customized into a client-side shopping experience for rice and healthy food products.
+The project is based on the Groover online shopping template and has been customized into a clean, client-side shopping experience for rice and healthy food products.
 
 ## Features
 
-- Home page with product sliders, category sections, banners, best sellers, and recipe cards
-- Product listing pages for rice, nuts and seeds, whole grains and cereals, beans and legumes, baby and kids food, and healthy food products
-- Product detail pages for rice, grains, nuts, seeds, beans, baby products, and combo packs
-- Cart, wishlist, checkout, order confirmation, and track order pages
-- Client-side cart and wishlist using `localStorage`
-- Checkout receipt date generated from the current day
-- ENG/VIE language selector using Google Translate for Vietnamese
-- VND as the unified currency across the storefront
-- Blog and recipe pages for Rice & Grain Recipes
-- Responsive layout using Bootstrap, jQuery, and Owl Carousel
+- **Homepage (`index.html`)**: Product sliders, category sections, banners, best sellers, and recipe cards.
+- **Organized Modular Directory Structure**: HTML files are cleanly categorized into subdirectories (`pages/`, `blog/`, `shop/`, `products/`, `cart/`, `deals/`).
+- **Product Listing Pages (`shop/`)**: Rice types, healthy nuts and seeds, whole grains & cereals, beans & legumes, baby & kids food, and search result listings.
+- **Product Detail Pages (`products/`)**: Detailed view for 50+ individual products (rice, grains, nuts, seeds, beans, baby food, combo packs).
+- **Cart & Wishlist System (`cart/` & `js/cart.js`)**:
+  - Full client-side Shopping Cart, Wishlist, Checkout, and Order Confirmation pages using `localStorage`.
+  - **Dynamic Interactive Mini Cart (`YOUR CART`)**: Real-time quantity adjustment (`+` / `-`), item removal, and auto-updated subtotal/grand total without page refresh.
+  - Non-intrusive modal design (remains open during quantity adjustment, closes smoothly when clicking outside the overlay).
+  - Toast notifications when adding products to the cart.
+  - Automatic calculation of relative image & page URLs across all subfolder depths.
+- **Responsive Header Search**: Smart keyword & category search bar with auto-scaling price badges to prevent line wraps on high cart totals.
+- **Multi-language Support**: ENG/VIE language selector using Google Translate for Vietnamese.
+- **Unified Currency**: Standardized `VND` currency formatting across all pages.
+- **Blog & Recipe Guides (`blog/`)**: Rice classification guides, recipe bowls, and rice market news.
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- Bootstrap 4
-- jQuery
-- Owl Carousel
-- Font Awesome
-- Ionicons
-- NProgress
-- ElevateZoom
-- LocalStorage-based cart and wishlist logic
+- **HTML5 & CSS3** (Vanilla CSS + `css/brand-polish.css` design system)
+- **Bootstrap 4**
+- **jQuery**
+- **Owl Carousel**
+- **Font Awesome 5 & Ion-Icons**
+- **NProgress & ElevateZoom**
+- **LocalStorage-based Cart & State Engine**
 
 ## Project Structure
 
 ```text
-.
-|-- index.html
-|-- product-*.html
-|-- blog-*.html
-|-- shop-*.html
-|-- cart.html
-|-- checkout.html
-|-- confirmation.html
-|-- css/
-|-- js/
-|-- images/
-|-- scripts/
-|-- html_webpack/
-|-- PROJECT_ANALYSIS.txt
-`-- README.md
+Shopping/
+│
+├── index.html                  ← Main Homepage (Root)
+├── favicon.ico
+├── LICENSE
+├── README.md
+│
+├── css/                        ← Theme styles, utilities, Bootstrap, brand polish
+├── js/                         ← Site logic, cart engine, language switcher, menu sync
+├── images/                     ← Product images, banners, blog visuals, logos
+├── fonts/                      ← Web font icons
+├── scripts/                    ← Maintenance and automation PowerShell scripts
+├── tools/                      ← Auxiliary tools
+│
+├── pages/ (9 files)            ← Static & support pages
+│   ├── about.html
+│   ├── contact.html
+│   ├── faq.html
+│   ├── store-directory.html
+│   ├── terms-and-conditions.html
+│   ├── track-order.html
+│   ├── account.html
+│   ├── lost-password.html
+│   └── 404.html
+│
+├── blog/ (12 files)            ← Blog articles & culinary guides
+│   ├── blog.html               (Main Blog Listing)
+│   ├── blog-detail.html
+│   ├── blog-family-rice-meal-ideas.html
+│   ├── blog-fragrant-rice-daily-meals.html
+│   ├── blog-granola-breakfast-bowl.html
+│   ├── blog-healthy-brown-rice-bowl.html
+│   ├── blog-how-to-store-rice-properly.html
+│   ├── blog-mixed-grain-porridge.html
+│   ├── blog-rice-meals-kids.html
+│   ├── blog-warm-oatmeal-nuts.html
+│   ├── rice-grain-recipes.html
+│   └── rice-market-news.html
+│
+├── shop/ (12 files)            ← Shop category & search result pages
+│   ├── shop-v1-root-category.html
+│   ├── shop-v2-sub-category.html
+│   ├── shop-v3-sub-sub-category.html
+│   ├── shop-v4-filter-as-category.html
+│   ├── shop-v5-product-not-found.html
+│   ├── shop-v6-search-results.html
+│   ├── shop-whole-grains-cereals.html
+│   ├── shop-beans-legumes.html
+│   ├── shop-healthy-food-products.html
+│   ├── shop-baby-kids-food.html
+│   ├── Healthy-Nuts-Seeds.html
+│   └── single-product.html
+│
+├── products/ (53 files)        ← Individual product detail pages
+│   ├── product-white-rice.html
+│   ├── product-sticky-rice.html
+│   ├── product-jasmine-rice.html
+│   ├── product-st25-rice.html
+│   ├── product-brown-rice.html
+│   ├── product-almonds.html
+│   ├── product-cashews.html
+│   └── ... (50+ product pages)
+│
+├── cart/ (6 files)             ← Cart, Wishlist, and Checkout pages
+│   ├── cart.html
+│   ├── cart-empty.html
+│   ├── checkout.html
+│   ├── confirmation.html
+│   ├── wishlist.html
+│   └── wishlist-empty.html
+│
+└── deals/ (3 files)            ← Special promotions & combo offers
+    ├── custom-deal-page.html
+    ├── family-combo-page.html
+    └── monthly-sale-page.html
 ```
-
-Important folders:
-
-- `css/` - theme styles, layout utilities, Bootstrap-related CSS, custom modal styles
-- `js/` - site behavior, cart/wishlist logic, language switcher, menu sync, carousel setup
-- `images/` - product images, banners, blog images, logo, patterns, and visual assets
-- `scripts/` - maintenance scripts used during development
-- `html_webpack/` - original template Webpack source/build setup, currently not used by the active root website
 
 ## How to Run Locally
 
-This project is a static website. You can open `index.html` directly in a browser.
+This project is a pure static web application. Open `index.html` directly in any web browser or use a local HTTP server.
 
-Recommended local workflow:
+Recommended local server workflow:
 
 ```bash
 # From the project root
@@ -75,65 +128,24 @@ Then open:
 http://localhost:8000/index.html
 ```
 
-Using a local server is recommended because browser behavior can differ when pages are opened directly with the `file://` protocol.
+## Core Client Scripts (`js/`)
 
-## Runtime Notes
-
-This project does not use a backend server.
-
-Cart, wishlist, and checkout state are stored in the browser with `localStorage`.
-
-Primary client-side scripts:
-
-- `js/app.js` - general UI behavior, search form handling, menu behavior, carousel setup
-- `js/cart.js` - cart, wishlist, checkout, mini cart, and receipt rendering
-- `js/google-translate.js` - ENG/VIE language switcher
-- `js/vmenu-sync.js` - shared vertical menu synchronization
-- `js/product-detail-renderer.js` - shared renderer/data for newer product detail pages
+- `js/app.js`: General UI behavior, responsive search submission (`q` & `cat` query params), menu handlers, and carousel initialization.
+- `js/cart.js`: Unified cart & wishlist engine, interactive Mini Cart (`YOUR CART`), quantity controls (`+` / `-`), relative path resolver (`resolveUrl`), checkout receipt generator, and toast notifications.
+- `js/vmenu-sync.js`: Shared vertical catalog menu builder with dynamic depth detection (`basePath`).
+- `js/product-detail-renderer.js`: Dynamic content renderer for individual product pages.
+- `js/google-translate.js`: Language switcher (`ENG` / `VIE`).
 
 ## Language and Currency
 
-- Source content is primarily English.
-- The language selector supports:
-  - `ENG` - original English content
-  - `VIE` - Vietnamese translation through Google Translate
-- Currency is standardized as `VND`.
-- Currency switching has been removed from the UI.
+- **Language**: English by default (`ENG`), with automated Vietnamese translation (`VIE`) powered by Google Translate widget integration.
+- **Currency**: Unified `VND` (Vietnamese Dong) formatting throughout the entire site.
 
-## About `html_webpack`
+## Development & Maintenance Notes
 
-The `html_webpack/` directory contains the original Webpack build system from the base template.
-
-It includes:
-
-- `html_webpack/package.json`
-- `html_webpack/webpack.config.js`
-- `html_webpack/src/`
-- `html_webpack/dist/`
-
-The active customized website currently runs from the root HTML/CSS/JS files, not from `html_webpack/dist`.
-
-Do not use the Webpack build output as the deployment source unless you intentionally migrate the latest root-level customizations back into `html_webpack/src`.
-
-## Development Notes
-
-When editing the project:
-
-- Update root HTML files directly unless the project is migrated back to a build pipeline.
-- Keep product links mapped to their matching product detail pages.
-- Keep generated or custom blog images in `images/blog/`.
-- Keep product images in `images/product/`.
-- After changing links or images, audit local `href`, `src`, `data-image`, and `data-zoom-image` targets.
-- Be careful when changing header/footer markup because many pages contain duplicated static markup.
-
-## Contact Information
-
-Current store contact information used in the website:
-
-- Phone: `09xx xxx xxx`
-- Phone: `09xx xxx xxx`
-- Email: `support@huyentuyenrice.com`
-- Location: Vietnam
+- When adding new product or blog pages, place them into their respective subdirectories (`products/`, `blog/`, `shop/`, etc.).
+- Ensure relative pathing (`../`) is maintained for static assets (`css/`, `js/`, `images/`) when adding new pages inside subfolders.
+- The `js/cart.js` `resolveUrl()` function handles relative paths dynamically across different subfolder depths.
 
 ## License
 
