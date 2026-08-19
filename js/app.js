@@ -319,8 +319,24 @@ $(function () {
                 return;
             }
 
-            // Simple redirect to search results page with parameters
-            let searchUrl = 'shop-v6-search-results.html';
+            // Determine relative path based on page depth
+            const depth = window.location.pathname.split('/').filter(Boolean).length;
+            const currentFolder = depth > 1 ? window.location.pathname.split('/').filter(Boolean)[depth - 2] : '';
+            
+            let targetPage = 'shop-v6-search-results.html';
+            let searchUrl = '';
+
+            if (depth <= 1) {
+                // Root directory (e.g. /index.html)
+                searchUrl = 'shop/' + targetPage;
+            } else if (currentFolder === 'shop') {
+                // Inside shop/ directory
+                searchUrl = targetPage;
+            } else {
+                // Other subfolder (e.g. /products/, /pages/, /deals/, /blog/, /cart/)
+                searchUrl = '../shop/' + targetPage;
+            }
+
             let params = [];
             if (keyword) params.push('q=' + encodeURIComponent(keyword));
             if (category) params.push('cat=' + encodeURIComponent(category));
@@ -334,6 +350,11 @@ $(function () {
 
         $searchForm.on('submit', executeSearch);
         $responsiveSearchForm.on('submit', executeSearch);
+
+        // Click handler for icon inside search form
+        $('.responsive-search-form i.fa-search, .form-searchbox button[type="submit"]').on('click', function () {
+            $(this).closest('form').submit();
+        });
     };
 
     /**

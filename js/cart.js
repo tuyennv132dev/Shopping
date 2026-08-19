@@ -1,4 +1,4 @@
-﻿/**
+/**
  * cart.js - Unified cart logic for the whole site
  *
  * Single localStorage key: "cart"
@@ -284,6 +284,44 @@
     updateAllUI();
   }
 
+  /**
+   * Helper to resolve relative asset & page URLs depending on current page depth
+   */
+  function resolveUrl(path) {
+    if (!path) return '';
+    if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('/')) return path;
+    var depth = window.location.pathname.split('/').filter(Boolean).length;
+    var prefix = depth > 1 ? '../' : '';
+
+    var cleanPath = path.replace(/^(\.\.\/)+/, '');
+
+    if (cleanPath.startsWith('images/') || cleanPath.startsWith('css/') || cleanPath.startsWith('js/')) {
+      return prefix + cleanPath;
+    }
+
+    if (cleanPath.indexOf('/') !== -1) {
+      return prefix + cleanPath;
+    }
+
+    if (cleanPath.startsWith('product-')) {
+      return prefix + 'products/' + cleanPath;
+    } else if (cleanPath.startsWith('shop-') || cleanPath === 'Healthy-Nuts-Seeds.html' || cleanPath === 'single-product.html') {
+      return prefix + 'shop/' + cleanPath;
+    } else if (cleanPath.startsWith('blog-') || cleanPath.startsWith('blog') || cleanPath.startsWith('rice-')) {
+      return prefix + 'blog/' + cleanPath;
+    } else if (cleanPath.startsWith('cart') || cleanPath.startsWith('checkout') || cleanPath.startsWith('wishlist') || cleanPath.startsWith('confirmation')) {
+      return prefix + 'cart/' + cleanPath;
+    } else if (cleanPath.startsWith('custom-deal') || cleanPath.startsWith('family-combo') || cleanPath.startsWith('monthly-sale')) {
+      return prefix + 'deals/' + cleanPath;
+    } else if (cleanPath === 'index.html') {
+      return prefix + 'index.html';
+    } else if (cleanPath.endsWith('.html')) {
+      return prefix + 'pages/' + cleanPath;
+    }
+
+    return prefix + cleanPath;
+  }
+
   function renderWishlistPage() {
     if (!document.body.classList.contains('wishlist-page')) return;
     var wishlist = getWishlist();
@@ -298,12 +336,14 @@
     var html = '';
     for (var i = 0; i < wishlist.length; i++) {
       var item = wishlist[i];
+      var itemUrl = resolveUrl(item.url || item.id);
+      var itemImg = resolveUrl(item.image);
       html +=
         '<tr data-product-id="' + item.id + '">' +
         '<td>' +
         '<div class="cart-anchor-image">' +
-        '<a href="' + (item.url || item.id) + '">' +
-        '<img src="' + item.image + '" alt="' + item.name + '" style="width:80px;height:80px;object-fit:cover;">' +
+        '<a href="' + itemUrl + '">' +
+        '<img src="' + itemImg + '" alt="' + item.name + '" style="width:80px;height:80px;object-fit:cover;">' +
         '<h6>' + item.name + '</h6>' +
         '</a>' +
         '</div>' +
@@ -371,6 +411,9 @@
   // â”€â”€ UI Update Functions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   function updateAllUI() {
+    var wrapper = document.querySelector('.mini-cart-wrapper');
+    var isOpen = wrapper && wrapper.classList.contains('mini-cart-open');
+
     updateCartCount();
     renderMiniCart();
     renderCartPage();
@@ -378,6 +421,10 @@
     renderWishlistPage();
     updateFixedCounter();
     updateWishlistCount();
+
+    if (isOpen && wrapper) {
+      wrapper.classList.add('mini-cart-open');
+    }
   }
 
   function updateCartCount() {
@@ -387,9 +434,17 @@
       els[i].textContent = total;
     }
     var totalPrice = getTotalPrice();
+    var priceStr = formatCurrency(totalPrice);
     var priceEls = document.querySelectorAll('.item-price');
     for (var i = 0; i < priceEls.length; i++) {
-      priceEls[i].textContent = formatCurrency(totalPrice);
+      priceEls[i].textContent = priceStr;
+      if (priceStr.length > 14) {
+        priceEls[i].style.fontSize = '11px';
+      } else if (priceStr.length > 11) {
+        priceEls[i].style.fontSize = '12px';
+      } else {
+        priceEls[i].style.fontSize = '';
+      }
     }
   }
 
@@ -412,9 +467,11 @@
   }
 
   function renderMiniCart() {
+    var wrapper = document.querySelector('.mini-cart-wrapper');
     var listEl = document.querySelector('.mini-cart-list');
     if (!listEl) return;
 
+    var wasOpen = wrapper && wrapper.classList.contains('mini-cart-open');
     var cart = getCart();
     var totalPrice = getTotalPrice();
 
@@ -425,26 +482,39 @@
         '</li>';
       var totalEl = document.querySelector('.mini-total-price');
       if (totalEl) totalEl.textContent = '0 VND';
+      if (wasOpen && wrapper) wrapper.classList.add('mini-cart-open');
       return;
     }
 
     var html = '';
+    var depth = window.location.pathname.split('/').filter(Boolean).length;
+    var imgPrefix = depth > 1 ? '../' : '';
+
     for (var i = 0; i < cart.length; i++) {
       var item = cart[i];
       var subtotal = (item.price || 0) * (item.quantity || 0);
-      html +=
-        '<li class="clearfix">' +
-        '<a href="' + item.id + '" style="display:flex;align-items:center;gap:10px;padding:8px 0;">';
-      if (item.image) {
-        html += '<img src="' + item.image + '" alt="' + item.name + '" style="width:50px;height:50px;object-fit:cover;border-radius:4px;">';
+      var imgSrc = item.image || '';
+      if (imgSrc && !imgSrc.startsWith('http') && !imgSrc.startsWith('/') && !imgSrc.startsWith('../')) {
+        imgSrc = imgPrefix + imgSrc;
       }
+      var itemUrl = resolveUrl(item.url || item.id);
       html +=
+        '<li class="clearfix" style="position:relative;padding:10px 0;border-bottom:1px solid #f0f0f0;">' +
+        '<div style="display:flex;align-items:center;gap:12px;">' +
+        (imgSrc ? '<a href="' + itemUrl + '"><img src="' + imgSrc + '" alt="' + item.name + '" style="width:50px;height:50px;object-fit:cover;border-radius:6px;flex-shrink:0;"></a>' : '') +
         '<div style="flex:1;min-width:0;">' +
-        '<span class="mini-item-name" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + item.name + '</span>' +
-        '<span class="mini-item-price">' + formatCurrency(item.price) + '</span>' +
-        '<span class="mini-item-quantity"> x ' + item.quantity + '</span>' +
+        '<a href="' + itemUrl + '" class="mini-item-name" style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;color:#333;font-size:13px;margin-bottom:4px;">' + item.name + '</a>' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">' +
+        '<span class="mini-item-price" style="color:#28a745;font-weight:700;font-size:13px;">' + formatCurrency(item.price) + '</span>' +
+        '<div class="mini-qty-control" style="display:flex;align-items:center;border:1px solid #e0e0e0;border-radius:20px;padding:2px 6px;background:#f9f9f9;gap:6px;">' +
+        '<button type="button" class="mini-qty-btn mini-qty-minus" data-product-id="' + item.id + '" style="border:none;background:none;color:#666;font-weight:bold;cursor:pointer;padding:0 4px;font-size:14px;line-height:1;">-</button>' +
+        '<span class="mini-item-quantity" style="font-size:12px;font-weight:700;color:#333;min-width:14px;text-align:center;">' + item.quantity + '</span>' +
+        '<button type="button" class="mini-qty-btn mini-qty-plus" data-product-id="' + item.id + '" style="border:none;background:none;color:#666;font-weight:bold;cursor:pointer;padding:0 4px;font-size:14px;line-height:1;">+</button>' +
         '</div>' +
-        '</a>' +
+        '</div>' +
+        '</div>' +
+        '<button type="button" class="mini-item-remove" data-product-id="' + item.id + '" title="Remove item" style="border:none;background:none;color:#ccc;cursor:pointer;font-size:16px;padding:4px;transition:color 0.2s;" onmouseover="this.style.color=\'#ff4757\'" onmouseout="this.style.color=\'#ccc\'">&times;</button>' +
+        '</div>' +
         '</li>';
     }
 
@@ -470,7 +540,7 @@
           '<i class="ion ion-md-basket" style="font-size:80px;color:#ddd;"></i>' +
           '<h3 style="margin-top:20px;color:#666;">Your cart is empty</h3>' +
           '<p style="color:#999;margin-bottom:20px;">Looks like you haven\'t added any products yet.</p>' +
-          '<a href="index.html" class="button button-outline-secondary" style="padding:10px 30px;">Continue Shopping</a>' +
+          '<a href="' + resolveUrl('index.html') + '" class="button button-outline-secondary" style="padding:10px 30px;">Continue Shopping</a>' +
           '</div>';
       }
       var coupon = document.querySelector('.coupon-continue-checkout');
@@ -494,14 +564,16 @@
     for (var i = 0; i < cart.length; i++) {
       var item = cart[i];
       var subtotal = (item.price || 0) * (item.quantity || 0);
+      var itemUrl = resolveUrl(item.url || item.id);
+      var itemImg = resolveUrl(item.image);
 
       html +=
         '<tr data-product-id="' + item.id + '">' +
         '<td>' +
         '<div class="cart-anchor-image">' +
-        '<a href="' + item.id + '">';
-      if (item.image) {
-        html += '<img src="' + item.image + '" alt="' + item.name + '" style="width:80px;height:80px;object-fit:cover;">';
+        '<a href="' + itemUrl + '">';
+      if (itemImg) {
+        html += '<img src="' + itemImg + '" alt="' + item.name + '" style="width:80px;height:80px;object-fit:cover;">';
       }
       html +=
         '<h6>' + item.name + '</h6>' +
@@ -603,13 +675,13 @@
       var subtotal = (item.price || 0) * (item.quantity || 0);
 
       // Use image if available, otherwise a placeholder
-      var imgSrc = item.image || 'images/product/product@2x.jpg';
+      var imgSrc = resolveUrl(item.image || 'images/product/product@2x.jpg');
 
       html +=
         '<tr>' +
         '<td>' +
         '<div class="receipt-product">' +
-        '<img src="' + imgSrc + '" alt="' + item.name + '" class="prod-img" onerror="this.src=\'images/product/product@2x.jpg\'">' +
+        '<img src="' + imgSrc + '" alt="' + item.name + '" class="prod-img" onerror="this.src=\'' + resolveUrl('images/product/product@2x.jpg') + '\'">' +
         '<div>' +
         '<div class="prod-name">' + item.name + '</div>' +
         '<div class="prod-qty">' + formatWeight(item) + '</div>' +
@@ -854,20 +926,37 @@
 
         // Visual feedback
         var originalHTML = btn.innerHTML;
+        var toast = document.getElementById('add-cart-toast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.id = 'add-cart-toast';
+          toast.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#28a745;color:#fff;padding:12px 24px;border-radius:30px;box-shadow:0 4px 15px rgba(0,0,0,0.2);z-index:99999;font-weight:600;font-size:14px;transition:all 0.3s ease;opacity:0;transform:translateY(20px);display:flex;align-items:center;gap:8px;';
+          document.body.appendChild(toast);
+        }
+        toast.innerHTML = '<i class="fas fa-check-circle" style="font-size:18px;"></i> Product added to cart successfully!';
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+        
+        if (window.toastTimeout) clearTimeout(window.toastTimeout);
+        window.toastTimeout = setTimeout(function() {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(20px)';
+        }, 3000);
+
         if (btn.classList.contains('fas')) {
            // Icon-only button
            var originalClass = btn.className;
            btn.className = 'button button-primary fas fa-check added';
            setTimeout(function() {
              btn.className = originalClass;
-           }, 1000);
+           }, 1500);
         } else {
-          btn.textContent = 'Added âœ“';
+          btn.textContent = 'ADDED TO CART ✓';
           btn.classList.add('added');
           setTimeout(function () {
             btn.innerHTML = originalHTML;
             btn.classList.remove('added');
-          }, 1000);
+          }, 1500);
         }
       }
     });
@@ -946,12 +1035,59 @@
         return;
       }
 
-      // Remove button
+      // Remove button (main cart page)
       var removeBtn = e.target.closest('.btn-remove-cart');
       if (removeBtn) {
         e.preventDefault();
         var pid = removeBtn.getAttribute('data-product-id');
         if (pid) removeFromCart(pid);
+        return;
+      }
+
+      // Plus button on mini cart
+      var miniPlusBtn = e.target.closest('.mini-qty-plus');
+      if (miniPlusBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        var pid = miniPlusBtn.getAttribute('data-product-id');
+        var cart = getCart();
+        var item = cart.find(function(i) { return i.id === pid; });
+        if (item) {
+          updateQuantity(pid, item.quantity + 1);
+        }
+        var wrapper = document.querySelector('.mini-cart-wrapper');
+        if (wrapper) wrapper.classList.add('mini-cart-open');
+        return;
+      }
+
+      // Minus button on mini cart
+      var miniMinusBtn = e.target.closest('.mini-qty-minus');
+      if (miniMinusBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        var pid = miniMinusBtn.getAttribute('data-product-id');
+        var cart = getCart();
+        var item = cart.find(function(i) { return i.id === pid; });
+        if (item) {
+          updateQuantity(pid, item.quantity - 1);
+        }
+        var wrapper = document.querySelector('.mini-cart-wrapper');
+        if (wrapper) wrapper.classList.add('mini-cart-open');
+        return;
+      }
+
+      // Remove button on mini cart
+      var miniRemoveBtn = e.target.closest('.mini-item-remove');
+      if (miniRemoveBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        var pid = miniRemoveBtn.getAttribute('data-product-id');
+        if (pid) removeFromCart(pid);
+        var wrapper = document.querySelector('.mini-cart-wrapper');
+        if (wrapper) wrapper.classList.add('mini-cart-open');
         return;
       }
     });
@@ -1008,6 +1144,23 @@
     }
   }
 
+  /**
+   * Close mini cart when clicking outside the mini cart container
+   */
+  function initMiniCartOverlayClose() {
+    document.addEventListener('click', function (e) {
+      var wrapper = document.querySelector('.mini-cart-wrapper');
+      if (!wrapper || !wrapper.classList.contains('mini-cart-open')) return;
+
+      // If clicked inside .mini-cart or on #mini-cart-trigger, don't close
+      if (e.target.closest('.mini-cart') || e.target.closest('#mini-cart-trigger')) {
+        return;
+      }
+
+      wrapper.classList.remove('mini-cart-open');
+    });
+  }
+
   function init() {
     // Clear any old/broken cart data from other keys
     clearOldCart();
@@ -1024,6 +1177,7 @@
     initCheckoutAction();
     initPackSizeSelection();
     initWishlistButtons();
+    initMiniCartOverlayClose();
 
     // Initial UI update
     updateAllUI();

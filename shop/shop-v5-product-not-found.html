@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Huyen Tuyen Rice - Premium Rice & Healthy Food</title>
+    <!-- Standard Favicon -->
+    <link href="../images/main-logo/huyen-tuyen-rice-favicon.png" rel="shortcut icon" type="image/png">
+    <!-- Base Google Font for Web-app -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- Google Fonts for Banners only -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="../css/fontawesome.min.css">
+    <!-- Ion-Icons 4 -->
+    <link rel="stylesheet" href="../css/ionicons.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="../css/animate.min.css">
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <!-- Jquery-Ui-Range-Slider -->
+    <link rel="stylesheet" href="../css/jquery-ui-range-slider.min.css">
+    <!-- Utility -->
+    <link rel="stylesheet" href="../css/utility.css">
+    <!-- Main -->
+    <link rel="stylesheet" href="../css/bundle.css"><link rel="stylesheet" href="../css/brand-polish.css">
+</head>
+
+<body>
+
+<!-- app -->
+<div id="app">
+    <!-- Header -->
+    <header>
+            <!-- Top-Header -->
+            <div class="full-layer-outer-header">
+                <div class="container clearfix">
+                    <nav>
+                        <ul class="primary-nav g-nav">
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
+                                    Telephone: 0914331xxx</a>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@domain.com">
+                                    <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
+                                    E-mail: huyennguyen@gmail.com
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul class="secondary-nav g-nav">
+                            <li>
+                                <a>My Account
+                                    <i class="fas fa-chevron-down u-s-m-l-9"></i>
+                                </a>
+                                <ul class="g-dropdown" style="width:200px">
+                                    <li>
+                                        <a href="../cart/cart.html">
+                                            <i class="fas fa-cog u-s-m-r-9"></i>
+                                            My Cart</a>
+                                    </li>
+                                    <li>
+                                        <a href="../cart/wishlist.html">
+                                            <i class="far fa-heart u-s-m-r-9"></i>
+                                            My Wishlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="../cart/checkout.html">
+                                            <i class="far fa-check-circle u-s-m-r-9"></i>
+                                            Checkout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>ENG
+                                    <i class="fas fa-chevron-down u-s-m-l-9"></i>
+                                </a>
+                                <ul class="g-dropdown" style="width:70px">
+                                    <li>
+                                        <a href="#" class="u-c-brand">ENG</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">VIE</a>
+                                    </li>
+                                </ul>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Top-Header /- -->
+            <!-- Mid-Header -->
+            <div class="full-layer-mid-header">
+                <div class="container">
+                    <div class="row clearfix align-items-center">
+                        <div class="col-lg-3 col-md-9 col-sm-6">
+                            <div class="brand-logo text-lg-center">
+                                <a href="../index.html">
+                                    <img src="../images/main-logo/huyen-tuyen-rice-logo-transparent.png" alt="Huyen Tuyen Rice"
+                                        class="app-brand-logo" style="max-width: 180px; height: auto;">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 u-d-none-lg">
+                            <form class="form-searchbox">
+                                <label class="sr-only" for="search-landscape">Search</label>
+
+                                <input id="search-landscape" type="text" class="text-field"
+                                    placeholder="Searching for rice, nutritious grains...">
+
+                                <div class="select-box-position">
+                                    <div class="select-box-wrapper select-hide">
+                                        <label class="sr-only" for="select-category">Select Search Category</label>
+
+                                        <select class="select-box" id="select-category">
+                                            <option selected="selected" value="">
+                                                All Categories
+                                            </option>
+                                            <option value="gao-trang">White Rice</option>
+                                            <option value="gao-thom">Fragrant Rice</option>
+                                            <option value="gao-lut">Brown Rice</option>
+                                            <option value="gao-nep">Glutinous Rice</option>
+                                            <option value="hat-dinh-duong">Nutritious Seeds</option>
+                                            <option value="ngu-coc">Whole Grains</option>
+                                            <option value="dau-cac-loai">Various Beans</option>
+                                            <option value="combo">Family Combo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button id="btn-search" type="submit" class="button button-primary fas fa-search">
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <nav>
+                                <ul class="mid-nav g-nav">
+                                    <li class="u-d-none-lg">
+                                        <a href="../index.html">
+                                            <i class="ion ion-md-home u-c-brand"></i>
+                                        </a>
+                                    </li>
+                                    <li class="u-d-none-lg">
+                                        <a href="../cart/wishlist.html" style="position: relative;">
+                                            <i class="far fa-heart"></i>
+                                            <span class="wishlist-counter">0</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="mini-cart-trigger">
+                                            <i class="ion ion-md-basket"></i>
+                                            <span class="item-counter">0</span>
+                                            <span class="item-price">0 VND</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mid-Header /- -->
+            <!-- Responsive-Buttons -->
+            <div class="fixed-responsive-container">
+                <div class="fixed-responsive-wrapper">
+                    <button type="button" class="button fas fa-search" id="responsive-search"></button>
+                </div>
+                <div class="fixed-responsive-wrapper">
+                    <a href="../cart/wishlist.html">
+                        <i class="far fa-heart"></i>
+                        <span class="fixed-item-counter">0</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Responsive-Buttons /- -->
+            <!-- Mini Cart -->
+            <div class="mini-cart-wrapper">
+                <div class="mini-cart">
+                    <div class="mini-cart-header">
+                        YOUR CART
+                        <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
+                    </div>
+                    <ul class="mini-cart-list">
+                        <!-- Dynamically rendered by js/cart.js -->
+                    </ul>
+                    <div class="mini-shop-total clearfix">
+                        <span class="mini-total-heading float-left">Total:</span>
+                        <span class="mini-total-price float-right">0 VND</span>
+                    </div>
+                    <div class="mini-action-anchors">
+                        <a href="../cart/cart.html" class="cart-anchor">View Cart</a>
+                        <a href="../cart/checkout.html" class="checkout-anchor">Checkout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mini Cart /- -->
+            <!-- Bottom-Header -->
+            <div class="full-layer-bottom-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                            <div class="v-menu">
+                                <span class="v-title">
+                                    <i class="ion ion-md-menu"></i>
+                                    Product catalog
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                                <nav>
+                                    <div class="v-wrapper">
+                                        <ul class="v-list animated fadeIn">
+                                            <li class="js-backdrop">
+                                                <a href="shop-v1-root-category.html">
+                                                    <i class="ion ion-ios-nutrition"></i>
+                                                    Types of Rice
+                                                    <i class="ion ion-ios-arrow-forward"></i>
+                                                </a>
+
+                                                <button class="v-button ion ion-md-add"></button>
+
+                                                <div class="v-drop-right" style="width: 700px;">
+                                                    <div class="row">
+                                                        <!-- Daily White Rice -->
+                                                        <div class="col-lg-4">
+                                                            <ul class="v-level-2">
+                                                                <li>
+                                                                    <a href="shop-v1-root-category.html">Daily White Rice</a>
+                                                                    <ul>
+                                                                        <li><a href="../products/product-white-rice.html">Premium White Rice</a></li>
+                                                                        <li><a href="../products/product-jasmine-rice.html">Jasmine Rice</a></li>
+                                                                        <li><a href="../products/product-fragrant-rice.html">Fragrant Rice</a></li>
+                                                                        <li><a href="../products/product-bac-huong-rice.html">Bac Huong Rice</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <!-- Sticky Rice -->
+                                                        <div class="col-lg-4">
+                                                            <ul class="v-level-2">
+                                                                <li>
+                                                                    <a href="../products/product-sticky-rice.html">Sticky Rice</a>
+                                                                    <ul>
+                                                                        <li><a href="../products/product-sticky-rice.html">Premium Sticky Rice</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <!-- Brown Rice -->
+                                                        <div class="col-lg-4">
+                                                            <ul class="v-level-2">
+                                                                <li>
+                                                                    <a href="../products/product-brown-rice.html">Brown Rice</a>
+                                                                    <ul>
+                                                                        <li><a href="../products/product-brown-rice.html">Premium Brown Rice</a></li>
+                                                                        <li><a href="../products/product-brown-rice-mix.html">Brown Rice Mix</a></li>
+                                                                        <li><a href="../products/product-brown-rice-nuts-combo.html">Brown Rice & Nuts Combo</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <!-- Specialty Rice -->
+                                                        <div class="col-lg-4">
+                                                            <ul class="v-level-2">
+                                                                <li>
+                                                                    <a href="shop-v1-root-category.html">Specialty Rice</a>
+                                                                    <ul>
+                                                                        <li><a href="../products/product-st25-rice.html">ST25 Rice</a></li>
+                                                                        <li><a href="../products/product-st24-rice.html">ST24 Rice</a></li>
+                                                                        <li><a href="../products/product-Black-rice.html">Black Rice</a></li>
+                                                                        <li><a href="../products/product-broken-rice.html">Broken Rice</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <!-- Healthy & Meal Plans -->
+                                                        <div class="col-lg-4">
+                                                            <ul class="v-level-2">
+                                                                <li>
+                                                                    <a href="shop-healthy-food-products.html">Healthy & Meal Plans</a>
+                                                                    <ul>
+                                                                        <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+                                                                        <li><a href="../products/product-brown-rice-mix.html">Whole-grain Mixes</a></li>
+                                                                        <li><a href="../products/product-Black-rice.html">Antioxidant Rice</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <!-- Rice Packs -->
+                                                        <div class="col-lg-4">
+                                                            <ul class="v-level-2">
+                                                                <li>
+                                                                    <a href="../deals/family-combo-page.html">Rice Packs</a>
+                                                                    <ul>
+                                                                        <li><a href="../products/product-weekly-rice-pack.html">Weekly Rice Pack</a></li>
+                                                                        <li><a href="../products/product-daily-rice-family-pack.html">Daily Family Pack</a></li>
+                                                                        <li><a href="../products/product-large-family-rice-pack.html">Large Family Pack</a></li>
+                                                                        <li><a href="../products/product-premium-rice-combo.html">Premium Rice Combo</a></li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="js-backdrop">
+                                                <a href="shop-v1-root-category.html">
+                                                    <i class="ion ion-ios-leaf"></i>
+                                                    Healthy Nuts & Seeds
+                                                    <i class="ion ion-ios-arrow-forward"></i>
+                                                </a>
+
+	                                                <button class="v-button ion ion-md-add"></button>
+
+	                                                <div class="v-drop-right" style="width: 700px;">
+	                                                    <div class="row">
+	                                                        <!-- Nuts -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="Healthy-Nuts-Seeds.html">Nuts</a>
+	                                                                    <ul>
+	                                                                        <li><a href="../products/product-cashews.html">Cashew Nuts</a></li>
+	                                                                        <li><a href="../products/product-almonds.html">Almonds</a></li>
+	                                                                        <li><a href="../products/product-walnuts.html">Walnuts</a></li>
+	                                                                        <li><a href="../products/product-macadamia.html">Macadamia Nuts</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	
+	                                                        <!-- Seeds & Powders -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="Healthy-Nuts-Seeds.html">Seeds & Powders</a>
+	                                                                    <ul>
+	                                                                        <li><a href="../products/product-black-sesame-powder.html">Black Sesame Powder</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	
+	                                                        <!-- Explore -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="Healthy-Nuts-Seeds.html">Explore</a>
+	                                                                    <ul>
+	                                                                        <li><a href="Healthy-Nuts-Seeds.html">View All Healthy Nuts & Seeds</a></li>
+	                                                                        <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+	                                                                        <li><a href="../products/product-fruit-granola.html">Fruit Granola</a></li>
+	                                                                        <li><a href="shop-beans-legumes.html">Beans & Legumes</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	                                                    </div>
+	                                                </div>
+	                                            </li>
+                                            <li class="js-backdrop">
+                                                <a href="shop-v1-root-category.html">
+                                                    <i class="ion ion-ios-nutrition"></i>
+                                                    Whole Grains & Cereals
+                                                    <i class="ion ion-ios-arrow-forward"></i>
+                                                </a>
+
+                                                <button class="v-button ion ion-md-add"></button>
+
+	                                                <div class="v-drop-right" style="width: 700px;">
+	                                                    <div class="row">
+	                                                        <!-- Whole Grains -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="shop-whole-grains-cereals.html">Whole Grains</a>
+	                                                                    <ul>
+	                                                                        <li><a href="../products/product-rolled-oats.html">Rolled Oats</a></li>
+	                                                                        <li><a href="../products/product-barley.html">Pearl Barley</a></li>
+	                                                                        <li><a href="../products/product-quinoa.html">White Quinoa</a></li>
+	                                                                        <li><a href="../products/product-millet.html">Millet</a></li>
+	                                                                        <li><a href="../products/product-buckwheat.html">Buckwheat</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	
+	                                                        <!-- Breakfast Cereals -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="shop-whole-grains-cereals.html">Breakfast Cereals</a>
+	                                                                    <ul>
+	                                                                        <li><a href="../products/product-cornflakes.html">Corn Flakes</a></li>
+	                                                                        <li><a href="../products/product-muesli.html">Muesli</a></li>
+	                                                                        <li><a href="../products/product-fruit-granola.html">Fruit Granola</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	
+	                                                        <!-- Mixes & Powders -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="shop-whole-grains-cereals.html">Mixes & Powders</a>
+	                                                                    <ul>
+	                                                                        <li><a href="../products/product-Mixed-grains.html">Mixed Grains</a></li>
+	                                                                        <li><a href="../products/product-Multi-grains.html">Multi-Grains</a></li>
+	                                                                        <li><a href="../products/product-multi-grain-powder.html">Multi-Grain Powder</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	                                                    </div>
+	
+	                                                    <div class="row">
+	                                                        <!-- Combos -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="shop-healthy-food-products.html">Combos</a>
+	                                                                    <ul>
+	                                                                        <li><a href="../products/product-healthy-breakfast-combo.html">Healthy Breakfast Combo</a></li>
+	                                                                        <li><a href="../products/product-premium-rice-combo.html">Premium Rice Combo</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	
+	                                                        <!-- Explore -->
+	                                                        <div class="col-lg-4">
+	                                                            <ul class="v-level-2">
+	                                                                <li>
+	                                                                    <a href="shop-whole-grains-cereals.html">Explore</a>
+	                                                                    <ul>
+	                                                                        <li><a href="shop-whole-grains-cereals.html">View All Whole Grains & Cereals</a></li>
+	                                                                        <li><a href="shop-healthy-food-products.html">Healthy Food Products</a></li>
+	                                                                        <li><a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a></li>
+	                                                                    </ul>
+	                                                                </li>
+	                                                            </ul>
+	                                                        </div>
+	                                                    </div>
+	                                                </div>
+	                                            </li>
+	                                            <li>
+	                                                <a href="../blog/rice-grain-recipes.html">
+	                                                    <i class="ion ion-ios-book"></i>
+	                                                    Rice & Grain Recipes
+	                                                </a>
+	                                            </li>
+	
+	                                            <li>
+	                                                <a href="../blog/rice-market-news.html">
+	                                                    <i class="ion ion-md-trending-up"></i>
+	                                                    Rice Market News
+	                                                </a>
+	                                            </li>
+	
+	                                            <li>
+	                                                <a href="shop-baby-kids-food.html">
+	                                                    <i class="ion ion-ios-nutrition"></i>
+	                                                    Baby & Kids Food
+	                                                </a>
+	                                            </li>
+	
+	                                            <li>
+	                                                <a href="shop-healthy-food-products.html">
+	                                                    <i class="ion ion-md-heart"></i>
+	                                                    Healthy Food Products
+	                                                </a>
+	                                            </li>
+
+	                                            <li>
+	                                                <a href="../blog/blog.html">
+	                                                    <i class="ion ion-ios-list-box"></i>
+	                                                    Rice Classification Guide
+	                                                </a>
+	                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <ul class="bottom-nav g-nav u-d-none-lg">
+                                <li>
+                                    <a href="shop-v1-root-category.html">
+                                        New Rice Products
+                                        <span class="superscript-label-new">NEW</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="../deals/custom-deal-page.html">
+                                        Rice & Grain Deals
+                                        <span class="superscript-label-hot">HOT</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="../deals/family-combo-page.html">
+                                        Family Combos
+                                    </a>
+                                </li>
+
+                                <li class="mega-position">
+                                    <a>
+                                        Customer Guide
+                                        <i class="fas fa-chevron-down u-s-m-l-9"></i>
+                                    </a>
+
+                                    <div class="mega-menu mega-3-colm">
+                                        <ul>
+                                            <li class="menu-title">About Our Store</li>
+                                            <li>
+                                                <a href="../index.html" class="u-c-brand">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/about.html">About Huyen Tuyen Rice</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/contact.html">Contact Us</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/faq.html">FAQ</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/store-directory.html">Store Directory</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/terms-and-conditions.html">Terms & Conditions</a>
+                                            </li>
+
+                                            <li class="menu-title">Rice Knowledge</li>
+                                            <li>
+                                                <a href="../blog/blog.html">Rice Classification Guide</a>
+                                            </li>
+                                            <li>
+                                                <a href="../blog/blog-detail.html">How to Choose Good Rice</a>
+                                            </li>
+                                            <li>
+                                                <a href="../blog/blog-detail.html">Rice Storage Tips</a>
+                                            </li>
+                                        </ul>
+
+                                        <ul>
+                                            <li class="menu-title">Shopping Support</li>
+                                            <li>
+                                                <a href="shop-v2-sub-category.html">Shop All Products</a>
+                                            </li>
+                                            <li>
+                                                <a href="../cart/cart.html">Shopping Cart</a>
+                                            </li>
+                                            <li>
+                                                <a href="../cart/checkout.html">Checkout</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/account.html">My Account</a>
+                                            </li>
+                                            <li>
+                                                <a href="../cart/wishlist.html">Wishlist</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/track-order.html">Track Your Order</a>
+                                            </li>
+
+                                            <li class="menu-title">Delivery & Payment</li>
+                                            <li>
+                                                <a href="../pages/faq.html">Delivery Policy</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/faq.html">Payment Methods</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/faq.html">Return Policy</a>
+                                            </li>
+                                        </ul>
+
+                                        <ul>
+                                            <li class="menu-title">Product Categories</li>
+                                            <li>
+                                                <a href="shop-v1-root-category.html">Types of Rice</a>
+                                            </li>
+                                            <li>
+                                                <a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-beans-legumes.html">Beans & Legumes</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-baby-kids-food.html">Baby & Kids Food</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-healthy-food-products.html">Healthy Food Products</a>
+                                            </li>
+
+                                            <li class="menu-title">News & Recipes</li>
+                                            <li>
+                                                <a href="../blog/blog.html">Rice Market News</a>
+                                            </li>
+                                            <li>
+                                                <a href="../blog/blog.html">Rice & Grain Recipes</a>
+                                            </li>
+                                            <li>
+                                                <a href="../deals/custom-deal-page.html">Special Offers</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a href="../deals/monthly-sale-page.html">
+                                        Monthly Sale
+                                        <span class="superscript-label-discount">-15%</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom-Header /- -->
+        </header>
+    <!-- Header /- -->
+    <!-- Page Introduction Wrapper -->
+    <div class="page-style-a">
+        <div class="container">
+            <div class="page-intro">
+                <h2>Shop</h2>
+                <ul class="bread-crumb">
+                    <li class="has-separator">
+                        <i class="ion ion-md-home"></i>
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li class="is-marked">
+                        <a href="shop-v5-product-not-found.html">Shop</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Page Introduction Wrapper /- -->
+    <!-- Shop-Page -->
+    <div class="page-shop u-s-p-t-80">
+        <div class="container">
+            <!-- Result-Wrapper -->
+            <div class="result-wrapper u-s-p-y-80">
+                <ul class="bread-crumb">
+                    <li class="has-separator">
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li class="is-marked">
+                        <a href="../pages/store-directory.html">All Categories</a>
+                    </li>
+                </ul>
+                <h4>Your search, did not match any products. A partial match of your keywords is listed below.</h4>
+                <h4>Related searches:
+                    <a href="shop-v1-root-category.html">men's clothing</a> ,
+                    <a href="shop-v1-root-category.html">mobiles & tablets</a> ,
+                    <a href="shop-v1-root-category.html">books & audible</a>
+                </h4>
+                <h1>SORRY</h1>
+                <form>
+                    <label class="sr-only" for="search-not-found">Enter Keywords</label>
+                    <input type="text" class="text-field" id="search-not-found" placeholder="Search Products...">
+                    <button class="button">Search</button>
+                </form>
+            </div>
+            <!-- Result-Wrapper /- -->
+        </div>
+    </div>
+    <!-- Shop-Page /- -->
+    <!-- Footer -->
+    <footer class="footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                        <div class="footer-widget">
+                            <h4>Huyen Tuyen Rice</h4>
+                            <p>
+                                Fresh rice, healthy nuts, seeds, and whole grains for every family meal.
+                            </p>
+                            <p>
+                                We focus on clean ingredients, safe packaging, and reliable delivery.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 u-s-m-b-30">
+                        <div class="footer-widget">
+                            <h4>Shop</h4>
+                            <ul>
+                                <li><a href="shop-v1-root-category.html">Types of Rice</a></li>
+                                <li><a href="Healthy-Nuts-Seeds.html">Healthy Nuts & Seeds</a></li>
+                                <li><a href="shop-whole-grains-cereals.html">Whole Grains & Cereals</a></li>
+                                <li><a href="../deals/family-combo-page.html">Family Combo Packs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 u-s-m-b-30">
+                        <div class="footer-widget">
+                            <h4>Support</h4>
+                            <ul>
+                                <li><a href="../pages/about.html">About Us</a></li>
+                                <li><a href="../pages/contact.html">Contact Us</a></li>
+                                <li><a href="../pages/faq.html">FAQ</a></li>
+                                <li><a href="../pages/track-order.html">Track Your Order</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                        <div class="footer-widget">
+                            <h4>Contact</h4>
+                            <ul>
+                                <li><i class="ion ion-md-call"></i> 0914 331 xxx</li>
+                                <li><i class="ion ion-md-call"></i> 0983 914 xxx</li>
+                                <li><i class="ion ion-md-mail"></i> support@huyentuyenrice.com</li>
+                                <li><i class="ion ion-md-pin"></i> Vietnam</li>
+                            </ul>
+
+                            <div class="footer-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom text-center">
+                    <p>© 2026 Huyen Tuyen Rice. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    <!-- Footer /- -->
+    <!-- Dummy Selectbox -->
+    <div class="select-dummy-wrapper">
+        <select id="compute-select">
+            <option id="compute-option">All</option>
+        </select>
+    </div>
+    <!-- Dummy Selectbox /- -->
+    <!-- Responsive-Search -->
+    <div class="responsive-search-wrapper">
+        <button type="button" class="button ion ion-md-close" id="responsive-search-close-button"></button>
+        <div class="responsive-search-container">
+            <div class="container">
+                <p>Start typing and press Enter to search</p>
+                <form class="responsive-search-form">
+                    <label class="sr-only" for="search-text">Search</label>
+                    <input id="search-text" type="text" class="responsive-search-field" placeholder="Search products...">
+                    <i class="fas fa-search"></i>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Responsive-Search /- -->
+</div>
+<!-- app /- -->
+<!--[if lte IE 9]>
+<div class="app-issue">
+    <div class="vertical-center">
+        <div class="text-center">
+            <h1>You are using an outdated browser.</h1>
+            <span>This web app is not compatible with following browser. Please upgrade your browser to improve your security and experience.</span>
+        </div>
+    </div>
+</div>
+<style> #app {
+    display: none;
+} </style>
+<![endif]-->
+<!-- NoScript -->
+<noscript>
+    <div class="app-issue">
+        <div class="vertical-center">
+            <div class="text-center">
+                <h1>JavaScript is disabled in your browser.</h1>
+                <span>Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser to register for Huyen Tuyen Rice.</span>
+            </div>
+        </div>
+    </div>
+    <style>
+    #app {
+        display: none;
+    }
+    </style>
+</noscript>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+window.ga = function() {
+    ga.q.push(arguments)
+};
+ga.q = [];
+ga.l = +new Date;
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<!-- Modernizr-JS -->
+<script type="text/javascript" src="../js/vendor/modernizr-custom.min.js"></script>
+<!-- NProgress -->
+<script type="text/javascript" src="../js/nprogress.min.js"></script>
+<!-- jQuery -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<!-- Popper -->
+<script type="text/javascript" src="../js/popper.min.js"></script>
+<!-- ScrollUp -->
+<script type="text/javascript" src="../js/jquery.scrollUp.min.js"></script>
+<!-- Elevate Zoom -->
+<script type="text/javascript" src="../js/jquery.elevatezoom.min.js"></script>
+<!-- jquery-ui-range-slider -->
+<script type="text/javascript" src="../js/jquery-ui.range-slider.min.js"></script>
+<!-- jQuery Slim-Scroll -->
+<script type="text/javascript" src="../js/jquery.slimscroll.min.js"></script>
+<!-- jQuery Resize-Select -->
+<script type="text/javascript" src="../js/jquery.resize-select.min.js"></script>
+<!-- jQuery Custom Mega Menu -->
+<script type="text/javascript" src="../js/jquery.custom-megamenu.min.js"></script>
+<!-- jQuery Countdown -->
+<script type="text/javascript" src="../js/jquery.custom-countdown.min.js"></script>
+<!-- Owl Carousel -->
+<script type="text/javascript" src="../js/owl.carousel.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="../js/vmenu-sync.js"></script>
+<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="../js/google-translate.js"></script></body>
+</html>

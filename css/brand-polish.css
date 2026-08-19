@@ -564,3 +564,51 @@ a:hover {
     padding: 24px 16px !important;
   }
 }
+
+/* Responsive Search Field Placeholder Styling */
+.responsive-search-wrapper .responsive-search-container .responsive-search-form .responsive-search-field::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-weight: 300 !important;
+}
+.responsive-search-wrapper .responsive-search-container .responsive-search-form .responsive-search-field::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-weight: 300 !important;
+}
+.responsive-search-wrapper .responsive-search-container .responsive-search-form .responsive-search-field::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-weight: 300 !important;
+}
+.responsive-search-wrapper .responsive-search-container .responsive-search-form .responsive-search-field:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-weight: 300 !important;
+}
+
+/* Fix mid-nav layout & mini-cart-trigger price font sizing */
+.mid-nav {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  white-space: nowrap !important;
+}
+
+.mid-nav > li {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-left: 14px !important;
+}
+
+#mini-cart-trigger {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+
+.item-price {
+  font-size: 13px !important;
+  white-space: nowrap !important;
+  letter-spacing: -0.2px !important;
+  font-weight: 700 !important;
+}
